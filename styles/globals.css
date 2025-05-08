@@ -1,4 +1,17 @@
 :root {
+  --background-color: #dcc0e5;   /* soft lavender */
+  --text-color: #413b42;         /* dark grey */
+  --accent-color: #eee8f0;       /* cream */
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+:root {
   --background: #ffffff;
   --foreground: #171717;
 }
