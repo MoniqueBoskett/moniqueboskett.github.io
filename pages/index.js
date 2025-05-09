@@ -32,12 +32,12 @@ export default function Home() {
 
       {/* Welcome Header */}
       <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>
-        Welcome to Monique Boskett’s Portfolio
+        Welcome to Monique Boskett&rsquo;s Portfolio
       </h1>
 
       {/* Intro Paragraph */}
       <p style={{ fontSize: '1.25rem', maxWidth: '600px' }}>
-        Hi! I’m Monique — an event strategist who creates memorable experiences through innovative event planning, travel, and community engagement. Explore this site to learn more about who I am, what I do, and where I've been.
+        Hi! I&apos;m Monique — an event strategist who creates memorable experiences through innovative event planning, travel, and community engagement. Explore this site to learn more about who I am, what I do, and where I&apos;ve been.
       </p>
 
       {/* Footer Section with Icons */}
@@ -75,28 +75,30 @@ export default function Home() {
           <Mail size={32} />
         </a>
       </footer>
-      <button
-  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-  style={{
-    position: 'fixed',
-    bottom: '1.5rem',
-    right: '1.5rem',
-    backgroundColor: '#eee8f0',
-    color: '#413b42',
-    border: 'none',
-    borderRadius: '50%',
-    width: '48px',
-    height: '48px',
-    fontSize: '1.25rem',
-    cursor: 'pointer',
-    boxShadow: '0 2px 6px rgba(0,0,0,0.2)'
-  }}
-  aria-label="Back to Top"
->
-  ↑
-</button>
-<BackToTopButton />
 
+      {/* Back to Top Button */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        style={{
+          position: 'fixed',
+          bottom: '1.5rem',
+          right: '1.5rem',
+          backgroundColor: '#eee8f0',
+          color: '#413b42',
+          border: 'none',
+          borderRadius: '50%',
+          width: '48px',
+          height: '48px',
+          fontSize: '1.25rem',
+          cursor: 'pointer',
+          boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
+        }}
+        aria-label="Back to Top"
+      >
+        ↑
+      </button>
+
+      <BackToTopButton />
     </div>
   );
 }

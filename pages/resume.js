@@ -124,7 +124,7 @@ const Resume = () => {
 
       {/* Intro */}
       <p style={{ maxWidth: '800px', margin: '1rem auto 3rem', textAlign: 'center', fontSize: '1.1rem' }}>
-        I’m a marketing and events strategist with over 10 years of experience leading branded activations,
+        I&apos;m a marketing and events strategist with over 10 years of experience leading branded activations,
         community programs, and high-impact campaigns. I bring strong cross-functional skills, a deep
         commitment to DEI, and a passion for creating meaningful experiences.
       </p>
@@ -178,7 +178,7 @@ const Resume = () => {
       ))}
 
       {/* Skills */}
-      <h2><Award size={20} style={{ marginRight: '0.5rem' }} /> Skills & Certifications</h2>
+      <h2><Award size={20} style={{ marginRight: '0.5rem' }} /> Skills &amp; Certifications</h2>
       <div style={{
         ...cardStyle,
         display: 'grid',
@@ -195,7 +195,12 @@ const Resume = () => {
         <a href="/Monique_Boskett_Resume.pdf" download style={buttonStyle}>
           <Download size={16} style={{ marginRight: '0.5rem' }} /> Download Resume
         </a>
-        <a href="https://www.linkedin.com/in/moniqueboskett" target="_blank" rel="noopener noreferrer" style={{ ...buttonStyle, marginLeft: '1rem', backgroundColor: '#0077b5' }}>
+        <a
+          href="https://www.linkedin.com/in/moniqueboskett"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ ...buttonStyle, marginLeft: '1rem', backgroundColor: '#0077b5' }}
+        >
           <Linkedin size={16} style={{ marginRight: '0.5rem' }} /> View LinkedIn
         </a>
       </div>
