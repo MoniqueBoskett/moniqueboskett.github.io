@@ -1,3 +1,7 @@
+/* styles/globals.css */
+body {
+  font-family: 'Fira Sans', sans-serif;
+}
 :root {
   --background-color: #dcc0e5;   /* soft lavender */
   --text-color: #413b42;         /* dark grey */
