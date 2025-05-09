@@ -5,6 +5,9 @@ export default function Document() {
   return (
     <Html>
       <Head>
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" />
+
         {/* Google Fonts: Fira Sans */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />

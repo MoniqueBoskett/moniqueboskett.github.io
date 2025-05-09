@@ -1,3 +1,5 @@
+// pages/resume.js
+import Navbar from '../components/Navbar';
 import { Briefcase, GraduationCap, Award, Download, Linkedin } from 'lucide-react';
 import BackToTopButton from '../components/BackToTopButton';
 
@@ -117,98 +119,93 @@ const skills = [
   'Team Leadership',
 ];
 
-const Resume = () => {
+export default function Resume() {
   return (
-    <div style={{ backgroundColor: '#dcc0e5', color: '#413b42', fontFamily: 'sans-serif', padding: '2rem' }}>
-      <h1 style={{ fontSize: '2.5rem', textAlign: 'center' }}>Resume</h1>
+    <>
+      <Navbar />
+      <div style={{ backgroundColor: '#dcc0e5', color: '#413b42', padding: '2rem', paddingTop: '6rem' }}>
+        <h1 style={{ fontSize: '2.5rem', textAlign: 'center' }}>Resume</h1>
 
-      {/* Intro */}
-      <p style={{ maxWidth: '800px', margin: '1rem auto 3rem', textAlign: 'center', fontSize: '1.1rem' }}>
-        I&apos;m a marketing and events strategist with over 10 years of experience leading branded activations,
-        community programs, and high-impact campaigns. I bring strong cross-functional skills, a deep
-        commitment to DEI, and a passion for creating meaningful experiences.
-      </p>
+        {/* Intro */}
+        <p style={{ maxWidth: '800px', margin: '1rem auto 3rem', textAlign: 'center', fontSize: '1.1rem' }}>
+          I&apos;m a marketing and events strategist with over 10 years of experience leading branded activations,
+          community programs, and high-impact campaigns. I bring strong cross-functional skills, a deep
+          commitment to DEI, and a passion for creating meaningful experiences.
+        </p>
 
-      {/* Experience */}
-      <h2><Briefcase size={20} style={{ marginRight: '0.5rem' }} /> Professional Experience</h2>
-      {jobs.map((job, i) => (
-        <div key={i} style={cardStyle}>
-          <div style={rowStyle}>
-            <img
-              src={`${logoPath}${job.logo}`}
-              alt={job.company}
-              style={logoStyle}
-            />
-            <div>
-              <h3 style={{ margin: 0 }}>{job.title}</h3>
-              <p style={{ fontWeight: 'bold', margin: '0.25rem 0' }}>
-                {job.company} — {job.location} | {job.dates}
-              </p>
+        {/* Experience */}
+        <h2><Briefcase size={20} style={{ marginRight: '0.5rem' }} /> Professional Experience</h2>
+        {jobs.map((job, i) => (
+          <div key={i} style={cardStyle}>
+            <div style={rowStyle}>
+              <img src={`${logoPath}${job.logo}`} alt={job.company} style={logoStyle} />
+              <div>
+                <h3 style={{ margin: 0 }}>{job.title}</h3>
+                <p style={{ fontWeight: 'bold', margin: '0.25rem 0' }}>
+                  {job.company} — {job.location} | {job.dates}
+                </p>
+              </div>
             </div>
+            <ul style={{ paddingLeft: '1.2rem' }}>
+              {job.bullets.map((b, j) => (
+                <li key={j} style={{ marginBottom: '0.5rem', lineHeight: 1.6 }}>{b}</li>
+              ))}
+            </ul>
           </div>
-          <ul style={{ paddingLeft: '1.2rem' }}>
-            {job.bullets.map((b, j) => (
-              <li key={j} style={{ marginBottom: '0.5rem', lineHeight: 1.6 }}>{b}</li>
+        ))}
+
+        {/* Education */}
+        <h2><GraduationCap size={20} style={{ marginRight: '0.5rem' }} /> Education</h2>
+        {education.map((edu, i) => (
+          <div key={i} style={cardStyle}>
+            <div style={rowStyle}>
+              <img src={`${logoPath}${edu.logo}`} alt={edu.school} style={logoStyle} />
+              <div>
+                <h3 style={{ margin: 0 }}>{edu.degree}</h3>
+                <p style={{ fontWeight: 'bold', margin: '0.25rem 0' }}>
+                  {edu.school} — {edu.location} | {edu.date}
+                </p>
+              </div>
+            </div>
+            {edu.bullets.map((b, j) => (
+              <p key={j} style={{ marginLeft: '3.5rem', marginBottom: '0.25rem' }}>{b}</p>
             ))}
-          </ul>
-        </div>
-      ))}
-
-      {/* Education */}
-      <h2><GraduationCap size={20} style={{ marginRight: '0.5rem' }} /> Education</h2>
-      {education.map((edu, i) => (
-        <div key={i} style={cardStyle}>
-          <div style={rowStyle}>
-            <img
-              src={`${logoPath}${edu.logo}`}
-              alt={edu.school}
-              style={logoStyle}
-            />
-            <div>
-              <h3 style={{ margin: 0 }}>{edu.degree}</h3>
-              <p style={{ fontWeight: 'bold', margin: '0.25rem 0' }}>
-                {edu.school} — {edu.location} | {edu.date}
-              </p>
-            </div>
           </div>
-          {edu.bullets.map((b, j) => (
-            <p key={j} style={{ marginLeft: '3.5rem', marginBottom: '0.25rem' }}>{b}</p>
+        ))}
+
+        {/* Skills */}
+        <h2><Award size={20} style={{ marginRight: '0.5rem' }} /> Skills &amp; Certifications</h2>
+        <div style={{
+          ...cardStyle,
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+          gap: '0.75rem'
+        }}>
+          {skills.map((s, i) => (
+            <div key={i}>• {s}</div>
           ))}
         </div>
-      ))}
 
-      {/* Skills */}
-      <h2><Award size={20} style={{ marginRight: '0.5rem' }} /> Skills &amp; Certifications</h2>
-      <div style={{
-        ...cardStyle,
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-        gap: '0.75rem'
-      }}>
-        {skills.map((s, i) => (
-          <div key={i}>• {s}</div>
-        ))}
+        {/* Buttons */}
+        <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+          <a href="/Monique_Boskett_Resume.pdf" download style={buttonStyle}>
+            <Download size={16} style={{ marginRight: '0.5rem' }} /> Download Resume
+          </a>
+          <a
+            href="https://www.linkedin.com/in/moniqueboskett"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ ...buttonStyle, marginLeft: '1rem', backgroundColor: '#0077b5' }}
+          >
+            <Linkedin size={16} style={{ marginRight: '0.5rem' }} /> View LinkedIn
+          </a>
+        </div>
+
+        <BackToTopButton />
       </div>
-
-      {/* Buttons */}
-      <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-        <a href="/Monique_Boskett_Resume.pdf" download style={buttonStyle}>
-          <Download size={16} style={{ marginRight: '0.5rem' }} /> Download Resume
-        </a>
-        <a
-          href="https://www.linkedin.com/in/moniqueboskett"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ ...buttonStyle, marginLeft: '1rem', backgroundColor: '#0077b5' }}
-        >
-          <Linkedin size={16} style={{ marginRight: '0.5rem' }} /> View LinkedIn
-        </a>
-      </div>
-
-      <BackToTopButton />
-    </div>
+    </>
   );
-};
+}
 
 // === Styles ===
 const cardStyle = {
@@ -245,5 +242,3 @@ const buttonStyle = {
   alignItems: 'center',
   fontWeight: 'bold',
 };
-
-export default Resume;
