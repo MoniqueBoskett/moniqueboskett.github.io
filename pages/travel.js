@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import VisitedStatesMap from '../components/VisitedStatesMap';
 import BackToTopButton from '../components/BackToTopButton';
 import Modal from 'react-modal';
+import { Analytics } from '@vercel/analytics/react';
 
 Modal.setAppElement('#__next');
 
@@ -116,6 +117,7 @@ const Travel = () => {
       </Modal>
 
       <BackToTopButton />
+      <Analytics />
     </div>
   );
 };
@@ -181,12 +183,11 @@ const photoGridStyle = {
   display: 'grid',
   gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
   gap: '1rem',
-  justifyItems: 'center',
 };
 
 const photoStyle = {
   width: '100%',
-  height: '250px',
+  aspectRatio: '1 / 1',
   objectFit: 'cover',
   borderRadius: '8px',
   cursor: 'pointer',
