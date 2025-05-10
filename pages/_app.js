@@ -1,5 +1,7 @@
+// pages/_app.js
 import '../styles/globals.css';
 import Link from 'next/link';
+import { Analytics } from '@vercel/analytics/react'; // ✅ Import Analytics
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -30,6 +32,7 @@ function MyApp({ Component, pageProps }) {
 
       <main style={{ padding: '6rem 2rem 2rem' }}>
         <Component {...pageProps} />
+        <Analytics /> {/* ✅ Add Analytics tracking */}
       </main>
     </>
   );
