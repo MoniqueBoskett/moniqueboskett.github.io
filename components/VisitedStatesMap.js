@@ -1,73 +1,89 @@
+// components/VisitedStatesMap.js
+import USAMap from 'react-usa-map';
 import { useState } from 'react';
+import { Tooltip } from 'react-tooltip';
 
-const visitedStates = [
-  'AZ', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'IL', 'IN', 'KY',
-  'LA', 'MD', 'MA', 'MS', 'NJ', 'NY', 'NC', 'OH', 'PA', 'SC',
-  'TN', 'TX', 'UT', 'VT', 'VA', 'WI'
+// State name mapping for tooltips
+const stateNames = {
+  AL: 'Alabama', AK: 'Alaska', AZ: 'Arizona', AR: 'Arkansas', CA: 'California',
+  CO: 'Colorado', CT: 'Connecticut', DE: 'Delaware', FL: 'Florida', GA: 'Georgia',
+  HI: 'Hawaii', ID: 'Idaho', IL: 'Illinois', IN: 'Indiana', IA: 'Iowa',
+  KS: 'Kansas', KY: 'Kentucky', LA: 'Louisiana', ME: 'Maine', MD: 'Maryland',
+  MA: 'Massachusetts', MI: 'Michigan', MN: 'Minnesota', MS: 'Mississippi', MO: 'Missouri',
+  MT: 'Montana', NE: 'Nebraska', NV: 'Nevada', NH: 'New Hampshire', NJ: 'New Jersey',
+  NM: 'New Mexico', NY: 'New York', NC: 'North Carolina', ND: 'North Dakota', OH: 'Ohio',
+  OK: 'Oklahoma', OR: 'Oregon', PA: 'Pennsylvania', RI: 'Rhode Island', SC: 'South Carolina',
+  SD: 'South Dakota', TN: 'Tennessee', TX: 'Texas', UT: 'Utah', VT: 'Vermont',
+  VA: 'Virginia', WA: 'Washington', WV: 'West Virginia', WI: 'Wisconsin', WY: 'Wyoming',
+  DC: 'Washington D.C.'
+};
+
+// States not visited
+const unvisitedStates = [
+  'AL', 'AK', 'AR', 'HI', 'ID', 'IA', 'KS', 'KY', 'ME', 'MI',
+  'MN', 'MO', 'MT', 'NE', 'NH', 'NM', 'ND', 'OK', 'OR', 'SD',
+  'WA', 'WV', 'WY'
 ];
 
-const allStates = [
-  'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA',
-  'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD',
-  'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ',
-  'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC',
-  'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'
-];
+// Map coloring
+const statesCustomConfig = () => {
+  const config = {};
+  Object.keys(stateNames).forEach((abbr) => {
+    config[abbr] = {
+      fill: unvisitedStates.includes(abbr) ? '#eee8f0' : '#413b42',
+      clickHandler: () => {},
+    };
+  });
+  return config;
+};
 
-const VisitedStatesMap = () => {
-  const [selectedState, setSelectedState] = useState(null);
+export default function VisitedStatesMap() {
+  const [hoveredState, setHoveredState] = useState('');
 
-  const handleClick = (state) => {
-    setSelectedState(state);
-    setTimeout(() => setSelectedState(null), 2000);
+  const handleMouseEnter = (event) => {
+    const abbr = event.target.dataset.name;
+    if (stateNames[abbr]) {
+      setHoveredState(stateNames[abbr]);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredState('');
   };
 
   return (
-    <div style={{ marginBottom: '3rem' }}>
-      <h2 style={{ textAlign: 'center' }}>U.S. States I&apos;ve Visited</h2>
-      <div style={mapContainerStyle}>
-        {allStates.map((state) => (
-          <div
-            key={state}
-            onClick={() => handleClick(state)}
-            title={state}
-            style={{
-              ...stateStyle,
-              backgroundColor: visitedStates.includes(state) ? '#eee8f0' : '#ccc',
-              border: selectedState === state ? '2px solid #413b42' : '1px solid #aaa',
-              color: '#413b42',
-            }}
-          >
-            {state}
-          </div>
-        ))}
+    <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+      <h2 style={{ fontSize: '1.75rem', marginBottom: '1rem' }}>
+        U.S. States I&apos;ve Visited
+      </h2>
+      <div
+        data-tooltip-id="map-tooltip"
+        data-tooltip-content={hoveredState}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <USAMap customize={statesCustomConfig()} />
       </div>
-      {selectedState && (
-        <p style={{ textAlign: 'center', fontWeight: 'bold', marginTop: '1rem' }}>
-          You clicked on: {selectedState}
-        </p>
-      )}
+
+      <Tooltip id="map-tooltip" />
+
+      {/* Legend */}
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '2rem',
+        marginTop: '1.5rem',
+        fontSize: '0.95rem'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <div style={{ width: '20px', height: '20px', backgroundColor: '#413b42' }}></div>
+          <span>Visited</span>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <div style={{ width: '20px', height: '20px', backgroundColor: '#eee8f0' }}></div>
+          <span>Not Visited</span>
+        </div>
+      </div>
     </div>
   );
-};
-
-const mapContainerStyle = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fit, minmax(48px, 1fr))',
-  gap: '6px',
-  maxWidth: '600px',
-  margin: '0 auto',
-};
-
-const stateStyle = {
-  backgroundColor: '#ccc',
-  padding: '10px',
-  borderRadius: '6px',
-  textAlign: 'center',
-  cursor: 'pointer',
-  transition: 'all 0.3s ease',
-  fontWeight: 'bold',
-  userSelect: 'none',
-};
-
-export default VisitedStatesMap;
+}

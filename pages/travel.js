@@ -5,7 +5,7 @@ import VisitedStatesMap from '../components/VisitedStatesMap';
 import BackToTopButton from '../components/BackToTopButton';
 import Modal from 'react-modal';
 
-Modal.setAppElement('#__next'); // Required for accessibility
+Modal.setAppElement('#__next');
 
 const Travel = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -39,7 +39,7 @@ const Travel = () => {
       photos: [
         'Greece.jpg', 'Greece_2.jpg', 'Greece_3.jpg', 'Greece_4.jpg', 'Greece_5.jpg',
         'Greece_6.jpg', 'Greece_7.jpg', 'Greece_8.jpg', 'Greece_9.jpg', 'Greece_10.jpg',
-        'Greece_11.jpg',
+        'Greece_11.jpg', 'Greece_12.jpg',
       ],
     },
     {
@@ -61,15 +61,25 @@ const Travel = () => {
       photos: [
         'Panama.jpg', 'Panama_2.jpg', 'Panama_3.jpg', 'Panama_4.jpg', 'Panama_5.jpg',
         'Panama_6.jpg', 'Panama_7.jpg', 'Panama_8.jpg', 'Panama_9.jpg', 'Panama_10.jpg',
-        'Panama_11.jpg', 'Panama_12.jpg', 'Panama_13.jpg', 'Panama_14.jpg',
+        'Panama_11.jpg', 'Panama_12.jpg', 'Panama_13.jpg',
       ],
     },
   ];
 
   return (
-    <div style={{ backgroundColor: '#dcc0e5', color: '#413b42', fontFamily: 'Fira Sans', padding: '2rem', minHeight: '100vh' }}>
+    <div
+      style={{
+        backgroundColor: '#dcc0e5',
+        color: '#413b42',
+        fontFamily: 'Fira Sans',
+        padding: '2rem',
+        minHeight: '100vh',
+      }}
+    >
       <Navbar />
-      <h1 style={{ fontSize: '2.5rem', textAlign: 'center', marginBottom: '2rem' }}>My Travel Adventures</h1>
+      <h1 style={{ fontSize: '2.5rem', textAlign: 'center', marginBottom: '2rem' }}>
+        My Travel Adventures
+      </h1>
 
       <VisitedStatesMap />
 
@@ -98,7 +108,11 @@ const Travel = () => {
           },
         }}
       >
-        <img src={`/${selectedImage}`} alt="Enlarged travel photo" style={{ maxHeight: '90vh', maxWidth: '90vw', borderRadius: '10px' }} />
+        <img
+          src={`/${selectedImage}`}
+          alt="Enlarged travel photo"
+          style={{ maxHeight: '90vh', maxWidth: '90vw', borderRadius: '10px' }}
+        />
       </Modal>
 
       <BackToTopButton />
@@ -111,7 +125,14 @@ const CountrySection = ({ country, onImageClick }) => {
 
   return (
     <div style={{ marginTop: '4rem' }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          marginBottom: '0.5rem',
+        }}
+      >
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <img
             src={`/flags/${country.flag}`}
@@ -156,7 +177,6 @@ const CountrySection = ({ country, onImageClick }) => {
   );
 };
 
-// Uniform Instagram-style image layout
 const photoGridStyle = {
   display: 'grid',
   gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
