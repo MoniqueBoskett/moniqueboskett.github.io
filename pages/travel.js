@@ -88,7 +88,6 @@ const Travel = () => {
         <CountrySection key={index} country={country} onImageClick={setSelectedImage} />
       ))}
 
-      {/* Lightbox Modal */}
       <Modal
         isOpen={!!selectedImage}
         onRequestClose={() => setSelectedImage(null)}
@@ -192,6 +191,7 @@ const photoStyle = {
   borderRadius: '8px',
   cursor: 'pointer',
   transition: 'transform 0.3s ease',
+  backgroundColor: '#ccc', // fallback in case image doesn't load
 };
 
 export default Travel;
