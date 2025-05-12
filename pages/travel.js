@@ -4,7 +4,6 @@ import Navbar from '../components/Navbar';
 import VisitedStatesMap from '../components/VisitedStatesMap';
 import BackToTopButton from '../components/BackToTopButton';
 import Modal from 'react-modal';
-import { Analytics } from '@vercel/analytics/react';
 
 Modal.setAppElement('#__next');
 
@@ -17,9 +16,9 @@ const Travel = () => {
       flag: 'France-Flag.png',
       date: 'January 2023',
       photos: [
-        'France.jpg', 'France_2.jpg', 'France_3.jpg', 'France_4.jpg', 'France_5.jpg',
-        'France_6.jpg', 'France_7.jpg', 'France_8.jpg', 'France_9.jpg', 'France_10.jpg',
-        'France_11.jpg', 'France_12.jpg', 'France_13.jpg',
+        'france.jpg', 'france_2.jpg', 'france_3.jpg', 'france_4.jpg', 'france_5.jpg',
+        'france_6.jpg', 'france_7.jpg', 'france_8.jpg', 'france_9.jpg', 'france_10.jpg',
+        'france_11.jpg', 'france_12.jpg', 'france_13.jpg',
       ],
     },
     {
@@ -27,10 +26,10 @@ const Travel = () => {
       flag: 'Italy-Flag.png',
       date: 'May 2023',
       photos: [
-        'Italy.jpg', 'Italy_2.jpg', 'Italy_3.jpg', 'Italy_4.jpg', 'Italy_5.jpg',
-        'Italy_6.jpg', 'Italy_7.jpg', 'Italy_8.jpg', 'Italy_9.jpg', 'Italy_10.jpg',
-        'Italy_11.jpg', 'Italy_12.jpg', 'Italy_13.jpg', 'Italy_14.jpg', 'Italy_15.jpg',
-        'Italy_16.jpg', 'Italy_17.jpg', 'Italy_18.jpg', 'Italy_19.jpg',
+        'italy.jpg', 'italy_2.jpg', 'italy_3.jpg', 'italy_4.jpg', 'italy_5.jpg',
+        'italy_6.jpg', 'italy_7.jpg', 'italy_8.jpg', 'italy_9.jpg', 'italy_10.jpg',
+        'italy_11.jpg', 'italy_12.jpg', 'italy_13.jpg', 'italy_14.jpg', 'italy_15.jpg',
+        'italy_16.jpg', 'italy_17.jpg', 'italy_18.jpg', 'italy_19.jpg',
       ],
     },
     {
@@ -38,9 +37,9 @@ const Travel = () => {
       flag: 'Greece-Flag.png',
       date: 'June 2023',
       photos: [
-        'Greece.jpg', 'Greece_2.jpg', 'Greece_3.jpg', 'Greece_4.jpg', 'Greece_5.jpg',
-        'Greece_6.jpg', 'Greece_7.jpg', 'Greece_8.jpg', 'Greece_9.jpg', 'Greece_10.jpg',
-        'Greece_11.jpg', 'Greece_12.jpg',
+        'greece.jpg', 'greece_2.jpg', 'greece_3.jpg', 'greece_4.jpg', 'greece_5.jpg',
+        'greece_6.jpg', 'greece_7.jpg', 'greece_8.jpg', 'greece_9.jpg', 'greece_10.jpg',
+        'greece_11.jpg', 'greece_12.jpg',
       ],
     },
     {
@@ -48,11 +47,11 @@ const Travel = () => {
       flag: 'Spain-Flag.png',
       date: 'June 2023',
       photos: [
-        'Spain.jpg', 'Spain_2.jpg', 'Spain_3.jpg', 'Spain_4.jpg', 'Spain_5.jpg',
-        'Spain_6.jpg', 'Spain_7.jpg', 'Spain_8.jpg', 'Spain_9.jpg', 'Spain_10.jpg',
-        'Spain_11.jpg', 'Spain_12.jpg', 'Spain_13.jpg', 'Spain_14.jpg', 'Spain_15.jpg',
-        'Spain_16.jpg', 'Spain_17.jpg', 'Spain_18.jpg', 'Spain_19.jpg', 'Spain_20.jpg',
-        'Spain_21.jpg',
+        'spain.jpg', 'spain_2.jpg', 'spain_3.jpg', 'spain_4.jpg', 'spain_5.jpg',
+        'spain_6.jpg', 'spain_7.jpg', 'spain_8.jpg', 'spain_9.jpg', 'spain_10.jpg',
+        'spain_11.jpg', 'spain_12.jpg', 'spain_13.jpg', 'spain_14.jpg', 'spain_15.jpg',
+        'spain_16.jpg', 'spain_17.jpg', 'spain_18.jpg', 'spain_19.jpg', 'spain_20.jpg',
+        'spain_21.jpg',
       ],
     },
     {
@@ -60,9 +59,9 @@ const Travel = () => {
       flag: 'Panama-Flag.png',
       date: 'March 2025',
       photos: [
-        'Panama.jpg', 'Panama_2.jpg', 'Panama_3.jpg', 'Panama_4.jpg', 'Panama_5.jpg',
-        'Panama_6.jpg', 'Panama_7.jpg', 'Panama_8.jpg', 'Panama_9.jpg', 'Panama_10.jpg',
-        'Panama_11.jpg', 'Panama_12.jpg', 'Panama_13.jpg',
+        'panama.jpg', 'panama_2.jpg', 'panama_3.jpg', 'panama_4.jpg', 'panama_5.jpg',
+        'panama_6.jpg', 'panama_7.jpg', 'panama_8.jpg', 'panama_9.jpg', 'panama_10.jpg',
+        'panama_11.jpg', 'panama_12.jpg', 'panama_13.jpg',
       ],
     },
   ];
@@ -109,14 +108,13 @@ const Travel = () => {
         }}
       >
         <img
-          src={`/${selectedImage}`}
+          src={`/travel/${selectedImage}`}
           alt="Enlarged travel photo"
           style={{ maxHeight: '90vh', maxWidth: '90vw', borderRadius: '10px' }}
         />
       </Modal>
 
       <BackToTopButton />
-      <Analytics />
     </div>
   );
 };
@@ -166,7 +164,7 @@ const CountrySection = ({ country, onImageClick }) => {
           {country.photos.map((photo, i) => (
             <img
               key={i}
-              src={`/${photo}`}
+              src={`/travel/${photo}`}
               alt={`${country.name} ${i + 1}`}
               onClick={() => onImageClick(photo)}
               style={photoStyle}
@@ -191,7 +189,7 @@ const photoStyle = {
   borderRadius: '8px',
   cursor: 'pointer',
   transition: 'transform 0.3s ease',
-  backgroundColor: '#ccc', // fallback in case image doesn't load
+    backgroundColor: '#ccc', // fallback in case image doesn't load
 };
 
 export default Travel;
