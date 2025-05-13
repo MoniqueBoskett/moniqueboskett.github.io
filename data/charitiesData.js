@@ -1,0 +1,137 @@
+export const charities = [
+{
+name: 'Achieve Now',
+ein: '38-3920150',
+website: 'https://www.achieve-now.com/',
+logo: 'Achieve-Now-Logo.png',
+instagram: 'achievenowphiladelphia',
+about:
+'At Achieve Now, we see literacy as a social justice issue. Our goal is to produce strong, confident, effective, and joyful readers who see reading as an integral part of their lives and are life-long learners. A parallel objective is to empower students to self-regulate; to share what they are feeling and articulate what they need; and to take ownership of their learning.\n\nTo realize these goals, we will affirm student identities, using values-driven and asset-based language. We will approach our students with high expectations and celebrate the many and varied skills students possess. We will build a broad, competent village, bringing multiple organizations together to provide wrap-around supports in a holistic approach that serves the whole student.',
+},
+{
+name: "Alzheimer's Disease and Related Disorders Association Inc",
+ein: '13-3039601',
+website: 'https://www.alz.org/',
+logo: 'Alzheimers-Association-Logo.png',
+instagram: 'alzassociation',
+about:
+"The Alzheimer's Association leads the way to end Alzheimer's and all other dementia — by accelerating global research, driving risk reduction and early detection, and maximizing quality care and support.",
+},
+{
+name: 'American Heart Association, Inc',
+ein: '13-5613797',
+website: 'https://www.heart.org/en/',
+logo: 'American-Heart-Association-Logo.png',
+instagram: 'american_heart',
+about:
+'From humble beginnings, the AHA has grown into the nation’s oldest and largest voluntary organization dedicated to fighting heart disease and stroke. A shared focus on cardiovascular health unites our more than 35 million volunteers and supporters as well as our more than 2,900 employees.\n\nHeart disease is the No. 1 killer worldwide, and stroke ranks second globally. Even when those conditions don’t result in death, they cause disability and diminish quality of life. We want to see a world free of cardiovascular diseases and stroke.\n\nOur size and scope let us have real impact. The AHA has invested more than $5 billion in research, making us the largest not-for-profit funding source for cardiovascular and cerebrovascular disease research next to the federal government.',
+},
+{
+name: 'American Liver Association',
+ein: '36-2883000',
+website: 'https://liverfoundation.org/',
+logo: 'American-Liver-Foundation-Logo.png',
+instagram: 'americanliver',
+about:
+'We are focused on improving patient lives, increasing public awareness of liver disease, advancing liver transplantation and funding cutting-edge liver disease research – we’re working every day to help save lives.\n\nAs the largest organization focused on all liver diseases, ALF provides trusted support, resources and education while advocating for public policy change and increased government funding for liver disease research on Capitol Hill. ALF serves as a beacon for the 100 million Americans affected by liver disease.',
+},
+{
+name: 'American Red Cross',
+ein: '53-0196605',
+website: 'https://www.redcross.org/',
+logo: 'American-Red-Cross-Logo.png',
+instagram: 'americanredcross',
+about:
+'Each day, thousands of people – people just like you – provide compassionate care to those in need. Our network of generous donors, volunteers and employees share a mission of preventing and relieving suffering, here at home and around the world.\n\nWe roll up our sleeves and donate time, money and blood. We learn or teach life-saving skills so our communities can be better prepared when the need arises. We do this every day because the Red Cross is needed - every day.',
+},
+{
+name: 'Bebashi Transition to Hope',
+ein: '23-2484046',
+website: 'https://www.bebashi.org/',
+logo: 'Bebashi-Logo.png',
+instagram: 'philly.bebashi',
+about:
+'Bebashi – Transition to Hope was founded as a full-service health care organization with special interest in serving low-income individuals. It remains one of Philadelphia’s largest community-based providers of internal medicine and health care for the community.\n\nOur mission is to empower people to enhance the quality of their health and overall well-being by providing access to high quality healthcare, health education, and social services.',
+},
+{
+name: 'Bethesda Project',
+ein: '23-2209338',
+website: 'https://www.bethesdaproject.org/',
+logo: 'Bethesda-Project-Logo.png',
+instagram: 'bethesda_project',
+about:
+'Bethesda Project is a nonprofit organization that provides shelter, housing, and supportive services across 11 locations to adults experiencing homelessness in Philadelphia. Here, our guests and residents experience a safe environment — and most importantly — a home where they can stabilize, regain their dignity and self-worth, and find community.',
+},
+{
+name: 'David Sheldrick Wildlife Trust USA Inc',
+ein: '30-0224549',
+website: 'https://www.sheldrickwildlifetrust.org/',
+logo: 'David-Sheldrick-Logo.png',
+instagram: 'sheldricktrust',
+about:
+'As one of Africa’s oldest wildlife charities and a leading conservation organisation, the Sheldrick Wildlife Trust (SWT) embraces all measures that complement the conservation, preservation and protection of wildlife.\n\nBorn from one family’s passion for Kenya and its wilderness, the Sheldrick Wildlife Trust was established 48 years ago and is best known for its Orphans' Project, the first and most successful elephant orphan rescue and rehabilitation program in the world. The Sheldrick Wildlife Trust is a pioneering conservation organisation, dedicated to the protection of wildlife and the preservation of habitats in East Africa.',
+},
+{
+name: 'JDRF International',
+ein: '23-1907729',
+website: 'https://www.breakthrought1d.org/',
+logo: 'JDRF-Logo.png',
+instagram: 'breakthrought1dhq',
+about:
+'Founded in 1970 by families whose loved ones had been diagnosed with type 1 diabetes (T1D), Breakthrough T1D is a tax-exempt nonprofit 501(c)3 organization.\n\nWe are opening doors that were once closed by T1D diagnosis. We lead the way to more effective solutions by connecting the brightest minds to advance treatments, influence policy, and improve access to care. By driving innovation forward, Breakthrough T1D will make type 1 diabetes a condition of the past.',
+},
+{
+name: 'Mazzoni Center',
+ein: '23-2176338',
+website: 'https://www.mazzonicenter.org/',
+logo: 'Mazzoni-Center-Logo.png',
+instagram: 'mazzonicenter',
+about:
+'Our mission is to provide quality comprehensive health and wellness services in an LGBTQ-focused environment, while preserving the dignity and improving the quality of life of the individuals we serve.',
+},
+{
+name: 'Organization for Autism Research Inc',
+ein: '54-2062167',
+website: 'https://researchautism.org/',
+logo: 'OAR-Logo.png',
+instagram: 'organizationforautismresearch',
+about:
+'OAR is an organization founded and led by parents and grandparents of autistic children, who serve as the Board of Directors providing leadership, life experience, and heart.\n\nIf our parent leaders are the heart, our Scientific Council, a group of remarkable and equally dedicated autism professionals, are the brain when it comes to our mission and research direction. They are not simply a list of names on letterhead; they are a “roll up your sleeves” team that we call on throughout the year to share their professional expertise and review the merits of all research grant applications.',
+},
+{
+name: 'Philadelphia Community Bail Fund',
+ein: '',
+website: 'https://www.phillybailout.org/#/',
+logo: 'Philadelphia-Community-Bail-Fund-Logo.png',
+instagram: 'phillybailout',
+about:
+'The mission of the Philadelphia Community Bail Fund is to end cash bail in Philadelphia. Until that day comes, we post bail for residents of Philadelphia who cannot afford to pay for their freedom. We work to bring to light the inequities of the use of cash bail in Philadelphia and advocate for the abolition of bail and pretrial detention in our city.\n\nWe know that Philadelphia jails are filled with people who spend weeks, months, or even years incarcerated while waiting for court, simply because they do not have the money to pay for their own freedom. Pretrial detention leads to higher rates of conviction, the pressure to accept guilty pleas, longer sentences, and traumatic disruption of lives including loss of jobs, housing, mental health supports, and devastated families. By paying bail, our fund supports individuals in remaining at home with their families and communities while fighting their cases.',
+},
+{
+name: 'Philabundance',
+ein: '23-2290505',
+website: 'https://www.philabundance.org/',
+logo: 'Philabundance-Logo.png',
+instagram: 'philabundance',
+about:
+'Philabundance was founded in 1984 with the simple belief that no one should go hungry while healthy food goes to waste. Our mission is to drive hunger from our communities today and to end hunger for good. To do this, we work with over 350 community partners to distribute food throughout nine counties in Southeastern Pennsylvania and Southern New Jersey and are a proud member of the Feeding America network.\n\nIn addition to food distribution, we work to reduce food waste, increase access to nutritious meals, and tackle the root causes of hunger through programs such as the Philabundance Community Kitchen.',
+},
+{
+name: 'Planned Parenthood Southeastern Pennsylvania',
+ein: '23-1352509',
+website: 'https://www.plannedparenthood.org/planned-parenthood-southeastern-pennsylvania',
+logo: 'Planned-Parenthood-Logo.png',
+instagram: 'plannedparenthoodsepa',
+about:
+'Planned Parenthood is the nation’s leading provider and advocate of high-quality, affordable sexual and reproductive health care for all people, as well as the nation’s largest provider of sex education. With nearly 600 health centers across the country, Planned Parenthood organizations serve all patients with care and compassion, with respect, and without judgment, striving to create equitable access to health care. Through health centers, programs in schools and communities, and online resources, Planned Parenthood is a trusted source of reliable education and information that allows people to make informed health decisions. We do all this because we care passionately about helping people lead healthier lives.',
+},
+{
+name: 'Project Home',
+ein: '23-2555950',
+website: 'https://www.projecthome.org/',
+logo: 'Project-Home-Logo.png',
+instagram: 'projecthomephl',
+about:
+'The mission of the Project HOME community is to empower adults, children, and families to break the cycle of homelessness and poverty, to alleviate the underlying causes of poverty, and to enable all of us to attain our fullest potential as individuals and as members of the broader society. We strive to create a safe and respectful environment where we support each other in our struggles for self-esteem, recovery, and the confidence to move toward self-actualization.',
+},
+];
