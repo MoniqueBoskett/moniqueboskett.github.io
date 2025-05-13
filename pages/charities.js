@@ -120,10 +120,16 @@ export default function Charities() {
           </button>
 
           {expandedIndex === index && (
-            <p style={{ marginTop: '1rem', lineHeight: 1.6, whiteSpace: 'pre-wrap' }}>
+            <p style={{ marginTop: '1rem', lineHeight: 1.6, whiteSpace: 'pre-line' }}>
               {charity.about}
             </p>
           )}
+
+          <div style={{ marginTop: '1rem', borderTop: '1px solid #ccc', paddingTop: '1rem' }}>
+            <p style={{ fontSize: '0.9rem', color: '#666' }}>
+              *Please note that the EIN (Employer Identification Number) is provided for reference purposes only and should not be used for any illegal activities.
+            </p>
+          </div>
         </div>
       ))}
 
