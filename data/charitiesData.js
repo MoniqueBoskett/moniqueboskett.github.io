@@ -9,7 +9,7 @@ export const charities = [
 To realize these goals, we will affirm student identities, using values-driven and asset-based language. We will approach our students with high expectations and celebrate the many and varied skills students possess. We will build a broad, competent village, bringing multiple organizations together to provide wrap-around supports in a holistic approach that serves the whole student.`,
   },
   {
-    name: "Alzheimer&apos;s Disease and Related Disorders Association Inc",
+    name: 'Alzheimer&apos;s Disease and Related Disorders Association Inc',
     ein: '13-3039601',
     website: 'https://www.alz.org/',
     logo: 'Alzheimers-Association-Logo.png',
@@ -22,8 +22,8 @@ To realize these goals, we will affirm student identities, using values-driven a
     website: 'https://www.heart.org/en/',
     logo: 'American-Heart-Association-Logo.png',
     instagram: 'american_heart',
-    about: `From humble beginnings, the AHA has grown into the nation's oldest and largest voluntary organization dedicated to fighting heart disease and stroke. A shared focus on cardiovascular health unites our more than 35 million volunteers and supporters as well as our more than 2,900 employees.
-Heart disease is the No. 1 killer worldwide, and stroke ranks second globally. Even when those conditions don't result in death, they cause disability and diminish quality of life. We want to see a world free of cardiovascular diseases and stroke.
+    about: `From humble beginnings, the AHA has grown into the nation&apos;s oldest and largest voluntary organization dedicated to fighting heart disease and stroke. A shared focus on cardiovascular health unites our more than 35 million volunteers and supporters as well as our more than 2,900 employees.
+Heart disease is the No. 1 killer worldwide, and stroke ranks second globally. Even when those conditions don&apos;t result in death, they cause disability and diminish quality of life. We want to see a world free of cardiovascular diseases and stroke.
 Our size and scope let us have real impact. The AHA has invested more than $5 billion in research, making us the largest not-for-profit funding source for cardiovascular and cerebrovascular disease research next to the federal government.`,
   },
   {
@@ -32,7 +32,7 @@ Our size and scope let us have real impact. The AHA has invested more than $5 bi
     website: 'https://liverfoundation.org/',
     logo: 'American-Liver-Foundation-Logo.png',
     instagram: 'americanliver',
-    about: `We are focused on improving patient lives, increasing public awareness of liver disease, advancing liver transplantation and funding cutting-edge liver disease research — we're working every day to help save lives.
+    about: `We are focused on improving patient lives, increasing public awareness of liver disease, advancing liver transplantation and funding cutting-edge liver disease research — we&apos;re working every day to help save lives.
 As the largest organization focused on all liver diseases, ALF provides trusted support, resources and education while advocating for public policy change and increased government funding for liver disease research on Capitol Hill. ALF serves as a beacon for the 100 million Americans affected by liver disease.`,
   },
   {
@@ -67,8 +67,8 @@ Our mission is to empower people to enhance the quality of their health and over
     website: 'https://www.sheldrickwildlifetrust.org/',
     logo: 'David-Sheldrick-Logo.png',
     instagram: 'sheldricktrust',
-    about: `As one of Africa's oldest wildlife charities and a leading conservation organisation, the Sheldrick Wildlife Trust (SWT) embraces all measures that complement the conservation, preservation and protection of wildlife.
-Born from one family's passion for Kenya and its wilderness, the Sheldrick Wildlife Trust was established 48 years ago and is best known for its Orphans&apos; Project, the first and most successful elephant orphan rescue and rehabilitation program in the world.`,
+    about: `As one of Africa&apos;s oldest wildlife charities and a leading conservation organisation, the Sheldrick Wildlife Trust (SWT) embraces all measures that complement the conservation, preservation and protection of wildlife.
+Born from one family&apos;s passion for Kenya and its wilderness, the Sheldrick Wildlife Trust was established 48 years ago and is best known for its Orphans&apos; Project, the first and most successful elephant orphan rescue and rehabilitation program in the world.`,
   },
   {
     name: 'JDRF International',
@@ -94,7 +94,7 @@ We are opening doors that were once closed by T1D diagnosis. We lead the way to 
     logo: 'OAR-Logo.png',
     instagram: 'organizationforautismresearch',
     about: `OAR is an organization founded and led by parents and grandparents of autistic children, who serve as the Board of Directors providing leadership, life experience, and heart.
-If our parent leaders are the heart, our Scientific Council... are the brain when it comes to our mission and research direction.`,
+If our parent leaders are the heart, our Scientific Council, a group of remarkable and equally dedicated autism professionals, are the brain when it comes to our mission and research direction.`,
   },
   {
     name: 'Philadelphia Community Bail Fund',
