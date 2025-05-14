@@ -113,12 +113,12 @@ const headerStyle = {
 };
 
 const largeLogoStyle = {
-  width: '64px',
-  height: '64px',
-  borderRadius: '50%',
-  backgroundColor: '#dcc0e5',
-  padding: '8px',
-  objectFit: 'contain'
+  width: '120px',
+  height: 'auto',
+  objectFit: 'contain',
+  backgroundColor: 'transparent',
+  padding: 0,
+  borderRadius: 0
 };
 
 const buttonStyle = {
