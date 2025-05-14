@@ -47,14 +47,11 @@ export const jobs = [
     "Worked with the Independence Blue Cross Foundation to put on the annual Golf Outing",
     "Created, planned, and executed leadership labs for over 25 Independence Blue Cross summer nurse interns for two years; including a virtual internship program in 2020",
     "Helped lead the Blue Crew (corporate volunteer program) to focus on activities that highlight the impact of volunteerism and increase company and community engagement",
-    `Planned and executed National Volunteer Week initiatives.
-
-Additionally, I was the Culture & Education committee lead of iLEAD – an associate resource group at Independence Blue Cross. iLEAD stands for Inspiring, Lifting, and Empowering the African Diaspora. In this role, I hosted, coordinated, and spoke on the panels of numerous events including:
-
+    `"Planned and executed National Volunteer Week initiatives.\n\n\Additionally, I was the Culture & Education committee lead of iLEAD – an associate resource group at Independence Blue Cross. iLEAD stands for Inspiring, Lifting, and Empowering the African Diaspora. In this role, I hosted, coordinated, and spoke on the panels of numerous events including:
 • One Year Later: George Floyd’s Impact on Social Justice
 • Finding Identity in the Grey – A Conversation about Blackness in America with Cole Brown
 • Juneteenth – A Celebration of Resistance and Redemption
-• Colorism: A Conversation about Skin Color Discrimination`
+• Colorism: A Conversation about Skin Color Discrimination"`
      ]
     },
     {
