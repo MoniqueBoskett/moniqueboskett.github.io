@@ -56,7 +56,7 @@ export const jobs = [
   location: "Philadelphia, PA",
   dates: "Jan 2020 – Jun 2022",
   logo: "ibx.png",
-  description: "Additionally, I was the Culture & Education committee lead of iLEAD – an associate resource group at Independence Blue Cross. iLEAD stands for Inspiring, Lifting, and Empowering the African Diaspora. In this role, I hosted, coordinated, and spoke on the panels of numerous events including:",
+  summary: "Additionally, I was the Culture & Education committee lead of iLEAD – an associate resource group at Independence Blue Cross. iLEAD stands for Inspiring, Lifting, and Empowering the African Diaspora. In this role, I hosted, coordinated, and spoke on the panels of numerous events including:",
   bullets: [
     "One Year Later: George Floyd’s Impact on Social Justice",
     "Finding Identity in the Grey – A Conversation about Blackness in America with Cole Brown",
