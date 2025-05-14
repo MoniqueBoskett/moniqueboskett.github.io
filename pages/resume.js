@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// pages/resume.js
 import Navbar from '../components/Navbar';
 import BackToTopButton from '../components/BackToTopButton';
 import { jobs, education, skills } from '../data/resumeData';
@@ -23,7 +23,7 @@ export default function Resume() {
       {jobs.map((job, index) => (
         <div key={index} style={cardStyle}>
           <div style={headerStyle}>
-            <img src={`/logos/${job.logo}`} alt={job.company} style={logoStyle} />
+            <img src={`/logos/${job.logo}`} alt={job.company} style={largeLogoStyle} />
             <div>
               <h3 style={{ margin: 0 }}>{job.title}</h3>
               <p style={{ fontWeight: 'bold', margin: '0.25rem 0' }}>
@@ -31,11 +31,18 @@ export default function Resume() {
               </p>
             </div>
           </div>
-          <ul style={{ paddingLeft: '1.5rem' }}>
-            {job.bullets.map((b, j) => (
-              <li key={j} style={{ marginBottom: '0.5rem', lineHeight: 1.6 }}>{b}</li>
-            ))}
-          </ul>
+
+          {job.summary && (
+            <p style={{ marginBottom: '1rem', whiteSpace: 'pre-line' }}>{job.summary}</p>
+          )}
+
+          {job.bullets && (
+            <ul style={{ paddingLeft: '1.5rem' }}>
+              {job.bullets.map((b, j) => (
+                <li key={j} style={{ marginBottom: '0.5rem', lineHeight: 1.6 }}>{b}</li>
+              ))}
+            </ul>
+          )}
         </div>
       ))}
 
@@ -44,7 +51,7 @@ export default function Resume() {
       {education.map((edu, index) => (
         <div key={index} style={cardStyle}>
           <div style={headerStyle}>
-            <img src={`/logos/${edu.logo}`} alt={edu.school} style={logoStyle} />
+            <img src={`/logos/${edu.logo}`} alt={edu.school} style={largeLogoStyle} />
             <div>
               <h3 style={{ margin: 0 }}>{edu.degree}</h3>
               <p style={{ fontWeight: 'bold', margin: '0.25rem 0' }}>
@@ -101,16 +108,16 @@ const cardStyle = {
 const headerStyle = {
   display: 'flex',
   alignItems: 'center',
-  gap: '1rem',
+  gap: '1.5rem',
   marginBottom: '1rem'
 };
 
-const logoStyle = {
-  width: '48px',
-  height: '48px',
+const largeLogoStyle = {
+  width: '64px',
+  height: '64px',
   borderRadius: '50%',
   backgroundColor: '#dcc0e5',
-  padding: '6px',
+  padding: '8px',
   objectFit: 'contain'
 };
 
