@@ -23,40 +23,57 @@ export default function Home() {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          textAlign: 'center',
         }}
       >
-        {/* Profile Photo */}
-        <img
-          src="/monique.jpg"
-          alt="Monique Boskett"
-          style={{
-            width: '300px',
-            height: 'auto',
-            borderRadius: '12px',
-            objectFit: 'cover',
-            marginBottom: '2rem',
-            border: '6px solid #eee8f0',
-            boxShadow: '0 8px 20px rgba(0, 0, 0, 0.15)',
-          }}
-        />
+        {/* Page Title Centered at Top */}
+<h1 style={{ fontSize: '2.75rem', marginBottom: '2rem', textAlign: 'center' }}>
+  Welcome to Monique Boskett&rsquo;s Portfolio!
+</h1>
 
-        {/* Welcome Header */}
-        <h1 style={{ fontSize: '2.75rem', marginBottom: '1rem' }}>
-          Welcome to Monique Boskett&rsquo;s Portfolio
-        </h1>
+{/* Two-column content layout */}
+<div
+  style={{
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    justifyContent: 'center',
+    maxWidth: '1000px',
+    width: '100%',
+    gap: '3rem',
+    marginBottom: '4rem',
+  }}
+>
+          {/* Left: Photo */}
+          <img
+            src="/monique.jpg"
+            alt="Monique Boskett"
+            style={{
+              width: '320px',
+              height: 'auto',
+              borderRadius: '12px',
+              objectFit: 'cover',
+              border: '6px solid #eee8f0',
+              boxShadow: '0 8px 20px rgba(0, 0, 0, 0.15)',
+            }}
+          />
+          {/* Right: Text */}
+          <div style={{ maxWidth: '500px', textAlign: 'left' }}>
+            <p style={{ fontSize: '1.25rem', lineHeight: 1.6 }}>
+              Hi! I&apos;m Monique — an event strategist who creates memorable experiences through innovative
+              event planning, travel, and community engagement.
+              <br /><br />
+              Explore this site to learn more about who I am, what I do, and where I&apos;ve been.
+            </p>
+          </div>
+        </div>
 
-        {/* Intro Paragraph */}
-        <p style={{ fontSize: '1.25rem', maxWidth: '650px', lineHeight: 1.6 }}>
-          Hi! I&apos;m Monique — an event strategist who creates memorable experiences through innovative event planning, travel, and community engagement.
-          Explore this site to learn more about who I am, what I do, and where I&apos;ve been.
-        </p>
-
-        {/* Footer Section with Icons */}
+        {/* Footer with Icons */}
         <footer
           style={{
-            marginTop: '3rem',
+            marginTop: '2rem',
             display: 'flex',
+            justifyContent: 'center',
             gap: '2rem',
             fontSize: '1.5rem',
           }}
