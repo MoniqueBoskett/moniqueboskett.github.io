@@ -1,4 +1,3 @@
-// pages/index.js
 import Navbar from '../components/Navbar';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import BackToTopButton from '../components/BackToTopButton';
@@ -8,48 +7,37 @@ export default function Home() {
     <>
       <Navbar />
       <div
-  style={{
-    backgroundColor: '#dcc0e5',
-    backgroundImage: `repeating-linear-gradient(
-      45deg,
-      rgba(255, 255, 255, 0.1),
-      rgba(255, 255, 255, 0.1) 1px,
-      transparent 1px,
-      transparent 20px
-    )`,
-    color: '#413b42',
-    minHeight: '100vh',
-    padding: '2rem',
-    paddingTop: '6rem',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    textAlign: 'center',
-  }}
->
-        {/* Logo */}
-        <img
-          src="/monique-logo.png"
-          alt="Monique Boskett Logo"
-          style={{
-            width: '160px',
-            height: 'auto',
-            objectFit: 'contain',
-            marginBottom: '1.5rem',
-          }}
-        />
-
+        style={{
+          backgroundColor: '#dcc0e5',
+          backgroundImage: `repeating-linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 0.1) 1px,
+            transparent 1px,
+            transparent 20px
+          )`,
+          color: '#413b42',
+          minHeight: '100vh',
+          padding: '2rem',
+          paddingTop: '6rem',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          textAlign: 'center',
+        }}
+      >
         {/* Profile Photo */}
         <img
           src="/monique.jpg"
           alt="Monique Boskett"
           style={{
-            width: '220px',
-            height: '220px',
-            borderRadius: '50%',
+            width: '300px',
+            height: 'auto',
+            borderRadius: '12px',
             objectFit: 'cover',
-            marginBottom: '1.5rem',
-            border: '4px solid #eee8f0',
+            marginBottom: '2rem',
+            border: '6px solid #eee8f0',
+            boxShadow: '0 8px 20px rgba(0, 0, 0, 0.15)',
           }}
         />
 
