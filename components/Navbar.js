@@ -6,7 +6,7 @@ export default function Navbar() {
   const navItems = [
     { label: 'Home', path: '/' },
     { label: 'Resume', path: '/resume' },
-    { label: 'Education', path: '/education' },
+    { label: 'Events', path: '/events' },
     { label: 'Personal', path: '/personal' },
     { label: 'Travel', path: '/travel' },
     { label: 'Charities', path: '/charities' },
