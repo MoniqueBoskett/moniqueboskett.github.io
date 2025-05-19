@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps }) {
         <Link href="/" style={{ color: '#413b42', textDecoration: 'none' }}>Home</Link>
         <Link href="/personal" style={{ color: '#413b42', textDecoration: 'none' }}>Personal</Link>
         <Link href="/resume" style={{ color: '#413b42', textDecoration: 'none' }}>Resume</Link>
-        <Link href="/education" style={{ color: '#413b42', textDecoration: 'none' }}>Education</Link>
+        <Link href="/events" style={{ color: '#413b42', textDecoration: 'none' }}>Events</Link>
         <Link href="/travel" style={{ color: '#413b42', textDecoration: 'none' }}>Travel</Link>
         <Link href="/charities" style={{ color: '#413b42', textDecoration: 'none' }}>Charities</Link>
       </nav>

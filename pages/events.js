@@ -25,7 +25,7 @@ export default function Events() {
   }, []);
 
   return (
-    <div style={{ backgroundColor: '#dcc0e5', color: '#413b42', fontFamily: 'Fira Sans', paddingTop: '6rem' }}>
+    <div style={{ backgroundColor: '#dcc0e5', color: '#413b42', fontFamily: 'Fira Sans', paddingTop: '2rem' }}>
       <Navbar />
       <h1 style={{ textAlign: 'center', fontSize: '2.5rem', marginBottom: '1rem' }}>Event Portfolio</h1>
 
