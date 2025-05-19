@@ -10,6 +10,7 @@ export default function Navbar() {
     { label: 'Personal', path: '/personal' },
     { label: 'Travel', path: '/travel' },
     { label: 'Charities', path: '/charities' },
+    { label: 'Contact Me', path: '/contact' }, // added link here
   ];
 
   return (
@@ -46,7 +47,7 @@ const styles = {
     position: 'fixed',
     top: 0,
     width: '100%',
-    backgroundColor: '#413b42', // dark grey background
+    backgroundColor: '#413b42',
     zIndex: 1000,
     boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
   },
@@ -70,10 +71,10 @@ const styles = {
   },
   nav: {
     display: 'flex',
-    gap: '3rem', // increased spacing between nav items
+    gap: '3rem',
   },
   link: {
-    color: '#eee8f0', // cream color text
+    color: '#eee8f0',
     fontSize: '1.1rem',
     textDecoration: 'none',
     fontWeight: '500',
