@@ -28,26 +28,21 @@ export default function Navbar() {
   return (
     <header style={styles.header}>
       <div style={styles.container}>
-        <Link href="/" style={styles.logoLink}>
-          <img src="/monique-logo.png" alt="Monique Boskett Logo" style={styles.logoImage} />
-        </Link>
+        <div style={styles.leftGroup}>
+          <Link href="/" style={styles.logoLink}>
+            <img src="/monique-logo.png" alt="Monique Boskett Logo" style={styles.logoImage} />
+          </Link>
 
-        {/* Hamburger Button */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          style={styles.hamburgerButton}
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? <X size={28} color="#eee8f0" /> : <Menu size={28} color="#eee8f0" />}
-        </button>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            style={styles.hamburgerButton}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <X size={28} color="#eee8f0" /> : <Menu size={28} color="#eee8f0" />}
+          </button>
+        </div>
 
-        {/* Navigation Menu */}
-        <nav
-          style={{
-            ...styles.nav,
-            ...(menuOpen ? styles.navMobileOpen : {}),
-          }}
-        >
+        <nav style={{ ...styles.nav, display: menuOpen || window.innerWidth > 768 ? 'flex' : 'none' }}>
           {navItems.map((item) => (
             <Link
               key={item.path}
@@ -56,7 +51,7 @@ export default function Navbar() {
                 ...styles.link,
                 ...(router.pathname === item.path ? styles.activeLink : {}),
               }}
-              onClick={() => setMenuOpen(false)} // Close menu on link click
+              onClick={() => setMenuOpen(false)}
             >
               {item.label}
             </Link>
@@ -86,6 +81,11 @@ const styles = {
     fontFamily: 'Fira Sans, sans-serif',
     flexWrap: 'wrap',
   },
+  leftGroup: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem',
+  },
   logoLink: {
     display: 'inline-flex',
     alignItems: 'center',
@@ -107,12 +107,6 @@ const styles = {
     gap: '1.5rem',
     alignItems: 'center',
   },
-  navMobileOpen: {
-    flexDirection: 'column',
-    width: '100%',
-    backgroundColor: '#413b42',
-    padding: '1rem 0',
-  },
   link: {
     color: '#eee8f0',
     fontSize: '1.05rem',
@@ -124,3 +118,22 @@ const styles = {
     paddingBottom: '2px',
   },
 };
+
+// Media Query Style Injection
+if (typeof window !== 'undefined') {
+  const styleTag = document.createElement('style');
+  styleTag.innerHTML = `
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column !important;
+        width: 100%;
+        background-color: #413b42;
+        padding: 1rem 0;
+      }
+      button[aria-label="Toggle menu"] {
+        display: block !important;
+      }
+    }
+  `;
+  document.head.appendChild(styleTag);
+}
