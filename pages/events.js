@@ -42,7 +42,7 @@ export default function Events() {
           mobileScrollSupport={true}
           onFlip={(e) => setCurrentPage(e.data)}
           ref={bookRef}
-          style={{ width: '100%', maxWidth: '95vw' }}
+          style={{ width: '100%' }}
         >
           {pages.map((page, i) => (
             <div key={i} className="page">
@@ -85,9 +85,10 @@ const pageStyle = {
   backgroundColor: '#dcc0e5',
   color: '#413b42',
   fontFamily: 'Fira Sans',
-  padding: '2rem 1rem',
   paddingTop: '6rem',
-  minHeight: '100vh',
+  paddingBottom: '2rem',
+  width: '100%',
+  margin: 0,
   boxSizing: 'border-box',
 };
 
@@ -95,6 +96,7 @@ const headingStyle = {
   textAlign: 'center',
   fontSize: '2.5rem',
   marginBottom: '1.5rem',
+  padding: '0 1rem',
 };
 
 const flipbookWrapper = {
@@ -102,6 +104,8 @@ const flipbookWrapper = {
   justifyContent: 'center',
   marginBottom: '2rem',
   width: '100%',
+  overflowX: 'hidden',
+  boxSizing: 'border-box',
 };
 
 const imageStyle = {
@@ -122,6 +126,7 @@ const thumbnailGrid = {
   justifyContent: 'center',
   gap: '0.5rem',
   marginBottom: '2rem',
+  padding: '0 1rem',
 };
 
 const thumbnailItem = {
@@ -150,6 +155,7 @@ const thumbnailLabel = {
 const downloadWrapper = {
   textAlign: 'center',
   marginBottom: '3rem',
+  padding: '0 1rem',
 };
 
 const downloadButton = {
