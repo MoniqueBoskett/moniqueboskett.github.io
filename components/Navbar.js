@@ -6,6 +6,7 @@ import { Menu, X } from 'lucide-react';
 export default function Navbar() {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const navItems = [
     { label: 'Home', path: '/' },
@@ -18,11 +19,10 @@ export default function Navbar() {
   ];
 
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 768) setMenuOpen(false);
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   return (
@@ -32,31 +32,29 @@ export default function Navbar() {
           <img src="/monique-logo.png" alt="Monique Boskett Logo" style={styles.logoImage} />
         </Link>
 
-        {/* Hamburger Button */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          style={styles.hamburgerButton}
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? <X size={28} color="#eee8f0" /> : <Menu size={28} color="#eee8f0" />}
-        </button>
+        {isMobile && (
+          <button onClick={() => setMenuOpen(!menuOpen)} style={styles.hamburgerButton} aria-label="Toggle menu">
+            {menuOpen ? <X size={28} color="#eee8f0" /> : <Menu size={28} color="#eee8f0" />}
+          </button>
+        )}
 
-        {/* Desktop Navigation */}
-        <nav style={{ ...styles.nav, display: menuOpen ? 'flex' : undefined }}>
-          {navItems.map((item) => (
-            <Link
-              key={item.path}
-              href={item.path}
-              style={{
-                ...styles.link,
-                ...(router.pathname === item.path ? styles.activeLink : {}),
-              }}
-              onClick={() => setMenuOpen(false)} // Close menu on link click
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        {(menuOpen || !isMobile) && (
+          <nav style={{ ...styles.nav, flexDirection: isMobile ? 'column' : 'row' }}>
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                href={item.path}
+                style={{
+                  ...styles.link,
+                  ...(router.pathname === item.path ? styles.activeLink : {}),
+                }}
+                onClick={() => isMobile && setMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        )}
       </div>
     </header>
   );
@@ -78,8 +76,8 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    fontFamily: 'Fira Sans, sans-serif',
     flexWrap: 'wrap',
+    fontFamily: 'Fira Sans, sans-serif',
   },
   logoLink: {
     display: 'inline-flex',
@@ -91,44 +89,27 @@ const styles = {
     cursor: 'pointer',
   },
   hamburgerButton: {
-    display: 'none',
     background: 'none',
     border: 'none',
     cursor: 'pointer',
+    padding: 0,
   },
   nav: {
     display: 'flex',
-    flexDirection: 'row',
-    gap: '1.5rem',
+    gap: '1.25rem',
     alignItems: 'center',
+    width: '100%',
+    marginTop: '1rem',
   },
   link: {
     color: '#eee8f0',
-    fontSize: '1.05rem',
+    fontSize: '1.1rem',
     textDecoration: 'none',
     fontWeight: 500,
+    padding: '0.25rem 0',
+    textAlign: 'center',
   },
   activeLink: {
     borderBottom: '2px solid #eee8f0',
-    paddingBottom: '2px',
   },
 };
-
-// Media Query Style Injection
-if (typeof window !== 'undefined') {
-  const styleTag = document.createElement('style');
-  styleTag.innerHTML = `
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column !important;
-        width: 100%;
-        background-color: #413b42;
-        padding: 1rem 0;
-      }
-      button[aria-label="Toggle menu"] {
-        display: block !important;
-      }
-    }
-  `;
-  document.head.appendChild(styleTag);
-}
