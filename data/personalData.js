@@ -11,6 +11,11 @@ text: "13 is my favorite number 🔢 (extra fun fact: M is the 13th letter of th
 photos: [],
 },
 {
+text: "I was a gymnast for 13 years 🤸‍♀️",
+photos: ["gymnastics.jpg", "gymnastics2.jpg", "gymnastics3.jpg", "gymnastics4.jpg", "gymnastics5.jpg", "gymnastics6.jpg", "gymnastics7.jpg",],
+collapsible: true,
+},
+{
 text: "Purple is my favorite color 💜",
 photos: ["purple.jpg",],
 collapsible: true,
@@ -36,13 +41,8 @@ photos: ["cats.jpg", "cats2.jpg","cats3.jpg","cats4.jpg","cats5.jpg","cats6.jpg"
 collapsible: true,
 },
 {
-text: "Estoy aprendiendo español 🇪🇸 — on a 50-day streak!",
+text: "Estoy aprendiendo español 🇪🇸 — As of May 21, 2025, I'm on a 70-day streak!",
 photos: [],
-},
-{
-text: "I was a gymnast for 13 years 🤸‍♀️",
-photos: ["gymnastics.jpg", "gymnastics2.jpg", "gymnastics3.jpg", "gymnastics4.jpg", "gymnastics5.jpg", "gymnastics6.jpg", "gymnastics7.jpg",],
-collapsible: true,
 },
 {
 text: "I have gastroparesis (AKA: stomach paralysis)⚕️ — read more about it ",

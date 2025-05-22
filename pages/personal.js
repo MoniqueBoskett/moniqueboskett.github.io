@@ -1,4 +1,3 @@
-// pages/personal.js
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import BackToTopButton from '../components/BackToTopButton';
@@ -28,11 +27,19 @@ export default function Personal() {
           backgroundColor: '#dcc0e5',
           color: '#413b42',
           fontFamily: 'Fira Sans',
-          padding: '2rem',
-          paddingTop: '2rem',
+          padding: '2rem 1rem',
+          paddingTop: '6rem',
+          minHeight: '100vh',
         }}
       >
-        <h1 style={{ fontSize: '2.5rem', textAlign: 'center', marginBottom: '2rem' }}>
+        <h1
+          style={{
+            fontSize: '2.25rem',
+            textAlign: 'center',
+            marginBottom: '2rem',
+            padding: '0 1rem',
+          }}
+        >
           ✨ Fun Facts About Me ✨
         </h1>
 
@@ -47,9 +54,10 @@ export default function Personal() {
               maxWidth: '900px',
               marginLeft: 'auto',
               marginRight: 'auto',
+              boxSizing: 'border-box',
             }}
           >
-            <p style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>
+            <p style={{ fontSize: '1.15rem', marginBottom: '1rem' }}>
               {fact.text}{' '}
               {fact.link && (
                 <a
@@ -57,7 +65,11 @@ export default function Personal() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => handleLinkClick(fact.link.label)}
-                  style={{ color: '#413b42', fontWeight: 'bold' }}
+                  style={{
+                    color: '#413b42',
+                    fontWeight: 'bold',
+                    wordBreak: 'break-word',
+                  }}
                 >
                   {fact.link.label}
                 </a>
@@ -76,6 +88,8 @@ export default function Personal() {
                     fontWeight: 'bold',
                     borderRadius: '6px',
                     marginBottom: '1rem',
+                    width: '100%',
+                    maxWidth: '240px',
                   }}
                 >
                   {openIndex === index ? '▲ Hide Photos' : '▼ Show Photos'}
@@ -85,7 +99,7 @@ export default function Personal() {
                   <div
                     style={{
                       display: 'grid',
-                      gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
+                      gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))',
                       gap: '0.75rem',
                       marginTop: '1rem',
                     }}
@@ -133,6 +147,8 @@ export default function Personal() {
                     borderRadius: '8px',
                     border: '1px solid #aaa',
                     fontFamily: 'Fira Sans',
+                    fontSize: '1rem',
+                    boxSizing: 'border-box',
                   }}
                 />
                 <button

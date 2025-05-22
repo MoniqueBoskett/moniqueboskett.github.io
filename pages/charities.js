@@ -27,15 +27,12 @@ export default function Charities() {
     <>
       <Navbar />
       <div style={pageStyle}>
-        <h1 style={{ textAlign: 'center', fontSize: '2.5rem', marginBottom: '1rem' }}>
-          Charities I Support
-        </h1>
-        <p style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 2rem', fontSize: '1.1rem' }}>
+        <h1 style={titleStyle}>Charities I Support</h1>
+        <p style={descriptionStyle}>
           Giving back is an important part of who I am. I believe in supporting causes that create real change in people&apos;s lives.
           Whether you choose to support one of my favorites or discover a new one of your own, thank you for taking the time to give back.
         </p>
 
-        {/* Collapsible Gallery */}
         <div style={cardWrapper}>
           <button onClick={() => setGalleryOpen(!galleryOpen)} style={toggleButton}>
             {galleryOpen ? '▲ Hide Giving Back in Action' : '▼ Show Giving Back in Action'}
@@ -55,24 +52,16 @@ export default function Charities() {
           )}
         </div>
 
-        {/* Search Input */}
         <div style={{ maxWidth: '600px', margin: '0 auto 2rem' }}>
           <input
             type="text"
             placeholder="Search charities..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            style={{
-              width: '100%',
-              padding: '0.75rem 1rem',
-              fontSize: '1rem',
-              borderRadius: '8px',
-              border: '1px solid #aaa',
-            }}
+            style={searchInput}
           />
         </div>
 
-        {/* Charity Cards */}
         {filteredCharities.map((charity, index) => (
           <div key={index} style={cardWrapper}>
             <div style={charityHeader}>
@@ -81,52 +70,32 @@ export default function Charities() {
                 alt={`${charity.name} logo`}
                 style={logoStyle}
               />
-              <div>
+              <div style={{ flex: 1 }}>
                 <h2 style={{ margin: 0 }}>{charity.name}</h2>
                 <p style={{ margin: '0.25rem 0' }}>EIN: {charity.ein || 'N/A'}</p>
-                <p style={{ margin: '0.25rem 0' }}>
-                  <a
-                    href={charity.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => window.va && window.va.track('link_click', { type: 'website', charity: charity.name })}
-                    style={{ color: '#413b42', fontWeight: 'bold' }}
-                  >
+                <p>
+                  <a href={charity.website} target="_blank" rel="noopener noreferrer"
+                    onClick={() => window.va?.track('link_click', { type: 'website', charity: charity.name })}
+                    style={linkStyle}>
                     {charity.website}
                   </a>
                 </p>
-                <p style={{ margin: '0.25rem 0', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <a
-                    href={`https://www.instagram.com/${charity.instagram}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => window.va && window.va.track('link_click', { type: 'instagram', charity: charity.name })}
-                    style={{
-                      color: '#413b42',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      textDecoration: 'none',
-                    }}
-                  >
+                <p style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <a href={`https://www.instagram.com/${charity.instagram}`} target="_blank" rel="noopener noreferrer"
+                    onClick={() => window.va?.track('link_click', { type: 'instagram', charity: charity.name })}
+                    style={linkStyle}>
                     <Instagram size={18} strokeWidth={2} /> @{charity.instagram}
                   </a>
                 </p>
-                <a
-                  href={charity.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => window.va && window.va.track('link_click', { type: 'donate', charity: charity.name })}
-                  style={donateButton}
-                >
+                <a href={charity.website} target="_blank" rel="noopener noreferrer"
+                  onClick={() => window.va?.track('link_click', { type: 'donate', charity: charity.name })}
+                  style={donateButton}>
                   Donate
                 </a>
               </div>
             </div>
 
-            <button
-              onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
-              style={toggleButton}
-            >
+            <button onClick={() => setExpandedIndex(expandedIndex === index ? null : index)} style={toggleButton}>
               {expandedIndex === index ? '▲ Hide Description' : '▼ About This Charity'}
             </button>
 
@@ -144,33 +113,16 @@ export default function Charities() {
           </div>
         ))}
 
-        {/* Modal Viewer */}
         {modalImage && (
-          <div
-            onClick={() => setModalImage(null)}
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              backgroundColor: 'rgba(0,0,0,0.8)',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              zIndex: 1000,
-            }}
-          >
-            <img
-              src={modalImage}
-              alt="Expanded view"
-              style={{
-                maxHeight: '90%',
-                maxWidth: '90%',
-                border: '6px solid #eee8f0',
-                borderRadius: '12px',
-              }}
-            />
+          <div onClick={() => setModalImage(null)} style={{
+            position: 'fixed',
+            top: 0, left: 0, right: 0, bottom: 0,
+            backgroundColor: 'rgba(0,0,0,0.8)',
+            display: 'flex', justifyContent: 'center', alignItems: 'center',
+            zIndex: 1000,
+          }}>
+            <img src={modalImage} alt="Expanded view"
+              style={{ maxHeight: '90%', maxWidth: '90%', border: '6px solid #eee8f0', borderRadius: '12px' }} />
           </div>
         )}
 
@@ -182,16 +134,28 @@ export default function Charities() {
   );
 }
 
-// Styles
 const pageStyle = {
   backgroundColor: '#dcc0e5',
   color: '#413b42',
   fontFamily: 'Fira Sans',
-  padding: '2rem',
+  padding: '2rem 1rem',
   paddingTop: '6rem',
   minHeight: '100vh',
-  maxWidth: '1200px',
-  margin: '0 auto',
+  maxWidth: '100%',
+  boxSizing: 'border-box',
+};
+
+const titleStyle = {
+  textAlign: 'center',
+  fontSize: '2.5rem',
+  marginBottom: '1rem',
+};
+
+const descriptionStyle = {
+  textAlign: 'center',
+  maxWidth: '800px',
+  margin: '0 auto 2rem',
+  fontSize: '1.1rem',
 };
 
 const cardWrapper = {
@@ -199,22 +163,22 @@ const cardWrapper = {
   borderRadius: '12px',
   padding: '1.5rem',
   marginBottom: '2rem',
+  margin: '0 auto 2rem',
+  width: '100%',
   maxWidth: '900px',
-  marginLeft: 'auto',
-  marginRight: 'auto',
+  boxSizing: 'border-box',
 };
 
 const charityHeader = {
   display: 'flex',
-  alignItems: 'center',
+  alignItems: 'flex-start',
   gap: '1.5rem',
   flexWrap: 'wrap',
   marginBottom: '1rem',
 };
 
 const logoStyle = {
-  width: '180px',
-  height: 'auto',
+  width: '150px',
   objectFit: 'contain',
   flexShrink: 0,
 };
@@ -227,20 +191,30 @@ const toggleButton = {
   fontWeight: 'bold',
   borderRadius: '6px',
   color: '#413b42',
+  marginTop: '1rem',
 };
 
 const galleryGrid = {
   display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
+  gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))',
   gap: '0.75rem',
 };
 
 const thumbnailStyle = {
   width: '100%',
-  height: '150px',
+  height: '140px',
   objectFit: 'cover',
   borderRadius: '8px',
   cursor: 'pointer',
+};
+
+const searchInput = {
+  width: '100%',
+  padding: '0.75rem 1rem',
+  fontSize: '1rem',
+  borderRadius: '8px',
+  border: '1px solid #aaa',
+  boxSizing: 'border-box',
 };
 
 const donateButton = {
@@ -252,4 +226,10 @@ const donateButton = {
   borderRadius: '6px',
   fontWeight: 'bold',
   textDecoration: 'none',
+};
+
+const linkStyle = {
+  color: '#413b42',
+  fontWeight: 'bold',
+  textDecoration: 'underline',
 };

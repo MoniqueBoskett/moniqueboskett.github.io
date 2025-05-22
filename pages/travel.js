@@ -1,4 +1,3 @@
-// pages/travel.js
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import VisitedStatesMap from '../components/VisitedStatesMap';
@@ -47,9 +46,7 @@ const Travel = () => {
     <>
       <Navbar />
       <div style={pageStyle}>
-        <h1 style={{ fontSize: '2.5rem', textAlign: 'center', marginBottom: '2rem' }}>
-          My Travel Adventures
-        </h1>
+        <h1 style={headingStyle}>My Travel Adventures</h1>
 
         <VisitedStatesMap />
 
@@ -77,7 +74,12 @@ const Travel = () => {
           <img
             src={`/travel/${selectedImage}`}
             alt="Enlarged travel photo"
-            style={{ maxHeight: '90vh', maxWidth: '90vw', borderRadius: '10px' }}
+            style={{
+              maxHeight: '90vh',
+              maxWidth: '90vw',
+              borderRadius: '10px',
+              objectFit: 'contain',
+            }}
           />
         </Modal>
 
@@ -95,19 +97,21 @@ const CountrySection = ({ country, onImageClick }) => {
       <div
         style={{
           display: 'flex',
+          flexWrap: 'wrap',
           alignItems: 'center',
           justifyContent: 'space-between',
+          gap: '1rem',
           marginBottom: '0.5rem',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
           <img
             src={`/flags/${country.flag}`}
             alt={`${country.name} flag`}
             style={{ width: '36px', height: '24px', objectFit: 'cover', borderRadius: '4px' }}
           />
           <div>
-            <h2 style={{ fontSize: '1.75rem', margin: 0 }}>{country.name}</h2>
+            <h2 style={{ fontSize: '1.5rem', margin: 0 }}>{country.name}</h2>
             <p style={{ fontSize: '1rem', margin: 0 }}>{country.date}</p>
           </div>
         </div>
@@ -144,20 +148,27 @@ const CountrySection = ({ country, onImageClick }) => {
   );
 };
 
+// Styles
 const pageStyle = {
   backgroundColor: '#dcc0e5',
   color: '#413b42',
   fontFamily: 'Fira Sans',
-  padding: '2rem',
+  padding: '2rem 1rem',
   paddingTop: '6rem',
   minHeight: '100vh',
   maxWidth: '1200px',
   margin: '0 auto',
 };
 
+const headingStyle = {
+  fontSize: '2.5rem',
+  textAlign: 'center',
+  marginBottom: '2rem',
+};
+
 const photoGridStyle = {
   display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
   gap: '1rem',
 };
 
@@ -167,7 +178,6 @@ const photoStyle = {
   objectFit: 'cover',
   borderRadius: '8px',
   cursor: 'pointer',
-  transition: 'transform 0.3s ease',
   backgroundColor: '#ccc',
 };
 

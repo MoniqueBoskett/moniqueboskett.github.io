@@ -1,8 +1,12 @@
+import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
+
   const navItems = [
     { label: 'Home', path: '/' },
     { label: 'Resume', path: '/resume' },
@@ -16,12 +20,13 @@ export default function Navbar() {
   return (
     <header style={styles.header}>
       <div style={styles.container}>
-        <div style={styles.logoWrapper}>
-          <Link href="/" style={styles.logoLink}>
-            <img src="/monique-logo.png" alt="Monique Boskett Logo" style={styles.logoImage} />
-          </Link>
-        </div>
-        <nav style={styles.nav}>
+        {/* Logo */}
+        <Link href="/" style={styles.logoLink}>
+          <img src="/monique-logo.png" alt="Monique Boskett Logo" style={styles.logoImage} />
+        </Link>
+
+        {/* Desktop Nav */}
+        <nav style={{ ...styles.nav, display: isOpen ? 'none' : 'flex' }} className="nav-desktop">
           {navItems.map((item) => (
             <Link
               key={item.path}
@@ -35,7 +40,31 @@ export default function Navbar() {
             </Link>
           ))}
         </nav>
+
+        {/* Hamburger Menu Button */}
+        <button onClick={() => setIsOpen(!isOpen)} style={styles.hamburgerBtn}>
+          {isOpen ? <X size={24} color="#eee8f0" /> : <Menu size={24} color="#eee8f0" />}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div style={styles.mobileMenu}>
+          {navItems.map((item) => (
+            <Link
+              key={item.path}
+              href={item.path}
+              onClick={() => setIsOpen(false)}
+              style={{
+                ...styles.mobileLink,
+                ...(router.pathname === item.path ? styles.activeLink : {}),
+              }}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      )}
     </header>
   );
 }
@@ -52,14 +81,11 @@ const styles = {
   container: {
     maxWidth: '1200px',
     margin: '0 auto',
-    padding: '0.75rem 2rem',
+    padding: '0.75rem 1rem',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
     fontFamily: 'Fira Sans, sans-serif',
-  },
-  logoWrapper: {
-    flexShrink: 0,
   },
   logoLink: {
     display: 'inline-flex',
@@ -71,11 +97,7 @@ const styles = {
     cursor: 'pointer',
   },
   nav: {
-    display: 'flex',
-    justifyContent: 'center',
-    flex: 1,
     gap: '2rem',
-    marginLeft: '2rem',
     flexWrap: 'wrap',
   },
   link: {
@@ -83,10 +105,47 @@ const styles = {
     fontSize: '1.05rem',
     textDecoration: 'none',
     fontWeight: 500,
-    transition: 'border-bottom 0.2s ease',
   },
   activeLink: {
     borderBottom: '2px solid #eee8f0',
     paddingBottom: '2px',
   },
+  hamburgerBtn: {
+    background: 'none',
+    border: 'none',
+    cursor: 'pointer',
+    display: 'none',
+  },
+  mobileMenu: {
+    display: 'flex',
+    flexDirection: 'column',
+    backgroundColor: '#413b42',
+    padding: '1rem',
+  },
+  mobileLink: {
+    color: '#eee8f0',
+    textDecoration: 'none',
+    padding: '0.75rem 0',
+    fontSize: '1.1rem',
+    fontWeight: 500,
+  },
 };
+
+// Media Query Styles (you’ll add these in global CSS or a module if needed)
+if (typeof window !== 'undefined') {
+  const styleTag = document.createElement('style');
+  styleTag.innerHTML = `
+    @media (max-width: 768px) {
+      .nav-desktop {
+        display: none !important;
+      }
+    }
+
+    @media (min-width: 769px) {
+      button[style*="hamburgerBtn"] {
+        display: none !important;
+      }
+    }
+  `;
+  document.head.appendChild(styleTag);
+}

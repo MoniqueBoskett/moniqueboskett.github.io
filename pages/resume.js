@@ -1,5 +1,3 @@
-
-// pages/resume.js
 import Navbar from '../components/Navbar';
 import BackToTopButton from '../components/BackToTopButton';
 import { jobs, education, skills } from '../data/resumeData';
@@ -21,7 +19,7 @@ export default function Resume() {
         </p>
 
         {/* Experience Section */}
-        <h2><Briefcase size={20} style={{ marginRight: '0.5rem' }} /> Professional Experience</h2>
+        <h2 style={sectionHeader}><Briefcase size={20} style={{ marginRight: '0.5rem' }} /> Professional Experience</h2>
         {jobs.map((job, index) => (
           <div key={index} style={cardStyle}>
             <div style={headerStyle}>
@@ -47,7 +45,7 @@ export default function Resume() {
         ))}
 
         {/* Education Section */}
-        <h2><GraduationCap size={20} style={{ marginRight: '0.5rem' }} /> Education</h2>
+        <h2 style={sectionHeader}><GraduationCap size={20} style={{ marginRight: '0.5rem' }} /> Education</h2>
         {education.map((edu, index) => (
           <div key={index} style={cardStyle}>
             <div style={headerStyle}>
@@ -60,45 +58,48 @@ export default function Resume() {
               </div>
             </div>
             {edu.bullets.map((b, j) => (
-              <p key={j} style={{ marginLeft: '3.5rem', marginBottom: '0.25rem' }}>{b}</p>
+              <p key={j} style={{ marginLeft: '2rem', marginBottom: '0.25rem' }}>{b}</p>
             ))}
 
+            {/* Drexel Article Links */}
             {edu.school === 'Drexel University' && (
-              <div style={{ marginTop: '1rem', marginLeft: '3.5rem' }}>
+              <div style={{ marginTop: '1rem', marginLeft: '2rem' }}>
                 <h4 style={{ marginBottom: '0.5rem' }}>Featured Articles:</h4>
-                <ul style={{ paddingLeft: '1.5rem' }}>
-                  <li>
-                    <a href="https://www.lebow.drexel.edu/news/amid-work-and-mba-studies-2023-graduate-commencement-speaker-monique-boskett-finds"
-                      target="_blank" rel="noopener noreferrer"
-                      onClick={() => window.va && window.va.track('article_click', { article: 'Drexel Commencement Feature' })}
-                      style={articleLinkStyle}>
-                      Amid Work and MBA Studies, 2023 Graduate Commencement Speaker...
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.lebow.drexel.edu/news/meet-student-commencement-speakers-lebow-class-2023"
-                      target="_blank" rel="noopener noreferrer"
-                      onClick={() => window.va && window.va.track('article_click', { article: 'LeBow Class of 2023 Speakers' })}
-                      style={articleLinkStyle}>
-                      Meet the Student Commencement Speakers for the LeBow Class of 2023
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://www.lebow.drexel.edu/news/lebow-students-named-inaugural-nina-henderson-provost-scholars"
-                      target="_blank" rel="noopener noreferrer"
-                      onClick={() => window.va && window.va.track('article_click', { article: 'LeBow Nina Henderson Scholars' })}
-                      style={articleLinkStyle}>
-                      LeBow Students Named Inaugural Nina Henderson Provost Scholars
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://drexel.edu/provost/news-events/announcements/2021/december/the-inaugural-nina-henderson-provost-scholars"
-                      target="_blank" rel="noopener noreferrer"
-                      onClick={() => window.va && window.va.track('article_click', { article: 'Drexel Nina Henderson Provost Scholars' })}
-                      style={articleLinkStyle}>
-                      The Inaugural Nina Henderson Provost Scholars
-                    </a>
-                  </li>
+                <ul style={{ paddingLeft: '1.25rem' }}>
+                  {[
+                    {
+                      label: 'Amid Work and MBA Studies, 2023 Graduate Commencement Speaker...',
+                      url: 'https://www.lebow.drexel.edu/news/amid-work-and-mba-studies-2023-graduate-commencement-speaker-monique-boskett-finds',
+                      tracking: 'Drexel Commencement Feature'
+                    },
+                    {
+                      label: 'Meet the Student Commencement Speakers for the LeBow Class of 2023',
+                      url: 'https://www.lebow.drexel.edu/news/meet-student-commencement-speakers-lebow-class-2023',
+                      tracking: 'LeBow Class of 2023 Speakers'
+                    },
+                    {
+                      label: 'LeBow Students Named Inaugural Nina Henderson Provost Scholars',
+                      url: 'https://www.lebow.drexel.edu/news/lebow-students-named-inaugural-nina-henderson-provost-scholars',
+                      tracking: 'LeBow Nina Henderson Scholars'
+                    },
+                    {
+                      label: 'The Inaugural Nina Henderson Provost Scholars',
+                      url: 'https://drexel.edu/provost/news-events/announcements/2021/december/the-inaugural-nina-henderson-provost-scholars',
+                      tracking: 'Drexel Nina Henderson Provost Scholars'
+                    }
+                  ].map((article, idx) => (
+                    <li key={idx}>
+                      <a
+                        href={article.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => window.va?.track('article_click', { article: article.tracking })}
+                        style={articleLinkStyle}
+                      >
+                        {article.label}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </div>
             )}
@@ -106,21 +107,37 @@ export default function Resume() {
         ))}
 
         {/* Skills Section */}
-        <h2><Award size={20} style={{ marginRight: '0.5rem' }} /> Skills &amp; Certifications</h2>
-        <div style={{ ...cardStyle, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '0.75rem' }}>
+        <h2 style={sectionHeader}><Award size={20} style={{ marginRight: '0.5rem' }} /> Skills &amp; Certifications</h2>
+        <div style={{
+          ...cardStyle,
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+          gap: '0.75rem'
+        }}>
           {skills.map((s, i) => (
             <div key={i}>• {s}</div>
           ))}
         </div>
 
         {/* Buttons */}
-        <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+        <div style={{
+          textAlign: 'center',
+          marginTop: '3rem',
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          gap: '1rem'
+        }}>
           <a href="/Monique_Boskett_Resume.pdf" download style={buttonStyle}>
             <Download size={16} style={{ marginRight: '0.5rem' }} /> Download Resume
           </a>
-          <a href="https://www.linkedin.com/in/moniqueboskett" target="_blank" rel="noopener noreferrer"
-             onClick={() => window.va && window.va.track('article_click', { article: 'LinkedIn Profile' })}
-             style={{ ...buttonStyle, marginLeft: '1rem', backgroundColor: '#0077b5' }}>
+          <a
+            href="https://www.linkedin.com/in/moniqueboskett"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => window.va?.track('article_click', { article: 'LinkedIn Profile' })}
+            style={{ ...buttonStyle, backgroundColor: '#0077b5' }}
+          >
             <Linkedin size={16} style={{ marginRight: '0.5rem' }} /> View LinkedIn
           </a>
         </div>
@@ -133,14 +150,24 @@ export default function Resume() {
   );
 }
 
+// Styles
 const pageStyle = {
   backgroundColor: '#dcc0e5',
   color: '#413b42',
   fontFamily: 'Fira Sans',
-  padding: '2rem',
+  padding: '2rem 1rem',
   paddingTop: '6rem',
   maxWidth: '1200px',
   margin: '0 auto',
+  boxSizing: 'border-box',
+};
+
+const sectionHeader = {
+  display: 'flex',
+  alignItems: 'center',
+  fontSize: '1.75rem',
+  marginBottom: '1rem',
+  marginTop: '3rem',
 };
 
 const cardStyle = {
@@ -152,18 +179,17 @@ const cardStyle = {
 
 const headerStyle = {
   display: 'flex',
+  flexWrap: 'wrap',
   alignItems: 'center',
   gap: '1.5rem',
   marginBottom: '1rem',
 };
 
 const largeLogoStyle = {
-  width: '120px',
+  width: '100px',
   height: 'auto',
   objectFit: 'contain',
-  backgroundColor: 'transparent',
-  padding: 0,
-  borderRadius: 0,
+  flexShrink: 0,
 };
 
 const buttonStyle = {
@@ -180,4 +206,6 @@ const buttonStyle = {
 const articleLinkStyle = {
   color: '#413b42',
   textDecoration: 'underline',
+  display: 'inline-block',
+  wordBreak: 'break-word',
 };

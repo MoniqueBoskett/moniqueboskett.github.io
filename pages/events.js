@@ -1,4 +1,3 @@
-// pages/events.js
 import React, { useRef, useEffect, useState } from 'react';
 import HTMLFlipBook from 'react-pageflip';
 import Navbar from '../components/Navbar';
@@ -25,16 +24,16 @@ export default function Events() {
   }, []);
 
   return (
-    <div style={{ backgroundColor: '#dcc0e5', color: '#413b42', fontFamily: 'Fira Sans', paddingTop: '2rem' }}>
+    <div style={pageStyle}>
       <Navbar />
-      <h1 style={{ textAlign: 'center', fontSize: '2.5rem', marginBottom: '1rem' }}>Event Portfolio</h1>
+      <h1 style={headingStyle}>Event Portfolio</h1>
 
-      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
+      <div style={flipbookWrapper}>
         <HTMLFlipBook
           width={600}
           height={800}
           size="stretch"
-          minWidth={315}
+          minWidth={280}
           maxWidth={1000}
           minHeight={400}
           maxHeight={1536}
@@ -43,59 +42,35 @@ export default function Events() {
           mobileScrollSupport={true}
           onFlip={(e) => setCurrentPage(e.data)}
           ref={bookRef}
-          style={{ margin: '0 2rem' }}
+          style={{ width: '100%', maxWidth: '95vw', margin: '0 auto' }}
         >
           {pages.map((page, i) => (
             <div key={i} className="page">
-              <img
-                src={page.src}
-                alt={page.label}
-                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
-              />
-              <div style={{ textAlign: 'center', marginTop: '0.5rem' }}>{page.label}</div>
+              <img src={page.src} alt={page.label} style={imageStyle} />
+              <div style={pageLabel}>{page.label}</div>
             </div>
           ))}
         </HTMLFlipBook>
       </div>
 
-      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0.5rem', marginBottom: '2rem' }}>
+      <div style={thumbnailGrid}>
         {pages.map((page, i) => (
           <div
             key={i}
             onClick={() => bookRef.current.pageFlip().turnToPage(i)}
             style={{
+              ...thumbnailItem,
               border: i === currentPage ? '3px solid #413b42' : '1px solid #aaa',
-              padding: '4px',
-              cursor: 'pointer',
-              backgroundColor: '#eee8f0',
-              textAlign: 'center'
             }}
           >
-            <img
-              src={page.src}
-              alt={page.label}
-              style={{ width: '60px', height: '80px', objectFit: 'cover', display: 'block', marginBottom: '4px' }}
-            />
-            <span style={{ fontSize: '0.75rem' }}>{page.label}</span>
+            <img src={page.src} alt={page.label} style={thumbnailImage} />
+            <span style={thumbnailLabel}>{page.label}</span>
           </div>
         ))}
       </div>
 
-      <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-        <a
-          href="/Monique_Boskett_Event_Portfolio.pdf"
-          download
-          style={{
-            backgroundColor: '#413b42',
-            color: '#fff',
-            padding: '0.75rem 1.5rem',
-            borderRadius: '8px',
-            textDecoration: 'none',
-            display: 'inline-flex',
-            alignItems: 'center',
-            fontWeight: 'bold',
-          }}
-        >
+      <div style={downloadWrapper}>
+        <a href="/Monique_Boskett_Event_Portfolio.pdf" download style={downloadButton}>
           <Download size={18} style={{ marginRight: '0.5rem' }} /> Download Full PDF
         </a>
       </div>
@@ -104,3 +79,90 @@ export default function Events() {
     </div>
   );
 }
+
+// Styles
+const pageStyle = {
+  backgroundColor: '#dcc0e5',
+  color: '#413b42',
+  fontFamily: 'Fira Sans',
+  padding: '2rem 1rem',
+  paddingTop: '6rem',
+  minHeight: '100vh',
+  boxSizing: 'border-box',
+};
+
+const headingStyle = {
+  textAlign: 'center',
+  fontSize: '2.5rem',
+  marginBottom: '1.5rem',
+  padding: '0 1rem',
+};
+
+const flipbookWrapper = {
+  display: 'flex',
+  justifyContent: 'center',
+  marginBottom: '2rem',
+  width: '100%',
+};
+
+const imageStyle = {
+  width: '100%',
+  height: '100%',
+  objectFit: 'contain',
+};
+
+const pageLabel = {
+  textAlign: 'center',
+  marginTop: '0.5rem',
+  fontSize: '0.9rem',
+};
+
+const thumbnailGrid = {
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
+  gap: '0.5rem',
+  marginBottom: '2rem',
+  padding: '0 1rem',
+};
+
+const thumbnailItem = {
+  padding: '4px',
+  cursor: 'pointer',
+  backgroundColor: '#eee8f0',
+  textAlign: 'center',
+  borderRadius: '6px',
+  width: '70px',
+  flexShrink: 0,
+};
+
+const thumbnailImage = {
+  width: '100%',
+  height: 'auto',
+  objectFit: 'cover',
+  display: 'block',
+  marginBottom: '4px',
+  borderRadius: '4px',
+};
+
+const thumbnailLabel = {
+  fontSize: '0.75rem',
+};
+
+const downloadWrapper = {
+  textAlign: 'center',
+  marginBottom: '3rem',
+  padding: '0 1rem',
+};
+
+const downloadButton = {
+  backgroundColor: '#413b42',
+  color: '#fff',
+  padding: '0.75rem 1.5rem',
+  borderRadius: '8px',
+  textDecoration: 'none',
+  display: 'inline-flex',
+  alignItems: 'center',
+  fontWeight: 'bold',
+  fontSize: '1rem',
+};
