@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const navItems = [
     { label: 'Home', path: '/' },
@@ -17,16 +17,32 @@ export default function Navbar() {
     { label: 'Contact Me', path: '/contact' },
   ];
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) setMenuOpen(false);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <header style={styles.header}>
       <div style={styles.container}>
-        {/* Logo */}
         <Link href="/" style={styles.logoLink}>
           <img src="/monique-logo.png" alt="Monique Boskett Logo" style={styles.logoImage} />
         </Link>
 
-        {/* Desktop Nav */}
-        <nav style={{ ...styles.nav, display: isOpen ? 'none' : 'flex' }} className="nav-desktop">
+        {/* Hamburger Button */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          style={styles.hamburgerButton}
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? <X size={28} color="#eee8f0" /> : <Menu size={28} color="#eee8f0" />}
+        </button>
+
+        {/* Desktop Navigation */}
+        <nav style={{ ...styles.nav, display: menuOpen ? 'flex' : undefined }}>
           {navItems.map((item) => (
             <Link
               key={item.path}
@@ -35,36 +51,13 @@ export default function Navbar() {
                 ...styles.link,
                 ...(router.pathname === item.path ? styles.activeLink : {}),
               }}
+              onClick={() => setMenuOpen(false)} // Close menu on link click
             >
               {item.label}
             </Link>
           ))}
         </nav>
-
-        {/* Hamburger Menu Button */}
-        <button onClick={() => setIsOpen(!isOpen)} style={styles.hamburgerBtn}>
-          {isOpen ? <X size={24} color="#eee8f0" /> : <Menu size={24} color="#eee8f0" />}
-        </button>
       </div>
-
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div style={styles.mobileMenu}>
-          {navItems.map((item) => (
-            <Link
-              key={item.path}
-              href={item.path}
-              onClick={() => setIsOpen(false)}
-              style={{
-                ...styles.mobileLink,
-                ...(router.pathname === item.path ? styles.activeLink : {}),
-              }}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
-      )}
     </header>
   );
 }
@@ -81,11 +74,12 @@ const styles = {
   container: {
     maxWidth: '1200px',
     margin: '0 auto',
-    padding: '0.75rem 1rem',
+    padding: '0.75rem 1.25rem',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
     fontFamily: 'Fira Sans, sans-serif',
+    flexWrap: 'wrap',
   },
   logoLink: {
     display: 'inline-flex',
@@ -96,9 +90,17 @@ const styles = {
     width: 'auto',
     cursor: 'pointer',
   },
+  hamburgerButton: {
+    display: 'none',
+    background: 'none',
+    border: 'none',
+    cursor: 'pointer',
+  },
   nav: {
-    gap: '2rem',
-    flexWrap: 'wrap',
+    display: 'flex',
+    flexDirection: 'row',
+    gap: '1.5rem',
+    alignItems: 'center',
   },
   link: {
     color: '#eee8f0',
@@ -110,40 +112,21 @@ const styles = {
     borderBottom: '2px solid #eee8f0',
     paddingBottom: '2px',
   },
-  hamburgerBtn: {
-    background: 'none',
-    border: 'none',
-    cursor: 'pointer',
-    display: 'none',
-  },
-  mobileMenu: {
-    display: 'flex',
-    flexDirection: 'column',
-    backgroundColor: '#413b42',
-    padding: '1rem',
-  },
-  mobileLink: {
-    color: '#eee8f0',
-    textDecoration: 'none',
-    padding: '0.75rem 0',
-    fontSize: '1.1rem',
-    fontWeight: 500,
-  },
 };
 
-// Media Query Styles (you’ll add these in global CSS or a module if needed)
+// Media Query Style Injection
 if (typeof window !== 'undefined') {
   const styleTag = document.createElement('style');
   styleTag.innerHTML = `
     @media (max-width: 768px) {
-      .nav-desktop {
-        display: none !important;
+      nav {
+        flex-direction: column !important;
+        width: 100%;
+        background-color: #413b42;
+        padding: 1rem 0;
       }
-    }
-
-    @media (min-width: 769px) {
-      button[style*="hamburgerBtn"] {
-        display: none !important;
+      button[aria-label="Toggle menu"] {
+        display: block !important;
       }
     }
   `;
