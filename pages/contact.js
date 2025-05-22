@@ -29,8 +29,9 @@ export default function Contact() {
         </p>
 
         <form
-          action="https://formspree.io/f/xqkrvjoz"
+          action="https://formspree.io/f/mpwdnlyw"
           method="POST"
+          target="_blank"
           style={{
             backgroundColor: '#eee8f0',
             padding: '2rem',
@@ -39,6 +40,9 @@ export default function Contact() {
             width: '100%',
           }}
         >
+          {/* Custom thank-you page redirect */}
+          <input type="hidden" name="_redirect" value="https://moniqueboskett.vercel.app/thankyou" />
+
           <div style={{ marginBottom: '1rem' }}>
             <label htmlFor="name" style={{ fontWeight: 'bold' }}>Name</label>
             <input
@@ -49,6 +53,7 @@ export default function Contact() {
               style={inputStyle}
             />
           </div>
+
           <div style={{ marginBottom: '1rem' }}>
             <label htmlFor="email" style={{ fontWeight: 'bold' }}>Email</label>
             <input
@@ -59,6 +64,7 @@ export default function Contact() {
               style={inputStyle}
             />
           </div>
+
           <div style={{ marginBottom: '1rem' }}>
             <label htmlFor="message" style={{ fontWeight: 'bold' }}>Message</label>
             <textarea
@@ -69,6 +75,7 @@ export default function Contact() {
               style={{ ...inputStyle, resize: 'vertical' }}
             ></textarea>
           </div>
+
           <button
             type="submit"
             style={{

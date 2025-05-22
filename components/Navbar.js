@@ -10,19 +10,17 @@ export default function Navbar() {
     { label: 'Personal', path: '/personal' },
     { label: 'Travel', path: '/travel' },
     { label: 'Charities', path: '/charities' },
-    { label: 'Contact Me', path: '/contact' }, // added link here
+    { label: 'Contact Me', path: '/contact' },
   ];
 
   return (
     <header style={styles.header}>
       <div style={styles.container}>
-        <Link href="/" style={styles.logoContainer}>
-          <img
-            src="/monique-logo.png"
-            alt="Monique Boskett Logo"
-            style={styles.logoImage}
-          />
-        </Link>
+        <div style={styles.logoWrapper}>
+          <Link href="/" style={styles.logoLink}>
+            <img src="/monique-logo.png" alt="Monique Boskett Logo" style={styles.logoImage} />
+          </Link>
+        </div>
         <nav style={styles.nav}>
           {navItems.map((item) => (
             <Link
@@ -60,8 +58,11 @@ const styles = {
     justifyContent: 'space-between',
     fontFamily: 'Fira Sans, sans-serif',
   },
-  logoContainer: {
-    display: 'flex',
+  logoWrapper: {
+    flexShrink: 0,
+  },
+  logoLink: {
+    display: 'inline-flex',
     alignItems: 'center',
   },
   logoImage: {
@@ -71,14 +72,18 @@ const styles = {
   },
   nav: {
     display: 'flex',
-    gap: '3rem',
+    justifyContent: 'center',
+    flex: 1,
+    gap: '2rem',
+    marginLeft: '2rem',
+    flexWrap: 'wrap',
   },
   link: {
     color: '#eee8f0',
-    fontSize: '1.1rem',
+    fontSize: '1.05rem',
     textDecoration: 'none',
-    fontWeight: '500',
-    transition: 'color 0.2s ease',
+    fontWeight: 500,
+    transition: 'border-bottom 0.2s ease',
   },
   activeLink: {
     borderBottom: '2px solid #eee8f0',
