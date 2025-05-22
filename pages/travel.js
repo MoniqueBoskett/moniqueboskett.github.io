@@ -48,7 +48,9 @@ const Travel = () => {
       <div style={pageStyle}>
         <h1 style={headingStyle}>My Travel Adventures</h1>
 
-        <VisitedStatesMap />
+        <div style={mapWrapperStyle}>
+          <VisitedStatesMap />
+        </div>
 
         {countries.map((country, index) => (
           <CountrySection key={index} country={country} onImageClick={setSelectedImage} />
@@ -156,8 +158,7 @@ const pageStyle = {
   padding: '2rem 1rem',
   paddingTop: '6rem',
   minHeight: '100vh',
-  maxWidth: '1200px',
-  margin: '0 auto',
+  boxSizing: 'border-box',
 };
 
 const headingStyle = {
@@ -166,9 +167,15 @@ const headingStyle = {
   marginBottom: '2rem',
 };
 
+const mapWrapperStyle = {
+  width: '100%',
+  overflowX: 'auto',
+  marginBottom: '2rem',
+};
+
 const photoGridStyle = {
   display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
+  gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))',
   gap: '1rem',
 };
 

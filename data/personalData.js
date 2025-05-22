@@ -41,7 +41,7 @@ photos: ["cats.jpg", "cats2.jpg","cats3.jpg","cats4.jpg","cats5.jpg","cats6.jpg"
 collapsible: true,
 },
 {
-text: "Estoy aprendiendo español 🇪🇸 — As of May 21, 2025, I'm on a 70-day streak!",
+text: "Estoy aprendiendo español 🇪🇸 — As of May 21, 2025, I'mon a 70-day streak!",
 photos: [],
 },
 {
@@ -93,6 +93,15 @@ collapsible: true,
 {
 text: "I love fishing 🎣 in my spare time",
 photos: ["fishing.jpg", "fishing2.jpg", "fishing3.jpg", "fishing4.jpg", "fishing5.jpg", "fishing6.jpg",],
+collapsible: true,
+},
+{
+text: "Every time I like a song I add it to a Spotify playlist called 'Favs' 🎶",
+link: {
+href: "",
+label: "",
+},
+photos: [],
 collapsible: true,
 },
 ];

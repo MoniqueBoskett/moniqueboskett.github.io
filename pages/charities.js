@@ -38,7 +38,7 @@ export default function Charities() {
             {galleryOpen ? '▲ Hide Giving Back in Action' : '▼ Show Giving Back in Action'}
           </button>
           {galleryOpen && (
-            <div style={galleryGrid}>
+            <div style={{ marginTop: '1rem', ...galleryGrid }}>
               {charityGallery.map((photo, i) => (
                 <img
                   key={i}
@@ -74,28 +74,43 @@ export default function Charities() {
                 <h2 style={{ margin: 0 }}>{charity.name}</h2>
                 <p style={{ margin: '0.25rem 0' }}>EIN: {charity.ein || 'N/A'}</p>
                 <p>
-                  <a href={charity.website} target="_blank" rel="noopener noreferrer"
+                  <a
+                    href={charity.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={() => window.va?.track('link_click', { type: 'website', charity: charity.name })}
-                    style={linkStyle}>
+                    style={linkStyle}
+                  >
                     {charity.website}
                   </a>
                 </p>
                 <p style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <a href={`https://www.instagram.com/${charity.instagram}`} target="_blank" rel="noopener noreferrer"
+                  <a
+                    href={`https://www.instagram.com/${charity.instagram}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={() => window.va?.track('link_click', { type: 'instagram', charity: charity.name })}
-                    style={linkStyle}>
+                    style={linkStyle}
+                  >
                     <Instagram size={18} strokeWidth={2} /> @{charity.instagram}
                   </a>
                 </p>
-                <a href={charity.website} target="_blank" rel="noopener noreferrer"
+                <a
+                  href={charity.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => window.va?.track('link_click', { type: 'donate', charity: charity.name })}
-                  style={donateButton}>
+                  style={donateButton}
+                >
                   Donate
                 </a>
               </div>
             </div>
 
-            <button onClick={() => setExpandedIndex(expandedIndex === index ? null : index)} style={toggleButton}>
+            <button
+              onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
+              style={toggleButton}
+            >
               {expandedIndex === index ? '▲ Hide Description' : '▼ About This Charity'}
             </button>
 
@@ -121,8 +136,11 @@ export default function Charities() {
             display: 'flex', justifyContent: 'center', alignItems: 'center',
             zIndex: 1000,
           }}>
-            <img src={modalImage} alt="Expanded view"
-              style={{ maxHeight: '90%', maxWidth: '90%', border: '6px solid #eee8f0', borderRadius: '12px' }} />
+            <img
+              src={modalImage}
+              alt="Expanded view"
+              style={{ maxHeight: '90%', maxWidth: '90%', border: '6px solid #eee8f0', borderRadius: '12px' }}
+            />
           </div>
         )}
 
@@ -134,6 +152,7 @@ export default function Charities() {
   );
 }
 
+// Styles
 const pageStyle = {
   backgroundColor: '#dcc0e5',
   color: '#413b42',

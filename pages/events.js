@@ -42,7 +42,7 @@ export default function Events() {
           mobileScrollSupport={true}
           onFlip={(e) => setCurrentPage(e.data)}
           ref={bookRef}
-          style={{ width: '100%', maxWidth: '95vw', margin: '0 auto' }}
+          style={{ width: '100%', maxWidth: '95vw' }}
         >
           {pages.map((page, i) => (
             <div key={i} className="page">
@@ -95,7 +95,6 @@ const headingStyle = {
   textAlign: 'center',
   fontSize: '2.5rem',
   marginBottom: '1.5rem',
-  padding: '0 1rem',
 };
 
 const flipbookWrapper = {
@@ -123,7 +122,6 @@ const thumbnailGrid = {
   justifyContent: 'center',
   gap: '0.5rem',
   marginBottom: '2rem',
-  padding: '0 1rem',
 };
 
 const thumbnailItem = {
@@ -152,7 +150,6 @@ const thumbnailLabel = {
 const downloadWrapper = {
   textAlign: 'center',
   marginBottom: '3rem',
-  padding: '0 1rem',
 };
 
 const downloadButton = {
