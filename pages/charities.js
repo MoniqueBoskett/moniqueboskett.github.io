@@ -35,15 +35,11 @@ export default function Charities() {
           Whether you choose to support one of my favorites or discover a new one of your own, thank you for taking the time to give back.
         </p>
 
-        {/* Collapsible Photo Gallery */}
+        {/* Collapsible Gallery */}
         <div style={cardWrapper}>
-          <button
-            onClick={() => setGalleryOpen(!galleryOpen)}
-            style={toggleButton}
-          >
+          <button onClick={() => setGalleryOpen(!galleryOpen)} style={toggleButton}>
             {galleryOpen ? '▲ Hide Giving Back in Action' : '▼ Show Giving Back in Action'}
           </button>
-
           {galleryOpen && (
             <div style={galleryGrid}>
               {charityGallery.map((photo, i) => (
@@ -59,7 +55,7 @@ export default function Charities() {
           )}
         </div>
 
-        {/* Search */}
+        {/* Search Input */}
         <div style={{ maxWidth: '600px', margin: '0 auto 2rem' }}>
           <input
             type="text"
@@ -93,7 +89,7 @@ export default function Charities() {
                     href={charity.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={() => window.va && window.va.track('donate_click', { charity: charity.name })}
+                    onClick={() => window.va && window.va.track('link_click', { type: 'website', charity: charity.name })}
                     style={{ color: '#413b42', fontWeight: 'bold' }}
                   >
                     {charity.website}
@@ -104,6 +100,7 @@ export default function Charities() {
                     href={`https://www.instagram.com/${charity.instagram}`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => window.va && window.va.track('link_click', { type: 'instagram', charity: charity.name })}
                     style={{
                       color: '#413b42',
                       display: 'inline-flex',
@@ -118,7 +115,7 @@ export default function Charities() {
                   href={charity.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => window.va && window.va.track('donate_click', { charity: charity.name })}
+                  onClick={() => window.va && window.va.track('link_click', { type: 'donate', charity: charity.name })}
                   style={donateButton}
                 >
                   Donate

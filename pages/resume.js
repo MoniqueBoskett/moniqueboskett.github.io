@@ -1,3 +1,4 @@
+
 // pages/resume.js
 import Navbar from '../components/Navbar';
 import BackToTopButton from '../components/BackToTopButton';
@@ -61,6 +62,46 @@ export default function Resume() {
             {edu.bullets.map((b, j) => (
               <p key={j} style={{ marginLeft: '3.5rem', marginBottom: '0.25rem' }}>{b}</p>
             ))}
+
+            {edu.school === 'Drexel University' && (
+              <div style={{ marginTop: '1rem', marginLeft: '3.5rem' }}>
+                <h4 style={{ marginBottom: '0.5rem' }}>Featured Articles:</h4>
+                <ul style={{ paddingLeft: '1.5rem' }}>
+                  <li>
+                    <a href="https://www.lebow.drexel.edu/news/amid-work-and-mba-studies-2023-graduate-commencement-speaker-monique-boskett-finds"
+                      target="_blank" rel="noopener noreferrer"
+                      onClick={() => window.va && window.va.track('article_click', { article: 'Drexel Commencement Feature' })}
+                      style={articleLinkStyle}>
+                      Amid Work and MBA Studies, 2023 Graduate Commencement Speaker...
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.lebow.drexel.edu/news/meet-student-commencement-speakers-lebow-class-2023"
+                      target="_blank" rel="noopener noreferrer"
+                      onClick={() => window.va && window.va.track('article_click', { article: 'LeBow Class of 2023 Speakers' })}
+                      style={articleLinkStyle}>
+                      Meet the Student Commencement Speakers for the LeBow Class of 2023
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.lebow.drexel.edu/news/lebow-students-named-inaugural-nina-henderson-provost-scholars"
+                      target="_blank" rel="noopener noreferrer"
+                      onClick={() => window.va && window.va.track('article_click', { article: 'LeBow Nina Henderson Scholars' })}
+                      style={articleLinkStyle}>
+                      LeBow Students Named Inaugural Nina Henderson Provost Scholars
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://drexel.edu/provost/news-events/announcements/2021/december/the-inaugural-nina-henderson-provost-scholars"
+                      target="_blank" rel="noopener noreferrer"
+                      onClick={() => window.va && window.va.track('article_click', { article: 'Drexel Nina Henderson Provost Scholars' })}
+                      style={articleLinkStyle}>
+                      The Inaugural Nina Henderson Provost Scholars
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            )}
           </div>
         ))}
 
@@ -77,12 +118,9 @@ export default function Resume() {
           <a href="/Monique_Boskett_Resume.pdf" download style={buttonStyle}>
             <Download size={16} style={{ marginRight: '0.5rem' }} /> Download Resume
           </a>
-          <a
-            href="https://www.linkedin.com/in/moniqueboskett"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ ...buttonStyle, marginLeft: '1rem', backgroundColor: '#0077b5' }}
-          >
+          <a href="https://www.linkedin.com/in/moniqueboskett" target="_blank" rel="noopener noreferrer"
+             onClick={() => window.va && window.va.track('article_click', { article: 'LinkedIn Profile' })}
+             style={{ ...buttonStyle, marginLeft: '1rem', backgroundColor: '#0077b5' }}>
             <Linkedin size={16} style={{ marginRight: '0.5rem' }} /> View LinkedIn
           </a>
         </div>
@@ -137,4 +175,9 @@ const buttonStyle = {
   display: 'inline-flex',
   alignItems: 'center',
   fontWeight: 'bold',
+};
+
+const articleLinkStyle = {
+  color: '#413b42',
+  textDecoration: 'underline',
 };

@@ -14,6 +14,12 @@ export default function Personal() {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  const handleLinkClick = (label) => {
+    if (window.va) {
+      window.va.track('link_click', { label });
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -50,6 +56,7 @@ export default function Personal() {
                   href={fact.link.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => handleLinkClick(fact.link.label)}
                   style={{ color: '#413b42', fontWeight: 'bold' }}
                 >
                   {fact.link.label}
@@ -107,7 +114,6 @@ export default function Personal() {
               <form
                 action="https://formspree.io/f/mpwdnlyw"
                 method="POST"
-                target="_blank"
                 style={{ marginTop: '1.5rem' }}
               >
                 <input type="hidden" name="_redirect" value="https://moniqueboskett.vercel.app/thankyou" />
@@ -149,7 +155,6 @@ export default function Personal() {
           </div>
         ))}
 
-        {/* Modal Image Viewer */}
         {modalImage && (
           <div
             onClick={() => setModalImage(null)}
