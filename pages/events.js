@@ -30,19 +30,19 @@ export default function Events() {
 
       <div style={flipbookWrapper}>
         <HTMLFlipBook
-          width={600}
-          height={800}
+          width={500}
+          height={700}
           size="stretch"
-          minWidth={280}
-          maxWidth={1000}
+          minWidth={260}
+          maxWidth={800}
           minHeight={400}
-          maxHeight={1536}
+          maxHeight={1400}
           maxShadowOpacity={0.3}
           showCover={false}
           mobileScrollSupport={true}
           onFlip={(e) => setCurrentPage(e.data)}
           ref={bookRef}
-          style={{ width: '100%' }}
+          style={{ width: '100%', maxWidth: '85vw' }}
         >
           {pages.map((page, i) => (
             <div key={i} className="page">
@@ -85,10 +85,9 @@ const pageStyle = {
   backgroundColor: '#dcc0e5',
   color: '#413b42',
   fontFamily: 'Fira Sans',
+  padding: '2rem 1rem',
   paddingTop: '6rem',
-  paddingBottom: '2rem',
-  width: '100%',
-  margin: 0,
+  minHeight: '100vh',
   boxSizing: 'border-box',
 };
 
@@ -96,7 +95,6 @@ const headingStyle = {
   textAlign: 'center',
   fontSize: '2.5rem',
   marginBottom: '1.5rem',
-  padding: '0 1rem',
 };
 
 const flipbookWrapper = {
@@ -104,8 +102,6 @@ const flipbookWrapper = {
   justifyContent: 'center',
   marginBottom: '2rem',
   width: '100%',
-  overflowX: 'hidden',
-  boxSizing: 'border-box',
 };
 
 const imageStyle = {
@@ -155,7 +151,6 @@ const thumbnailLabel = {
 const downloadWrapper = {
   textAlign: 'center',
   marginBottom: '3rem',
-  padding: '0 1rem',
 };
 
 const downloadButton = {
