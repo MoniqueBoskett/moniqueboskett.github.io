@@ -98,7 +98,7 @@ export default function Home() {
           }}
         >
           <a
-            href="https://github.com/MoniqueBoskett"
+            href="https://moniqueboskett.github.io/"
             target="_blank"
             rel="noopener noreferrer"
             title="GitHub"

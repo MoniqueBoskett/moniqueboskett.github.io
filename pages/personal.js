@@ -76,6 +76,13 @@ export default function Personal() {
               )}
             </p>
 
+            {/* Embedded content like Spotify/Duolingo */}
+            {fact.embed && (
+              <div style={{ marginTop: '1rem' }}>
+                {fact.embed}
+              </div>
+            )}
+
             {fact.photos?.length > 0 && (
               <>
                 <button
