@@ -96,7 +96,7 @@ photos: ["fishing.jpg", "fishing2.jpg", "fishing3.jpg", "fishing4.jpg", "fishing
 collapsible: true,
 },
 {
-text: "Every time I like a song I add it to a Spotify playlist called 'Favs' 🎶",
+text: "Every time I hear a song I like, I add it to a Spotify playlist called 'Favs' 🎶",
 link: {
 href: "",
 label: "",
