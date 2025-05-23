@@ -41,11 +41,7 @@ export const funFacts = [
     collapsible: true,
   },
   {
-    text: "Estoy aprendiendo español 🇪🇸 — As of May 21, 2025, I'm on a 70-day streak!",
-    photos: [],
-  },
-  {
-    text: "I've decided to learn Spanish, check out my Duolingo Streak 🌟",
+    text: "Estoy aprendiendo español 🇪🇸 — Check out my Duolingo Streak 🌟",
     embed: (
       <img
         src="https://duolingo-stats-card.vercel.app/api?username=Moniquelynee&theme=purple-gang"
