@@ -22,7 +22,7 @@ const stateNames = {
 const unvisitedStates = [
   'AL', 'AK', 'AR', 'HI', 'ID', 'IA', 'KS', 'KY', 'ME', 'MI',
   'MN', 'MO', 'MT', 'NE', 'NH', 'NM', 'ND', 'OK', 'OR', 'SD',
-  'WA', 'WV', 'WY'
+  'WA', 'WY'
 ];
 
 // Map coloring
