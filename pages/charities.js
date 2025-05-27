@@ -4,6 +4,7 @@ import { Instagram } from 'lucide-react';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { charities } from '../data/charitiesData';
+import { headingStyle, sectionStyle } from '../styles/styles';
 
 const charityGallery = [
   'charity.jpg', 'charity2.jpg', 'charity3.jpg', 'charity4.jpg',
@@ -22,8 +23,9 @@ export default function Charities() {
   );
 
   return (
-    <section>
-      <h1 style={titleStyle}>Charities I Support</h1>
+    <section style={sectionStyle}>
+      <h1 style={headingStyle}>Charities I Support</h1>
+
       <p style={descriptionStyle}>
         Giving back is an important part of who I am. I believe in supporting causes that create real change in people&apos;s lives.
         Whether you choose to support one of my favorites or discover a new one of your own, thank you for taking the time to give back.
@@ -149,14 +151,7 @@ export default function Charities() {
   );
 }
 
-// 🔧 Styles
-const titleStyle = {
-  fontSize: '2.25rem',
-  textAlign: 'center',
-  marginBottom: '2rem',
-  padding: '0 1rem',
-};
-
+// 🔧 Local styles
 const descriptionStyle = {
   textAlign: 'center',
   maxWidth: '800px',

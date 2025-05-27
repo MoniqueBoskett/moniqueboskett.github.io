@@ -1,11 +1,12 @@
 // components/Layout.js
 import Navbar from './Navbar';
+import { layoutStyles } from '../styles/styles';
 
 export default function Layout({ children }) {
   return (
     <>
       <Navbar />
-      <main style={{ paddingTop: '100px', maxWidth: '1100px', margin: '0 auto' }}>
+      <main style={layoutStyles.main}>
         {children}
       </main>
     </>
