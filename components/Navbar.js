@@ -27,13 +27,14 @@ export default function Navbar() {
 
   return (
     <header style={styles.header}>
-      <div style={styles.container}>
-        {/* Hamburger Icon */}
-        <button onClick={() => setMenuOpen(!menuOpen)} style={styles.hamburgerButton}>
-          {menuOpen ? <X size={28} color="#eee8f0" /> : <Menu size={28} color="#eee8f0" />}
-        </button>
+      <div style={styles.topBar}>
+        <div style={styles.menuLabel}>
+          <span style={styles.menuText}>Menu</span>
+          <button onClick={() => setMenuOpen(!menuOpen)} style={styles.hamburgerButton}>
+            {menuOpen ? <X size={28} color="#eee8f0" /> : <Menu size={28} color="#eee8f0" />}
+          </button>
+        </div>
 
-        {/* Centered Logo */}
         <div style={styles.logoWrapper}>
           <Link href="/" style={styles.logoLink}>
             <img src="/monique-logo.png" alt="Monique Boskett Logo" style={styles.logoImage} />
@@ -41,7 +42,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Slide-down Menu */}
       <div
         style={{
           ...styles.navMenu,
@@ -73,20 +73,28 @@ const styles = {
   header: {
     position: 'fixed',
     top: 0,
-    left: 0,
-    right: 0,
     width: '100%',
     backgroundColor: '#413b42',
     zIndex: 1000,
     fontFamily: 'Fira Sans, sans-serif',
     boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
   },
-  container: {
+  topBar: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
+    padding: '1.5rem 1.25rem', // increased vertical padding
     position: 'relative',
-    padding: '0.75rem 1.25rem',
+  },
+  menuLabel: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.5rem',
+  },
+  menuText: {
+    color: '#eee8f0',
+    fontWeight: 'bold',
+    fontSize: '1rem',
   },
   hamburgerButton: {
     background: 'none',
