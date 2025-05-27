@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
 import HTMLFlipBook from 'react-pageflip';
-import Layout from '../components/Layout';
 import BackToTopButton from '../components/BackToTopButton';
 import { Download } from 'lucide-react';
 
@@ -24,70 +23,68 @@ export default function Events() {
   }, []);
 
   return (
-    <Layout>
-      <section style={pageStyle}>
-        <h1 style={headingStyle}>Event Portfolio</h1>
+    <section style={pageStyle}>
+      <h1 style={headingStyle}>Event Portfolio</h1>
 
-        <div style={flipbookWrapper}>
-          <HTMLFlipBook
-            width={500}
-            height={700}
-            size="stretch"
-            minWidth={260}
-            maxWidth={800}
-            minHeight={400}
-            maxHeight={1400}
-            maxShadowOpacity={0.3}
-            showCover={false}
-            mobileScrollSupport={true}
-            onFlip={(e) => setCurrentPage(e.data)}
-            ref={bookRef}
-            style={{ width: '100%', maxWidth: '85vw' }}
-          >
-            {pages.map((page, i) => (
-              <div key={i} className="page">
-                <img
-                  src={page.src}
-                  alt={page.label}
-                  loading="lazy"
-                  style={imageStyle}
-                />
-                <div style={pageLabel}>{page.label}</div>
-              </div>
-            ))}
-          </HTMLFlipBook>
-        </div>
-
-        <div style={thumbnailGrid}>
+      <div style={flipbookWrapper}>
+        <HTMLFlipBook
+          width={500}
+          height={700}
+          size="stretch"
+          minWidth={260}
+          maxWidth={800}
+          minHeight={400}
+          maxHeight={1400}
+          maxShadowOpacity={0.3}
+          showCover={false}
+          mobileScrollSupport={true}
+          onFlip={(e) => setCurrentPage(e.data)}
+          ref={bookRef}
+          style={{ width: '100%', maxWidth: '85vw' }}
+        >
           {pages.map((page, i) => (
-            <div
-              key={i}
-              onClick={() => bookRef.current.pageFlip().turnToPage(i)}
-              style={{
-                ...thumbnailItem,
-                border: i === currentPage ? '3px solid #413b42' : '1px solid #aaa',
-              }}
-            >
+            <div key={i} className="page">
               <img
                 src={page.src}
                 alt={page.label}
                 loading="lazy"
-                style={thumbnailImage}
+                style={imageStyle}
               />
-              <span style={thumbnailLabel}>{page.label}</span>
+              <div style={pageLabel}>{page.label}</div>
             </div>
           ))}
-        </div>
+        </HTMLFlipBook>
+      </div>
 
-        <div style={downloadWrapper}>
-          <a href="/Monique_Boskett_Event_Portfolio.pdf" download style={downloadButton}>
-            <Download size={18} style={{ marginRight: '0.5rem' }} /> Download Full PDF
-          </a>
-        </div>
+      <div style={thumbnailGrid}>
+        {pages.map((page, i) => (
+          <div
+            key={i}
+            onClick={() => bookRef.current.pageFlip().turnToPage(i)}
+            style={{
+              ...thumbnailItem,
+              border: i === currentPage ? '3px solid #413b42' : '1px solid #aaa',
+            }}
+          >
+            <img
+              src={page.src}
+              alt={page.label}
+              loading="lazy"
+              style={thumbnailImage}
+            />
+            <span style={thumbnailLabel}>{page.label}</span>
+          </div>
+        ))}
+      </div>
 
-        <BackToTopButton />
-      </section>
-    </Layout>
+      <div style={downloadWrapper}>
+        <a href="/Monique_Boskett_Event_Portfolio.pdf" download style={downloadButton}>
+          <Download size={18} style={{ marginRight: '0.5rem' }} /> Download Full PDF
+        </a>
+      </div>
+
+      <BackToTopButton />
+    </section>
   );
 }
 

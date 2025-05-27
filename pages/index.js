@@ -1,10 +1,9 @@
-import Layout from '../components/Layout';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import BackToTopButton from '../components/BackToTopButton';
 
 export default function Home() {
   return (
-    <Layout>
+    <>
       <h1
         style={{
           fontSize: '2.5rem',
@@ -92,6 +91,6 @@ export default function Home() {
       </footer>
 
       <BackToTopButton />
-    </Layout>
+    </>
   );
 }

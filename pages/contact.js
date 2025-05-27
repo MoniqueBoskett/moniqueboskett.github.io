@@ -1,48 +1,45 @@
-import Layout from '../components/Layout';
 import BackToTopButton from '../components/BackToTopButton';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export default function Contact() {
   return (
-    <Layout>
-      <section style={pageStyle}>
-        <h1 style={titleStyle}>Get in Touch 💌</h1>
-        <p style={descriptionStyle}>
-          Have a question, collaboration idea, or just want to say hello? Fill out the form below and I&apos;ll get back to you!
-        </p>
+    <section style={pageStyle}>
+      <h1 style={titleStyle}>Get in Touch 💌</h1>
+      <p style={descriptionStyle}>
+        Have a question, collaboration idea, or just want to say hello? Fill out the form below and I&apos;ll get back to you!
+      </p>
 
-        <form
-          action="https://formspree.io/f/mpwdnlyw"
-          method="POST"
-          target="_blank"
-          style={formWrapper}
-        >
-          <input type="hidden" name="_redirect" value="https://moniqueboskett.vercel.app/thankyou" />
+      <form
+        action="https://formspree.io/f/mpwdnlyw"
+        method="POST"
+        target="_blank"
+        style={formWrapper}
+      >
+        <input type="hidden" name="_redirect" value="https://moniqueboskett.vercel.app/thankyou" />
 
-          <div style={fieldGroup}>
-            <label htmlFor="name" style={labelStyle}>Name</label>
-            <input type="text" name="name" id="name" required style={inputStyle} />
-          </div>
+        <div style={fieldGroup}>
+          <label htmlFor="name" style={labelStyle}>Name</label>
+          <input type="text" name="name" id="name" required style={inputStyle} />
+        </div>
 
-          <div style={fieldGroup}>
-            <label htmlFor="email" style={labelStyle}>Email</label>
-            <input type="email" name="email" id="email" required style={inputStyle} />
-          </div>
+        <div style={fieldGroup}>
+          <label htmlFor="email" style={labelStyle}>Email</label>
+          <input type="email" name="email" id="email" required style={inputStyle} />
+        </div>
 
-          <div style={fieldGroup}>
-            <label htmlFor="message" style={labelStyle}>Message</label>
-            <textarea name="message" id="message" rows="5" required style={{ ...inputStyle, resize: 'vertical' }} />
-          </div>
+        <div style={fieldGroup}>
+          <label htmlFor="message" style={labelStyle}>Message</label>
+          <textarea name="message" id="message" rows="5" required style={{ ...inputStyle, resize: 'vertical' }} />
+        </div>
 
-          <button type="submit" style={submitButton}>Send Message</button>
-        </form>
+        <button type="submit" style={submitButton}>Send Message</button>
+      </form>
 
-        <BackToTopButton />
-        <Analytics />
-        <SpeedInsights />
-      </section>
-    </Layout>
+      <BackToTopButton />
+      <Analytics />
+      <SpeedInsights />
+    </section>
   );
 }
 
