@@ -152,4 +152,92 @@ export default function Charities() {
   );
 }
 
-// Keep all your style objects unchanged for now 👍
+// Styles
+const titleStyle = {
+  textAlign: 'center',
+  fontSize: '2.5rem',
+  marginBottom: '1rem',
+};
+
+const descriptionStyle = {
+  textAlign: 'center',
+  maxWidth: '800px',
+  margin: '0 auto 2rem',
+  fontSize: '1.1rem',
+};
+
+const cardWrapper = {
+  backgroundColor: '#eee8f0',
+  borderRadius: '12px',
+  padding: '1.5rem',
+  marginBottom: '2rem',
+  margin: '0 auto 2rem',
+  width: '100%',
+  maxWidth: '900px',
+  boxSizing: 'border-box',
+};
+
+const charityHeader = {
+  display: 'flex',
+  alignItems: 'flex-start',
+  gap: '1.5rem',
+  flexWrap: 'wrap',
+  marginBottom: '1rem',
+};
+
+const logoStyle = {
+  width: '150px',
+  objectFit: 'contain',
+  flexShrink: 0,
+};
+
+const toggleButton = {
+  backgroundColor: '#dcc0e5',
+  border: 'none',
+  padding: '0.5rem 1rem',
+  cursor: 'pointer',
+  fontWeight: 'bold',
+  borderRadius: '6px',
+  color: '#413b42',
+  marginTop: '1rem',
+};
+
+const galleryGrid = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))',
+  gap: '0.75rem',
+};
+
+const thumbnailStyle = {
+  width: '100%',
+  height: '140px',
+  objectFit: 'cover',
+  borderRadius: '8px',
+  cursor: 'pointer',
+};
+
+const searchInput = {
+  width: '100%',
+  padding: '0.75rem 1rem',
+  fontSize: '1rem',
+  borderRadius: '8px',
+  border: '1px solid #aaa',
+  boxSizing: 'border-box',
+};
+
+const donateButton = {
+  display: 'inline-block',
+  marginTop: '0.75rem',
+  backgroundColor: '#dcc0e5',
+  color: '#413b42',
+  padding: '0.5rem 1rem',
+  borderRadius: '6px',
+  fontWeight: 'bold',
+  textDecoration: 'none',
+};
+
+const linkStyle = {
+  color: '#413b42',
+  fontWeight: 'bold',
+  textDecoration: 'underline',
+};
