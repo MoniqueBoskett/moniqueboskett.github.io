@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Layout from '../components/Layout';
 import VisitedStatesMap from '../components/VisitedStatesMap';
 import BackToTopButton from '../components/BackToTopButton';
 import Modal from 'react-modal';
@@ -43,51 +42,49 @@ export default function Travel() {
   const [selectedImage, setSelectedImage] = useState(null);
 
   return (
-    <Layout>
-      <section style={pageStyle}>
-        <h1 style={headingStyle}>My Travel Adventures</h1>
+    <section style={pageStyle}>
+      <h1 style={headingStyle}>My Travel Adventures</h1>
 
-        <div style={mapWrapperStyle}>
-          <VisitedStatesMap />
-        </div>
+      <div style={mapWrapperStyle}>
+        <VisitedStatesMap />
+      </div>
 
-        {countries.map((country, index) => (
-          <CountrySection key={index} country={country} onImageClick={setSelectedImage} />
-        ))}
+      {countries.map((country, index) => (
+        <CountrySection key={index} country={country} onImageClick={setSelectedImage} />
+      ))}
 
-        <Modal
-          isOpen={!!selectedImage}
-          onRequestClose={() => setSelectedImage(null)}
-          contentLabel="Enlarged Travel Photo"
+      <Modal
+        isOpen={!!selectedImage}
+        onRequestClose={() => setSelectedImage(null)}
+        contentLabel="Enlarged Travel Photo"
+        style={{
+          overlay: { backgroundColor: 'rgba(0, 0, 0, 0.75)', zIndex: 9999 },
+          content: {
+            inset: '10%',
+            background: 'transparent',
+            border: 'none',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: 0,
+          },
+        }}
+      >
+        <img
+          src={`/travel/${selectedImage}`}
+          alt="Enlarged travel photo"
+          loading="lazy"
           style={{
-            overlay: { backgroundColor: 'rgba(0, 0, 0, 0.75)', zIndex: 9999 },
-            content: {
-              inset: '10%',
-              background: 'transparent',
-              border: 'none',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              padding: 0,
-            },
+            maxHeight: '90vh',
+            maxWidth: '90vw',
+            borderRadius: '10px',
+            objectFit: 'contain',
           }}
-        >
-          <img
-            src={`/travel/${selectedImage}`}
-            alt="Enlarged travel photo"
-            loading="lazy"
-            style={{
-              maxHeight: '90vh',
-              maxWidth: '90vw',
-              borderRadius: '10px',
-              objectFit: 'contain',
-            }}
-          />
-        </Modal>
+        />
+      </Modal>
 
-        <BackToTopButton />
-      </section>
-    </Layout>
+      <BackToTopButton />
+    </section>
   );
 }
 
