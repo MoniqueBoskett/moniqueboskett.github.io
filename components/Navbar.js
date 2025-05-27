@@ -71,7 +71,7 @@ export default function Navbar() {
 
 const styles = {
   header: {
-    position: 'fixed',
+    position: 'sticky', // 🧲 Keeps the navbar stuck to top while scrolling
     top: 0,
     width: '100%',
     backgroundColor: '#413b42',
@@ -83,7 +83,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: '1.5rem 1.25rem', // increased vertical padding
+    padding: '1.5rem 1.25rem',
     position: 'relative',
   },
   menuLabel: {

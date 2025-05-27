@@ -1,14 +1,14 @@
-import Navbar from '../components/Navbar';
+import Layout from '../components/Layout';
 import BackToTopButton from '../components/BackToTopButton';
 
 export default function ThankYou() {
   return (
-    <>
-      <Navbar />
-      <div style={pageStyle}>
+    <Layout>
+      <section style={pageStyle}>
         <img
           src="/monique-logo.png"
           alt="Monique Boskett Logo"
+          loading="lazy"
           style={logoStyle}
         />
         <h1 style={headingStyle}>Thank You! 💌</h1>
@@ -16,19 +16,17 @@ export default function ThankYou() {
           Your message has been sent. I appreciate you reaching out and will get back to you as soon as possible!
         </p>
         <BackToTopButton />
-      </div>
-    </>
+      </section>
+    </Layout>
   );
 }
 
 // Styles
 const pageStyle = {
-  backgroundColor: '#dcc0e5',
   color: '#413b42',
   fontFamily: 'Fira Sans',
   minHeight: '100vh',
   padding: '2rem 1rem',
-  paddingTop: '6rem',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',

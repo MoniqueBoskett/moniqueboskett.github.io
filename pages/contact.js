@@ -1,14 +1,12 @@
-// pages/contact.js
-import Navbar from '../components/Navbar';
+import Layout from '../components/Layout';
 import BackToTopButton from '../components/BackToTopButton';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export default function Contact() {
   return (
-    <>
-      <Navbar />
-      <div style={pageStyle}>
+    <Layout>
+      <section style={pageStyle}>
         <h1 style={titleStyle}>Get in Touch 💌</h1>
         <p style={descriptionStyle}>
           Have a question, collaboration idea, or just want to say hello? Fill out the form below and I&apos;ll get back to you!
@@ -43,19 +41,16 @@ export default function Contact() {
         <BackToTopButton />
         <Analytics />
         <SpeedInsights />
-      </div>
-    </>
+      </section>
+    </Layout>
   );
 }
 
 // Styles
 const pageStyle = {
-  backgroundColor: '#dcc0e5',
   color: '#413b42',
   fontFamily: 'Fira Sans',
   padding: '2rem 1rem',
-  paddingTop: '6rem',
-  minHeight: '100vh',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',

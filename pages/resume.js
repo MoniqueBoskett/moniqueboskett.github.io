@@ -1,4 +1,4 @@
-import Navbar from '../components/Navbar';
+import Layout from '../components/Layout';
 import BackToTopButton from '../components/BackToTopButton';
 import { jobs, education, skills } from '../data/resumeData';
 import { Briefcase, GraduationCap, Award, Download, Linkedin } from 'lucide-react';
@@ -7,8 +7,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export default function Resume() {
   return (
-    <>
-      <Navbar />
+    <Layout>
       <div style={pageStyle}>
         <h1 style={{ fontSize: '2.5rem', textAlign: 'center' }}>Resume</h1>
 
@@ -18,7 +17,7 @@ export default function Resume() {
           commitment to DEI, and a passion for creating meaningful experiences.
         </p>
 
-        {/* Experience Section */}
+        {/* Experience */}
         <h2 style={sectionHeader}><Briefcase size={20} style={{ marginRight: '0.5rem' }} /> Professional Experience</h2>
         {jobs.map((job, index) => (
           <div key={index} style={cardStyle}>
@@ -44,7 +43,7 @@ export default function Resume() {
           </div>
         ))}
 
-        {/* Education Section */}
+        {/* Education */}
         <h2 style={sectionHeader}><GraduationCap size={20} style={{ marginRight: '0.5rem' }} /> Education</h2>
         {education.map((edu, index) => (
           <div key={index} style={cardStyle}>
@@ -60,8 +59,6 @@ export default function Resume() {
             {edu.bullets.map((b, j) => (
               <p key={j} style={{ marginLeft: '2rem', marginBottom: '0.25rem' }}>{b}</p>
             ))}
-
-            {/* Drexel Article Links */}
             {edu.school === 'Drexel University' && (
               <div style={{ marginTop: '1rem', marginLeft: '2rem' }}>
                 <h4 style={{ marginBottom: '0.5rem' }}>Featured Articles:</h4>
@@ -106,7 +103,7 @@ export default function Resume() {
           </div>
         ))}
 
-        {/* Skills Section */}
+        {/* Skills */}
         <h2 style={sectionHeader}><Award size={20} style={{ marginRight: '0.5rem' }} /> Skills &amp; Certifications</h2>
         <div style={{
           ...cardStyle,
@@ -119,7 +116,7 @@ export default function Resume() {
           ))}
         </div>
 
-        {/* Buttons */}
+        {/* Links */}
         <div style={{
           textAlign: 'center',
           marginTop: '3rem',
@@ -146,7 +143,7 @@ export default function Resume() {
         <Analytics />
         <SpeedInsights />
       </div>
-    </>
+    </Layout>
   );
 }
 
