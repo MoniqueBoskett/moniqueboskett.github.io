@@ -1,6 +1,10 @@
 // data/personalData.js
 
 export const funFacts = [
+   {
+    text: "I created this site from scratch to learn how to code 💻",
+    photos: [],
+  },
   {
     text: "Both grandmothers collected elephants 🐘 — and they're my favorite animals too!",
     photos: ["elephants.jpg", "elephants2.jpg", "elephants3.jpg", "elephants4.jpg", "elephants5.jpg", "elephants6.jpg"],
@@ -36,7 +40,7 @@ export const funFacts = [
     allowComments: true,
   },
   {
-    text: "I have 2 (very cute, but very naughty) cats 🐱 Meet Anna & Ellie!",
+    text: "I have 2 (very cute, but very naughty) cats 🐱 Meet Anatasia Eloise (Anna) & Elephant Button Grey (Ellie)!",
     photos: ["cats.jpg", "cats2.jpg", "cats3.jpg", "cats4.jpg", "cats5.jpg", "cats6.jpg", "cats7.jpg", "cats8.jpg", "cats9.jpg", "cats10.jpg", "cats11.jpg", "cats12.jpg", "cats13.jpg", "cats14.jpg", "cats15.jpg", "cats16.jpg", "cats17.jpg", "cats18.jpg", "cats19.jpg", "cats20.jpg"],
     collapsible: true,
   },
@@ -49,14 +53,6 @@ export const funFacts = [
         style={{ width: '100%', maxWidth: '400px', borderRadius: '8px' }}
       />
     ),
-  },
-  {
-    text: "I have gastroparesis (AKA: stomach paralysis)⚕️ — read more about it ",
-    link: {
-      href: "https://my.clevelandclinic.org/health/diseases/15522-gastroparesis",
-      label: "here",
-    },
-    photos: [],
   },
   {
     text: "I’ve always loved being by the water 🌊 Whether it’s a boat, beach, or pool — count me in!",
@@ -101,8 +97,16 @@ export const funFacts = [
     photos: ["fishing.jpg", "fishing2.jpg", "fishing3.jpg", "fishing4.jpg", "fishing5.jpg", "fishing6.jpg"],
     collapsible: true,
   },
+    {
+    text: "I have gastroparesis (AKA: stomach paralysis)⚕️ — read more about it ",
+    link: {
+      href: "https://my.clevelandclinic.org/health/diseases/15522-gastroparesis",
+      label: "here",
+    },
+    photos: [],
+  },
   {
-    text: "Every time I hear a song I like, I add it to my Spotify playlist called 'favs' 🎶Take a listen",
+    text: "Every time I hear a song I like, I add it to my Spotify playlist called 'Favs' 🎶 Take a listen",
     embed: (
       <iframe
         style={{ borderRadius: '12px' }}
