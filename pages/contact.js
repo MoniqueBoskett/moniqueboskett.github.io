@@ -11,31 +11,33 @@ export default function Contact() {
         Have a question, collaboration idea, or just want to say hello? Fill out the form below and I&apos;ll get back to you!
       </p>
 
-      <form
-        action="https://formspree.io/f/mpwdnlyw"
-        method="POST"
-        target="_blank"
-        style={formWrapper}
-      >
-        <input type="hidden" name="_redirect" value="https://moniqueboskett.vercel.app/thankyou" />
+      <div style={centeredWrapper}>
+        <form
+          action="https://formspree.io/f/mpwdnlyw"
+          method="POST"
+          target="_blank"
+          style={formWrapper}
+        >
+          <input type="hidden" name="_redirect" value="https://moniqueboskett.vercel.app/thankyou" />
 
-        <div style={fieldGroup}>
-          <label htmlFor="name" style={labelStyle}>Name</label>
-          <input type="text" name="name" id="name" required style={inputStyle} />
-        </div>
+          <div style={fieldGroup}>
+            <label htmlFor="name" style={labelStyle}>Name</label>
+            <input type="text" name="name" id="name" required style={inputStyle} />
+          </div>
 
-        <div style={fieldGroup}>
-          <label htmlFor="email" style={labelStyle}>Email</label>
-          <input type="email" name="email" id="email" required style={inputStyle} />
-        </div>
+          <div style={fieldGroup}>
+            <label htmlFor="email" style={labelStyle}>Email</label>
+            <input type="email" name="email" id="email" required style={inputStyle} />
+          </div>
 
-        <div style={fieldGroup}>
-          <label htmlFor="message" style={labelStyle}>Message</label>
-          <textarea name="message" id="message" rows="5" required style={{ ...inputStyle, resize: 'vertical' }} />
-        </div>
+          <div style={fieldGroup}>
+            <label htmlFor="message" style={labelStyle}>Message</label>
+            <textarea name="message" id="message" rows="5" required style={{ ...inputStyle, resize: 'vertical' }} />
+          </div>
 
-        <button type="submit" style={submitButton}>Send Message</button>
-      </form>
+          <button type="submit" style={submitButton}>Send Message</button>
+        </form>
+      </div>
 
       <BackToTopButton />
       <Analytics />
@@ -45,6 +47,12 @@ export default function Contact() {
 }
 
 // 🔧 Styles
+const centeredWrapper = {
+  display: 'flex',
+  justifyContent: 'center',
+  width: '100%',
+};
+
 const descriptionStyle = {
   maxWidth: '600px',
   width: '100%',
@@ -52,6 +60,8 @@ const descriptionStyle = {
   marginBottom: '2rem',
   fontSize: '1.1rem',
   padding: '0 1rem',
+  marginLeft: 'auto',
+  marginRight: 'auto',
 };
 
 const formWrapper = {
