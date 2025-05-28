@@ -2,6 +2,7 @@ import { useState } from 'react';
 import VisitedStatesMap from '../components/VisitedStatesMap';
 import BackToTopButton from '../components/BackToTopButton';
 import Modal from 'react-modal';
+import { sectionStyle, headingStyle } from '../styles/styles';
 
 Modal.setAppElement('#__next');
 
@@ -42,7 +43,7 @@ export default function Travel() {
   const [selectedImage, setSelectedImage] = useState(null);
 
   return (
-    <section style={pageStyle}>
+    <section style={sectionStyle}>
       <h1 style={headingStyle}>My Travel Adventures</h1>
 
       <div style={mapWrapperStyle}>
@@ -117,15 +118,7 @@ const CountrySection = ({ country, onImageClick }) => {
         </div>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          style={{
-            backgroundColor: '#eee8f0',
-            color: '#413b42',
-            border: 'none',
-            padding: '0.5rem 1rem',
-            borderRadius: '6px',
-            cursor: 'pointer',
-            fontWeight: 'bold',
-          }}
+          style={toggleButton}
         >
           {isOpen ? '▼ Collapse' : '▶ Expand'}
         </button>
@@ -149,24 +142,21 @@ const CountrySection = ({ country, onImageClick }) => {
   );
 };
 
-// Styles
-const pageStyle = {
-  color: '#413b42',
-  fontFamily: 'Fira Sans',
-  padding: '2rem 1rem',
-  boxSizing: 'border-box',
-};
-
-const headingStyle = {
-  fontSize: '2.5rem',
-  textAlign: 'center',
-  marginBottom: '2rem',
-};
-
+// Custom Styles
 const mapWrapperStyle = {
   width: '100%',
   overflowX: 'auto',
   marginBottom: '2rem',
+};
+
+const toggleButton = {
+  backgroundColor: '#eee8f0',
+  color: '#413b42',
+  border: 'none',
+  padding: '0.5rem 1rem',
+  borderRadius: '6px',
+  cursor: 'pointer',
+  fontWeight: 'bold',
 };
 
 const photoGridStyle = {

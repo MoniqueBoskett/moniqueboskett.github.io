@@ -3,20 +3,23 @@ import { jobs, education, skills } from '../data/resumeData';
 import { Briefcase, GraduationCap, Award, Download, Linkedin } from 'lucide-react';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { sectionStyle, headingStyle } from '../styles/styles';
 
 export default function Resume() {
   return (
-    <div style={pageStyle}>
-      <h1 style={{ fontSize: '2.5rem', textAlign: 'center' }}>Resume</h1>
+    <section style={sectionStyle}>
+      <h1 style={headingStyle}>Resume</h1>
 
-      <p style={{ maxWidth: '800px', margin: '1rem auto 3rem', textAlign: 'center', fontSize: '1.1rem' }}>
+      <p style={introText}>
         I&apos;m a marketing and events strategist with over 10 years of experience leading branded activations,
         community programs, and high-impact campaigns. I bring strong cross-functional skills, a deep
         commitment to DEI, and a passion for creating meaningful experiences.
       </p>
 
       {/* Experience */}
-      <h2 style={sectionHeader}><Briefcase size={20} style={{ marginRight: '0.5rem' }} /> Professional Experience</h2>
+      <h2 style={sectionHeader}>
+        <Briefcase size={20} style={{ marginRight: '0.5rem' }} /> Professional Experience
+      </h2>
       {jobs.map((job, index) => (
         <div key={index} style={cardStyle}>
           <div style={headerStyle}>
@@ -42,7 +45,9 @@ export default function Resume() {
       ))}
 
       {/* Education */}
-      <h2 style={sectionHeader}><GraduationCap size={20} style={{ marginRight: '0.5rem' }} /> Education</h2>
+      <h2 style={sectionHeader}>
+        <GraduationCap size={20} style={{ marginRight: '0.5rem' }} /> Education
+      </h2>
       {education.map((edu, index) => (
         <div key={index} style={cardStyle}>
           <div style={headerStyle}>
@@ -102,7 +107,9 @@ export default function Resume() {
       ))}
 
       {/* Skills */}
-      <h2 style={sectionHeader}><Award size={20} style={{ marginRight: '0.5rem' }} /> Skills &amp; Certifications</h2>
+      <h2 style={sectionHeader}>
+        <Award size={20} style={{ marginRight: '0.5rem' }} /> Skills &amp; Certifications
+      </h2>
       <div style={{
         ...cardStyle,
         display: 'grid',
@@ -115,15 +122,8 @@ export default function Resume() {
       </div>
 
       {/* Links */}
-      <div style={{
-        textAlign: 'center',
-        marginTop: '3rem',
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
-        gap: '1rem'
-      }}>
-        <a href="/Monique_Boskett_Resume.pdf" download style={buttonStyle}>
+      <div style={linkWrapper}>
+        <a href="/Monique_Boskett_Resume.pdf" download style={downloadButton}>
           <Download size={16} style={{ marginRight: '0.5rem' }} /> Download Resume
         </a>
         <a
@@ -131,7 +131,7 @@ export default function Resume() {
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => window.va?.track('article_click', { article: 'LinkedIn Profile' })}
-          style={{ ...buttonStyle, backgroundColor: '#0077b5' }}
+          style={{ ...downloadButton, backgroundColor: '#0077b5' }}
         >
           <Linkedin size={16} style={{ marginRight: '0.5rem' }} /> View LinkedIn
         </a>
@@ -140,20 +140,16 @@ export default function Resume() {
       <BackToTopButton />
       <Analytics />
       <SpeedInsights />
-    </div>
+    </section>
   );
 }
 
 // Styles
-const pageStyle = {
-  backgroundColor: '#dcc0e5',
-  color: '#413b42',
-  fontFamily: 'Fira Sans',
-  padding: '2rem 1rem',
-  paddingTop: '6rem',
-  maxWidth: '1200px',
-  margin: '0 auto',
-  boxSizing: 'border-box',
+const introText = {
+  maxWidth: '800px',
+  margin: '1rem auto 3rem',
+  textAlign: 'center',
+  fontSize: '1.1rem',
 };
 
 const sectionHeader = {
@@ -186,7 +182,7 @@ const largeLogoStyle = {
   flexShrink: 0,
 };
 
-const buttonStyle = {
+const downloadButton = {
   backgroundColor: '#413b42',
   color: '#fff',
   padding: '0.75rem 1.25rem',
@@ -195,6 +191,15 @@ const buttonStyle = {
   display: 'inline-flex',
   alignItems: 'center',
   fontWeight: 'bold',
+};
+
+const linkWrapper = {
+  textAlign: 'center',
+  marginTop: '3rem',
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
+  gap: '1rem',
 };
 
 const articleLinkStyle = {

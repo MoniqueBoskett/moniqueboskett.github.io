@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import HTMLFlipBook from 'react-pageflip';
 import BackToTopButton from '../components/BackToTopButton';
 import { Download } from 'lucide-react';
+import { headingStyle, sectionStyle } from '../styles/styles';
 
 const totalPages = 16;
 const pages = Array.from({ length: totalPages }, (_, i) => ({
@@ -23,7 +24,7 @@ export default function Events() {
   }, []);
 
   return (
-    <section style={pageStyle}>
+    <section style={sectionStyle}>
       <h1 style={headingStyle}>Event Portfolio</h1>
 
       <div style={flipbookWrapper}>
@@ -88,20 +89,7 @@ export default function Events() {
   );
 }
 
-// Styles
-const pageStyle = {
-  color: '#413b42',
-  fontFamily: 'Fira Sans',
-  padding: '2rem 1rem',
-  boxSizing: 'border-box',
-};
-
-const headingStyle = {
-  textAlign: 'center',
-  fontSize: '2.5rem',
-  marginBottom: '1.5rem',
-};
-
+// 🔧 Styles
 const flipbookWrapper = {
   display: 'flex',
   justifyContent: 'center',

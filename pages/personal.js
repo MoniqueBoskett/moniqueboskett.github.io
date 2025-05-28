@@ -3,6 +3,7 @@ import BackToTopButton from '../components/BackToTopButton';
 import { funFacts } from '../data/personalData';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { sectionStyle, headingStyle, buttonStyle } from '../styles/styles';
 
 export default function Personal() {
   const [openIndex, setOpenIndex] = useState(null);
@@ -20,7 +21,7 @@ export default function Personal() {
 
   return (
     <section style={sectionStyle}>
-      <h1 style={titleStyle}>✨ Fun Facts About Me ✨</h1>
+      <h1 style={headingStyle}>✨ Fun Facts About Me ✨</h1>
 
       {funFacts.map((fact, index) => (
         <div key={index} style={cardStyle}>
@@ -45,7 +46,7 @@ export default function Personal() {
             <>
               <button
                 onClick={() => toggleImageSection(index)}
-                style={toggleButton}
+                style={buttonStyle}
               >
                 {openIndex === index ? '▲ Hide Photos' : '▼ Show Photos'}
               </button>
@@ -85,7 +86,7 @@ export default function Personal() {
                 required
                 style={textareaStyle}
               />
-              <button type="submit" style={submitButton}>Submit</button>
+              <button type="submit" style={buttonStyle}>Submit</button>
             </form>
           )}
         </div>
@@ -108,21 +109,7 @@ export default function Personal() {
   );
 }
 
-// Styles
-const sectionStyle = {
-  color: '#413b42',
-  fontFamily: 'Fira Sans',
-  padding: '2rem 1rem',
-  boxSizing: 'border-box',
-};
-
-const titleStyle = {
-  fontSize: '2.25rem',
-  textAlign: 'center',
-  marginBottom: '2rem',
-  padding: '0 1rem',
-};
-
+// Local Styles
 const cardStyle = {
   backgroundColor: '#eee8f0',
   borderRadius: '12px',
@@ -143,18 +130,6 @@ const linkStyle = {
   color: '#413b42',
   fontWeight: 'bold',
   wordBreak: 'break-word',
-};
-
-const toggleButton = {
-  backgroundColor: '#dcc0e5',
-  border: 'none',
-  padding: '0.5rem 1rem',
-  cursor: 'pointer',
-  fontWeight: 'bold',
-  borderRadius: '6px',
-  marginBottom: '1rem',
-  width: '100%',
-  maxWidth: '240px',
 };
 
 const photoGrid = {
@@ -181,17 +156,6 @@ const textareaStyle = {
   fontFamily: 'Fira Sans',
   fontSize: '1rem',
   boxSizing: 'border-box',
-};
-
-const submitButton = {
-  marginTop: '0.5rem',
-  backgroundColor: '#dcc0e5',
-  color: '#413b42',
-  fontWeight: 'bold',
-  padding: '0.5rem 1rem',
-  border: 'none',
-  borderRadius: '6px',
-  cursor: 'pointer',
 };
 
 const modalOverlay = {

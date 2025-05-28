@@ -1,11 +1,12 @@
 import BackToTopButton from '../components/BackToTopButton';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { headingStyle, sectionStyle } from '../styles/styles';
 
 export default function Contact() {
   return (
-    <section style={pageStyle}>
-      <h1 style={titleStyle}>Get in Touch 💌</h1>
+    <section style={sectionStyle}>
+      <h1 style={headingStyle}>Get in Touch 💌</h1>
       <p style={descriptionStyle}>
         Have a question, collaboration idea, or just want to say hello? Fill out the form below and I&apos;ll get back to you!
       </p>
@@ -43,23 +44,7 @@ export default function Contact() {
   );
 }
 
-// Styles
-const pageStyle = {
-  color: '#413b42',
-  fontFamily: 'Fira Sans',
-  padding: '2rem 1rem',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  boxSizing: 'border-box',
-};
-
-const titleStyle = {
-  fontSize: '2.5rem',
-  marginBottom: '1rem',
-  textAlign: 'center',
-};
-
+// 🔧 Styles
 const descriptionStyle = {
   maxWidth: '600px',
   width: '100%',
