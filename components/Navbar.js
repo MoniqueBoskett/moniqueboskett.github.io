@@ -71,7 +71,7 @@ export default function Navbar() {
 
 const styles = {
   header: {
-    position: 'sticky',
+    position: 'fixed', // Changed from 'sticky' to 'fixed'
     top: 0,
     width: '100%',
     backgroundColor: '#413b42',

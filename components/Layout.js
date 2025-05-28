@@ -6,7 +6,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Navbar />
-      <main style={layoutStyles.main}>
+      <main style={{ ...layoutStyles.main, marginTop: '60px' }}>
         {children}
       </main>
     </>
