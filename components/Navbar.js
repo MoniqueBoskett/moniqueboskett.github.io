@@ -71,7 +71,7 @@ export default function Navbar() {
 
 const styles = {
   header: {
-    position: 'sticky', // 🧲 Keeps the navbar stuck to top while scrolling
+    position: 'sticky',
     top: 0,
     width: '100%',
     backgroundColor: '#413b42',

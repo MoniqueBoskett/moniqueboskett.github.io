@@ -71,9 +71,10 @@ p {
 }
 
 main {
-  padding-top: 100px; /* adds space below sticky navbar */
-  max-width: 1100px;
+  padding: 2rem 1rem 4rem;
   margin: 0 auto;
+  max-width: 1000px;
+  box-sizing: border-box;
 }
 
 section {
@@ -92,6 +93,11 @@ section {
     padding: 2rem 0;
   }
 
+  main {
+    padding: 1.5rem 1rem;
+    max-width: 95%;
+  }
+
   h1 {
     font-size: 2rem;
   }
@@ -108,5 +114,11 @@ section {
   nav ul {
     flex-direction: column;
     gap: 1rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  main {
+    max-width: 1100px;
   }
 }
