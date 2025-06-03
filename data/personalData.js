@@ -44,7 +44,7 @@ export const funFacts = [
     photos: ["cats.jpg", "cats2.jpg", "cats3.jpg", "cats4.jpg", "cats5.jpg", "cats6.jpg", "cats7.jpg", "cats8.jpg", "cats9.jpg", "cats10.jpg", "cats11.jpg", "cats12.jpg", "cats13.jpg", "cats14.jpg", "cats15.jpg", "cats16.jpg", "cats17.jpg", "cats18.jpg", "cats19.jpg", "cats20.jpg"],
     collapsible: true,
   },
-  {
+{
     text: "Estoy aprendiendo español 🇪🇸 — Check out my Duolingo Streak 🌟",
     embed: (
       <img

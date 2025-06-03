@@ -11,8 +11,7 @@ export default function Resume() {
       <h1 style={headingStyle}>Resume</h1>
 
       <p style={introText}>
-        Monique Boskett, MBA (she/her/hers), is a dynamic Event Execution and Strategy Lead with over a decade of experience delivering immersive marketing activations that captivate audiences and drive measurable results. She expertly manages $5M+ budgets and cross-functional teams to produce standout experiences—from Sundance Film Festival lounges and PGA Tour events to EEEEEATSCON festivals and Live Nation music fests—blending strategic vision with hands-on tenacity. Known for her collaborative spirit, creative problem-solving, and upbeat energy, Monique builds strong stakeholder relationships and thrives in fast-paced environments, ensuring every event is seamless, memorable, and on-target.
-
+        Monique Boskett, MBA (she/her/hers), is an Event Execution & Strategy Lead with 10+ years of experience crafting immersive marketing activations—managing $5M+ budgets and cross-functional teams to deliver standout experiences from film festivals to music fests. Her collaborative spirit, creative problem-solving, and upbeat energy ensure every event is seamless, memorable, and on-target.
       </p>
 
       {/* Experience */}
