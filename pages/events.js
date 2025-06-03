@@ -1,6 +1,10 @@
 import React, { useRef, useEffect, useState } from 'react';
 import HTMLFlipBook from 'react-pageflip';
 import BackToTopButton from '../components/BackToTopButton';
+import GoogleAnalytics from '../components/GoogleAnalytics';
+import MicrosoftClarity from '../components/MicrosoftClarity';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Download } from 'lucide-react';
 import { headingStyle, sectionStyle } from '../styles/styles';
 
@@ -85,6 +89,18 @@ export default function Events() {
       </div>
 
       <BackToTopButton />
+
+      {/* Google Analytics snippet */}
+      <GoogleAnalytics />
+
+      {/* Vercel Analytics */}
+      <Analytics />
+
+      {/* Microsoft Clarity snippet */}
+      <MicrosoftClarity />
+
+      {/* Vercel Speed Insights */}
+      <SpeedInsights />
     </section>
   );
 }

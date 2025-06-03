@@ -1,4 +1,6 @@
 import BackToTopButton from '../components/BackToTopButton';
+import GoogleAnalytics from '../components/GoogleAnalytics';
+import MicrosoftClarity from '../components/MicrosoftClarity';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { headingStyle, sectionStyle } from '../styles/styles';
@@ -40,7 +42,17 @@ export default function Contact() {
       </div>
 
       <BackToTopButton />
+
+      {/* Google Analytics snippet */}
+      <GoogleAnalytics />
+
+      {/* Vercel Analytics */}
       <Analytics />
+
+      {/* Microsoft Clarity snippet */}
+      <MicrosoftClarity />
+
+      {/* Vercel Speed Insights */}
       <SpeedInsights />
     </section>
   );

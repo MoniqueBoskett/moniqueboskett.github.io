@@ -1,5 +1,7 @@
 import { Github, Linkedin, Mail } from 'lucide-react';
 import BackToTopButton from '../components/BackToTopButton';
+import GoogleAnalytics from '../components/GoogleAnalytics';
+import MicrosoftClarity from '../components/MicrosoftClarity';
 import { layoutStyles, headingStyle, paragraphStyle } from '../styles/styles';
 
 export default function Home() {
@@ -87,6 +89,12 @@ export default function Home() {
       </footer>
 
       <BackToTopButton />
+
+      {/* Google Analytics snippet */}
+      <GoogleAnalytics />
+
+      {/* Microsoft Clarity snippet */}
+      <MicrosoftClarity />
     </main>
   );
 }

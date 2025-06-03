@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import BackToTopButton from '../components/BackToTopButton';
-import { funFacts } from '../data/personalData';
+import GoogleAnalytics from '../components/GoogleAnalytics';
+import MicrosoftClarity from '../components/MicrosoftClarity';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { funFacts } from '../data/personalData';
 import { sectionStyle, headingStyle, buttonStyle } from '../styles/styles';
 
 export default function Personal() {
@@ -74,8 +76,15 @@ export default function Personal() {
               method="POST"
               style={{ marginTop: '1.5rem' }}
             >
-              <input type="hidden" name="_redirect" value="https://moniqueboskett.vercel.app/thankyou" />
-              <label htmlFor={`comment-${index}`} style={{ fontWeight: 'bold' }}>
+              <input
+                type="hidden"
+                name="_redirect"
+                value="https://moniqueboskett.vercel.app/thankyou"
+              />
+              <label
+                htmlFor={`comment-${index}`}
+                style={{ fontWeight: 'bold' }}
+              >
                 ✍️ Leave a Comment:
               </label>
               <textarea
@@ -103,7 +112,17 @@ export default function Personal() {
       )}
 
       <BackToTopButton />
+
+      {/* Google Analytics snippet */}
+      <GoogleAnalytics />
+
+      {/* Vercel Analytics */}
       <Analytics />
+
+      {/* Microsoft Clarity snippet */}
+      <MicrosoftClarity />
+
+      {/* Vercel Speed Insights */}
       <SpeedInsights />
     </section>
   );

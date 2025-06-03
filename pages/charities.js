@@ -3,6 +3,8 @@ import BackToTopButton from '../components/BackToTopButton';
 import { Instagram } from 'lucide-react';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import GoogleAnalytics from '../components/GoogleAnalytics';
+import MicrosoftClarity from '../components/MicrosoftClarity';
 import { charities } from '../data/charitiesData';
 import { headingStyle, sectionStyle } from '../styles/styles';
 
@@ -78,7 +80,9 @@ export default function Charities() {
                   href={charity.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => window.va?.track('link_click', { type: 'website', charity: charity.name })}
+                  onClick={() =>
+                    window.va?.track('link_click', { type: 'website', charity: charity.name })
+                  }
                   style={linkStyle}
                 >
                   {charity.website}
@@ -89,7 +93,9 @@ export default function Charities() {
                   href={`https://www.instagram.com/${charity.instagram}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => window.va?.track('link_click', { type: 'instagram', charity: charity.name })}
+                  onClick={() =>
+                    window.va?.track('link_click', { type: 'instagram', charity: charity.name })
+                  }
                   style={linkStyle}
                 >
                   <Instagram size={18} strokeWidth={2} /> @{charity.instagram}
@@ -99,7 +105,9 @@ export default function Charities() {
                 href={charity.website}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => window.va?.track('link_click', { type: 'donate', charity: charity.name })}
+                onClick={() =>
+                  window.va?.track('link_click', { type: 'donate', charity: charity.name })
+                }
                 style={donateButton}
               >
                 Donate
@@ -129,13 +137,21 @@ export default function Charities() {
       ))}
 
       {modalImage && (
-        <div onClick={() => setModalImage(null)} style={{
-          position: 'fixed',
-          top: 0, left: 0, right: 0, bottom: 0,
-          backgroundColor: 'rgba(0,0,0,0.8)',
-          display: 'flex', justifyContent: 'center', alignItems: 'center',
-          zIndex: 1000,
-        }}>
+        <div
+          onClick={() => setModalImage(null)}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0,0,0,0.8)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 1000,
+          }}
+        >
           <img
             src={modalImage}
             alt="Expanded charity"
@@ -145,7 +161,17 @@ export default function Charities() {
       )}
 
       <BackToTopButton />
+
+      {/* Google Analytics snippet */}
+      <GoogleAnalytics />
+
+      {/* Vercel Analytics */}
       <Analytics />
+
+      {/* Microsoft Clarity snippet */}
+      <MicrosoftClarity />
+
+      {/* Vercel Speed Insights */}
       <SpeedInsights />
     </section>
   );

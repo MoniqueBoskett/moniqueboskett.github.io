@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import VisitedStatesMap from '../components/VisitedStatesMap';
 import BackToTopButton from '../components/BackToTopButton';
+import GoogleAnalytics from '../components/GoogleAnalytics';
+import MicrosoftClarity from '../components/MicrosoftClarity';
 import Modal from 'react-modal';
 import { sectionStyle, headingStyle } from '../styles/styles';
 
@@ -85,6 +87,12 @@ export default function Travel() {
       </Modal>
 
       <BackToTopButton />
+
+      {/* Google Analytics snippet */}
+      <GoogleAnalytics />
+
+      {/* Microsoft Clarity snippet */}
+      <MicrosoftClarity />
     </section>
   );
 }

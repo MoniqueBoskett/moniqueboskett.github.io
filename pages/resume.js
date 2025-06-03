@@ -1,4 +1,6 @@
 import BackToTopButton from '../components/BackToTopButton';
+import GoogleAnalytics from '../components/GoogleAnalytics';
+import MicrosoftClarity from '../components/MicrosoftClarity';
 import { jobs, education, skills } from '../data/resumeData';
 import { Briefcase, GraduationCap, Award, Download, Linkedin } from 'lucide-react';
 import { Analytics } from '@vercel/analytics/react';
@@ -108,12 +110,14 @@ export default function Resume() {
       <h2 style={sectionHeader}>
         <Award size={20} style={{ marginRight: '0.5rem' }} /> Skills &amp; Certifications
       </h2>
-      <div style={{
-        ...cardStyle,
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-        gap: '0.75rem'
-      }}>
+      <div
+        style={{
+          ...cardStyle,
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+          gap: '0.75rem'
+        }}
+      >
         {skills.map((s, i) => (
           <div key={i}>• {s}</div>
         ))}
@@ -136,7 +140,17 @@ export default function Resume() {
       </div>
 
       <BackToTopButton />
+
+      {/* Google Analytics snippet */}
+      <GoogleAnalytics />
+
+      {/* Vercel Analytics */}
       <Analytics />
+
+      {/* Microsoft Clarity snippet */}
+      <MicrosoftClarity />
+
+      {/* Vercel Speed Insights */}
       <SpeedInsights />
     </section>
   );
