@@ -5,8 +5,8 @@ import Navbar from './Navbar';
 import { layoutStyles } from '../styles/styles';
 
 export default function Layout({ children }) {
-  const GA_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
-  const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID;
+  const GA_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
+  const CLARITY_ID = process.env.NEXT_PUBLIC_MICROSOFT_CLARITY;
 
   return (
     <>
