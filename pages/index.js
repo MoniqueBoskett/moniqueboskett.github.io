@@ -1,10 +1,19 @@
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone } from 'lucide-react';
 import BackToTopButton from '../components/BackToTopButton';
 import GoogleAnalytics from '../components/GoogleAnalytics';
 import MicrosoftClarity from '../components/MicrosoftClarity';
 import { layoutStyles, headingStyle, paragraphStyle } from '../styles/styles';
 
 export default function Home() {
+  const handlePhoneClick = (e) => {
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    if (!isMobile) {
+      e.preventDefault();
+      alert('Call: 215-278-9306');
+    }
+    // On a phone, the <a href="tel:..."> will invoke the dialer automatically
+  };
+
   return (
     <main style={layoutStyles.main}>
       <h1 style={headingStyle}>
@@ -85,6 +94,14 @@ export default function Home() {
           style={{ color: '#413b42' }}
         >
           <Mail size={32} />
+        </a>
+        <a
+          href="tel:2152789306"
+          onClick={handlePhoneClick}
+          title="Call"
+          style={{ color: '#413b42' }}
+        >
+          <Phone size={32} />
         </a>
       </footer>
 
