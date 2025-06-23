@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Menu, X } from 'lucide-react';
@@ -6,6 +6,7 @@ import { Menu, X } from 'lucide-react';
 export default function Navbar() {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
   const navItems = [
     { label: 'Home', path: '/' },
@@ -21,17 +22,46 @@ export default function Navbar() {
     const handleResize = () => {
       if (window.innerWidth > 768) setMenuOpen(false);
     };
+
+    const handleClickOutside = (event) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        event.target.id !== 'menu-button' &&
+        event.target.id !== 'menu-text'
+      ) {
+        setMenuOpen(false);
+      }
+    };
+
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, []);
 
   return (
     <header style={styles.header}>
       <div style={styles.topBar}>
-        <button onClick={() => setMenuOpen(!menuOpen)} style={styles.menuButton}>
-          <span style={styles.menuText}>Menu</span>
-          {menuOpen ? <X size={28} color="#eee8f0" /> : <Menu size={28} color="#eee8f0" />}
-        </button>
+        <div style={styles.menuLabel} ref={menuRef}>
+          <span
+            id="menu-text"
+            style={styles.menuText}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            Menu
+          </span>
+          <button
+            id="menu-button"
+            onClick={() => setMenuOpen(!menuOpen)}
+            style={styles.hamburgerButton}
+          >
+            {menuOpen ? <X size={28} color="#eee8f0" /> : <Menu size={28} color="#eee8f0" />}
+          </button>
+        </div>
 
         <div style={styles.logoWrapper}>
           <Link href="/" style={styles.logoLink}>
@@ -41,6 +71,7 @@ export default function Navbar() {
       </div>
 
       <div
+        ref={menuRef}
         style={{
           ...styles.navMenu,
           maxHeight: menuOpen ? '500px' : '0px',
@@ -84,19 +115,23 @@ const styles = {
     padding: '1.5rem 1.25rem',
     position: 'relative',
   },
-  menuButton: {
+  menuLabel: {
     display: 'flex',
     alignItems: 'center',
     gap: '0.5rem',
-    background: 'none',
-    border: 'none',
-    cursor: 'pointer',
+    position: 'relative',
+  },
+  menuText: {
     color: '#eee8f0',
     fontWeight: 'bold',
     fontSize: '1rem',
+    cursor: 'pointer',
   },
-  menuText: {
-    fontSize: '1rem',
+  hamburgerButton: {
+    background: 'none',
+    border: 'none',
+    cursor: 'pointer',
+    zIndex: 1100,
   },
   logoWrapper: {
     position: 'absolute',
