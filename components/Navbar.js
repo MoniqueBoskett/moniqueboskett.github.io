@@ -28,12 +28,10 @@ export default function Navbar() {
   return (
     <header style={styles.header}>
       <div style={styles.topBar}>
-        <div style={styles.menuLabel}>
+        <button onClick={() => setMenuOpen(!menuOpen)} style={styles.menuButton}>
           <span style={styles.menuText}>Menu</span>
-          <button onClick={() => setMenuOpen(!menuOpen)} style={styles.hamburgerButton}>
-            {menuOpen ? <X size={28} color="#eee8f0" /> : <Menu size={28} color="#eee8f0" />}
-          </button>
-        </div>
+          {menuOpen ? <X size={28} color="#eee8f0" /> : <Menu size={28} color="#eee8f0" />}
+        </button>
 
         <div style={styles.logoWrapper}>
           <Link href="/" style={styles.logoLink}>
@@ -71,7 +69,7 @@ export default function Navbar() {
 
 const styles = {
   header: {
-    position: 'fixed', // Changed from 'sticky' to 'fixed'
+    position: 'fixed',
     top: 0,
     width: '100%',
     backgroundColor: '#413b42',
@@ -86,21 +84,19 @@ const styles = {
     padding: '1.5rem 1.25rem',
     position: 'relative',
   },
-  menuLabel: {
+  menuButton: {
     display: 'flex',
     alignItems: 'center',
     gap: '0.5rem',
-  },
-  menuText: {
+    background: 'none',
+    border: 'none',
+    cursor: 'pointer',
     color: '#eee8f0',
     fontWeight: 'bold',
     fontSize: '1rem',
   },
-  hamburgerButton: {
-    background: 'none',
-    border: 'none',
-    cursor: 'pointer',
-    zIndex: 1100,
+  menuText: {
+    fontSize: '1rem',
   },
   logoWrapper: {
     position: 'absolute',
