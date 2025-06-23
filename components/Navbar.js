@@ -7,6 +7,7 @@ export default function Navbar() {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
+  const timerRef = useRef(null);
 
   const navItems = [
     { label: 'Home', path: '/' },
@@ -34,14 +35,33 @@ export default function Navbar() {
       }
     };
 
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        setMenuOpen(false);
+      }
+    };
+
     window.addEventListener('resize', handleResize);
     document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleEscape);
 
     return () => {
       window.removeEventListener('resize', handleResize);
       document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscape);
+      clearTimeout(timerRef.current);
     };
   }, []);
+
+  useEffect(() => {
+    if (menuOpen) {
+      timerRef.current = setTimeout(() => {
+        setMenuOpen(false);
+      }, 5000); // auto-close after 5 seconds
+    } else {
+      clearTimeout(timerRef.current);
+    }
+  }, [menuOpen]);
 
   return (
     <header style={styles.header}>
@@ -50,13 +70,13 @@ export default function Navbar() {
           <span
             id="menu-text"
             style={styles.menuText}
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => setMenuOpen((prev) => !prev)}
           >
             Menu
           </span>
           <button
             id="menu-button"
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => setMenuOpen((prev) => !prev)}
             style={styles.hamburgerButton}
           >
             {menuOpen ? <X size={28} color="#eee8f0" /> : <Menu size={28} color="#eee8f0" />}
