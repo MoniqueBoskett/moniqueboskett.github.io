@@ -41,14 +41,20 @@ export default function Navbar() {
       }
     };
 
+    const handleScroll = () => {
+      setMenuOpen(false);
+    };
+
     window.addEventListener('resize', handleResize);
     document.addEventListener('mousedown', handleClickOutside);
     document.addEventListener('keydown', handleEscape);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
       window.removeEventListener('resize', handleResize);
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('keydown', handleEscape);
+      window.removeEventListener('scroll', handleScroll);
       clearTimeout(timerRef.current);
     };
   }, []);
@@ -57,7 +63,7 @@ export default function Navbar() {
     if (menuOpen) {
       timerRef.current = setTimeout(() => {
         setMenuOpen(false);
-      }, 5000); // auto-close after 5 seconds
+      }, 5000);
     } else {
       clearTimeout(timerRef.current);
     }
