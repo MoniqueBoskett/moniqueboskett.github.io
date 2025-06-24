@@ -13,6 +13,7 @@ export default function Navbar() {
     { label: 'Home', path: '/' },
     { label: 'Resume', path: '/resume' },
     { label: 'Events', path: '/events' },
+    { label: 'Marketing', path: '/marketing' },
     { label: 'Personal', path: '/personal' },
     { label: 'Travel', path: '/travel' },
     { label: 'Charities', path: '/charities' },
