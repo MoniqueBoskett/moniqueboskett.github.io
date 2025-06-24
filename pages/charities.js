@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BackToTopButton from '../components/BackToTopButton';
 import { Instagram } from 'lucide-react';
 import { Analytics } from '@vercel/analytics/react';
@@ -19,10 +19,61 @@ export default function Charities() {
   const [galleryOpen, setGalleryOpen] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [modalImage, setModalImage] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(null);
+  const [touchStartX, setTouchStartX] = useState(null);
 
   const filteredCharities = charities.filter((charity) =>
     charity.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const openModal = (index) => {
+    setModalImage(`/charityphotos/${charityGallery[index]}`);
+    setCurrentIndex(index);
+  };
+
+  const closeModal = () => {
+    setModalImage(null);
+    setCurrentIndex(null);
+  };
+
+  const showNext = () => {
+    const nextIndex = (currentIndex + 1) % charityGallery.length;
+    setModalImage(`/charityphotos/${charityGallery[nextIndex]}`);
+    setCurrentIndex(nextIndex);
+  };
+
+  const showPrevious = () => {
+    const prevIndex = (currentIndex - 1 + charityGallery.length) % charityGallery.length;
+    setModalImage(`/charityphotos/${charityGallery[prevIndex]}`);
+    setCurrentIndex(prevIndex);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!modalImage) return;
+
+      if (e.key === 'Escape') closeModal();
+      else if (e.key === 'ArrowRight') showNext();
+      else if (e.key === 'ArrowLeft') showPrevious();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [modalImage, currentIndex]);
+
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.changedTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const deltaX = touchEndX - touchStartX;
+
+    if (deltaX > 50) showPrevious();
+    else if (deltaX < -50) showNext();
+
+    setTouchStartX(null);
+  };
 
   return (
     <section style={sectionStyle}>
@@ -45,7 +96,7 @@ export default function Charities() {
                 src={`/charityphotos/${photo}`}
                 alt={`Charity image ${i + 1}`}
                 loading="lazy"
-                onClick={() => setModalImage(`/charityphotos/${photo}`)}
+                onClick={() => openModal(i)}
                 style={thumbnailStyle}
               />
             ))}
@@ -76,56 +127,27 @@ export default function Charities() {
               <h2 style={{ margin: 0 }}>{charity.name}</h2>
               <p style={{ margin: '0.25rem 0' }}>EIN: {charity.ein || 'N/A'}</p>
               <p>
-                <a
-                  href={charity.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() =>
-                    window.va?.track('link_click', { type: 'website', charity: charity.name })
-                  }
-                  style={linkStyle}
-                >
+                <a href={charity.website} target="_blank" rel="noopener noreferrer" onClick={() => window.va?.track('link_click', { type: 'website', charity: charity.name })} style={linkStyle}>
                   {charity.website}
                 </a>
               </p>
               <p style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <a
-                  href={`https://www.instagram.com/${charity.instagram}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() =>
-                    window.va?.track('link_click', { type: 'instagram', charity: charity.name })
-                  }
-                  style={linkStyle}
-                >
+                <a href={`https://www.instagram.com/${charity.instagram}`} target="_blank" rel="noopener noreferrer" onClick={() => window.va?.track('link_click', { type: 'instagram', charity: charity.name })} style={linkStyle}>
                   <Instagram size={18} strokeWidth={2} /> @{charity.instagram}
                 </a>
               </p>
-              <a
-                href={charity.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() =>
-                  window.va?.track('link_click', { type: 'donate', charity: charity.name })
-                }
-                style={donateButton}
-              >
+              <a href={charity.website} target="_blank" rel="noopener noreferrer" onClick={() => window.va?.track('link_click', { type: 'donate', charity: charity.name })} style={donateButton}>
                 Donate
               </a>
             </div>
           </div>
 
-          <button
-            onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
-            style={toggleButton}
-          >
+          <button onClick={() => setExpandedIndex(expandedIndex === index ? null : index)} style={toggleButton}>
             {expandedIndex === index ? '▲ Hide Description' : '▼ About This Charity'}
           </button>
 
           {expandedIndex === index && (
-            <p style={{ marginTop: '1rem', lineHeight: 1.6, whiteSpace: 'pre-line' }}>
-              {charity.about}
-            </p>
+            <p style={{ marginTop: '1rem', lineHeight: 1.6, whiteSpace: 'pre-line' }}>{charity.about}</p>
           )}
 
           <div style={{ marginTop: '1rem', borderTop: '1px solid #ccc', paddingTop: '1rem' }}>
@@ -138,7 +160,9 @@ export default function Charities() {
 
       {modalImage && (
         <div
-          onClick={() => setModalImage(null)}
+          onClick={closeModal}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
           style={{
             position: 'fixed',
             top: 0,
@@ -150,34 +174,36 @@ export default function Charities() {
             justifyContent: 'center',
             alignItems: 'center',
             zIndex: 1000,
+            flexDirection: 'column',
           }}
         >
           <img
             src={modalImage}
             alt="Expanded charity"
-            style={{ maxHeight: '90%', maxWidth: '90%', border: '6px solid #eee8f0', borderRadius: '12px' }}
+            style={{
+              maxHeight: '80%',
+              maxWidth: '90%',
+              border: '6px solid #eee8f0',
+              borderRadius: '12px',
+              cursor: 'pointer',
+            }}
           />
+          <div style={{ marginTop: '1rem', display: 'flex', gap: '1rem' }}>
+            <button onClick={(e) => { e.stopPropagation(); showPrevious(); }} style={arrowButton}>{'<'}</button>
+            <button onClick={(e) => { e.stopPropagation(); showNext(); }} style={arrowButton}>{'>'}</button>
+          </div>
         </div>
       )}
 
       <BackToTopButton />
-
-      {/* Google Analytics snippet */}
       <GoogleAnalytics />
-
-      {/* Vercel Analytics */}
       <Analytics />
-
-      {/* Microsoft Clarity snippet */}
       <MicrosoftClarity />
-
-      {/* Vercel Speed Insights */}
       <SpeedInsights />
     </section>
   );
 }
 
-// 🔧 Local styles
 const descriptionStyle = {
   textAlign: 'center',
   maxWidth: '800px',
@@ -263,4 +289,16 @@ const searchInput = {
   fontSize: '1rem',
   fontFamily: 'Fira Sans',
   boxSizing: 'border-box',
+};
+
+const arrowButton = {
+  backgroundColor: '#dcc0e5',
+  color: '#413b42',
+  fontSize: '1.5rem',
+  fontWeight: 'bold',
+  border: 'none',
+  borderRadius: '50%',
+  width: '40px',
+  height: '40px',
+  cursor: 'pointer',
 };
