@@ -6,37 +6,30 @@ import GoogleAnalytics from '../components/GoogleAnalytics';
 import MicrosoftClarity from '../components/MicrosoftClarity';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { marketingReels } from '../data/marketingData';
+import { marketingData } from '../data/marketingData';
 import { layoutStyles, headingStyle } from '../styles/styles';
-import Error from 'next/error';
+import Head from 'next/head';
+import Link from 'next/link';
 
 export default function Marketing() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredReels, setFilteredReels] = useState([]);
-  const [hasError, setHasError] = useState(false);
+  const [selectedReel, setSelectedReel] = useState(null);
 
   useEffect(() => {
-    try {
-      const sorted = [...marketingReels].sort((a, b) => new Date(b.date) - new Date(a.date));
-      setFilteredReels(sorted);
-    } catch (error) {
-      setHasError(true);
-    }
+    const sorted = [...marketingData].sort((a, b) => new Date(b.date) - new Date(a.date));
+    setFilteredReels(sorted);
   }, []);
 
   useEffect(() => {
-    try {
-      const lowerTerm = searchTerm.toLowerCase();
-      const filtered = marketingReels.filter(
-        (reel) =>
-          reel.caption.toLowerCase().includes(lowerTerm) ||
-          reel.company.toLowerCase().includes(lowerTerm) ||
-          reel.handle.toLowerCase().includes(lowerTerm)
-      );
-      setFilteredReels(filtered.sort((a, b) => new Date(b.date) - new Date(a.date)));
-    } catch (error) {
-      setHasError(true);
-    }
+    const lowerTerm = searchTerm.toLowerCase();
+    const filtered = marketingData.filter(
+      (reel) =>
+        reel.caption.toLowerCase().includes(lowerTerm) ||
+        reel.company.toLowerCase().includes(lowerTerm) ||
+        reel.handle.toLowerCase().includes(lowerTerm)
+    );
+    setFilteredReels(filtered.sort((a, b) => new Date(b.date) - new Date(a.date)));
   }, [searchTerm]);
 
   const handleClick = (link) => {
@@ -48,14 +41,11 @@ export default function Marketing() {
     }
   };
 
-  if (hasError) return <Error statusCode={404} />;
-
   return (
     <main style={layoutStyles.main}>
-      <GoogleAnalytics />
-      <MicrosoftClarity />
-      <SpeedInsights />
-      <Analytics />
+      <Head>
+        <title>Marketing Reels | Monique Boskett</title>
+      </Head>
 
       <h1 style={headingStyle}>Marketing Reels</h1>
 
@@ -86,7 +76,10 @@ export default function Marketing() {
         {filteredReels.map((reel, i) => (
           <div
             key={i}
-            onClick={() => handleClick(reel.link)}
+            onClick={() => {
+              handleClick(reel.link);
+              setSelectedReel(reel);
+            }}
             style={{
               border: '1px solid #ccc',
               borderRadius: '10px',
@@ -111,21 +104,70 @@ export default function Marketing() {
             ></iframe>
             <div style={{ padding: '1rem', background: '#f9f9f9' }}>
               <p style={{ fontWeight: 'bold', marginBottom: '0.5rem' }}>{reel.company}</p>
-              <p style={{
-                marginBottom: '0.5rem',
-                display: '-webkit-box',
-                WebkitLineClamp: 3,
-                WebkitBoxOrient: 'vertical',
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-              }}>{reel.caption}</p>
+              <p style={{ marginBottom: '0.5rem', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{reel.caption}</p>
               <p style={{ fontSize: '0.9rem', color: '#666' }}>{reel.handle} — {reel.date}</p>
             </div>
           </div>
         ))}
       </div>
 
+      {selectedReel && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            backgroundColor: 'rgba(0,0,0,0.8)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 9999,
+            padding: '2rem',
+          }}
+          onClick={() => setSelectedReel(null)}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              background: '#fff',
+              padding: '1rem',
+              borderRadius: '12px',
+              maxWidth: '800px',
+              width: '100%',
+              maxHeight: '90vh',
+              overflowY: 'auto',
+            }}
+          >
+            <iframe
+              src={`https://www.instagram.com/reel/${selectedReel.link.split('/reel/')[1]?.split('/')[0]}/embed`}
+              title={`Instagram Reel - ${selectedReel.caption}`}
+              width="100%"
+              height="480"
+              frameBorder="0"
+              scrolling="no"
+              allowFullScreen
+              style={{ borderRadius: '10px', width: '100%', height: '480px', marginBottom: '1rem' }}
+            ></iframe>
+            <p><strong>{selectedReel.company}</strong></p>
+            <p>{selectedReel.caption}</p>
+            <p style={{ fontSize: '0.9rem', color: '#666' }}>{selectedReel.handle} — {selectedReel.date}</p>
+            <button
+              onClick={() => setSelectedReel(null)}
+              style={{ marginTop: '1rem', padding: '0.5rem 1rem', background: '#413b42', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer' }}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
       <BackToTopButton />
+      <Analytics />
+      <SpeedInsights />
+      <GoogleAnalytics />
+      <MicrosoftClarity />
 
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-C4N1Y9CTEP"
