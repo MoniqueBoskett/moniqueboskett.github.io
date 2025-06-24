@@ -9,12 +9,14 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { marketingData } from '../data/marketingData';
 import { layoutStyles, headingStyle } from '../styles/styles';
 import Head from 'next/head';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export default function Marketing() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredReels, setFilteredReels] = useState([]);
   const [selectedReel, setSelectedReel] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const sorted = [...marketingData].sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -32,13 +34,29 @@ export default function Marketing() {
     setFilteredReels(filtered.sort((a, b) => new Date(b.date) - new Date(a.date)));
   }, [searchTerm]);
 
-  const handleClick = (link) => {
+  const handleClick = (reel) => {
     if (window.gtag) {
       window.gtag('event', 'click', {
         event_category: 'Instagram Reel',
-        event_label: link,
+        event_label: reel.link,
       });
     }
+    setSelectedReel(reel);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedReel(null);
+  };
+
+  const getEmbedUrl = (link) => {
+    if (link.includes('/reel/')) {
+      return `https://www.instagram.com/reel/${link.split('/reel/')[1]?.split('/')[0]}/embed`;
+    } else if (link.includes('/p/')) {
+      return `https://www.instagram.com/p/${link.split('/p/')[1]?.split('/')[0]}/embed`;
+    }
+    return '';
   };
 
   return (
@@ -46,7 +64,6 @@ export default function Marketing() {
       <Head>
         <title>Marketing Reels | Monique Boskett</title>
       </Head>
-
       <h1 style={headingStyle}>Marketing Reels</h1>
 
       <input
@@ -76,10 +93,7 @@ export default function Marketing() {
         {filteredReels.map((reel, i) => (
           <div
             key={i}
-            onClick={() => {
-              handleClick(reel.link);
-              setSelectedReel(reel);
-            }}
+            onClick={() => handleClick(reel)}
             style={{
               border: '1px solid #ccc',
               borderRadius: '10px',
@@ -92,7 +106,7 @@ export default function Marketing() {
             onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
           >
             <iframe
-              src={`https://www.instagram.com/reel/${reel.link.split('/reel/')[1]?.split('/')[0]}/embed`}
+              src={getEmbedUrl(reel.link)}
               title={`Instagram Reel - ${reel.caption}`}
               width="100%"
               height="480"
@@ -104,15 +118,22 @@ export default function Marketing() {
             ></iframe>
             <div style={{ padding: '1rem', background: '#f9f9f9' }}>
               <p style={{ fontWeight: 'bold', marginBottom: '0.5rem' }}>{reel.company}</p>
-              <p style={{ marginBottom: '0.5rem', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{reel.caption}</p>
+              <p style={{
+                marginBottom: '0.5rem',
+                display: '-webkit-box',
+                WebkitLineClamp: 3,
+                WebkitBoxOrient: 'vertical',
+                overflow: 'hidden'
+              }}>{reel.caption}</p>
               <p style={{ fontSize: '0.9rem', color: '#666' }}>{reel.handle} — {reel.date}</p>
             </div>
           </div>
         ))}
       </div>
 
-      {selectedReel && (
+      {isModalOpen && selectedReel && (
         <div
+          onClick={closeModal}
           style={{
             position: 'fixed',
             top: 0,
@@ -123,42 +144,35 @@ export default function Marketing() {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            zIndex: 9999,
-            padding: '2rem',
+            zIndex: 1000,
           }}
-          onClick={() => setSelectedReel(null)}
         >
           <div
             onClick={(e) => e.stopPropagation()}
             style={{
-              background: '#fff',
-              padding: '1rem',
-              borderRadius: '12px',
               maxWidth: '800px',
-              width: '100%',
-              maxHeight: '90vh',
-              overflowY: 'auto',
+              width: '90%',
+              background: '#fff',
+              borderRadius: '12px',
+              padding: '1.5rem',
+              position: 'relative',
             }}
           >
             <iframe
-              src={`https://www.instagram.com/reel/${selectedReel.link.split('/reel/')[1]?.split('/')[0]}/embed`}
-              title={`Instagram Reel - ${selectedReel.caption}`}
+              src={getEmbedUrl(selectedReel.link)}
               width="100%"
               height="480"
               frameBorder="0"
               scrolling="no"
               allowFullScreen
-              style={{ borderRadius: '10px', width: '100%', height: '480px', marginBottom: '1rem' }}
+              loading="lazy"
+              style={{ borderRadius: '10px' }}
             ></iframe>
-            <p><strong>{selectedReel.company}</strong></p>
-            <p>{selectedReel.caption}</p>
-            <p style={{ fontSize: '0.9rem', color: '#666' }}>{selectedReel.handle} — {selectedReel.date}</p>
-            <button
-              onClick={() => setSelectedReel(null)}
-              style={{ marginTop: '1rem', padding: '0.5rem 1rem', background: '#413b42', color: '#fff', border: 'none', borderRadius: '6px', cursor: 'pointer' }}
-            >
-              Close
-            </button>
+            <div style={{ marginTop: '1rem' }}>
+              <p style={{ fontWeight: 'bold' }}>{selectedReel.company}</p>
+              <p style={{ whiteSpace: 'pre-wrap' }}>{selectedReel.caption}</p>
+              <p style={{ fontSize: '0.9rem', color: '#666' }}>{selectedReel.handle} — {selectedReel.date}</p>
+            </div>
           </div>
         </div>
       )}
@@ -168,7 +182,6 @@ export default function Marketing() {
       <SpeedInsights />
       <GoogleAnalytics />
       <MicrosoftClarity />
-
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-C4N1Y9CTEP"
         strategy="lazyOnload"
