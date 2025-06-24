@@ -137,18 +137,22 @@ export default function Personal() {
           onTouchStart={(e) => (e.currentTarget.startX = e.touches[0].clientX)}
           onTouchEnd={(e) => handleSwipe(e.currentTarget.startX, e.changedTouches[0].clientX)}
         >
-          <button onClick={(e) => { e.stopPropagation(); handlePrev(); }} style={arrowStyle}>&lt;</button>
-          <img
-            src={modalImages[modalIndex]}
-            alt="Full view"
-            style={modalImageStyle}
-          />
-          <button onClick={(e) => { e.stopPropagation(); handleNext(); }} style={arrowStyle}>&gt;</button>
+          <div style={modalContent} onClick={(e) => e.stopPropagation()}>
+            <button onClick={() => setModalImage(null)} style={closeButton}>×</button>
+            <img
+              src={modalImages[modalIndex]}
+              alt="Full view"
+              style={modalImageStyle}
+            />
+            <div style={arrowContainer}>
+              <button onClick={handlePrev} style={arrowStyle}>&lt;</button>
+              <button onClick={handleNext} style={arrowStyle}>&gt;</button>
+            </div>
+          </div>
         </div>
       )}
 
       <BackToTopButton />
-
       <GoogleAnalytics />
       <Analytics />
       <MicrosoftClarity />
@@ -215,17 +219,33 @@ const modalOverlay = {
   zIndex: 1000,
 };
 
-const modalImageStyle = {
-  maxHeight: '90%',
-  maxWidth: '90%',
-  border: '6px solid #eee8f0',
+const modalContent = {
+  backgroundColor: '#eee8f0',
   borderRadius: '12px',
+  padding: '1rem',
+  maxWidth: '90vw',
+  maxHeight: '90vh',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  position: 'relative',
+};
+
+const modalImageStyle = {
+  maxHeight: '70vh',
+  maxWidth: '100%',
+  borderRadius: '8px',
+  objectFit: 'contain',
+};
+
+const arrowContainer = {
+  display: 'flex',
+  justifyContent: 'center',
+  marginTop: '1rem',
+  gap: '1rem',
 };
 
 const arrowStyle = {
-  position: 'absolute',
-  top: '50%',
-  transform: 'translateY(-50%)',
   backgroundColor: '#dcc0e5',
   color: '#413b42',
   border: 'none',
@@ -233,8 +253,18 @@ const arrowStyle = {
   fontSize: '2rem',
   borderRadius: '50%',
   cursor: 'pointer',
-  zIndex: 1001,
 };
 
-arrowStyle.left = { ...arrowStyle, left: '1rem' };
-arrowStyle.right = { ...arrowStyle, right: '1rem' };
+const closeButton = {
+  position: 'absolute',
+  top: '0.5rem',
+  right: '0.5rem',
+  backgroundColor: '#413b42',
+  color: '#fff',
+  border: 'none',
+  borderRadius: '50%',
+  width: '32px',
+  height: '32px',
+  fontSize: '1.25rem',
+  cursor: 'pointer',
+};

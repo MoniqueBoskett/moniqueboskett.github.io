@@ -128,30 +128,35 @@ export default function Travel() {
             overlay: { backgroundColor: 'rgba(0, 0, 0, 0.75)', zIndex: 9999 },
             content: {
               inset: '10%',
-              background: 'transparent',
+              background: '#eee8f0',
               border: 'none',
+              borderRadius: '12px',
+              padding: '1rem',
               display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              padding: 0,
               flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              maxWidth: '90vw',
+              maxHeight: '90vh',
+              margin: 'auto',
             },
           }}
         >
+          <button onClick={closeModal} style={closeButton}>×</button>
           <img
             src={`/travel/${selectedImage}`}
             alt="Enlarged travel photo"
             loading="lazy"
             style={{
-              maxHeight: '90vh',
-              maxWidth: '90vw',
-              borderRadius: '10px',
+              maxHeight: '70vh',
+              maxWidth: '100%',
+              borderRadius: '8px',
               objectFit: 'contain',
             }}
           />
-          <div style={{ marginTop: '1rem', display: 'flex', gap: '1rem' }}>
-            <button onClick={(e) => { e.stopPropagation(); showPrevious(); }} style={arrowButton}>{'<'}</button>
-            <button onClick={(e) => { e.stopPropagation(); showNext(); }} style={arrowButton}>{'>'}</button>
+          <div style={arrowContainer}>
+            <button onClick={showPrevious} style={arrowStyle}>{'<'}</button>
+            <button onClick={showNext} style={arrowStyle}>{'>'}</button>
           </div>
         </Modal>
       )}
@@ -251,7 +256,14 @@ const photoStyle = {
   backgroundColor: '#ccc',
 };
 
-const arrowButton = {
+const arrowContainer = {
+  display: 'flex',
+  justifyContent: 'center',
+  marginTop: '1rem',
+  gap: '1rem',
+};
+
+const arrowStyle = {
   backgroundColor: '#dcc0e5',
   color: '#413b42',
   fontSize: '1.5rem',
@@ -260,5 +272,19 @@ const arrowButton = {
   borderRadius: '50%',
   width: '40px',
   height: '40px',
+  cursor: 'pointer',
+};
+
+const closeButton = {
+  position: 'absolute',
+  top: '0.5rem',
+  right: '0.5rem',
+  backgroundColor: '#413b42',
+  color: '#fff',
+  border: 'none',
+  borderRadius: '50%',
+  width: '32px',
+  height: '32px',
+  fontSize: '1.25rem',
   cursor: 'pointer',
 };

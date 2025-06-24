@@ -54,7 +54,7 @@ export default function Home() {
             Hi! I&apos;m Monique (she/her/hers) — an event strategist who creates memorable experiences through innovative
             event planning, travel, and community engagement.
             <br /><br />
-            Explore this site to learn more about who I am, what I do, and where I&apos;ve been.
+            Click the menu button to explore, learn who I am, what I do, and where I&apos;ve been.
           </p>
         </div>
       </div>
