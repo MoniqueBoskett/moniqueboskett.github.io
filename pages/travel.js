@@ -127,18 +127,14 @@ export default function Travel() {
           style={{
             overlay: { backgroundColor: 'rgba(0, 0, 0, 0.75)', zIndex: 9999 },
             content: {
-              inset: '10%',
-              background: '#eee8f0',
+              background: 'transparent',
               border: 'none',
-              borderRadius: '12px',
-              padding: '1rem',
+              padding: 0,
               display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
               justifyContent: 'center',
-              maxWidth: '90vw',
-              maxHeight: '90vh',
-              margin: 'auto',
+              alignItems: 'center',
+              flexDirection: 'column',
+              inset: '0',
             },
           }}
         >
@@ -148,10 +144,13 @@ export default function Travel() {
             alt="Enlarged travel photo"
             loading="lazy"
             style={{
-              maxHeight: '70vh',
-              maxWidth: '100%',
-              borderRadius: '8px',
+              maxHeight: '80vh',
+              maxWidth: '90vw',
+              border: '6px solid #eee8f0',
+              borderRadius: '12px',
               objectFit: 'contain',
+              backgroundColor: '#eee8f0',
+              padding: '0.5rem',
             }}
           />
           <div style={arrowContainer}>
