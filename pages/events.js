@@ -89,23 +89,14 @@ export default function Events() {
       </div>
 
       <BackToTopButton />
-
-      {/* Google Analytics snippet */}
       <GoogleAnalytics />
-
-      {/* Vercel Analytics */}
       <Analytics />
-
-      {/* Microsoft Clarity snippet */}
       <MicrosoftClarity />
-
-      {/* Vercel Speed Insights */}
       <SpeedInsights />
     </section>
   );
 }
 
-// 🔧 Styles
 const flipbookWrapper = {
   display: 'flex',
   justifyContent: 'center',
