@@ -17,7 +17,6 @@ export default function Contact() {
         <form
           action="https://formspree.io/f/mpwdnlyw"
           method="POST"
-          target="_blank"
           style={formWrapper}
         >
           <input type="hidden" name="_redirect" value="https://moniqueboskett.vercel.app/thankyou" />
@@ -34,7 +33,13 @@ export default function Contact() {
 
           <div style={fieldGroup}>
             <label htmlFor="message" style={labelStyle}>Message</label>
-            <textarea name="message" id="message" rows="5" required style={{ ...inputStyle, resize: 'vertical' }} />
+            <textarea
+              name="message"
+              id="message"
+              rows="5"
+              required
+              style={{ ...inputStyle, resize: 'vertical' }}
+            />
           </div>
 
           <button type="submit" style={submitButton}>Send Message</button>
@@ -42,17 +47,9 @@ export default function Contact() {
       </div>
 
       <BackToTopButton />
-
-      {/* Google Analytics snippet */}
       <GoogleAnalytics />
-
-      {/* Vercel Analytics */}
       <Analytics />
-
-      {/* Microsoft Clarity snippet */}
       <MicrosoftClarity />
-
-      {/* Vercel Speed Insights */}
       <SpeedInsights />
     </section>
   );
@@ -63,6 +60,8 @@ const centeredWrapper = {
   display: 'flex',
   justifyContent: 'center',
   width: '100%',
+  padding: '0 1rem',
+  boxSizing: 'border-box',
 };
 
 const descriptionStyle = {

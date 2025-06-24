@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BackToTopButton from '../components/BackToTopButton';
 import GoogleAnalytics from '../components/GoogleAnalytics';
 import MicrosoftClarity from '../components/MicrosoftClarity';
@@ -10,6 +10,8 @@ import { sectionStyle, headingStyle, buttonStyle } from '../styles/styles';
 export default function Personal() {
   const [openIndex, setOpenIndex] = useState(null);
   const [modalImage, setModalImage] = useState(null);
+  const [modalImages, setModalImages] = useState([]);
+  const [modalIndex, setModalIndex] = useState(0);
 
   const toggleImageSection = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -20,6 +22,29 @@ export default function Personal() {
       window.va.track('link_click', { label });
     }
   };
+
+  const handlePrev = () => {
+    setModalIndex((prev) => (prev - 1 + modalImages.length) % modalImages.length);
+  };
+
+  const handleNext = () => {
+    setModalIndex((prev) => (prev + 1) % modalImages.length);
+  };
+
+  const handleSwipe = (startX, endX) => {
+    if (startX - endX > 50) handleNext();
+    else if (endX - startX > 50) handlePrev();
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setModalImage(null);
+      if (e.key === 'ArrowLeft') handlePrev();
+      if (e.key === 'ArrowRight') handleNext();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [modalImages]);
 
   return (
     <section style={sectionStyle}>
@@ -61,7 +86,11 @@ export default function Personal() {
                       src={`/funfacts/${img}`}
                       alt={`Photo related to fun fact ${index + 1}`}
                       loading="lazy"
-                      onClick={() => setModalImage(`/funfacts/${img}`)}
+                      onClick={() => {
+                        setModalImages(fact.photos.map(p => `/funfacts/${p}`));
+                        setModalIndex(i);
+                        setModalImage(`/funfacts/${img}`);
+                      }}
                       style={photoStyle}
                     />
                   ))}
@@ -102,33 +131,32 @@ export default function Personal() {
       ))}
 
       {modalImage && (
-        <div onClick={() => setModalImage(null)} style={modalOverlay}>
+        <div
+          onClick={() => setModalImage(null)}
+          style={modalOverlay}
+          onTouchStart={(e) => (e.currentTarget.startX = e.touches[0].clientX)}
+          onTouchEnd={(e) => handleSwipe(e.currentTarget.startX, e.changedTouches[0].clientX)}
+        >
+          <button onClick={(e) => { e.stopPropagation(); handlePrev(); }} style={arrowStyle}>&lt;</button>
           <img
-            src={modalImage}
+            src={modalImages[modalIndex]}
             alt="Full view"
             style={modalImageStyle}
           />
+          <button onClick={(e) => { e.stopPropagation(); handleNext(); }} style={arrowStyle}>&gt;</button>
         </div>
       )}
 
       <BackToTopButton />
 
-      {/* Google Analytics snippet */}
       <GoogleAnalytics />
-
-      {/* Vercel Analytics */}
       <Analytics />
-
-      {/* Microsoft Clarity snippet */}
       <MicrosoftClarity />
-
-      {/* Vercel Speed Insights */}
       <SpeedInsights />
     </section>
   );
 }
 
-// Local Styles
 const cardStyle = {
   backgroundColor: '#eee8f0',
   borderRadius: '12px',
@@ -193,3 +221,20 @@ const modalImageStyle = {
   border: '6px solid #eee8f0',
   borderRadius: '12px',
 };
+
+const arrowStyle = {
+  position: 'absolute',
+  top: '50%',
+  transform: 'translateY(-50%)',
+  backgroundColor: '#dcc0e5',
+  color: '#413b42',
+  border: 'none',
+  padding: '0.5rem 1rem',
+  fontSize: '2rem',
+  borderRadius: '50%',
+  cursor: 'pointer',
+  zIndex: 1001,
+};
+
+arrowStyle.left = { ...arrowStyle, left: '1rem' };
+arrowStyle.right = { ...arrowStyle, right: '1rem' };

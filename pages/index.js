@@ -2,6 +2,8 @@ import { Github, Linkedin, Mail, Phone } from 'lucide-react';
 import BackToTopButton from '../components/BackToTopButton';
 import GoogleAnalytics from '../components/GoogleAnalytics';
 import MicrosoftClarity from '../components/MicrosoftClarity';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { layoutStyles, headingStyle, paragraphStyle } from '../styles/styles';
 
 export default function Home() {
@@ -11,14 +13,11 @@ export default function Home() {
       e.preventDefault();
       alert('Call: 215-278-9306');
     }
-    // On a phone, the <a href="tel:..."> will invoke the dialer automatically
   };
 
   return (
     <main style={layoutStyles.main}>
-      <h1 style={headingStyle}>
-        Welcome to Monique Boskett&rsquo;s Portfolio!
-      </h1>
+      <h1 style={headingStyle}>Welcome to Monique Boskett&rsquo;s Portfolio!</h1>
 
       <div
         style={{
@@ -76,6 +75,7 @@ export default function Home() {
           rel="noopener noreferrer"
           title="GitHub"
           style={{ color: '#413b42' }}
+          aria-label="GitHub"
         >
           <Github size={32} />
         </a>
@@ -85,6 +85,7 @@ export default function Home() {
           rel="noopener noreferrer"
           title="LinkedIn"
           style={{ color: '#413b42' }}
+          aria-label="LinkedIn"
         >
           <Linkedin size={32} />
         </a>
@@ -92,6 +93,7 @@ export default function Home() {
           href="mailto:monique.boskett@gmail.com"
           title="Email"
           style={{ color: '#413b42' }}
+          aria-label="Email"
         >
           <Mail size={32} />
         </a>
@@ -100,18 +102,17 @@ export default function Home() {
           onClick={handlePhoneClick}
           title="Call"
           style={{ color: '#413b42' }}
+          aria-label="Phone"
         >
           <Phone size={32} />
         </a>
       </footer>
 
       <BackToTopButton />
-
-      {/* Google Analytics snippet */}
       <GoogleAnalytics />
-
-      {/* Microsoft Clarity snippet */}
       <MicrosoftClarity />
+      <Analytics />
+      <SpeedInsights />
     </main>
   );
 }

@@ -28,7 +28,7 @@ export default function Events() {
   }, []);
 
   return (
-    <section style={sectionStyle}>
+    <section style={sectionStyle} aria-label="Event Portfolio">
       <h1 style={headingStyle}>Event Portfolio</h1>
 
       <div style={flipbookWrapper}>
@@ -51,7 +51,7 @@ export default function Events() {
             <div key={i} className="page">
               <img
                 src={page.src}
-                alt={page.label}
+                alt={`Event portfolio ${page.label}`}
                 loading="lazy"
                 style={imageStyle}
               />
@@ -61,11 +61,15 @@ export default function Events() {
         </HTMLFlipBook>
       </div>
 
-      <div style={thumbnailGrid}>
+      <div style={thumbnailGrid} aria-label="Page Thumbnails">
         {pages.map((page, i) => (
           <div
             key={i}
             onClick={() => bookRef.current.pageFlip().turnToPage(i)}
+            onKeyDown={(e) => e.key === 'Enter' && bookRef.current.pageFlip().turnToPage(i)}
+            tabIndex={0}
+            role="button"
+            aria-label={`Go to ${page.label}`}
             style={{
               ...thumbnailItem,
               border: i === currentPage ? '3px solid #413b42' : '1px solid #aaa',
@@ -73,7 +77,7 @@ export default function Events() {
           >
             <img
               src={page.src}
-              alt={page.label}
+              alt={`Thumbnail ${page.label}`}
               loading="lazy"
               style={thumbnailImage}
             />
@@ -83,7 +87,7 @@ export default function Events() {
       </div>
 
       <div style={downloadWrapper}>
-        <a href="/Monique_Boskett_Event_Portfolio.pdf" download style={downloadButton}>
+        <a href="/Monique_Boskett_Event_Portfolio.pdf" download style={downloadButton} aria-label="Download Full PDF">
           <Download size={18} style={{ marginRight: '0.5rem' }} /> Download Full PDF
         </a>
       </div>
@@ -133,6 +137,7 @@ const thumbnailItem = {
   borderRadius: '6px',
   width: '70px',
   flexShrink: 0,
+  outline: 'none',
 };
 
 const thumbnailImage = {

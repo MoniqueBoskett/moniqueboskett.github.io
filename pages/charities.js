@@ -51,7 +51,6 @@ export default function Charities() {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (!modalImage) return;
-
       if (e.key === 'Escape') closeModal();
       else if (e.key === 'ArrowRight') showNext();
       else if (e.key === 'ArrowLeft') showPrevious();
@@ -68,17 +67,14 @@ export default function Charities() {
     if (touchStartX === null) return;
     const touchEndX = e.changedTouches[0].clientX;
     const deltaX = touchEndX - touchStartX;
-
     if (deltaX > 50) showPrevious();
     else if (deltaX < -50) showNext();
-
     setTouchStartX(null);
   };
 
   return (
     <section style={sectionStyle}>
       <h1 style={headingStyle}>Charities I Support</h1>
-
       <p style={descriptionStyle}>
         Giving back is an important part of who I am. I believe in supporting causes that create real change in people&apos;s lives.
         Whether you choose to support one of my favorites or discover a new one of your own, thank you for taking the time to give back.

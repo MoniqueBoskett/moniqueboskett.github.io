@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import VisitedStatesMap from '../components/VisitedStatesMap';
 import BackToTopButton from '../components/BackToTopButton';
 import GoogleAnalytics from '../components/GoogleAnalytics';
 import MicrosoftClarity from '../components/MicrosoftClarity';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import Modal from 'react-modal';
 import { sectionStyle, headingStyle } from '../styles/styles';
 
@@ -43,56 +45,122 @@ const countries = [
 
 export default function Travel() {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedCountry, setSelectedCountry] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(null);
+  const [isMapOpen, setIsMapOpen] = useState(true);
+  const [touchStartX, setTouchStartX] = useState(null);
+
+  const openModal = (country, index) => {
+    setSelectedCountry(country);
+    setCurrentIndex(index);
+    setSelectedImage(country.photos[index]);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+    setSelectedCountry(null);
+    setCurrentIndex(null);
+  };
+
+  const showNext = () => {
+    if (!selectedCountry) return;
+    const nextIndex = (currentIndex + 1) % selectedCountry.photos.length;
+    setSelectedImage(selectedCountry.photos[nextIndex]);
+    setCurrentIndex(nextIndex);
+  };
+
+  const showPrevious = () => {
+    if (!selectedCountry) return;
+    const prevIndex = (currentIndex - 1 + selectedCountry.photos.length) % selectedCountry.photos.length;
+    setSelectedImage(selectedCountry.photos[prevIndex]);
+    setCurrentIndex(prevIndex);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!selectedImage) return;
+      if (e.key === 'Escape') closeModal();
+      else if (e.key === 'ArrowRight') showNext();
+      else if (e.key === 'ArrowLeft') showPrevious();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImage, currentIndex, selectedCountry]);
+
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.changedTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const deltaX = touchEndX - touchStartX;
+    if (deltaX > 50) showPrevious();
+    else if (deltaX < -50) showNext();
+    setTouchStartX(null);
+  };
 
   return (
     <section style={sectionStyle}>
       <h1 style={headingStyle}>My Travel Adventures</h1>
 
-      <div style={mapWrapperStyle}>
-        <VisitedStatesMap />
-      </div>
+      <button onClick={() => setIsMapOpen(!isMapOpen)} style={toggleButton}>
+        {isMapOpen ? '▼ Hide States Visited' : '▶ Show States Visited'}
+      </button>
+      {isMapOpen && (
+        <div style={mapWrapperStyle}>
+          <VisitedStatesMap />
+        </div>
+      )}
 
       {countries.map((country, index) => (
-        <CountrySection key={index} country={country} onImageClick={setSelectedImage} />
+        <CountrySection key={index} country={country} onImageClick={(i) => openModal(country, i)} />
       ))}
 
-      <Modal
-        isOpen={!!selectedImage}
-        onRequestClose={() => setSelectedImage(null)}
-        contentLabel="Enlarged Travel Photo"
-        style={{
-          overlay: { backgroundColor: 'rgba(0, 0, 0, 0.75)', zIndex: 9999 },
-          content: {
-            inset: '10%',
-            background: 'transparent',
-            border: 'none',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            padding: 0,
-          },
-        }}
-      >
-        <img
-          src={`/travel/${selectedImage}`}
-          alt="Enlarged travel photo"
-          loading="lazy"
+      {selectedImage && (
+        <Modal
+          isOpen={!!selectedImage}
+          onRequestClose={closeModal}
+          contentLabel="Enlarged Travel Photo"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
           style={{
-            maxHeight: '90vh',
-            maxWidth: '90vw',
-            borderRadius: '10px',
-            objectFit: 'contain',
+            overlay: { backgroundColor: 'rgba(0, 0, 0, 0.75)', zIndex: 9999 },
+            content: {
+              inset: '10%',
+              background: 'transparent',
+              border: 'none',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              padding: 0,
+              flexDirection: 'column',
+            },
           }}
-        />
-      </Modal>
+        >
+          <img
+            src={`/travel/${selectedImage}`}
+            alt="Enlarged travel photo"
+            loading="lazy"
+            style={{
+              maxHeight: '90vh',
+              maxWidth: '90vw',
+              borderRadius: '10px',
+              objectFit: 'contain',
+            }}
+          />
+          <div style={{ marginTop: '1rem', display: 'flex', gap: '1rem' }}>
+            <button onClick={(e) => { e.stopPropagation(); showPrevious(); }} style={arrowButton}>{'<'}</button>
+            <button onClick={(e) => { e.stopPropagation(); showNext(); }} style={arrowButton}>{'>'}</button>
+          </div>
+        </Modal>
+      )}
 
       <BackToTopButton />
-
-      {/* Google Analytics snippet */}
       <GoogleAnalytics />
-
-      {/* Microsoft Clarity snippet */}
       <MicrosoftClarity />
+      <Analytics />
+      <SpeedInsights />
     </section>
   );
 }
@@ -127,20 +195,22 @@ const CountrySection = ({ country, onImageClick }) => {
         <button
           onClick={() => setIsOpen(!isOpen)}
           style={toggleButton}
+          aria-expanded={isOpen}
+          aria-controls={`photos-${country.name}`}
         >
           {isOpen ? '▼ Collapse' : '▶ Expand'}
         </button>
       </div>
 
       {isOpen && (
-        <div style={photoGridStyle}>
+        <div id={`photos-${country.name}`} style={photoGridStyle}>
           {country.photos.map((photo, i) => (
             <img
               key={i}
               src={`/travel/${photo}`}
               alt={`${country.name} photo ${i + 1}`}
               loading="lazy"
-              onClick={() => onImageClick(photo)}
+              onClick={() => onImageClick(i)}
               style={photoStyle}
             />
           ))}
@@ -150,7 +220,6 @@ const CountrySection = ({ country, onImageClick }) => {
   );
 };
 
-// Custom Styles
 const mapWrapperStyle = {
   width: '100%',
   overflowX: 'auto',
@@ -180,4 +249,16 @@ const photoStyle = {
   borderRadius: '8px',
   cursor: 'pointer',
   backgroundColor: '#ccc',
+};
+
+const arrowButton = {
+  backgroundColor: '#dcc0e5',
+  color: '#413b42',
+  fontSize: '1.5rem',
+  fontWeight: 'bold',
+  border: 'none',
+  borderRadius: '50%',
+  width: '40px',
+  height: '40px',
+  cursor: 'pointer',
 };
