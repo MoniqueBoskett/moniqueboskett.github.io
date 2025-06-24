@@ -118,46 +118,43 @@ export default function Travel() {
       ))}
 
       {selectedImage && (
-        <Modal
-          isOpen={!!selectedImage}
-          onRequestClose={closeModal}
-          contentLabel="Enlarged Travel Photo"
+        <div
+          onClick={closeModal}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
           style={{
-            overlay: { backgroundColor: 'rgba(0, 0, 0, 0.75)', zIndex: 9999 },
-            content: {
-              background: 'transparent',
-              border: 'none',
-              padding: 0,
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              flexDirection: 'column',
-              inset: '0',
-            },
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.75)',
+            zIndex: 9999,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'column',
           }}
         >
-          <button onClick={closeModal} style={closeButton}>×</button>
-          <img
-            src={`/travel/${selectedImage}`}
-            alt="Enlarged travel photo"
-            loading="lazy"
-            style={{
-              maxHeight: '80vh',
-              maxWidth: '90vw',
-              border: '6px solid #eee8f0',
-              borderRadius: '12px',
-              objectFit: 'contain',
-              backgroundColor: '#eee8f0',
-              padding: '0.5rem',
-            }}
-          />
-          <div style={arrowContainer}>
-            <button onClick={showPrevious} style={arrowStyle}>{'<'}</button>
-            <button onClick={showNext} style={arrowStyle}>{'>'}</button>
+          <div onClick={(e) => e.stopPropagation()} style={{ position: 'relative', background: '#eee8f0', padding: '0.5rem', borderRadius: '12px' }}>
+            <button onClick={closeModal} style={closeButton}>×</button>
+            <img
+              src={`/travel/${selectedImage}`}
+              alt="Enlarged travel photo"
+              loading="lazy"
+              style={{
+                maxHeight: '80vh',
+                maxWidth: '90vw',
+                borderRadius: '8px',
+                objectFit: 'contain',
+              }}
+            />
+            <div style={arrowContainer}>
+              <button onClick={showPrevious} style={arrowStyle}>{'<'}</button>
+              <button onClick={showNext} style={arrowStyle}>{'>'}</button>
+            </div>
           </div>
-        </Modal>
+        </div>
       )}
 
       <BackToTopButton />
