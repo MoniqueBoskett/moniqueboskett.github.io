@@ -32,23 +32,22 @@ export default function Marketing() {
   }, [searchTerm]);
 
   const handleClick = (index) => {
+    const link = filteredReels[index].link;
     if (window.gtag) {
       window.gtag('event', 'click', {
         event_category: 'Instagram Reel',
-        event_label: filteredReels[index].link,
+        event_label: link,
       });
     }
     setModalIndex(index);
   };
 
-  const isReelLink = (link) => link.includes('/reel/');
-
   const showNext = () => {
-    setModalIndex((modalIndex + 1) % filteredReels.length);
+    setModalIndex((prev) => (prev + 1) % filteredReels.length);
   };
 
   const showPrevious = () => {
-    setModalIndex((modalIndex - 1 + filteredReels.length) % filteredReels.length);
+    setModalIndex((prev) => (prev - 1 + filteredReels.length) % filteredReels.length);
   };
 
   const handleTouchStart = (e) => {
@@ -63,17 +62,6 @@ export default function Marketing() {
     else if (deltaX < -50) showNext();
     setTouchStartX(null);
   };
-
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (modalIndex === null) return;
-      if (e.key === 'Escape') setModalIndex(null);
-      else if (e.key === 'ArrowRight') showNext();
-      else if (e.key === 'ArrowLeft') showPrevious();
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [modalIndex]);
 
   return (
     <main style={layoutStyles.main}>
@@ -115,41 +103,14 @@ export default function Marketing() {
               cursor: 'pointer',
               transition: 'transform 0.2s ease',
             }}
-            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.03)'}
-            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.03)')}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
           >
-            <div style={{ position: 'relative', paddingTop: '125%', width: '100%' }}>
-              {isReelLink(reel.link) ? (
-                <iframe
-                  src={`https://www.instagram.com/reel/${reel.link.split('/reel/')[1]?.split('/')[0]}/embed`}
-                  title={`Instagram Reel - ${reel.caption}`}
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    border: 'none',
-                    borderRadius: '10px',
-                  }}
-                  allowFullScreen
-                  loading="lazy"
-                ></iframe>
-              ) : (
-                <img
-                  src="/static/placeholder.png"
-                  alt="Instagram Post"
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                  }}
-                />
-              )}
-            </div>
+            <img
+              src={`https://www.instagram.com/p/${reel.link.split('/p/')[1]?.split('/')[0]}/media/?size=l`}
+              alt={`Instagram reel preview - ${reel.caption}`}
+              style={{ width: '100%', height: 'auto' }}
+            />
             <div style={{ padding: '1rem', background: '#f9f9f9' }}>
               <p style={{ fontWeight: 'bold', marginBottom: '0.5rem' }}>{reel.company}</p>
               <p style={{ marginBottom: '0.5rem' }}>{reel.caption.slice(0, 120)}...</p>
@@ -178,22 +139,17 @@ export default function Marketing() {
             flexDirection: 'column',
           }}
         >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            style={{ position: 'relative', maxWidth: '90%', maxHeight: '90%' }}
-          >
-            <iframe
-              src={filteredReels[modalIndex].link.replace('/p/', '/reel/').replace('?utm_source=ig_web_copy_link', '') + '/embed'}
-              width="100%"
-              height="600"
-              style={{ border: 'none', borderRadius: '12px' }}
-              allowFullScreen
-              loading="lazy"
-            ></iframe>
-            <div style={{ marginTop: '1rem', display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-              <button onClick={(e) => { e.stopPropagation(); showPrevious(); }} style={arrowStyle}>{'<'}</button>
-              <button onClick={(e) => { e.stopPropagation(); showNext(); }} style={arrowStyle}>{'>'}</button>
-            </div>
+          <iframe
+            src={filteredReels[modalIndex].link.replace('/p/', '/reel/').replace('?utm_source=ig_web_copy_link', '') + '/embed'}
+            width="100%"
+            height="600"
+            style={{ border: 'none', borderRadius: '12px', maxWidth: '90vw' }}
+            allowFullScreen
+            loading="lazy"
+          ></iframe>
+          <div style={{ marginTop: '1rem', display: 'flex', gap: '1rem' }}>
+            <button onClick={(e) => { e.stopPropagation(); showPrevious(); }} style={arrowStyle}>{'<'}</button>
+            <button onClick={(e) => { e.stopPropagation(); showNext(); }} style={arrowStyle}>{'>'}</button>
           </div>
         </div>
       )}
