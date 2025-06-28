@@ -12,8 +12,7 @@ import { layoutStyles, headingStyle } from '../styles/styles';
 export default function Marketing() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredReels, setFilteredReels] = useState([]);
-  const [modalIndex, setModalIndex] = useState(null);
-  const [touchStartX, setTouchStartX] = useState(null);
+  const [modalReel, setModalReel] = useState(null);
 
   useEffect(() => {
     const sorted = [...marketingData].sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -31,37 +30,17 @@ export default function Marketing() {
     setFilteredReels(filtered.sort((a, b) => new Date(b.date) - new Date(a.date)));
   }, [searchTerm]);
 
-  const handleClick = (index) => {
-    const link = filteredReels[index].link;
+  const handleClick = (link) => {
     if (window.gtag) {
       window.gtag('event', 'click', {
         event_category: 'Instagram Reel',
         event_label: link,
       });
     }
-    setModalIndex(index);
+    setModalReel(link);
   };
 
-  const showNext = () => {
-    setModalIndex((prev) => (prev + 1) % filteredReels.length);
-  };
-
-  const showPrevious = () => {
-    setModalIndex((prev) => (prev - 1 + filteredReels.length) % filteredReels.length);
-  };
-
-  const handleTouchStart = (e) => {
-    setTouchStartX(e.changedTouches[0].clientX);
-  };
-
-  const handleTouchEnd = (e) => {
-    if (touchStartX === null) return;
-    const touchEndX = e.changedTouches[0].clientX;
-    const deltaX = touchEndX - touchStartX;
-    if (deltaX > 50) showPrevious();
-    else if (deltaX < -50) showNext();
-    setTouchStartX(null);
-  };
+  const isReelLink = (link) => link.includes('/reel/');
 
   return (
     <main style={layoutStyles.main}>
@@ -94,7 +73,7 @@ export default function Marketing() {
         {filteredReels.map((reel, i) => (
           <div
             key={i}
-            onClick={() => handleClick(i)}
+            onClick={() => handleClick(reel.link)}
             style={{
               border: '1px solid #ccc',
               borderRadius: '10px',
@@ -103,14 +82,44 @@ export default function Marketing() {
               cursor: 'pointer',
               transition: 'transform 0.2s ease',
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.03)')}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.03)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
           >
-            <img
-              src={`https://www.instagram.com/p/${reel.link.split('/p/')[1]?.split('/')[0]}/media/?size=l`}
-              alt={`Instagram reel preview - ${reel.caption}`}
-              style={{ width: '100%', height: 'auto' }}
-            />
+            <div style={{ position: 'relative', paddingTop: '125%', width: '100%' }}>
+              {isReelLink(reel.link) ? (
+                <iframe
+                  src={`https://www.instagram.com/reel/${reel.link.split('/reel/')[1]?.split('/')[0]}/embed`}
+                  title={`Instagram Reel - ${reel.caption}`}
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    border: 'none',
+                    borderRadius: '10px',
+                  }}
+                  allowFullScreen
+                  loading="lazy"
+                ></iframe>
+              ) : (
+                <iframe
+                  src={`https://www.instagram.com${new URL(reel.link).pathname}/embed`}
+                  title={`Instagram Post - ${reel.caption}`}
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    border: 'none',
+                    borderRadius: '10px',
+                  }}
+                  allowFullScreen
+                  loading="lazy"
+                ></iframe>
+              )}
+            </div>
             <div style={{ padding: '1rem', background: '#f9f9f9' }}>
               <p style={{ fontWeight: 'bold', marginBottom: '0.5rem' }}>{reel.company}</p>
               <p style={{ marginBottom: '0.5rem' }}>{reel.caption.slice(0, 120)}...</p>
@@ -120,11 +129,9 @@ export default function Marketing() {
         ))}
       </div>
 
-      {modalIndex !== null && (
+      {modalReel && (
         <div
-          onClick={() => setModalIndex(null)}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
+          onClick={() => setModalReel(null)}
           style={{
             position: 'fixed',
             top: 0,
@@ -136,20 +143,17 @@ export default function Marketing() {
             justifyContent: 'center',
             alignItems: 'center',
             zIndex: 1000,
-            flexDirection: 'column',
           }}
         >
-          <iframe
-            src={filteredReels[modalIndex].link.replace('/p/', '/reel/').replace('?utm_source=ig_web_copy_link', '') + '/embed'}
-            width="100%"
-            height="600"
-            style={{ border: 'none', borderRadius: '12px', maxWidth: '90vw' }}
-            allowFullScreen
-            loading="lazy"
-          ></iframe>
-          <div style={{ marginTop: '1rem', display: 'flex', gap: '1rem' }}>
-            <button onClick={(e) => { e.stopPropagation(); showPrevious(); }} style={arrowStyle}>{'<'}</button>
-            <button onClick={(e) => { e.stopPropagation(); showNext(); }} style={arrowStyle}>{'>'}</button>
+          <div style={{ position: 'relative', maxWidth: '90%', maxHeight: '90%' }}>
+            <iframe
+              src={`https://www.instagram.com${new URL(modalReel).pathname}/embed`}
+              width="100%"
+              height="600"
+              style={{ border: 'none', borderRadius: '12px' }}
+              allowFullScreen
+              loading="lazy"
+            ></iframe>
           </div>
         </div>
       )}
@@ -175,15 +179,3 @@ export default function Marketing() {
     </main>
   );
 }
-
-const arrowStyle = {
-  backgroundColor: '#dcc0e5',
-  color: '#413b42',
-  fontSize: '1.5rem',
-  fontWeight: 'bold',
-  border: 'none',
-  borderRadius: '50%',
-  width: '40px',
-  height: '40px',
-  cursor: 'pointer',
-};
