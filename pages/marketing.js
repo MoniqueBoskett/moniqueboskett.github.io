@@ -40,7 +40,14 @@ export default function Marketing() {
     setModalReel(link);
   };
 
-  const isReelLink = (link) => link.includes('/reel/');
+  const extractEmbedSrc = (link) => {
+    if (link.includes('/reel/')) {
+      return `https://www.instagram.com/reel/${link.split('/reel/')[1]?.split('/')[0]}/embed`; // Reel embed
+    } else if (link.includes('/p/')) {
+      return `https://www.instagram.com/p/${link.split('/p/')[1]?.split('/')[0]}/embed`; // Photo carousel/post embed
+    }
+    return null;
+  };
 
   return (
     <main style={layoutStyles.main}>
@@ -81,46 +88,30 @@ export default function Marketing() {
               boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
               cursor: 'pointer',
               transition: 'transform 0.2s ease',
+              backgroundColor: '#f9f9f9',
             }}
-            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.03)'}
-            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.03)')}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
           >
             <div style={{ position: 'relative', paddingTop: '125%', width: '100%' }}>
-              {isReelLink(reel.link) ? (
-                <iframe
-                  src={`https://www.instagram.com/reel/${reel.link.split('/reel/')[1]?.split('/')[0]}/embed`}
-                  title={`Instagram Reel - ${reel.caption}`}
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    border: 'none',
-                    borderRadius: '10px',
-                  }}
-                  allowFullScreen
-                  loading="lazy"
-                ></iframe>
-              ) : (
-                <iframe
-                  src={`https://www.instagram.com${new URL(reel.link).pathname}/embed`}
-                  title={`Instagram Post - ${reel.caption}`}
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    border: 'none',
-                    borderRadius: '10px',
-                  }}
-                  allowFullScreen
-                  loading="lazy"
-                ></iframe>
-              )}
+              <iframe
+                src={extractEmbedSrc(reel.link)}
+                title={`Instagram Media - ${reel.caption}`}
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  border: 'none',
+                  borderRadius: '10px',
+                  overflow: 'hidden',
+                }}
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+                loading="lazy"
+              ></iframe>
             </div>
-            <div style={{ padding: '1rem', background: '#f9f9f9' }}>
+            <div style={{ padding: '1rem' }}>
               <p style={{ fontWeight: 'bold', marginBottom: '0.5rem' }}>{reel.company}</p>
               <p style={{ marginBottom: '0.5rem' }}>{reel.caption.slice(0, 120)}...</p>
               <p style={{ fontSize: '0.9rem', color: '#666' }}>{reel.handle} — {reel.date}</p>
@@ -147,7 +138,7 @@ export default function Marketing() {
         >
           <div style={{ position: 'relative', maxWidth: '90%', maxHeight: '90%' }}>
             <iframe
-              src={`https://www.instagram.com${new URL(modalReel).pathname}/embed`}
+              src={extractEmbedSrc(modalReel)}
               width="100%"
               height="600"
               style={{ border: 'none', borderRadius: '12px' }}
@@ -164,10 +155,7 @@ export default function Marketing() {
       <Analytics />
       <SpeedInsights />
 
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-C4N1Y9CTEP"
-        strategy="lazyOnload"
-      />
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-C4N1Y9CTEP" strategy="lazyOnload" />
       <Script id="ga" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
