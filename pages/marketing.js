@@ -12,7 +12,6 @@ import { layoutStyles, headingStyle } from '../styles/styles';
 export default function Marketing() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredReels, setFilteredReels] = useState([]);
-  const [modalReel, setModalReel] = useState(null);
 
   useEffect(() => {
     const sorted = [...marketingData].sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -30,28 +29,33 @@ export default function Marketing() {
     setFilteredReels(filtered.sort((a, b) => new Date(b.date) - new Date(a.date)));
   }, [searchTerm]);
 
-  const handleClick = (link) => {
-    if (window.gtag) {
-      window.gtag('event', 'click', {
-        event_category: 'Instagram Reel',
-        event_label: link,
-      });
-    }
-    setModalReel(link);
-  };
-
-  const extractEmbedSrc = (link) => {
-    if (link.includes('/reel/')) {
-      return `https://www.instagram.com/reel/${link.split('/reel/')[1]?.split('/')[0]}/embed`; // Reel embed
-    } else if (link.includes('/p/')) {
-      return `https://www.instagram.com/p/${link.split('/p/')[1]?.split('/')[0]}/embed`; // Photo carousel/post embed
-    }
+  const extractEmbedId = (link) => {
+    if (link.includes('/reel/')) return link.split('/reel/')[1]?.split('/')[0];
+    if (link.includes('/p/')) return link.split('/p/')[1]?.split('/')[0];
     return null;
   };
+
+  const isReel = (link) => link.includes('/reel/');
 
   return (
     <main style={layoutStyles.main}>
       <h1 style={headingStyle}>Marketing Reels</h1>
+
+      <p style={{
+        fontSize: '1.1rem',
+        maxWidth: '750px',
+        margin: '0 auto 2.5rem',
+        lineHeight: '1.6',
+        textAlign: 'center',
+        background: '#f7f4ed',
+        padding: '1.5rem',
+        borderRadius: '12px',
+        border: '1px solid #ddd',
+      }}>
+        Over the past two years, I’ve had the opportunity to bring more than 30 Chase Sapphire events to life—ranging from music festivals and private dining experiences to backstage moments with partners like <strong>Live Nation</strong>, <strong>Zedd</strong>, and <strong>The Infatuation</strong>.<br /><br />
+        This gallery features a collection of Instagram Reels and posts that highlight the creativity, scale, and storytelling behind these activations.<br /><br />
+        <strong>Click on any post to view it directly on Instagram!</strong>
+      </p>
 
       <input
         type="text"
@@ -80,23 +84,17 @@ export default function Marketing() {
         {filteredReels.map((reel, i) => (
           <div
             key={i}
-            onClick={() => handleClick(reel.link)}
             style={{
               border: '1px solid #ccc',
               borderRadius: '10px',
               overflow: 'hidden',
               boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
-              cursor: 'pointer',
-              transition: 'transform 0.2s ease',
-              backgroundColor: '#f9f9f9',
+              background: '#fff',
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.03)')}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
           >
-            <div style={{ position: 'relative', paddingTop: '125%', width: '100%' }}>
+            <div style={{ position: 'relative', paddingTop: '120%', overflow: 'hidden' }}>
               <iframe
-                src={extractEmbedSrc(reel.link)}
-                title={`Instagram Media - ${reel.caption}`}
+                src={`https://www.instagram.com/${isReel(reel.link) ? 'reel' : 'p'}/${extractEmbedId(reel.link)}/embed`}
                 style={{
                   position: 'absolute',
                   top: 0,
@@ -104,50 +102,20 @@ export default function Marketing() {
                   width: '100%',
                   height: '100%',
                   border: 'none',
-                  borderRadius: '10px',
-                  overflow: 'hidden',
                 }}
-                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
+                allowTransparency
+                allowFullScreen
                 loading="lazy"
-              ></iframe>
+              />
             </div>
-            <div style={{ padding: '1rem' }}>
+            <div style={{ padding: '1rem', background: '#f9f9f9' }}>
               <p style={{ fontWeight: 'bold', marginBottom: '0.5rem' }}>{reel.company}</p>
-              <p style={{ marginBottom: '0.5rem' }}>{reel.caption.slice(0, 120)}...</p>
+              <p style={{ marginBottom: '0.5rem' }}>{reel.caption}</p>
               <p style={{ fontSize: '0.9rem', color: '#666' }}>{reel.handle} — {reel.date}</p>
             </div>
           </div>
         ))}
       </div>
-
-      {modalReel && (
-        <div
-          onClick={() => setModalReel(null)}
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: 'rgba(0,0,0,0.85)',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            zIndex: 1000,
-          }}
-        >
-          <div style={{ position: 'relative', maxWidth: '90%', maxHeight: '90%' }}>
-            <iframe
-              src={extractEmbedSrc(modalReel)}
-              width="100%"
-              height="600"
-              style={{ border: 'none', borderRadius: '12px' }}
-              allowFullScreen
-              loading="lazy"
-            ></iframe>
-          </div>
-        </div>
-      )}
 
       <BackToTopButton />
       <GoogleAnalytics />
