@@ -1,13 +1,79 @@
+import { useState } from 'react';
 import BackToTopButton from '../components/BackToTopButton';
 import GoogleAnalytics from '../components/GoogleAnalytics';
 import MicrosoftClarity from '../components/MicrosoftClarity';
-import { jobs, education, skills } from '../data/resumeData';
+import { jobs, education } from '../data/resumeData';
 import { Briefcase, GraduationCap, Award, Download, Linkedin } from 'lucide-react';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { sectionStyle, headingStyle } from '../styles/styles';
 
+const skillDetails = [
+  {
+    title: 'Event Strategy & Execution',
+    description: 'Proven ability to lead events from ideation through post-event analytics across in-person, hybrid, and virtual formats.'
+  },
+  {
+    title: 'Stakeholder Management',
+    description: 'Skilled at aligning cross-functional teams (marketing, sales, PR, creative, legal) and managing executive-level relationships.'
+  },
+  {
+    title: 'Budget Management',
+    description: 'Experienced managing six- and seven-figure event budgets with a focus on ROI, compliance, and fiscal discipline.'
+  },
+  {
+    title: 'Brand & Experiential Marketing',
+    description: 'Adept at creating memorable, on-brand experiences that drive engagement, media coverage, and customer retention.'
+  },
+  {
+    title: 'Vendor & Agency Management',
+    description: 'Lead RFPs, negotiate contracts, and manage production partners, venues, caterers, and creative agencies.'
+  },
+  {
+    title: 'Executive Communications & Briefing',
+    description: 'Develop messaging, speaker prep materials, and run-of-shows for C-suite presentations and keynotes.'
+  },
+  {
+    title: 'Sponsorship Activation',
+    description: 'Strategically execute sponsor deliverables and brand integrations in large-scale events and partnerships.'
+  },
+  {
+    title: 'VIP & Influencer Engagement',
+    description: 'Coordinate celebrity, talent, and influencer participation; manage relationships with stylists and publicists.'
+  },
+  {
+    title: 'Project Management',
+    description: 'Expert in juggling multiple priorities, meeting tight deadlines, and executing flawlessly under pressure.'
+  },
+  {
+    title: 'Cross-Functional Collaboration',
+    description: 'Regularly partner with internal departments to execute 360° campaigns and integrated event programs.'
+  },
+  {
+    title: 'Campaign Development',
+    description: 'Contribute to integrated marketing plans that align event goals with pipeline acceleration and brand reach.'
+  },
+  {
+    title: 'CRM & Data Tracking',
+    description: 'Familiar with tools like Salesforce and Splash to track event performance, lead generation, and pipeline attribution.'
+  },
+  {
+    title: 'Creative Concepting & Content',
+    description: 'Collaborate on themes, visual identities, and experiences that bring a brand’s mission and vision to life.'
+  },
+  {
+    title: 'On-Site Operations & Logistics',
+    description: 'Lead all in-person elements: staffing, registration, signage, transportation, health/safety, and show flow.'
+  },
+  {
+    title: 'Crisis & Risk Management',
+    description: 'Anticipate and respond to real-time event challenges, ensuring compliance, safety, and brand integrity.'
+  }
+];
+
 export default function Resume() {
+  const [openIndex, setOpenIndex] = useState(null);
+
   return (
     <section style={sectionStyle}>
       <h1 style={headingStyle}>Resume</h1>
@@ -62,47 +128,6 @@ export default function Resume() {
           {edu.bullets.map((b, j) => (
             <p key={j} style={{ marginLeft: '2rem', marginBottom: '0.25rem' }}>{b}</p>
           ))}
-          {edu.school === 'Drexel University' && (
-            <div style={{ marginTop: '1rem', marginLeft: '2rem' }}>
-              <h4 style={{ marginBottom: '0.5rem' }}>Featured Articles:</h4>
-              <ul style={{ paddingLeft: '1.25rem' }}>
-                {[
-                  {
-                    label: 'Amid Work and MBA Studies, 2023 Graduate Commencement Speaker...',
-                    url: 'https://www.lebow.drexel.edu/news/amid-work-and-mba-studies-2023-graduate-commencement-speaker-monique-boskett-finds',
-                    tracking: 'Drexel Commencement Feature'
-                  },
-                  {
-                    label: 'Meet the Student Commencement Speakers for the LeBow Class of 2023',
-                    url: 'https://www.lebow.drexel.edu/news/meet-student-commencement-speakers-lebow-class-2023',
-                    tracking: 'LeBow Class of 2023 Speakers'
-                  },
-                  {
-                    label: 'LeBow Students Named Inaugural Nina Henderson Provost Scholars',
-                    url: 'https://www.lebow.drexel.edu/news/lebow-students-named-inaugural-nina-henderson-provost-scholars',
-                    tracking: 'LeBow Nina Henderson Scholars'
-                  },
-                  {
-                    label: 'The Inaugural Nina Henderson Provost Scholars',
-                    url: 'https://drexel.edu/provost/news-events/announcements/2021/december/the-inaugural-nina-henderson-provost-scholars',
-                    tracking: 'Drexel Nina Henderson Provost Scholars'
-                  }
-                ].map((article, idx) => (
-                  <li key={idx}>
-                    <a
-                      href={article.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => window.va?.track('article_click', { article: article.tracking })}
-                      style={articleLinkStyle}
-                    >
-                      {article.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
         </div>
       ))}
 
@@ -110,16 +135,28 @@ export default function Resume() {
       <h2 style={sectionHeader}>
         <Award size={20} style={{ marginRight: '0.5rem' }} /> Skills &amp; Certifications
       </h2>
-      <div
-        style={{
-          ...cardStyle,
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
-          gap: '0.75rem'
-        }}
-      >
-        {skills.map((s, i) => (
-          <div key={i}>• {s}</div>
+      <div style={{ marginBottom: '2rem' }}>
+        {skillDetails.map((skill, idx) => (
+          <div key={idx} style={cardStyle}>
+            <button
+              onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+              style={{
+                background: 'none',
+                border: 'none',
+                fontWeight: 'bold',
+                fontSize: '1.1rem',
+                cursor: 'pointer',
+                textAlign: 'left',
+                width: '100%',
+                padding: 0,
+              }}
+            >
+              {openIndex === idx ? '▼' : '▶'} {skill.title}
+            </button>
+            {openIndex === idx && (
+              <p style={{ marginTop: '0.75rem' }}>{skill.description}</p>
+            )}
+          </div>
         ))}
       </div>
 
@@ -140,23 +177,15 @@ export default function Resume() {
       </div>
 
       <BackToTopButton />
-
-      {/* Google Analytics snippet */}
       <GoogleAnalytics />
-
-      {/* Vercel Analytics */}
       <Analytics />
-
-      {/* Microsoft Clarity snippet */}
       <MicrosoftClarity />
-
-      {/* Vercel Speed Insights */}
       <SpeedInsights />
     </section>
   );
 }
 
-// Styles
+// Styles (unchanged)
 const introText = {
   maxWidth: '800px',
   margin: '1rem auto 3rem',
@@ -176,7 +205,7 @@ const cardStyle = {
   backgroundColor: '#eee8f0',
   borderRadius: '12px',
   padding: '1.5rem',
-  marginBottom: '2rem',
+  marginBottom: '1rem',
 };
 
 const headerStyle = {
