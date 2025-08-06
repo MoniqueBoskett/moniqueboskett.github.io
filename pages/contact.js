@@ -22,17 +22,17 @@ export default function Contact() {
           <input type="hidden" name="_redirect" value="https://moniqueboskett.vercel.app/thankyou" />
 
           <div style={fieldGroup}>
-            <label htmlFor="name" style={labelStyle}>Name</label>
+            <label htmlFor="name" style={labelStyle} aria-label="Your name">Name</label>
             <input type="text" name="name" id="name" required style={inputStyle} />
           </div>
 
           <div style={fieldGroup}>
-            <label htmlFor="email" style={labelStyle}>Email</label>
+            <label htmlFor="email" style={labelStyle} aria-label="Your email address">Email</label>
             <input type="email" name="email" id="email" required style={inputStyle} />
           </div>
 
           <div style={fieldGroup}>
-            <label htmlFor="message" style={labelStyle}>Message</label>
+            <label htmlFor="message" style={labelStyle} aria-label="Your message">Message</label>
             <textarea
               name="message"
               id="message"
@@ -81,6 +81,8 @@ const formWrapper = {
   borderRadius: '12px',
   maxWidth: '500px',
   width: '100%',
+  border: '1px solid #ddd',
+  boxShadow: '0 2px 5px rgba(0, 0, 0, 0.05)',
   boxSizing: 'border-box',
 };
 

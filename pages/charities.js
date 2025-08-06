@@ -73,7 +73,7 @@ export default function Charities() {
   };
 
   return (
-    <section style={sectionStyle}>
+    <section style={{ ...sectionStyle, backgroundColor: '#eee8f0' }}>
       <h1 style={headingStyle}>Charities I Support</h1>
       <p style={descriptionStyle}>
         Giving back is an important part of who I am. I believe in supporting causes that create real change in people&apos;s lives.

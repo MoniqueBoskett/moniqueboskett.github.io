@@ -28,8 +28,12 @@ export default function Events() {
   }, []);
 
   return (
-    <section style={sectionStyle} aria-label="Event Portfolio">
+    <section style={{ ...sectionStyle, backgroundColor: '#eee8f0' }} aria-label="Event Portfolio">
       <h1 style={headingStyle}>Event Portfolio</h1>
+
+      <p style={{ textAlign: 'center', marginBottom: '1rem', fontSize: '1rem' }}>
+        Viewing Page {currentPage + 1} of {totalPages}
+      </p>
 
       <div style={flipbookWrapper}>
         <HTMLFlipBook
@@ -48,11 +52,12 @@ export default function Events() {
           style={{ width: '100%', maxWidth: '85vw' }}
         >
           {pages.map((page, i) => (
-            <div key={i} className="page">
+            <div key={i} className="page" role="button" aria-label={`View ${page.label}`} tabIndex={0}>
               <img
                 src={page.src}
                 alt={`Event portfolio ${page.label}`}
                 loading="lazy"
+                decoding="async"
                 style={imageStyle}
               />
               <div style={pageLabel}>{page.label}</div>
@@ -65,7 +70,10 @@ export default function Events() {
         {pages.map((page, i) => (
           <div
             key={i}
-            onClick={() => bookRef.current.pageFlip().turnToPage(i)}
+            onClick={() => {
+              window.va?.track('flipbook_page_click', { page: i + 1 });
+              bookRef.current.pageFlip().turnToPage(i);
+            }}
             onKeyDown={(e) => e.key === 'Enter' && bookRef.current.pageFlip().turnToPage(i)}
             tabIndex={0}
             role="button"
@@ -79,6 +87,7 @@ export default function Events() {
               src={page.src}
               alt={`Thumbnail ${page.label}`}
               loading="lazy"
+              decoding="async"
               style={thumbnailImage}
             />
             <span style={thumbnailLabel}>{page.label}</span>
@@ -87,7 +96,13 @@ export default function Events() {
       </div>
 
       <div style={downloadWrapper}>
-        <a href="/Monique_Boskett_Event_Portfolio.pdf" download style={downloadButton} aria-label="Download Full PDF">
+        <a
+          href="/Monique_Boskett_Event_Portfolio.pdf"
+          download
+          style={{ ...downloadButton, ...downloadButtonHover }}
+          aria-label="Download Full PDF"
+          onClick={() => window.va?.track('download_portfolio_pdf')}
+        >
           <Download size={18} style={{ marginRight: '0.5rem' }} /> Download Full PDF
         </a>
       </div>
@@ -127,6 +142,7 @@ const thumbnailGrid = {
   gap: '0.5rem',
   marginBottom: '2rem',
   padding: '0 1rem',
+  overflowX: 'auto',
 };
 
 const thumbnailItem = {
@@ -168,4 +184,11 @@ const downloadButton = {
   alignItems: 'center',
   fontWeight: 'bold',
   fontSize: '1rem',
+  transition: 'background-color 0.3s ease',
+};
+
+const downloadButtonHover = {
+  ':hover': {
+    backgroundColor: '#5a4b5d',
+  },
 };

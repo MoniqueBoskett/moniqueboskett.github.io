@@ -9,7 +9,6 @@ import { sectionStyle, headingStyle, buttonStyle } from '../styles/styles';
 
 export default function Personal() {
   const [openIndex, setOpenIndex] = useState(null);
-  const [modalImage, setModalImage] = useState(null);
   const [modalImages, setModalImages] = useState([]);
   const [modalIndex, setModalIndex] = useState(0);
 
@@ -38,7 +37,7 @@ export default function Personal() {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') setModalImage(null);
+      if (e.key === 'Escape') setModalImages([]);
       if (e.key === 'ArrowLeft') handlePrev();
       if (e.key === 'ArrowRight') handleNext();
     };
@@ -47,7 +46,7 @@ export default function Personal() {
   }, [modalImages]);
 
   return (
-    <section style={sectionStyle}>
+    <section style={{ ...sectionStyle, backgroundColor: '#eee8f0', padding: '2rem 1rem' }}>
       <h1 style={headingStyle}>✨ Fun Facts About Me ✨</h1>
 
       {funFacts.map((fact, index) => (
@@ -84,14 +83,15 @@ export default function Personal() {
                     <img
                       key={i}
                       src={`/funfacts/${img}`}
-                      alt={`Photo related to fun fact ${index + 1}`}
+                      alt={`Fun fact photo ${i + 1}`}
                       loading="lazy"
                       onClick={() => {
                         setModalImages(fact.photos.map(p => `/funfacts/${p}`));
                         setModalIndex(i);
-                        setModalImage(`/funfacts/${img}`);
                       }}
-                      style={photoStyle}
+                      style={{ ...photoStyle, transition: 'transform 0.2s ease' }}
+                      onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.03)'}
+                      onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
                     />
                   ))}
                 </div>
@@ -130,15 +130,15 @@ export default function Personal() {
         </div>
       ))}
 
-      {modalImage && (
+      {modalImages.length > 0 && (
         <div
-          onClick={() => setModalImage(null)}
+          onClick={() => setModalImages([])}
           style={modalOverlay}
           onTouchStart={(e) => (e.currentTarget.startX = e.touches[0].clientX)}
           onTouchEnd={(e) => handleSwipe(e.currentTarget.startX, e.changedTouches[0].clientX)}
         >
           <div style={modalContent} onClick={(e) => e.stopPropagation()}>
-            <button onClick={() => setModalImage(null)} style={closeButton}>×</button>
+            <button onClick={() => setModalImages([])} style={closeButton}>×</button>
             <img
               src={modalImages[modalIndex]}
               alt="Full view"

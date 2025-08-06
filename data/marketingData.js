@@ -1,6 +1,13 @@
 // data/marketingData.js
 
 export const marketingData = [
+   {
+    date: 'June 6, 2025',
+    company: 'Chase Sapphire, Avril Lavigne',
+    handle: '@chasesapphire, @avrillavigne',
+    caption: 'Had the best time curating this experience as a #chasesapphirepartner for Reserve cardmembers before taking the stage at Boston Calling!',
+    link: 'https://www.instagram.com/reel/DKkm2_0RIpP/?utm_source=ig_web_copy_link&igsh=dWRncDRvMG8wNnEw'
+  },
   {
     date: 'June 4, 2025',
     company: 'Chase Sapphire',

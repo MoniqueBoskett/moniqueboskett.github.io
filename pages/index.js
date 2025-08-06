@@ -11,12 +11,15 @@ export default function Home() {
     const isMobile = /Mobi|Android/i.test(navigator.userAgent);
     if (!isMobile) {
       e.preventDefault();
-      alert('Call: 215-278-9306');
+      navigator.clipboard.writeText('215-278-9306');
+      alert('Phone number copied to clipboard: 215-278-9306');
     }
   };
 
+  const iconStyle = { color: '#413b42' };
+
   return (
-    <main style={layoutStyles.main}>
+    <main style={{ ...layoutStyles.main, backgroundColor: '#eee8f0' }}>
       <h1 style={headingStyle}>Welcome to Monique Boskett&rsquo;s Portfolio!</h1>
 
       <div
@@ -50,11 +53,11 @@ export default function Home() {
         />
 
         <div style={{ maxWidth: '600px', flex: 1, textAlign: 'left' }}>
-          <p style={paragraphStyle}>
+          <p style={{ ...paragraphStyle, fontSize: '1.15rem', lineHeight: '1.6' }}>
             Hi! I&apos;m Monique (she/her/hers) — an event strategist who creates memorable experiences through innovative
             event planning, travel, and community engagement.
             <br /><br />
-            Click the menu button to explore, learn who I am, what I do, and where I&apos;ve been.
+            Click the menu button to explore my site. You&apos;ll learn who I am, what I do, and where I&apos;ve been.
           </p>
         </div>
       </div>
@@ -74,7 +77,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
           title="GitHub"
-          style={{ color: '#413b42' }}
+          style={iconStyle}
           aria-label="GitHub"
         >
           <Github size={32} />
@@ -84,7 +87,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
           title="LinkedIn"
-          style={{ color: '#413b42' }}
+          style={iconStyle}
           aria-label="LinkedIn"
         >
           <Linkedin size={32} />
@@ -92,7 +95,7 @@ export default function Home() {
         <a
           href="mailto:monique.boskett@gmail.com"
           title="Email"
-          style={{ color: '#413b42' }}
+          style={iconStyle}
           aria-label="Email"
         >
           <Mail size={32} />
@@ -101,7 +104,7 @@ export default function Home() {
           href="tel:2152789306"
           onClick={handlePhoneClick}
           title="Call"
-          style={{ color: '#413b42' }}
+          style={iconStyle}
           aria-label="Phone"
         >
           <Phone size={32} />

@@ -9,80 +9,49 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { sectionStyle, headingStyle } from '../styles/styles';
 
 const skillDetails = [
-  {
-    title: 'Event Strategy & Execution',
-    description: 'Proven ability to lead events from ideation through post-event analytics across in-person, hybrid, and virtual formats.'
-  },
-  {
-    title: 'Stakeholder Management',
-    description: 'Skilled at aligning cross-functional teams (marketing, sales, PR, creative, legal) and managing executive-level relationships.'
-  },
-  {
-    title: 'Budget Management',
-    description: 'Experienced managing six- and seven-figure event budgets with a focus on ROI, compliance, and fiscal discipline.'
-  },
-  {
-    title: 'Brand & Experiential Marketing',
-    description: 'Adept at creating memorable, on-brand experiences that drive engagement, media coverage, and customer retention.'
-  },
-  {
-    title: 'Vendor & Agency Management',
-    description: 'Lead RFPs, negotiate contracts, and manage production partners, venues, caterers, and creative agencies.'
-  },
-  {
-    title: 'Executive Communications & Briefing',
-    description: 'Develop messaging, speaker prep materials, and run-of-shows for C-suite presentations and keynotes.'
-  },
-  {
-    title: 'Sponsorship Activation',
-    description: 'Strategically execute sponsor deliverables and brand integrations in large-scale events and partnerships.'
-  },
-  {
-    title: 'VIP & Influencer Engagement',
-    description: 'Coordinate celebrity, talent, and influencer participation; manage relationships with stylists and publicists.'
-  },
-  {
-    title: 'Project Management',
-    description: 'Expert in juggling multiple priorities, meeting tight deadlines, and executing flawlessly under pressure.'
-  },
-  {
-    title: 'Cross-Functional Collaboration',
-    description: 'Regularly partner with internal departments to execute 360° campaigns and integrated event programs.'
-  },
-  {
-    title: 'Campaign Development',
-    description: 'Contribute to integrated marketing plans that align event goals with pipeline acceleration and brand reach.'
-  },
-  {
-    title: 'CRM & Data Tracking',
-    description: 'Familiar with tools like Salesforce and Splash to track event performance, lead generation, and pipeline attribution.'
-  },
-  {
-    title: 'Creative Concepting & Content',
-    description: 'Collaborate on themes, visual identities, and experiences that bring a brand’s mission and vision to life.'
-  },
-  {
-    title: 'On-Site Operations & Logistics',
-    description: 'Lead all in-person elements: staffing, registration, signage, transportation, health/safety, and show flow.'
-  },
-  {
-    title: 'Crisis & Risk Management',
-    description: 'Anticipate and respond to real-time event challenges, ensuring compliance, safety, and brand integrity.'
-  }
+  { title: 'Event Strategy & Execution', description: 'Proven ability to lead events from ideation through post-event analytics across in-person, hybrid, and virtual formats.' },
+  { title: 'Stakeholder Management', description: 'Skilled at aligning cross-functional teams (marketing, sales, PR, creative, legal) and managing executive-level relationships.' },
+  { title: 'Budget Management', description: 'Experienced managing six- and seven-figure event budgets with a focus on ROI, compliance, and fiscal discipline.' },
+  { title: 'Brand & Experiential Marketing', description: 'Adept at creating memorable, on-brand experiences that drive engagement, media coverage, and customer retention.' },
+  { title: 'Vendor & Agency Management', description: 'Lead RFPs, negotiate contracts, and manage production partners, venues, caterers, and creative agencies.' },
+  { title: 'Executive Communications & Briefing', description: 'Develop messaging, speaker prep materials, and run-of-shows for C-suite presentations and keynotes.' },
+  { title: 'Sponsorship Activation', description: 'Strategically execute sponsor deliverables and brand integrations in large-scale events and partnerships.' },
+  { title: 'VIP & Influencer Engagement', description: 'Coordinate celebrity, talent, and influencer participation; manage relationships with stylists and publicists.' },
+  { title: 'Project Management', description: 'Expert in juggling multiple priorities, meeting tight deadlines, and executing flawlessly under pressure.' },
+  { title: 'Cross-Functional Collaboration', description: 'Regularly partner with internal departments to execute 360° campaigns and integrated event programs.' },
+  { title: 'Campaign Development', description: 'Contribute to integrated marketing plans that align event goals with pipeline acceleration and brand reach.' },
+  { title: 'CRM & Data Tracking', description: 'Familiar with tools like Salesforce and Splash to track event performance, lead generation, and pipeline attribution.' },
+  { title: 'Creative Concepting & Content', description: 'Collaborate on themes, visual identities, and experiences that bring a brand’s mission and vision to life.' },
+  { title: 'On-Site Operations & Logistics', description: 'Lead all in-person elements: staffing, registration, signage, transportation, health/safety, and show flow.' },
+  { title: 'Crisis & Risk Management', description: 'Anticipate and respond to real-time event challenges, ensuring compliance, safety, and brand integrity.' }
 ];
 
 export default function Resume() {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <section style={sectionStyle}>
+    <section style={{ ...sectionStyle, backgroundColor: '#eee8f0', padding: '2rem 1rem' }}>
       <h1 style={headingStyle}>Resume</h1>
 
       <p style={introText}>
         Monique Boskett, MBA (she/her/hers), is an Event Execution & Strategy Lead with 10+ years of experience crafting immersive marketing activations—managing $5M+ budgets and cross-functional teams to deliver standout experiences from film festivals to music fests. Her collaborative spirit, creative problem-solving, and upbeat energy ensure every event is seamless, memorable, and on-target.
       </p>
 
-      {/* Experience */}
+      <div style={linkWrapper}>
+        <a href="/Monique_Boskett_Resume.pdf" download style={downloadButton}>
+          <Download size={16} style={{ marginRight: '0.5rem' }} /> Download Resume
+        </a>
+        <a
+          href="https://www.linkedin.com/in/moniqueboskett"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => window.va?.track('article_click', { article: 'LinkedIn Profile' })}
+          style={{ ...downloadButton, backgroundColor: '#0077b5' }}
+        >
+          <Linkedin size={16} style={{ marginRight: '0.5rem' }} /> View LinkedIn
+        </a>
+      </div>
+
       <h2 style={sectionHeader}>
         <Briefcase size={20} style={{ marginRight: '0.5rem' }} /> Professional Experience
       </h2>
@@ -110,7 +79,6 @@ export default function Resume() {
         </div>
       ))}
 
-      {/* Education */}
       <h2 style={sectionHeader}>
         <GraduationCap size={20} style={{ marginRight: '0.5rem' }} /> Education
       </h2>
@@ -131,7 +99,6 @@ export default function Resume() {
         </div>
       ))}
 
-      {/* Skills */}
       <h2 style={sectionHeader}>
         <Award size={20} style={{ marginRight: '0.5rem' }} /> Skills &amp; Certifications
       </h2>
@@ -150,6 +117,7 @@ export default function Resume() {
                 width: '100%',
                 padding: 0,
               }}
+              aria-expanded={openIndex === idx}
             >
               {openIndex === idx ? '▼' : '▶'} {skill.title}
             </button>
@@ -158,22 +126,6 @@ export default function Resume() {
             )}
           </div>
         ))}
-      </div>
-
-      {/* Links */}
-      <div style={linkWrapper}>
-        <a href="/Monique_Boskett_Resume.pdf" download style={downloadButton}>
-          <Download size={16} style={{ marginRight: '0.5rem' }} /> Download Resume
-        </a>
-        <a
-          href="https://www.linkedin.com/in/moniqueboskett"
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => window.va?.track('article_click', { article: 'LinkedIn Profile' })}
-          style={{ ...downloadButton, backgroundColor: '#0077b5' }}
-        >
-          <Linkedin size={16} style={{ marginRight: '0.5rem' }} /> View LinkedIn
-        </a>
       </div>
 
       <BackToTopButton />
@@ -185,10 +137,10 @@ export default function Resume() {
   );
 }
 
-// Styles (unchanged)
+// Styles
 const introText = {
   maxWidth: '800px',
-  margin: '1rem auto 3rem',
+  margin: '1rem auto 2rem',
   textAlign: 'center',
   fontSize: '1.1rem',
 };
@@ -236,16 +188,9 @@ const downloadButton = {
 
 const linkWrapper = {
   textAlign: 'center',
-  marginTop: '3rem',
+  marginBottom: '2rem',
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'center',
   gap: '1rem',
-};
-
-const articleLinkStyle = {
-  color: '#413b42',
-  textDecoration: 'underline',
-  display: 'inline-block',
-  wordBreak: 'break-word',
 };
