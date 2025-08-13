@@ -38,7 +38,7 @@ export default function Marketing() {
   const isReel = (link) => link.includes('/reel/');
 
   return (
-    <main style={{ ...layoutStyles.main, backgroundColor: '#eee8f0', padding: '2rem 1rem' }}>
+    <main style={layoutStyles.main}>
       <h1 style={headingStyle}>Marketing Reels</h1>
 
       <p style={{
@@ -68,7 +68,7 @@ export default function Marketing() {
           width: '100%',
           maxWidth: '500px',
           fontSize: '1rem',
-          border: '1px solid #bbb',
+          border: '1px solid #ccc',
           borderRadius: '8px',
         }}
       />
@@ -82,24 +82,15 @@ export default function Marketing() {
         }}
       >
         {filteredReels.map((reel, i) => (
-          <a
+          <div
             key={i}
-            href={reel.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`View Instagram post for ${reel.company}`}
             style={{
               border: '1px solid #ccc',
               borderRadius: '10px',
               overflow: 'hidden',
               boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
               background: '#fff',
-              textDecoration: 'none',
-              color: '#413b42',
-              transition: 'transform 0.2s ease',
             }}
-            onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
-            onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
           >
             <div style={{ position: 'relative', paddingTop: '120%', overflow: 'hidden' }}>
               <iframe
@@ -122,7 +113,7 @@ export default function Marketing() {
               <p style={{ marginBottom: '0.5rem' }}>{reel.caption}</p>
               <p style={{ fontSize: '0.9rem', color: '#666' }}>{reel.handle} — {reel.date}</p>
             </div>
-          </a>
+          </div>
         ))}
       </div>
 
