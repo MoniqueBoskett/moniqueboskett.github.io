@@ -2,6 +2,22 @@
 
 export const marketingData = [
   {
+    date: 'August 11, 2025',
+    company: 'Chase Sapphire',
+    handle: '@chasesapphire',
+    caption: `Chase Sapphire Reserve x Lollapalooza was a dream. Beautiful weather, amazing views, and the best performances. Follow us and visit the link in bio to learn more about upcoming Sapphire Reserve Experiences.`,
+    link: 'https://www.instagram.com/reel/DNOUtg1RNcF/?utm_source=ig_web_copy_link&igsh=MTQ5NmQ1dnhldmpqbQ=='
+  },
+  {
+    date: 'August 8, 2025',
+    company: 'lollapalooza, Chase Sapphire',
+    handle: '@lollapalooza, @chasesapphire',
+    caption: `#ChaseSapphirePartner This weekend was full of exclusive experiences for @ChaseSapphire Reserve cardmembers at Lollapalooza – from premium main stage views at the Chase Sapphire Reserve Experience to meet & greets with artists.
+
+Visit Chase Ultimate Rewards® for upcoming events near you.`,
+    link: 'https://www.instagram.com/reel/DNG9_nbx7Dj/?utm_source=ig_web_copy_link&igsh=MjczcjV3eWZkMGtl'
+  },
+  {
     date: 'June 4, 2025',
     company: 'Chase Sapphire',
     handle: '@chasesapphire',

@@ -39,7 +39,7 @@ export default function Marketing() {
 
   return (
     <main style={layoutStyles.main}>
-      <h1 style={headingStyle}>Marketing Reels</h1>
+      <h1 style={headingStyle}>Marketing</h1>
 
       <p style={{
         fontSize: '1.1rem',
@@ -47,7 +47,7 @@ export default function Marketing() {
         margin: '0 auto 2.5rem',
         lineHeight: '1.6',
         textAlign: 'center',
-        background: '#f7f4ed',
+        background: '#eee8f0',
         padding: '1.5rem',
         borderRadius: '12px',
         border: '1px solid #ddd',
@@ -89,7 +89,7 @@ export default function Marketing() {
               borderRadius: '10px',
               overflow: 'hidden',
               boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
-              background: '#fff',
+              background: '#eee8f0',
             }}
           >
             <div style={{ position: 'relative', paddingTop: '120%', overflow: 'hidden' }}>
@@ -108,7 +108,7 @@ export default function Marketing() {
                 loading="lazy"
               />
             </div>
-            <div style={{ padding: '1rem', background: '#f9f9f9' }}>
+            <div style={{ padding: '1rem', background: '#eee8f0' }}>
               <p style={{ fontWeight: 'bold', marginBottom: '0.5rem' }}>{reel.company}</p>
               <p style={{ marginBottom: '0.5rem' }}>{reel.caption}</p>
               <p style={{ fontSize: '0.9rem', color: '#666' }}>{reel.handle} — {reel.date}</p>
