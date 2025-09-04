@@ -52,7 +52,7 @@ export default function Marketing() {
         borderRadius: '12px',
         border: '1px solid #ddd',
       }}>
-        Over the past two years, I’ve had the opportunity to bring more than 30 Chase Sapphire events to life—ranging from music festivals and private dining experiences to backstage moments with partners like <strong>Live Nation</strong>, <strong>Zedd</strong>, and <strong>The Infatuation</strong>.<br /><br />
+        Over the past two years, I’ve had the opportunity to bring more than 30 Chase Sapphire events to life—ranging from music festivals and private dining experiences to backstage moments with partners like <strong>Live Nation</strong>, <strong>The Seaport</strong>, and <strong>The Infatuation</strong>.<br /><br />
         This gallery features a collection of Instagram Reels and posts that highlight the creativity, scale, and storytelling behind these activations.<br /><br />
         <strong>Click on any post to view it directly on Instagram!</strong>
       </p>
