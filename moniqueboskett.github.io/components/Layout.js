@@ -1,50 +1,71 @@
 // components/Layout.js
+'use client';
 
-import Script from 'next/script';
 import Navbar from './Navbar';
+import BackToTopButton from './BackToTopButton';
+import GoogleAnalytics from './GoogleAnalytics';
+import MicrosoftClarity from './MicrosoftClarity';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { layoutStyles } from '../styles/styles';
 
 export default function Layout({ children }) {
-  const GA_ID = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS;
-  const CLARITY_ID = process.env.NEXT_PUBLIC_MICROSOFT_CLARITY;
-
+  // If env vars aren't set, GA/Clarity components simply render nothing.
   return (
     <>
-      {/* Google Analytics */}
-      {GA_ID && (
-        <>
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-            strategy="afterInteractive"
-          />
-          <Script id="google-analytics" strategy="afterInteractive">
-            {`
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${GA_ID}');
-            `}
-          </Script>
-        </>
-      )}
+      {/* Analytics (global) */}
+      <GoogleAnalytics />
+      <MicrosoftClarity />
+      <Analytics />
+      <SpeedInsights />
 
-      {/* Microsoft Clarity */}
-      {CLARITY_ID && (
-        <Script id="microsoft-clarity" strategy="afterInteractive">
-          {`
-            (function(c,l,a,r,i,t,y){
-              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "${CLARITY_ID}");
-          `}
-        </Script>
-      )}
+      {/* Skip link for accessibility */}
+      <a
+        href="#main-content"
+        style={{
+          position: 'absolute',
+          left: '-9999px',
+          top: 'auto',
+          width: 1,
+          height: 1,
+          overflow: 'hidden'
+        }}
+        onFocus={(e) => {
+          // reveal when focused
+          Object.assign(e.currentTarget.style, {
+            left: '1rem',
+            top: '1rem',
+            width: 'auto',
+            height: 'auto',
+            padding: '0.5rem 0.75rem',
+            background: '#eee8f0',
+            color: '#413b42',
+            borderRadius: '8px',
+            zIndex: 2000
+          });
+        }}
+        onBlur={(e) => {
+          Object.assign(e.currentTarget.style, {
+            left: '-9999px',
+            top: 'auto',
+            width: 1,
+            height: 1,
+            padding: 0
+          });
+        }}
+      >
+        Skip to content
+      </a>
 
       <Navbar />
-      <main style={{ ...layoutStyles.main, paddingTop: '100px' }}>
+
+      {/* Main content */}
+      <main id="main-content" style={{ ...layoutStyles.main, paddingTop: '100px' }}>
         {children}
       </main>
+
+      {/* Back to top on every page */}
+      <BackToTopButton />
     </>
   );
 }

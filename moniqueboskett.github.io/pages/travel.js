@@ -12,6 +12,12 @@ Modal.setAppElement('#__next');
 
 const countries = [
   {
+    name: 'England',
+    flag: 'England-Flag.png',
+    date: 'August 2017',
+    photos: ['england.jpg', 'england_3.jpg', 'england_4.jpg', 'england_5.jpg', 'england_6.jpg', 'england_7.jpg', 'england_8.jpg', 'england_9.jpg', 'england_10.jpg', 'england_11.jpg'],
+  },
+  {
     name: 'France',
     flag: 'France-Flag.png',
     date: 'January 2023',
@@ -40,6 +46,12 @@ const countries = [
     flag: 'Panama-Flag.png',
     date: 'March 2025',
     photos: ['panama.jpg', 'panama_2.jpg', 'panama_3.jpg', 'panama_4.jpg', 'panama_5.jpg', 'panama_6.jpg', 'panama_7.jpg', 'panama_8.jpg', 'panama_9.jpg', 'panama_10.jpg', 'panama_11.jpg', 'panama_12.jpg', 'panama_13.jpg'],
+  },
+    {
+    name: 'Canada',
+    flag: 'Canada-Flag.png',
+    date: 'July 2025',
+    photos: ['canada.jpg', 'canada_2.jpg', 'canada_3.jpg', 'canada_4.jpg', 'canada_5.jpg', 'canada_6.jpg', 'canada_7.jpg', 'canada_8.jpg', 'canada_9.jpg', 'canada_10.jpg', 'canada_11.jpg', 'canada_12.jpg', 'canada_13.jpg', 'canada_14.jpg', 'canada_15.jpg', 'canada_16.jpg', 'canada_17.jpg', 'canada_18.jpg', 'canada_19.jpg', 'canada_20.jpg', 'canada_21.jpg', 'canada_22.jpg', 'canada_23.jpg', 'canada_24.jpg'],
   },
 ];
 

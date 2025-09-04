@@ -6,7 +6,7 @@ export const funFacts = [
     photos: [],
   },
   {
-    text: "Both grandmothers collected elephants 🐘 — and they're my favorite animals too!",
+    text: "Both grandmothers collected elephant figurines 🐘 — and they're my favorite animals too!",
     photos: ["elephants.jpg", "elephants2.jpg", "elephants3.jpg", "elephants4.jpg", "elephants5.jpg", "elephants6.jpg"],
     collapsible: true,
   },
@@ -25,19 +25,24 @@ export const funFacts = [
     collapsible: true,
   },
   {
-    text: "I am a HUGE E-A-G-L-E-S fan 🦅💚 #GoBirds",
-    photos: ["eagles.jpg", "eagles2.jpg", "eagles3.jpg", "eagles9.jpg", "eagles4.jpg", "eagles5.jpg", "eagles6.jpg", "eagles7.jpg", "eagles8.jpg", "eagles10.jpg", "eagles11.jpg", "eagles12.jpg", "eagles13.jpg", "eagles14.jpg", "eagles15.jpg", "eagles16.jpg", "eagles17.jpg", "eagles18.jpg"],
+    text: "I am a huge E-A-G-L-E-S fan 🦅💚 #GoBirds",
+    photos: ["eagles.jpg", "eagles2.jpg", "eagles3.jpg", "eagles9.jpg", "eagles4.jpg", "eagles5.jpg", "eagles6.jpg", "eagles7.jpg", "eagles8.jpg", "eagles10.jpg", "eagles11.jpg", "eagles12.jpg", "eagles13.jpg", "eagles14.jpg", "eagles15.jpg", "eagles16.jpg", "eagles17.jpg", "eagles18.jpg", "eagles19.jpg"],
     collapsible: true,
   },
   {
     text: "I love all Philly sports teams 🏀⚾🏒🏈",
-    photos: ["phillysports.jpg", "phillysports2.jpg", "phillysports3.jpg", "phillysports4.jpg", "phillysports5.jpg", "phillysports6.jpg", "phillysports7.jpg", "phillysports8.jpg", "phillysports9.jpg", "phillysports10.jpg", "phillysports11.jpg", "phillysports12.jpg", "phillysports13.jpg", "phillysports14.jpg", "phillysports15.jpg", "phillysports16.jpg"],
+    photos: ["phillysports.jpg", "phillysports2.jpg", "phillysports3.jpg", "phillysports4.jpg", "phillysports5.jpg", "phillysports6.jpg", "phillysports7.jpg", "phillysports8.jpg", "phillysports9.jpg", "phillysports10.jpg", "phillysports11.jpg", "phillysports12.jpg", "phillysports13.jpg", "phillysports14.jpg", "phillysports15.jpg", "phillysports16.jpg", "phillysports17.jpg", "phillysports18.jpg"],
     collapsible: true,
   },
   {
-    text: "I travel a LOT ✈️ (I want to visit all 50 states) — got travel recs?",
+    text: "I travel a LOT ✈️ and I want to visit all 50 states; have any travel recs?",
     photos: [],
     allowComments: true,
+  },
+   {
+    text: "Every time I travel to a new country, I purchase a piece of local art to remember the trip 🎨",
+    photos: ["overseaspainting.jpg", "overseaspainting2.jpg", "overseaspainting3.jpg", "overseaspainting4.jpg", "overseaspainting5.jpg", "overseaspainting6.jpg"],
+    collapsible: true,
   },
   {
     text: "I have 2 (very cute, but very naughty) cats 🐱 Meet Anatasia Eloise (Anna) & Elephant Button Grey (Ellie)!",
@@ -89,7 +94,7 @@ export const funFacts = [
       href: "https://vote.gov/",
       label: "Voting Information",
     },
-    photos: ["vote.jpg", "vote2.jpg", "vote3.jpg", "vote4.jpg"],
+    photos: ["vote.jpg", "vote2.jpg", "vote3.jpg", "vote4.jpg", "vote5.jpg", "vote6.jpg", "vote7.jpg", "vote8.jpg"],
     collapsible: true,
   },
   {
