@@ -1324,7 +1324,7 @@ export const recipesData = [
     title: 'Smothered Pork Chops',
     slug: 'smothered-pork-chops',
     description: 'Pan-fried, gravy-smothered chops. So good you might forget the photo.',
-    thumbnail: '/recipes/smotheredchop-2019-06.jpg',
+    thumbnail: '/recipes/smotheredchop-2019-07.jpg',
     dateMade: '2020-02-09',
     meal: 'dinner',
     tags: [
