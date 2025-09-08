@@ -8,11 +8,13 @@ export const jobs = [
     dates: "Oct 2023 – Present",
     logo: "jpmorgan.png",
     bullets: [
-    "Lead seamless execution of end-to-end activations for Chase Sapphire Reserve—including Sundance Film Festival; PGA Tour events; Aspen Gay Ski Week; Alterra ski lounges; Seaport Summer Lounge; EEEEEATSCON in Miami, Chicago, LA, and NYC; and immersive on- and off-site once in a lifetime experiences at Live Nation music festivals (Dreamville, Boston Calling, Roots Picnic, Lollapalooza, Outside Lands, Oceans Calling).",
-    "Coordinate cross-LOB teams, external agencies, and internal stakeholders to elevate guest experiences and drive upsell of key card benefits.",
-    "Monitor and analyze KPIs to maximize ROI and achieve year-over-year growth.",
-    "Develop and maintain process documentation to onboard new team members on best practices.",
-    "Manage an annual events budget exceeding $5 million, consistently delivering projects on or under budget.",
+    "Lead end-to-end execution of premium Chase Sapphire Reserve activations, including Sundance Film Festival, PGA Tour events, Aspen Gay Ski Week, Alterra ski lounges, Seaport Summer Lounge, nationwide EEEEEATSCON food festivals, and immersive experiences at Live Nation music festivals (Dreamville, Boston Calling, Roots Picnic, Lollapalooza, Outside Lands, Oceans Calling).",
+    "Manage cross-line-of-business teams, external agencies, and internal stakeholders to deliver elevated guest experiences and drive upsell of Sapphire credit card benefits.",
+    "Oversee an annual event budget of more than $5M, consistently delivering high-impact programs on time and within budget.",
+    "Define and track KPIs to measure ROI, optimize performance, and support year-over-year growth.",
+    "Develop process documentation and onboarding resources to streamline training and ensure execution consistency across the team.",
+    "Create cardmember event packages designed to increase acquisition, engagement, and attendance, contributing to measurable gains in customer loyalty.",
+    "Support Sapphire's marketing strategy by integrating experiential activations with social, digital, and paid media campaigns to amplify reach and impact.",
     ]
   },
   {
@@ -37,7 +39,7 @@ export const jobs = [
   dates: "Apr 2019 – Jun 2022",
   logo: "ibx.png",
   bullets: [
-      "Coordinated logistics, managed invitations, and hosted 250+ events for Community Affairs, the IBC Foundation, and the PAC—including virtual volunteer sessions, on-site service projects, leadership receptions, innovation workshops, board meetings, political events, and fundraising campaigns.",
+      "Coordinated logistics, managed invitations, and hosted 250+ events for Community Affairs, the IBC Foundation, and the PAC; including virtual volunteer sessions, on-site service projects, leadership receptions, innovation workshops, board meetings, political events, and fundraising campaigns.",  
       "Coordinated with both internal and external stakeholders to deliver excellent events and increase awareness.",
       "Defined project roles and timelines, ensuring cross-functional alignment and seamless execution.",
       "Researched and implemented best practices for corporate citizenship and volunteer engagement programs.",

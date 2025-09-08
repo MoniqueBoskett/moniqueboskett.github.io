@@ -1,1529 +1,1188 @@
 export const recipesData = [
   {
-    title: 'Apple Enchiladas',
-    slug: 'apple-enchiladas',
-    description: 'Cinnamon-apple, cream-cheese stuffed tortillas baked with a buttery caramel sauce.',
-    thumbnail: '/recipes/appleenchiladas-2016-17.jpg',
-    dateMade: '2016-09-28',
-    meal: 'dessert',
-    tags: [
-      'apple',
-      'baked',
-      'buttery',
-      'caramel',
-      'cheese',
-      'cinnamon'
+    "title": "Taco Tuesday (Wednesday)",
+    "slug": "taco-tuesday-wednesday",
+    "description": "Cheesy taco dip night, just one day late. Easy, cozy, and dangerously snackable.",
+    "thumbnail": "/recipes/tacotuesday-2016-01.jpg",
+    "dateMade": "2016-09-28",
+    "meal": "dinner",
+    "tags": [
+      "taco",
+      "tuesday",
+      "wednesday",
+      "doing",
+      "day",
+      "late",
+      "dinner"
     ],
-    media: [
+    "media": [
       {
-        type: 'image',
-        step: 1,
-        src: '/recipes/appleenchiladas-2016-01.jpg',
-        caption: 'Up next: Apple Enchiladas for dessert'
-      },
-      {
-        type: 'image',
-        step: 2,
-        src: '/recipes/appleenchiladas-2016-02.jpg',
-        caption: 'Step 1: One container of apple pie filling'
-      },
-      {
-        type: 'image',
-        step: 3,
-        src: '/recipes/appleenchiladas-2016-03.jpg',
-        caption: 'Step 2: Add the desired amount of cinnamon'
-      },
-      {
-        type: 'image',
-        step: 4,
-        src: '/recipes/appleenchiladas-2016-04.jpg',
-        caption: 'Step 3: Add 4oz of reduced-fat cream cheese'
-      },
-      {
-        type: 'image',
-        step: 5,
-        src: '/recipes/appleenchiladas-2016-05.jpg',
-        caption: 'Step 4: Mix until it looks gross'
-      },
-      {
-        type: 'image',
-        step: 6,
-        src: '/recipes/appleenchiladas-2016-06.jpg',
-        caption: 'Step 5: Spread mixture onto tortilla'
-      },
-      {
-        type: 'image',
-        step: 7,
-        src: '/recipes/appleenchiladas-2016-07.jpg',
-        caption: 'Step 6: Roll (Hint: Use filling as “glue” to keep tortilla closed)'
-      },
-      {
-        type: 'image',
-        step: 8,
-        src: '/recipes/appleenchiladas-2016-08.jpg',
-        caption: 'Step 7: Place in oven set to 350 degrees'
-      },
-      {
-        type: 'image',
-        step: 9,
-        src: '/recipes/appleenchiladas-2016-09.jpg',
-        caption: 'Step 8: Melt 1/3 cup of butter in 1/2 cups of water'
-      },
-      {
-        type: 'image',
-        step: 10,
-        src: '/recipes/appleenchiladas-2016-11.jpg',
-        caption: 'Step 9: Add cinnamon'
-      },
-      {
-        type: 'image',
-        step: 11,
-        src: '/recipes/appleenchiladas-2016-12.jpg',
-        caption: 'Step 10: Add 1/2 cup of white sugar'
-      },
-      {
-        type: 'image',
-        step: 12,
-        src: '/recipes/appleenchiladas-2016-13.jpg',
-        caption: 'Step 11: Add 1/2 cup of brown sugar'
-      },
-      {
-        type: 'image',
-        step: 13,
-        src: '/recipes/appleenchiladas-2016-14.jpg',
-        caption: 'Step 12: Add a smidge of corn starch and stir until you have the desired thickness'
-      },
-      {
-        type: 'video',
-        step: 14,
-        src: '/recipes/appleenchiladas-2016-15.mp4',
-        caption: 'Step 13: Pour sauce over partly cooked tortillas',
-        poster: '/recipes/appleenchiladas-2016-15.jpg'
-      },
-      {
-        type: 'image',
-        step: 15,
-        src: '/recipes/appleenchiladas-2016-16.jpg',
-        caption: 'Step 14: Place back in oven until done & take excess sauce and recoat tortillas'
-      },
-      {
-        type: 'image',
-        step: 16,
-        src: '/recipes/appleenchiladas-2016-17.jpg',
-        caption: 'Step 15: NOM!'
-      },
-      {
-        type: 'image',
-        step: 17,
-        src: '/recipes/appleenchiladas-2016-18.jpg',
-        caption: 'Too perfect for consumption'
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/tacotuesday-2016-01.jpg",
+        "caption": "Doing Taco Tuesday a day late #TacoWednesday"
       }
     ],
-    thumbPosition: 'center'
+    "thumbPosition": "center"
   },
   {
-    title: 'Banana S\'mores Ice Cream',
-    slug: 'banana-s-mores-ice-cream',
-    description: 'No-churn “nice cream” with a banana base, graham crackers, chocolate chips, and mini marshmallows.',
-    thumbnail: '/recipes/bananasmores-2017-15.jpg',
-    dateMade: '2017-02-20',
-    meal: 'dinner',
-    tags: [
-      'banana',
-      'base',
-      'chips',
-      'chocolate',
-      'churn',
-      'crackers'
+    "title": "Apple Enchiladas",
+    "slug": "apple-enchiladas",
+    "description": "Cinnamon-apple, cream-cheese stuffed tortillas baked with a buttery caramel sauce.",
+    "thumbnail": "/recipes/appleenchiladas-2016-17.jpg",
+    "dateMade": "2016-09-28",
+    "meal": "dinner",
+    "tags": [
+      "apple",
+      "enchiladas",
+      "next",
+      "dessert",
+      "dinner"
     ],
-    media: [
+    "media": [
       {
-        type: 'image',
-        step: 1,
-        src: '/recipes/bananasmores-2017-01.jpg',
-        caption: 'After a long hiatus, welcome back to Cooking with Monique'
-      },
-      {
-        type: 'image',
-        step: 2,
-        src: '/recipes/bananasmores-2017-02.jpg',
-        caption: 'Get tray, parchment paper, & bananas'
-      },
-      {
-        type: 'image',
-        step: 3,
-        src: '/recipes/bananasmores-2017-03.jpg',
-        caption: 'Step 1: Slice bananas and place on a tray evenly spaced'
-      },
-      {
-        type: 'image',
-        step: 4,
-        src: '/recipes/bananasmores-2017-04.jpg',
-        caption: 'Step 2: Place the tray in the freezer for 2 hours'
-      },
-      {
-        type: 'image',
-        step: 5,
-        src: '/recipes/bananasmores-2017-05.jpg',
-        caption: 'Step 3: Crush Graham Crackers'
-      },
-      {
-        type: 'image',
-        step: 6,
-        src: '/recipes/bananasmores-2017-06.jpg',
-        caption: 'Step 4: Add brown sugar, white sugar, nutmeg, and cinnamon to the cracker mix'
-      },
-      {
-        type: 'image',
-        step: 7,
-        src: '/recipes/bananasmores-2017-07.jpg',
-        caption: 'Step 5: Add frozen bananas to food processor'
-      },
-      {
-        type: 'video',
-        step: 8,
-        src: '/recipes/bananasmores-2017-08.mp4',
-        caption: 'Step 6: Blend',
-        poster: '/recipes/bananasmores-2017-08.jpg'
-      },
-      {
-        type: 'image',
-        step: 9,
-        src: '/recipes/bananasmores-2017-09.jpg',
-        caption: 'It should have a creamy consistency'
-      },
-      {
-        type: 'image',
-        step: 10,
-        src: '/recipes/bananasmores-2017-10.jpg',
-        caption: 'Step 7: Add chocolate chips'
-      },
-      {
-        type: 'image',
-        step: 11,
-        src: '/recipes/bananasmores-2017-11.jpg',
-        caption: 'Step 8: Add graham cracker mixture'
-      },
-      {
-        type: 'image',
-        step: 12,
-        src: '/recipes/bananasmores-2017-12.jpg',
-        caption: 'Step 9: Add mini marshmallows'
-      },
-      {
-        type: 'image',
-        step: 13,
-        src: '/recipes/bananasmores-2017-13.jpg',
-        caption: 'Step 10: Fold in all ingredients and smooth the top'
-      },
-      {
-        type: 'image',
-        step: 14,
-        src: '/recipes/bananasmores-2017-14.jpg',
-        caption: 'Step 11: Top off with extra toppings and freeze'
-      },
-      {
-        type: 'image',
-        step: 15,
-        src: '/recipes/bananasmores-2017-15.jpg',
-        caption: 'Now you have banana s\'mores ice cream!'
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/appleenchiladas-2016-01.jpg",
+        "caption": "Up next: Apple Enchiladas for dessert"
       }
     ],
-    thumbPosition: 'center'
+    "thumbPosition": "center"
   },
   {
-    title: 'Buffalo Chicken Calzone',
-    slug: 'buffalo-chicken-calzone',
-    description: 'Spicy, cheesy buffalo chicken folded and baked.',
-    thumbnail: '/recipes/buffchickencalzone-2017-01.jpg',
-    dateMade: '2017-10-04',
-    meal: 'dinner',
-    tags: [
-      'baked',
-      'buffalo',
-      'calzone',
-      'cheesy',
-      'chicken',
-      'folded'
+    "title": "Halloween & Daddy’s Birthday Dinner",
+    "slug": "halloween-daddys-birthday-dinner",
+    "description": "Cozy celebration menu: Smothered pork chops with cheesy garlic mash and sautéed string beans",
+    "thumbnail": "/recipes/halloween-2016-14.jpg",
+    "dateMade": "2016-10-31",
+    "meal": "dinner",
+    "tags": [
+      "halloween",
+      "daddy",
+      "birthday",
+      "dinner",
+      "cooking",
+      "edition"
     ],
-    media: [
+    "media": [
       {
-        type: 'image',
-        step: 1,
-        src: '/recipes/buffchickencalzone-2017-01.jpg',
-        caption: 'Spicy, cheesy buffalo chicken folded and baked.'
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/halloween-2016-01.jpg",
+        "caption": "Cooking w/Monique: Halloween/Daddy’s Birthday Dinner Edition"
       }
     ],
-    thumbPosition: 'center'
+    "thumbPosition": "center"
   },
   {
-    title: 'Buffalo Chicken Pizza',
-    slug: 'buffalo-chicken-pizza',
-    description: 'Spicy buffalo chicken, gooey cheese, and a golden crust; game night’s perfect pizza.',
-    thumbnail: '/recipes/buffchickenpizza-2017-01.jpg',
-    dateMade: '2017-10-11',
-    meal: 'dinner',
-    tags: [
-      'buffalo',
-      'cheese',
-      'chicken',
-      'crust',
-      'game',
-      'golden'
+    "title": "Cooking with Monique & LANDIN!",
+    "slug": "cooking-with-monique-landin",
+    "description": "Delicious brown sugar chocolate chip cookies made with the amazing Landin!",
+    "thumbnail": "/recipes/moniqueandlandin-2016-09.jpg",
+    "dateMade": "2016-12-04",
+    "meal": "dinner",
+    "tags": [
+      "cooking",
+      "landin",
+      "dinner"
     ],
-    media: [
+    "media": [
       {
-        type: 'video',
-        step: 1,
-        src: '/recipes/buffchickenpizza-2017-01.mp4',
-        caption: 'Spicy buffalo chicken, gooey cheese, and a golden crust; game night’s perfect pizza.',
-        poster: '/recipes/buffchickenpizza-2017-01.jpg'
+        "type": "video",
+        "step": 1,
+        "src": "/recipes/moniqueandlandin-2016-01.mp4",
+        "caption": "Cooking with Monique… & LANDIN!",
+        "poster": "moniqueandlandin-2016-01.jpg"
       }
     ],
-    thumbPosition: 'center'
+    "thumbPosition": "center"
   },
   {
-    title: 'Chicken, Asparagus, & Sweet Potato Fries',
-    slug: 'chicken-asparagus-sweet-potato-fries',
-    description: 'Sheet-pan(ish) dinner with seasoned thighs, garlicky asparagus, and sweet potato fries.',
-    thumbnail: '/recipes/chickenasparagus-2017-18.jpg',
-    dateMade: '2017-02-20',
-    meal: 'dinner',
-    tags: [
-      'asparagus',
-      'chicken',
-      'dinner',
-      'fries',
-      'garlicky',
-      'ish'
+    "title": "Holiday Party Appetizers",
+    "slug": "holiday-party-appetizers",
+    "description": "A holiday party appetizer melody with a little bit of everything: cracker toffee, cheesesteak egg rolls, and cookies.",
+    "thumbnail": "/recipes/holidayparty-2016-19.jpg",
+    "dateMade": "2016-12-16",
+    "meal": "snack",
+    "tags": [
+      "holiday",
+      "party",
+      "appetizers",
+      "try",
+      "not",
+      "get",
+      "snack"
     ],
-    media: [
+    "media": [
       {
-        type: 'image',
-        step: 1,
-        src: '/recipes/chickenasparagus-2017-01.jpg',
-        caption: 'Gather all ingredients needed to make dinner'
-      },
-      {
-        type: 'image',
-        step: 2,
-        src: '/recipes/chickenasparagus-2017-02.jpg',
-        caption: 'Step 1: Preheat oven to 350 degrees'
-      },
-      {
-        type: 'image',
-        step: 3,
-        src: '/recipes/chickenasparagus-2017-03.jpg',
-        caption: 'Step 2: Add 1 tsp of each seasoning to empty container'
-      },
-      {
-        type: 'image',
-        step: 4,
-        src: '/recipes/chickenasparagus-2017-04.jpg',
-        caption: 'Step 3: Arrange chicken thighs onto a foiled and greased pan'
-      },
-      {
-        type: 'image',
-        step: 5,
-        src: '/recipes/chickenasparagus-2017-05.jpg',
-        caption: 'Pro Tip: Lightly spray chicken to ensure seasoning sticks better'
-      },
-      {
-        type: 'image',
-        step: 6,
-        src: '/recipes/chickenasparagus-2017-06.jpg',
-        caption: 'Step 4: Rub seasoning onto thighs (and under the skin)'
-      },
-      {
-        type: 'image',
-        step: 7,
-        src: '/recipes/chickenasparagus-2017-07.jpg',
-        caption: 'Step 5: Bake for 1 hour'
-      },
-      {
-        type: 'image',
-        step: 8,
-        src: '/recipes/chickenasparagus-2017-08.jpg',
-        caption: 'Gather asparagus, tomatoes, olive oil, and garlic'
-      },
-      {
-        type: 'image',
-        step: 9,
-        src: '/recipes/chickenasparagus-2017-09.jpg',
-        caption: 'Step 6: Slice grape tomatoes in half'
-      },
-      {
-        type: 'image',
-        step: 10,
-        src: '/recipes/chickenasparagus-2017-10.jpg',
-        caption: 'Step 7: Cut the bottoms off the asparagus'
-      },
-      {
-        type: 'image',
-        step: 11,
-        src: '/recipes/chickenasparagus-2017-11.jpg',
-        caption: 'Step 8: Sprinkle Parmesan cheese on top'
-      },
-      {
-        type: 'image',
-        step: 12,
-        src: '/recipes/chickenasparagus-2017-12.jpg',
-        caption: 'Step 9: Sprinkle minced garlic on top'
-      },
-      {
-        type: 'image',
-        step: 13,
-        src: '/recipes/chickenasparagus-2017-13.jpg',
-        caption: 'Step 10: Mix and season'
-      },
-      {
-        type: 'image',
-        step: 14,
-        src: '/recipes/chickenasparagus-2017-14.jpg',
-        caption: 'Step 11: Arrange sweet potato fries onto tray'
-      },
-      {
-        type: 'image',
-        step: 15,
-        src: '/recipes/chickenasparagus-2017-15.jpg',
-        caption: 'Take out chicken to let cool & change oven to 425 degrees'
-      },
-      {
-        type: 'image',
-        step: 16,
-        src: '/recipes/chickenasparagus-2017-16.jpg',
-        caption: 'Step 12: Place both asparagus and sweet potato fries in the oven for 15 minutes'
-      },
-      {
-        type: 'image',
-        step: 17,
-        src: '/recipes/chickenasparagus-2017-17.jpg',
-        caption: 'Take everything out of the oven'
-      },
-      {
-        type: 'image',
-        step: 18,
-        src: '/recipes/chickenasparagus-2017-18.jpg',
-        caption: 'Plate food and enjoy!'
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/holidayparty-2016-01.jpg",
+        "caption": "Step 1: Try not to get a box of broken crackers like I did"
       }
     ],
-    thumbPosition: 'center'
+    "thumbPosition": "center"
   },
   {
-    title: 'Cinnamon Rolls',
-    slug: 'cinnamon-rolls',
-    description: 'An amazing Cinnabon dupe recipe that might be better than the real thing.',
-    thumbnail: '/recipes/cinnamonrolls-2018-01.jpg',
-    dateMade: '2018-08-12',
-    meal: 'dinner',
-    tags: [
-      'amazing',
-      'better',
-      'cinnabon',
-      'cinnamon',
-      'dupe',
-      'might'
+    "title": "Sick Day Pantry Chicken Noodle Soup",
+    "slug": "sick-day-pantry-chicken-noodle-soup",
+    "description": "Flu-day soup built from pantry finds and rotisserie chicken.",
+    "thumbnail": "/recipes/sicksoup-2017-19.jpg",
+    "dateMade": "2017-01-06",
+    "meal": "lunch",
+    "tags": [
+      "sick",
+      "day",
+      "pantry",
+      "chicken",
+      "noodle",
+      "soup",
+      "lunch"
     ],
-    media: [
+    "media": [
       {
-        type: 'video',
-        step: 1,
-        src: '/recipes/cinnamonrolls-2018-01.mp4',
-        caption: 'An amazing Cinnabon dupe recipe that might be better than the real thing.',
-        poster: '/recipes/cinnamonrolls-2018-01.jpg'
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/sicksoup-2017-01.jpg",
+        "caption": "When you're home with the flu, but your parents don't have any sick people food in the house"
       }
     ],
-    thumbPosition: 'center'
+    "thumbPosition": "center"
   },
   {
-    title: 'Cooking with Monique & LANDIN!',
-    slug: 'cooking-with-monique-landin',
-    description: 'Delicious brown sugar chocolate chip cookies made with the amazing Landin!',
-    thumbnail: '/recipes/moniqueandlandin-2016-09.jpg',
-    dateMade: '2016-12-04',
-    meal: 'dinner',
-    tags: [
-      'amazing',
-      'brown',
-      'chip',
-      'chocolate',
-      'cookies',
-      'cooking'
+    "title": "Banana S'mores Ice Cream",
+    "slug": "banana-s-mores-ice-cream",
+    "description": "No-churn “nice cream” with a banana base, graham crackers, chocolate chips, and mini marshmallows.",
+    "thumbnail": "/recipes/bananasmores-2017-15.jpg",
+    "dateMade": "2017-02-20",
+    "meal": "dessert",
+    "tags": [
+      "banana",
+      "s'mores",
+      "ice",
+      "cream",
+      "after",
+      "long",
+      "dessert"
     ],
-    media: [
+    "media": [
       {
-        type: 'video',
-        step: 1,
-        src: '/recipes/moniqueandlandin-2016-01.mp4',
-        caption: 'Cooking with Monique… & LANDIN!',
-        poster: '/recipes/moniqueandlandin-2016-01.jpg'
-      },
-      {
-        type: 'video',
-        step: 2,
-        src: '/recipes/moniqueandlandin-2016-02.mp4',
-        caption: 'Step 1: Add 2 cups of brown sugar',
-        poster: '/recipes/moniqueandlandin-2016-02.jpg'
-      },
-      {
-        type: 'video',
-        step: 3,
-        src: '/recipes/moniqueandlandin-2016-03.mp4',
-        caption: 'Step 2: Add 1 cup of white sugar',
-        poster: '/recipes/moniqueandlandin-2016-03.jpg'
-      },
-      {
-        type: 'video',
-        step: 4,
-        src: '/recipes/moniqueandlandin-2016-04.mp4',
-        caption: 'Step 3: Mix sugars',
-        poster: '/recipes/moniqueandlandin-2016-04.jpg'
-      },
-      {
-        type: 'video',
-        step: 5,
-        src: '/recipes/moniqueandlandin-2016-05.mp4',
-        caption: 'Landin doesn’t like the feel of butter',
-        poster: '/recipes/moniqueandlandin-2016-05.jpg'
-      },
-      {
-        type: 'image',
-        step: 6,
-        src: '/recipes/moniqueandlandin-2016-06.jpg',
-        caption: 'Step 4: Add 3/2 cups of butter'
-      },
-      {
-        type: 'video',
-        step: 7,
-        src: '/recipes/moniqueandlandin-2016-07.mp4',
-        caption: 'Step 5: Stir everything together',
-        poster: '/recipes/moniqueandlandin-2016-07.jpg'
-      },
-      {
-        type: 'video',
-        step: 8,
-        src: '/recipes/moniqueandlandin-2016-08.mp4',
-        caption: 'Step 6: Add (Easter) eggs',
-        poster: '/recipes/moniqueandlandin-2016-08.jpg'
-      },
-      {
-        type: 'video',
-        step: 9,
-        src: '/recipes/moniqueandlandin-2016-09.mp4',
-        caption: 'Step 7: Mix eggs into the mixture',
-        poster: '/recipes/moniqueandlandin-2016-09.jpg'
-      },
-      {
-        type: 'video',
-        step: 10,
-        src: '/recipes/moniqueandlandin-2016-10.mp4',
-        caption: 'Step 8: Add egg yolk',
-        poster: '/recipes/moniqueandlandin-2016-10.jpg'
-      },
-      {
-        type: 'video',
-        step: 11,
-        src: '/recipes/moniqueandlandin-2016-11.mp4',
-        caption: 'Cooking like Rachel Ray',
-        poster: '/recipes/moniqueandlandin-2016-11.jpg'
-      },
-      {
-        type: 'image',
-        step: 12,
-        src: '/recipes/moniqueandlandin-2016-12.jpg',
-        caption: 'Landin had to leave, so now I have to finish these cookies by myself  Step 10: Mix flour, baking soda, & salt'
-      },
-      {
-        type: 'image',
-        step: 13,
-        src: '/recipes/moniqueandlandin-2016-13.jpg',
-        caption: 'Step 9: Mix in half the flour, baking soda, and salt mixture into the liquid mixture'
-      },
-      {
-        type: 'image',
-        step: 14,
-        src: '/recipes/moniqueandlandin-2016-14.jpg',
-        caption: 'Step 10: Add walnuts to the cookie mix'
-      },
-      {
-        type: 'image',
-        step: 15,
-        src: '/recipes/moniqueandlandin-2016-15.jpg',
-        caption: 'Step 11: Add chocolate chips'
-      },
-      {
-        type: 'image',
-        step: 16,
-        src: '/recipes/moniqueandlandin-2016-16.jpg',
-        caption: 'Step 12: Mix well'
-      },
-      {
-        type: 'image',
-        step: 17,
-        src: '/recipes/moniqueandlandin-2016-17.jpg',
-        caption: 'Step 13: Bake at 350 degrees & Done!'
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/bananasmores-2017-01.jpg",
+        "caption": "After a long hiatus, welcome back to Cooking with Monique"
       }
     ],
-    thumbPosition: 'center'
+    "thumbPosition": "center"
   },
   {
-    title: 'Cooking with Monique - Dinner Edition',
-    slug: 'cooking-with-monique-dinner-edition',
-    description: 'Baked chicken thighs, asparagus-tomato, bacon potatoes, and broccoli.',
-    thumbnail: '/recipes/fulldinner-2017-20.jpg',
-    dateMade: '2017-04-09',
-    meal: 'dinner',
-    tags: [
-      'asparagus',
-      'bacon',
-      'baked',
-      'broccoli',
-      'chicken',
-      'cooking'
+    "title": "Chicken, Asparagus, & Sweet Potato Fries",
+    "slug": "chicken-asparagus-sweet-potato-fries",
+    "description": "Sheet-pan(ish) dinner with seasoned thighs, garlicky asparagus, and sweet potato fries.",
+    "thumbnail": "/recipes/chickenasparagus-2017-18.jpg",
+    "dateMade": "2017-02-20",
+    "meal": "dinner",
+    "tags": [
+      "chicken",
+      "asparagus",
+      "sweet",
+      "potato",
+      "fries",
+      "all",
+      "dinner"
     ],
-    media: [
+    "media": [
       {
-        type: 'image',
-        step: 1,
-        src: '/recipes/fulldinner-2017-01.jpg',
-        caption: 'Today’s ingredients for today’s Cooking with Monique'
-      },
-      {
-        type: 'image',
-        step: 2,
-        src: '/recipes/fulldinner-2017-02.jpg',
-        caption: 'Step 1: Lay out chicken thighs and spray with cooking spray'
-      },
-      {
-        type: 'image',
-        step: 3,
-        src: '/recipes/fulldinner-2017-03.jpg',
-        caption: 'Step 2: Season both sides of the chicken'
-      },
-      {
-        type: 'image',
-        step: 4,
-        src: '/recipes/fulldinner-2017-04.jpg',
-        caption: 'Step 3: Bake for 1 hour at 350 degrees'
-      },
-      {
-        type: 'image',
-        step: 5,
-        src: '/recipes/fulldinner-2017-05.jpg',
-        caption: 'Step 4: Cut the bottom of the asparagus'
-      },
-      {
-        type: 'image',
-        step: 6,
-        src: '/recipes/fulldinner-2017-06.jpg',
-        caption: 'Step 5: Halve the grape tomatoes and add to the asparagus'
-      },
-      {
-        type: 'image',
-        step: 7,
-        src: '/recipes/fulldinner-2017-07.jpg',
-        caption: 'Step 6: Add garlic'
-      },
-      {
-        type: 'image',
-        step: 8,
-        src: '/recipes/fulldinner-2017-08.jpg',
-        caption: 'Step 7: Drizzle extra virgin olive oil over the vegetables and season'
-      },
-      {
-        type: 'image',
-        step: 9,
-        src: '/recipes/fulldinner-2017-09.jpg',
-        caption: 'Step 8: Dice bacon'
-      },
-      {
-        type: 'image',
-        step: 10,
-        src: '/recipes/fulldinner-2017-10.jpg',
-        caption: 'Step 9: Fry bacon'
-      },
-      {
-        type: 'image',
-        step: 11,
-        src: '/recipes/fulldinner-2017-11.jpg',
-        caption: 'Step 10: Bake asparagus for 20 minutes at 350 degrees'
-      },
-      {
-        type: 'image',
-        step: 12,
-        src: '/recipes/fulldinner-2017-12.jpg',
-        caption: 'Step 11: Cut up little potatoes'
-      },
-      {
-        type: 'image',
-        step: 13,
-        src: '/recipes/fulldinner-2017-13.jpg',
-        caption: 'Step 12: Lightly coat potatoes in bacon grease'
-      },
-      {
-        type: 'image',
-        step: 14,
-        src: '/recipes/fulldinner-2017-14.jpg',
-        caption: 'Step 13: Coat in Parmesan cheese and place in the oven for 5 more minutes'
-      },
-      {
-        type: 'image',
-        step: 15,
-        src: '/recipes/fulldinner-2017-15.jpg',
-        caption: 'Step 14: Cover potatoes with garlic'
-      },
-      {
-        type: 'image',
-        step: 16,
-        src: '/recipes/fulldinner-2017-16.jpg',
-        caption: 'Step 15: Cook at 450 degrees for 30 minutes'
-      },
-      {
-        type: 'image',
-        step: 17,
-        src: '/recipes/fulldinner-2017-17.jpg',
-        caption: 'Step 16: Cut broccoli and place in steamer'
-      },
-      {
-        type: 'image',
-        step: 18,
-        src: '/recipes/fulldinner-2017-18.jpg',
-        caption: 'Step 17: Steam for 4 minutes'
-      },
-      {
-        type: 'video',
-        step: 19,
-        src: '/recipes/fulldinner-2017-19.mp4',
-        caption: 'Finished everything but pork chops, which are being made on a different night',
-        poster: '/recipes/fulldinner-2017-19.jpg'
-      },
-      {
-        type: 'image',
-        step: 20,
-        src: '/recipes/fulldinner-2017-20.jpg',
-        caption: 'Plate'
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/chickenasparagus-2017-01.jpg",
+        "caption": "Gather all ingredients needed to make dinner"
       }
     ],
-    thumbPosition: 'center'
+    "thumbPosition": "center"
   },
   {
-    title: 'DIY Spa Water',
-    slug: 'diy-spa-water',
-    description: 'Layered fruit-infused water: pretty, refreshing, and easy.',
-    thumbnail: '/recipes/spawater-2017-03.jpg',
-    dateMade: '2017-11-16',
-    meal: 'drinks',
-    tags: [
-      'diy',
-      'easy',
-      'fruit',
-      'infused',
-      'layered',
-      'pretty'
+    "title": "Cooking with Monique - Dinner Edition",
+    "slug": "cooking-with-monique-dinner-edition",
+    "description": "Baked chicken thighs, asparagus-tomato, bacon potatoes, and broccoli.",
+    "thumbnail": "/recipes/fulldinner-2017-20.jpg",
+    "dateMade": "2017-04-09",
+    "meal": "dinner",
+    "tags": [
+      "cooking",
+      "dinner",
+      "edition"
     ],
-    media: [
+    "media": [
       {
-        type: 'image',
-        step: 1,
-        src: '/recipes/spawater-2017-01.jpg',
-        caption: 'How to make delicious & kick ass spa water'
-      },
-      {
-        type: 'image',
-        step: 2,
-        src: '/recipes/spawater-2017-02.jpg',
-        caption: 'Step 1: Cut fruit'
-      },
-      {
-        type: 'image',
-        step: 3,
-        src: '/recipes/spawater-2017-03.jpg',
-        caption: 'Step 2: Layer fruit in a big water container around ice'
-      },
-      {
-        type: 'video',
-        step: 4,
-        src: '/recipes/spawater-2017-04.mp4',
-        caption: 'Step 3: Add water and have delicious spa water',
-        poster: '/recipes/spawater-2017-04.jpg'
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/fulldinner-2017-01.jpg",
+        "caption": "Today’s ingredients for today’s Cooking with Monique"
       }
     ],
-    thumbPosition: 'center'
+    "thumbPosition": "center"
   },
   {
-    title: 'Halloween & Daddy’s Birthday Dinner',
-    slug: 'halloween-daddy-s-birthday-dinner',
-    description: 'Cozy celebration menu: Smothered pork chops with cheesy garlic mash and sautéed string beans',
-    thumbnail: '/recipes/halloween-2016-14.jpg',
-    dateMade: '2016-10-31',
-    meal: 'dinner',
-    tags: [
-      'beans',
-      'birthday',
-      'celebration',
-      'cheesy',
-      'chops',
-      'cozy'
+    "title": "Loaded Tater Tot Waffles",
+    "slug": "loaded-tater-tot-waffles",
+    "description": "Crispy tater tots pressed into waffles and piled with delicious toppings.",
+    "thumbnail": "/recipes/tatertots-2017-07.jpg",
+    "dateMade": "2017-07-24",
+    "meal": "breakfast",
+    "tags": [
+      "loaded",
+      "tater",
+      "tot",
+      "waffles",
+      "how",
+      "breakfast"
     ],
-    media: [
+    "media": [
       {
-        type: 'image',
-        step: 1,
-        src: '/recipes/halloween-2016-01.jpg',
-        caption: 'Cooking w/Monique: Halloween/Daddy’s Birthday Dinner Edition'
-      },
-      {
-        type: 'image',
-        step: 2,
-        src: '/recipes/halloween-2016-02.jpg',
-        caption: 'Step 1 & 2: Peel and cut potatoes into quarters for cheesy garlic mashed potatoes'
-      },
-      {
-        type: 'image',
-        step: 3,
-        src: '/recipes/halloween-2016-03.jpg',
-        caption: 'Step 3: Add quartered potatoes to the boiled salted water'
-      },
-      {
-        type: 'image',
-        step: 4,
-        src: '/recipes/halloween-2016-04.jpg',
-        caption: 'Step 4: Gather ingredients to make smothered pork chops'
-      },
-      {
-        type: 'image',
-        step: 5,
-        src: '/recipes/halloween-2016-05.jpg',
-        caption: 'Step 5: Chop mushrooms and onions'
-      },
-      {
-        type: 'image',
-        step: 6,
-        src: '/recipes/halloween-2016-06.jpg',
-        caption: 'Step 6: Coat pork chops in seasoned flour'
-      },
-      {
-        type: 'image',
-        step: 7,
-        src: '/recipes/halloween-2016-07.jpg',
-        caption: 'Step 7: Season potatoes and add butter, cheese, and garlic'
-      },
-      {
-        type: 'image',
-        step: 8,
-        src: '/recipes/halloween-2016-08.jpg',
-        caption: 'Step 8: Mash'
-      },
-      {
-        type: 'image',
-        step: 9,
-        src: '/recipes/halloween-2016-09.jpg',
-        caption: 'Step 9: Fry pork chops until golden brown and have an internal temperature of 145°F'
-      },
-      {
-        type: 'image',
-        step: 10,
-        src: '/recipes/halloween-2016-10.jpg',
-        caption: 'Step 10: Sauté mushrooms and onions'
-      },
-      {
-        type: 'image',
-        step: 11,
-        src: '/recipes/halloween-2016-11.jpg',
-        caption: 'Step 11: Add some leftover seasoned flour to the onion and mushroom mixture'
-      },
-      {
-        type: 'image',
-        step: 12,
-        src: '/recipes/halloween-2016-12.jpg',
-        caption: 'Step 12: Add buttermilk to the gravy'
-      },
-      {
-        type: 'image',
-        step: 13,
-        src: '/recipes/halloween-2016-13.jpg',
-        caption: 'Step 13: Sauté string beans, garlic, salt, and pepper in the pan'
-      },
-      {
-        type: 'image',
-        step: 14,
-        src: '/recipes/halloween-2016-14.jpg',
-        caption: 'Step 14: Smother pork chops & nom'
+        "type": "video",
+        "step": 1,
+        "src": "/recipes/tatertots-2017-01.mp4",
+        "caption": "How to make Tater Tot waffles",
+        "poster": "tatertots-2017-01.jpg"
       }
     ],
-    thumbPosition: 'center'
+    "thumbPosition": "center"
   },
   {
-    title: 'Holiday Party Appetizers',
-    slug: 'holiday-party-appetizers',
-    description: 'A holiday party appetizer melody with a little bit of everything: cracker toffee, cheesesteak egg rolls, and cookies.',
-    thumbnail: '/recipes/holidayparty-2016-19.jpg',
-    dateMade: '2016-12-16',
-    meal: 'drinks',
-    tags: [
-      'appetizer',
-      'appetizers',
-      'bit',
-      'cheesesteak',
-      'cookies',
-      'cracker'
+    "title": "Buffalo Chicken Calzone",
+    "slug": "buffalo-chicken-calzone",
+    "description": "Spicy, cheesy buffalo chicken folded and baked.",
+    "thumbnail": "/recipes/buffchickencalzone-2017-01.jpg",
+    "dateMade": "2017-10-04",
+    "meal": "dinner",
+    "tags": [
+      "buffalo",
+      "chicken",
+      "calzone",
+      "spicy",
+      "cheesy",
+      "folded",
+      "dinner"
     ],
-    media: [
+    "media": [
       {
-        type: 'image',
-        step: 1,
-        src: '/recipes/holidayparty-2016-01.jpg',
-        caption: 'Step 1: Try not to get a box of broken crackers like I did'
-      },
-      {
-        type: 'video',
-        step: 2,
-        src: '/recipes/holidayparty-2016-02.mp4',
-        caption: 'Step 2: Spray the pan you forgot to spray the first time',
-        poster: '/recipes/holidayparty-2016-02.jpg'
-      },
-      {
-        type: 'image',
-        step: 3,
-        src: '/recipes/holidayparty-2016-03.jpg',
-        caption: 'Step 3: Add crackers (even the broken ones if you run out)'
-      },
-      {
-        type: 'video',
-        step: 4,
-        src: '/recipes/holidayparty-2016-04.mp4',
-        caption: 'Step 4: Add butter and brown sugar mixture (that you may or may not have burned )',
-        poster: '/recipes/holidayparty-2016-04.jpg'
-      },
-      {
-        type: 'image',
-        step: 5,
-        src: '/recipes/holidayparty-2016-05.jpg',
-        caption: 'Step 5: Put in the oven that should be 350 degrees, but is 375 degrees because you have other things to cook'
-      },
-      {
-        type: 'video',
-        step: 6,
-        src: '/recipes/holidayparty-2016-06.mp4',
-        caption: 'Step 6: Sprinkle with chocolate chips',
-        poster: '/recipes/holidayparty-2016-06.jpg'
-      },
-      {
-        type: 'video',
-        step: 7,
-        src: '/recipes/holidayparty-2016-07.mp4',
-        caption: 'Step 7: Spread the chocolate until it melts',
-        poster: '/recipes/holidayparty-2016-07.jpg'
-      },
-      {
-        type: 'image',
-        step: 8,
-        src: '/recipes/holidayparty-2016-08.jpg',
-        caption: 'Step 8: Freeze'
-      },
-      {
-        type: 'image',
-        step: 9,
-        src: '/recipes/holidayparty-2016-09.jpg',
-        caption: 'Step 9: Cook the cheesesteak meat'
-      },
-      {
-        type: 'image',
-        step: 10,
-        src: '/recipes/holidayparty-2016-10.jpg',
-        caption: 'Step 10: bake cookies (try not to forget them in the oven like I did)'
-      },
-      {
-        type: 'image',
-        step: 11,
-        src: '/recipes/holidayparty-2016-11.jpg',
-        caption: 'Step 11: Be pleasantly surprised that your cookies aren’t burnt'
-      },
-      {
-        type: 'image',
-        step: 12,
-        src: '/recipes/holidayparty-2016-12.jpg',
-        caption: 'Step 12: Drain cheesesteak meat'
-      },
-      {
-        type: 'image',
-        step: 13,
-        src: '/recipes/holidayparty-2016-13.jpg',
-        caption: 'Step 13: Lay out egg roll paper'
-      },
-      {
-        type: 'image',
-        step: 14,
-        src: '/recipes/holidayparty-2016-14.jpg',
-        caption: 'Step 14: Add a slice of pepper jack cheese'
-      },
-      {
-        type: 'image',
-        step: 15,
-        src: '/recipes/holidayparty-2016-15.jpg',
-        caption: 'Step 15: Add cheesesteak meat'
-      },
-      {
-        type: 'image',
-        step: 16,
-        src: '/recipes/holidayparty-2016-16.jpg',
-        caption: 'Step 16: Roll & place on pan'
-      },
-      {
-        type: 'image',
-        step: 17,
-        src: '/recipes/holidayparty-2016-17.jpg',
-        caption: 'Step 17: Remove from oven & break crackers'
-      },
-      {
-        type: 'image',
-        step: 18,
-        src: '/recipes/holidayparty-2016-18.jpg',
-        caption: 'Step 18: Fry in a pan with butter'
-      },
-      {
-        type: 'image',
-        step: 19,
-        src: '/recipes/holidayparty-2016-19.jpg',
-        caption: 'Step 19: Done!'
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/buffchickencalzone-2017-01.jpg",
+        "caption": "Spicy, cheesy buffalo chicken folded and baked."
       }
     ],
-    thumbPosition: 'center'
+    "thumbPosition": "center"
   },
   {
-    title: 'Loaded Tater Tot Waffles',
-    slug: 'loaded-tater-tot-waffles',
-    description: 'Crispy tater tots pressed into waffles and piled with delicious toppings.',
-    thumbnail: '/recipes/tatertots-2017-07.jpg',
-    dateMade: '2017-07-24',
-    meal: 'snack',
-    tags: [
-      'crispy',
-      'delicious',
-      'into',
-      'loaded',
-      'piled',
-      'pressed'
+    "title": "Buffalo Chicken Pizza",
+    "slug": "buffalo-chicken-pizza",
+    "description": "Spicy buffalo chicken, gooey cheese, and a golden crust; game night’s perfect pizza.",
+    "thumbnail": "/recipes/buffchickenpizza-2017-01.jpg",
+    "dateMade": "2017-10-11",
+    "meal": "dinner",
+    "tags": [
+      "buffalo",
+      "chicken",
+      "pizza",
+      "spicy",
+      "gooey",
+      "cheese",
+      "dinner"
     ],
-    media: [
+    "media": [
       {
-        type: 'video',
-        step: 1,
-        src: '/recipes/tatertots-2017-01.mp4',
-        caption: 'How to make Tater Tot waffles',
-        poster: '/recipes/tatertots-2017-01.jpg'
-      },
-      {
-        type: 'image',
-        step: 2,
-        src: '/recipes/tatertots-2017-02.jpg',
-        caption: 'What you\'ll need: tater tots & waffle iron'
-      },
-      {
-        type: 'image',
-        step: 3,
-        src: '/recipes/tatertots-2017-03.jpg',
-        caption: 'Step 1: Spray the iron and arrange tater tots on the waffle iron'
-      },
-      {
-        type: 'image',
-        step: 4,
-        src: '/recipes/tatertots-2017-04.jpg',
-        caption: 'Step 2: Hold down the lid to make sure tots cook on both sides'
-      },
-      {
-        type: 'image',
-        step: 5,
-        src: '/recipes/tatertots-2017-05.jpg',
-        caption: 'Step 3: Take the waffles out'
-      },
-      {
-        type: 'video',
-        step: 6,
-        src: '/recipes/tatertots-2017-06.mp4',
-        caption: 'Tots and Toppings',
-        poster: '/recipes/tatertots-2017-06.jpg'
-      },
-      {
-        type: 'image',
-        step: 7,
-        src: '/recipes/tatertots-2017-07.jpg',
-        caption: 'Loaded tater tot waffles'
+        "type": "video",
+        "step": 1,
+        "src": "/recipes/buffchickenpizza-2017-01.mp4",
+        "caption": "Spicy buffalo chicken, gooey cheese, and a golden crust; game night’s perfect pizza.",
+        "poster": "buffchickenpizza-2017-01.jpg"
       }
     ],
-    thumbPosition: 'center'
+    "thumbPosition": "center"
   },
   {
-    title: 'One Pan Salmon Dinner',
-    slug: 'one-pan-salmon-dinner',
-    description: 'Salmon in foil with seasoned potatoes and asparagus. Weeknight meal = Easy. ',
-    thumbnail: '/recipes/onepansalmon-2019-08.jpg',
-    dateMade: '2019-05-19',
-    meal: 'dinner',
-    tags: [
-      'asparagus',
-      'dinner',
-      'easy',
-      'foil',
-      'meal',
-      'one'
+    "title": "DIY Spa Water",
+    "slug": "diy-spa-water",
+    "description": "Layered fruit-infused water: pretty, refreshing, and easy.",
+    "thumbnail": "/recipes/spawater-2017-03.jpg",
+    "dateMade": "2017-11-16",
+    "meal": "drinks",
+    "tags": [
+      "diy",
+      "spa",
+      "water",
+      "how",
+      "kick",
+      "ass",
+      "drinks"
     ],
-    media: [
+    "media": [
       {
-        type: 'video',
-        step: 1,
-        src: '/recipes/onepansalmon-2019-01.mp4',
-        caption: 'Dinner ingredients (sound on to hear kitten squeals in background)',
-        poster: '/recipes/onepansalmon-2019-01.jpg'
-      },
-      {
-        type: 'image',
-        step: 2,
-        src: '/recipes/onepansalmon-2019-02.jpg',
-        caption: 'Step 1: Cut red potatoes into bite-sized cubes'
-      },
-      {
-        type: 'image',
-        step: 3,
-        src: '/recipes/onepansalmon-2019-03.jpg',
-        caption: 'Step 2: Season and mix in bowl'
-      },
-      {
-        type: 'image',
-        step: 4,
-        src: '/recipes/onepansalmon-2019-04.jpg',
-        caption: 'Step 3: Chop asparagus'
-      },
-      {
-        type: 'image',
-        step: 5,
-        src: '/recipes/onepansalmon-2019-05.jpg',
-        caption: 'Step 4: Season salmon in butter and wrap in foil'
-      },
-      {
-        type: 'image',
-        step: 6,
-        src: '/recipes/onepansalmon-2019-06.jpg',
-        caption: 'Step 5: Add potatoes and asparagus to pan'
-      },
-      {
-        type: 'image',
-        step: 7,
-        src: '/recipes/onepansalmon-2019-07.jpg',
-        caption: 'Step 6: Bake on 375 for 20 minutes'
-      },
-      {
-        type: 'image',
-        step: 8,
-        src: '/recipes/onepansalmon-2019-08.jpg',
-        caption: 'Plate!'
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/spawater-2017-01.jpg",
+        "caption": "How to make delicious & kick ass spa water"
       }
     ],
-    thumbPosition: 'center'
+    "thumbPosition": "center"
   },
   {
-    title: 'Pesto, Tomato, & Basil Pizza',
-    slug: 'pesto-tomato-basil-pizza',
-    description: 'Bright pesto with tomato and basil; simple pizza night win.',
-    thumbnail: '/recipes/pestopizza-2020-01.jpg',
-    dateMade: '2020-05-18',
-    meal: 'dinner',
-    tags: [
-      'basil',
-      'bright',
-      'night',
-      'pesto',
-      'pizza',
-      'simple'
+    "title": "Steak",
+    "slug": "steak",
+    "description": "Simple steak night notes.",
+    "thumbnail": "/recipes/steak-2018-03.jpg",
+    "dateMade": "2018-07-22",
+    "meal": "dinner",
+    "tags": [
+      "steak",
+      "unthaw",
+      "dinner"
     ],
-    media: [
+    "media": [
       {
-        type: 'image',
-        step: 1,
-        src: '/recipes/pestopizza-2020-01.jpg',
-        caption: 'Bright pesto with tomato and basil; simple pizza night win.'
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/steak-2018-01.jpg",
+        "caption": "Unthaw"
       }
     ],
-    thumbPosition: 'center'
+    "thumbPosition": "center"
   },
   {
-    title: 'Salad',
-    slug: 'salad',
-    description: 'How many ingredients can you put in a salad? Yes.',
-    thumbnail: '/recipes/salad-2020-01.jpg',
-    dateMade: '2020-02-18',
-    meal: 'lunch',
-    tags: [
-      'can',
-      'how',
-      'ingredients',
-      'many',
-      'put',
-      'salad'
+    "title": "Cinnamon Rolls",
+    "slug": "cinnamon-rolls",
+    "description": "An amazing Cinnabon dupe recipe that might be better than the real thing.",
+    "thumbnail": "/recipes/cinnamonrolls-2018-01.jpg",
+    "dateMade": "2018-08-12",
+    "meal": "dessert",
+    "tags": [
+      "cinnamon",
+      "rolls",
+      "amazing",
+      "cinnabon",
+      "dupe",
+      "recipe",
+      "dessert"
     ],
-    media: [
+    "media": [
       {
-        type: 'video',
-        step: 1,
-        src: '/recipes/salad-2020-01.mp4',
-        caption: 'How many ingredients can you put in a salad',
-        poster: '/recipes/salad-2020-01.jpg'
+        "type": "video",
+        "step": 1,
+        "src": "/recipes/cinnamonrolls-2018-01.mp4",
+        "caption": "An amazing Cinnabon dupe recipe that might be better than the real thing.",
+        "poster": "cinnamonrolls-2018-01.jpg"
       }
     ],
-    thumbPosition: 'center'
+    "thumbPosition": "center"
   },
   {
-    title: 'Sick Day Pantry Chicken Noodle Soup',
-    slug: 'sick-day-pantry-chicken-noodle-soup',
-    description: 'Flu-day soup built from pantry finds and rotisserie chicken.',
-    thumbnail: '/recipes/sicksoup-2017-19.jpg',
-    dateMade: '2017-01-06',
-    meal: 'dinner',
-    tags: [
-      'built',
-      'chicken',
-      'finds',
-      'flu',
-      'from',
-      'noodle'
+    "title": "Tub of Tea",
+    "slug": "tub-of-tea",
+    "description": "Spending my morning making a tub of tea: comfort in a cup (or tub!).",
+    "thumbnail": "/recipes/herbaltea-2018-01.jpg",
+    "dateMade": "2018-10-25",
+    "meal": "drinks",
+    "tags": [
+      "tub",
+      "tea",
+      "drinks"
     ],
-    media: [
+    "media": [
       {
-        type: 'image',
-        step: 1,
-        src: '/recipes/sicksoup-2017-01.jpg',
-        caption: 'When you\'re home with the flu, but your parents don\'t have any sick people food in the house'
-      },
-      {
-        type: 'video',
-        step: 2,
-        src: '/recipes/sicksoup-2017-02.mp4',
-        caption: 'Guess I\'m making my own chicken noodle soup',
-        poster: '/recipes/sicksoup-2017-02.jpg'
-      },
-      {
-        type: 'video',
-        step: 3,
-        src: '/recipes/sicksoup-2017-03.mp4',
-        caption: 'Step 1: Lightly salt the water and bring to a boil',
-        poster: '/recipes/sicksoup-2017-03.jpg'
-      },
-      {
-        type: 'image',
-        step: 4,
-        src: '/recipes/sicksoup-2017-04.jpg',
-        caption: 'Don\'t have “proper” soup noodles? Use what ya got'
-      },
-      {
-        type: 'image',
-        step: 5,
-        src: '/recipes/sicksoup-2017-05.jpg',
-        caption: 'Step 2: Remove all meat from the rotisserie chicken'
-      },
-      {
-        type: 'image',
-        step: 6,
-        src: '/recipes/sicksoup-2017-06.jpg',
-        caption: 'Step 3: Cut chicken into bite-sized chunks'
-      },
-      {
-        type: 'image',
-        step: 7,
-        src: '/recipes/sicksoup-2017-07.jpg',
-        caption: 'Step 4: Add noodles to boiling water until almost done'
-      },
-      {
-        type: 'image',
-        step: 8,
-        src: '/recipes/sicksoup-2017-08.jpg',
-        caption: 'Step 5: Chop carrots'
-      },
-      {
-        type: 'image',
-        step: 9,
-        src: '/recipes/sicksoup-2017-09.jpg',
-        caption: 'Step 6: Chop onions'
-      },
-      {
-        type: 'image',
-        step: 10,
-        src: '/recipes/sicksoup-2017-10.jpg',
-        caption: 'Step 7: Chop celery'
-      },
-      {
-        type: 'image',
-        step: 11,
-        src: '/recipes/sicksoup-2017-11.jpg',
-        caption: 'Step 8: Add chicken broth to a large pan'
-      },
-      {
-        type: 'image',
-        step: 12,
-        src: '/recipes/sicksoup-2017-12.jpg',
-        caption: 'Don\'t have enough chicken broth? Add water and bouillon cubes'
-      },
-      {
-        type: 'image',
-        step: 13,
-        src: '/recipes/sicksoup-2017-13.jpg',
-        caption: 'Step 9: Add bay leaves'
-      },
-      {
-        type: 'image',
-        step: 14,
-        src: '/recipes/sicksoup-2017-14.jpg',
-        caption: 'Step 10: Add chicken and vegetables to seasoned broth'
-      },
-      {
-        type: 'video',
-        step: 15,
-        src: '/recipes/sicksoup-2017-15.mp4',
-        caption: 'Step 11: Stir',
-        poster: '/recipes/sicksoup-2017-15.jpg'
-      },
-      {
-        type: 'image',
-        step: 16,
-        src: '/recipes/sicksoup-2017-16.jpg',
-        caption: 'Step 12: Cover and let simmer for 7 minutes'
-      },
-      {
-        type: 'image',
-        step: 17,
-        src: '/recipes/sicksoup-2017-17.jpg',
-        caption: 'Step 13: Add noodles to broth'
-      },
-      {
-        type: 'image',
-        step: 18,
-        src: '/recipes/sicksoup-2017-18.jpg',
-        caption: 'Done!'
-      },
-      {
-        type: 'image',
-        step: 19,
-        src: '/recipes/sicksoup-2017-19.jpg',
-        caption: 'Eat with a large mug of tea'
-      },
-      {
-        type: 'image',
-        step: 20,
-        src: '/recipes/sicksoup-2017-20.jpg',
-        caption: 'Make a large bubble bath'
-      },
-      {
-        type: 'image',
-        step: 21,
-        src: '/recipes/sicksoup-2017-21.jpg',
-        caption: 'Relax flu away in the bath'
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/herbaltea-2018-01.jpg",
+        "caption": "Ingredients"
       }
     ],
-    thumbPosition: 'center'
+    "thumbPosition": "center"
   },
   {
-    title: 'Smothered Pork Chops',
-    slug: 'smothered-pork-chops',
-    description: 'Pan-fried, gravy-smothered chops. So good you might forget the photo.',
-    thumbnail: '/recipes/smotheredchop-2019-06.jpg',
-    dateMade: '2020-02-09',
-    meal: 'dinner',
-    tags: [
-      'chops',
-      'forget',
-      'fried',
-      'good',
-      'gravy',
-      'might'
+    "title": "One Pan Salmon Dinner",
+    "slug": "one-pan-salmon-dinner",
+    "description": "Salmon in foil with seasoned potatoes and asparagus. Weeknight meal = Easy. ",
+    "thumbnail": "/recipes/onepansalmon-2019-08.jpg",
+    "dateMade": "2019-05-19",
+    "meal": "dinner",
+    "tags": [
+      "one",
+      "salmon",
+      "dinner",
+      "sound",
+      "hear",
+      "kitten"
     ],
-    media: [
+    "media": [
       {
-        type: 'video',
-        step: 1,
-        src: '/recipes/smotheredchop-2019-01.mp4',
-        caption: 'Tonight’s Dinner - Smothered Pork Chops',
-        poster: '/recipes/smotheredchop-2019-01.jpg'
-      },
-      {
-        type: 'image',
-        step: 2,
-        src: '/recipes/smotheredchop-2019-02.jpg',
-        caption: 'Step 1: Season pork chops & cover in flour'
-      },
-      {
-        type: 'video',
-        step: 3,
-        src: '/recipes/smotheredchop-2019-03.mp4',
-        caption: 'Step 2: Fry pork chops',
-        poster: '/recipes/smotheredchop-2019-03.jpg'
-      },
-      {
-        type: 'video',
-        step: 4,
-        src: '/recipes/smotheredchop-2019-04.mp4',
-        caption: 'Step 3: Sauté mushrooms and onions',
-        poster: '/recipes/smotheredchop-2019-04.jpg'
-      },
-      {
-        type: 'image',
-        step: 5,
-        src: '/recipes/smotheredchop-2019-05.jpg',
-        caption: 'Step 4: Add seasoned flour to pot'
-      },
-      {
-        type: 'image',
-        step: 6,
-        src: '/recipes/smotheredchop-2019-06.jpg',
-        caption: 'Step 5: Add buttermilk'
-      },
-      {
-        type: 'image',
-        step: 7,
-        src: '/recipes/smotheredchop-2019-07.jpg',
-        caption: 'May or may not have eaten without taking a photo because it smelled (and tasted) so delicious'
+        "type": "video",
+        "step": 1,
+        "src": "/recipes/onepansalmon-2019-01.mp4",
+        "caption": "Dinner ingredients (sound on to hear kitten squeals in background)",
+        "poster": "onepansalmon-2019-01.jpg"
       }
     ],
-    thumbPosition: 'center'
+    "thumbPosition": "center"
   },
   {
-    title: 'Steak',
-    slug: 'steak',
-    description: 'Simple steak night notes.',
-    thumbnail: '/recipes/steak-2018-03.jpg',
-    dateMade: '2018-07-22',
-    meal: 'drinks',
-    tags: [
-      'night',
-      'notes',
-      'simple',
-      'steak'
+    "title": "Smothered Pork Chops",
+    "slug": "smothered-pork-chops",
+    "description": "Pan-fried, gravy-smothered chops. So good you might forget the photo.",
+    "thumbnail": "/recipes/smotheredchop-2019-07.jpg",
+    "dateMade": "2020-02-09",
+    "meal": "dinner",
+    "tags": [
+      "smothered",
+      "pork",
+      "chops",
+      "tonight",
+      "dinner"
     ],
-    media: [
+    "media": [
       {
-        type: 'image',
-        step: 1,
-        src: '/recipes/steak-2018-01.jpg',
-        caption: 'Unthaw'
-      },
-      {
-        type: 'video',
-        step: 2,
-        src: '/recipes/steak-2018-02.mp4',
-        caption: 'Season & thaw',
-        poster: '/recipes/steak-2018-02.jpg'
-      },
-      {
-        type: 'image',
-        step: 3,
-        src: '/recipes/steak-2018-03.jpg',
-        caption: 'Nom!'
+        "type": "video",
+        "step": 1,
+        "src": "/recipes/smotheredchop-2019-01.mp4",
+        "caption": "Tonight’s Dinner - Smothered Pork Chops",
+        "poster": "smotheredchop-2019-01.jpg"
       }
     ],
-    thumbPosition: 'center'
+    "thumbPosition": "center"
   },
   {
-    title: 'Taco Tuesday (Wednesday)',
-    slug: 'taco-tuesday-wednesday',
-    description: 'Cheesy taco dip night, just one day late. Easy, cozy, and dangerously snackable.',
-    thumbnail: '/recipes/tacotuesday-2016-01.jpg',
-    dateMade: '2016-09-28',
-    meal: 'snack',
-    tags: [
-      'cheesy',
-      'cozy',
-      'dangerously',
-      'dip',
-      'easy',
-      'just'
+    "title": "Salad",
+    "slug": "salad",
+    "description": "How many ingredients can you put in a salad? Yes.",
+    "thumbnail": "/recipes/salad-2020-01.jpg",
+    "dateMade": "2020-02-18",
+    "meal": "breakfast",
+    "tags": [
+      "salad",
+      "lettuce",
+      "how",
+      "many",
+      "can",
+      "you",
+      "breakfast"
     ],
-    media: [
+    "media": [
       {
-        type: 'image',
-        step: 1,
-        src: '/recipes/tacotuesday-2016-01.jpg',
-        caption: 'Doing Taco Tuesday a day late #TacoWednesday'
+        "type": "video",
+        "step": 1,
+        "src": "/recipes/salad-2020-01.mp4",
+        "caption": "How many ingredients can you put in a salad",
+        "poster": "salad-2020-01.jpg"
       },
       {
-        type: 'image',
-        step: 2,
-        src: '/recipes/tacotuesday-2016-02.jpg',
-        caption: 'Step 1: Cook 1lb of Ground Beef'
-      },
-      {
-        type: 'image',
-        step: 3,
-        src: '/recipes/tacotuesday-2016-03.jpg',
-        caption: 'Step 2 & 3: Cut up and add 3 oz of Velveeta and 2 cups of milk'
-      },
-      {
-        type: 'image',
-        step: 4,
-        src: '/recipes/tacotuesday-2016-04.jpg',
-        caption: 'Step 4: Add 25 oz of chili (with or without beans)'
-      },
-      {
-        type: 'image',
-        step: 5,
-        src: '/recipes/tacotuesday-2016-05.jpg',
-        caption: 'Step 5: Add 19 oz of red enchilada sauce'
-      },
-      {
-        type: 'image',
-        step: 6,
-        src: '/recipes/tacotuesday-2016-06.jpg',
-        caption: 'Step 6: Add 4.5oz of chopped green chilies'
-      },
-      {
-        type: 'image',
-        step: 7,
-        src: '/recipes/tacotuesday-2016-07.jpg',
-        caption: 'Step 7: Add cooked and drained ground beef'
-      },
-      {
-        type: 'video',
-        step: 8,
-        src: '/recipes/tacotuesday-2016-08.mp4',
-        caption: 'Step 7: Occasionally stir',
-        poster: '/recipes/tacotuesday-2016-08.jpg'
-      },
-      {
-        type: 'image',
-        step: 9,
-        src: '/recipes/tacotuesday-2016-09.jpg',
-        caption: 'On my fourth bowl of dip, and we haven\'t even had dinner yet'
+        "type": "image",
+        "step": 2,
+        "src": "/recipes/salad-2020-01.jpg",
+        "caption": "Ingredients: Lettuce, Romaine Lettuce, Kale, Sunflower Seeds, Boiled Eggs, Carrots"
       }
     ],
-    thumbPosition: 'center'
+    "thumbPosition": "center"
   },
   {
-    title: 'Tub of Tea',
-    slug: 'tub-of-tea',
-    description: 'Spending my morning making a tub of tea: comfort in a cup (or tub!).',
-    thumbnail: '/recipes/herbaltea-2018-01.jpg',
-    dateMade: '2018-10-25',
-    meal: 'drinks',
-    tags: [
-      'comfort',
-      'cup',
-      'making',
-      'morning',
-      'spending',
-      'tea'
+    "title": "Pesto, Tomato, & Basil Pizza",
+    "slug": "pesto-tomato-basil-pizza",
+    "description": "Bright pesto with tomato and basil; simple pizza night win.",
+    "thumbnail": "/recipes/pestopizza-2020-01.jpg",
+    "dateMade": "2020-05-18",
+    "meal": "dinner",
+    "tags": [
+      "pesto",
+      "tomato",
+      "basil",
+      "pizza",
+      "bright",
+      "simple",
+      "dinner"
     ],
-    media: [
+    "media": [
       {
-        type: 'image',
-        step: 1,
-        src: '/recipes/herbaltea-2018-01.jpg',
-        caption: 'Ingredients'
-      },
-      {
-        type: 'video',
-        step: 2,
-        src: '/recipes/herbaltea-2018-02.mp4',
-        caption: 'Spending my morning making a tub of tea',
-        poster: '/recipes/herbaltea-2018-02.jpg'
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/pestopizza-2020-01.jpg",
+        "caption": "Bright pesto with tomato and basil; simple pizza night win."
       }
     ],
-    thumbPosition: 'center'
+    "thumbPosition": "center"
+  },
+  {
+    "title": "Pesto & Sausage Mac and Cheese",
+    "slug": "pesto-sausage-mac-and-cheese",
+    "description": "Pesto & Sausage Mac and Cheese: homemade and documented step‑by‑step.",
+    "thumbnail": "/recipes/pestosausagemac-2019-02.jpg",
+    "dateMade": "2019-09-29",
+    "meal": "dinner",
+    "tags": [
+      "pesto",
+      "sausage",
+      "mac",
+      "cheese",
+      "week's",
+      "dinner"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/pestosausagemac-2019-01.jpg",
+        "caption": "This week's dinner: Pesto and Sausage Mac and Cheese"
+      }
+    ],
+    "thumbPosition": "center",
+    "instagram": "https://www.instagram.com/stories/highlights/17865937625084706/"
+  },
+  {
+    "title": "Cookie Night",
+    "slug": "cookie-night",
+    "description": "Cookie Night: homemade and documented step‑by‑step.",
+    "thumbnail": "/recipes/cookienight-2019-02.jpg",
+    "dateMade": "2019-10-11",
+    "meal": "dessert",
+    "tags": [
+      "cookie",
+      "night",
+      "dessert"
+    ],
+    "media": [
+      {
+        "type": "video",
+        "step": 1,
+        "src": "/recipes/cookienight-2019-01.mp4",
+        "caption": "Cookie Night",
+        "poster": "cookienight-2019-01.jpg"
+      }
+    ],
+    "thumbPosition": "center",
+    "instagram": "https://www.instagram.com/stories/highlights/17869062491003339/"
+  },
+  {
+    "title": "French Onion Soup",
+    "slug": "french-onion-soup",
+    "description": "French Onion Soup: a cozy, home‑style recipe captured step‑by‑step.",
+    "thumbnail": "/recipes/frenchonionsoup-2019-04.jpg",
+    "dateMade": "2019-10-20",
+    "meal": "lunch",
+    "tags": [
+      "french",
+      "onion",
+      "soup",
+      "theshayspence",
+      "lunch"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/frenchonionsoup-2019-01.jpg",
+        "caption": "@TheShaySpence made French Onion Soup, so I made French Onion Soup."
+      }
+    ],
+    "thumbPosition": "center",
+    "instagram": "https://www.instagram.com/stories/highlights/18052553734257595/"
+  },
+  {
+    "title": "Burgers",
+    "slug": "burgers",
+    "description": "Burgers: homemade and documented step‑by‑step.",
+    "thumbnail": "/recipes/burger-2020-02.jpg",
+    "dateMade": "2020-04-20",
+    "meal": "dinner",
+    "tags": [
+      "burgers",
+      "dinner"
+    ],
+    "media": [
+      {
+        "type": "video",
+        "step": 1,
+        "src": "/recipes/burger-2020-01.mp4",
+        "caption": "Burgers",
+        "poster": "burger-2020-01.jpg"
+      }
+    ],
+    "thumbPosition": "center",
+    "instagram": "https://www.instagram.com/stories/highlights/18117524413154785/"
+  },
+  {
+    "title": "Shrimp & Grits Part 1",
+    "slug": "shrimp-grits-part-1",
+    "description": "Shrimp & Grits Part 1: homemade and documented step‑by‑step.",
+    "thumbnail": "/recipes/shrimpgritspt1-2020-13.jpg",
+    "dateMade": "2020-04-25",
+    "meal": "dinner",
+    "tags": [
+      "shrimp",
+      "grits",
+      "part",
+      "cups",
+      "chicken",
+      "broth",
+      "dinner"
+    ],
+    "media": [
+      {
+        "type": "video",
+        "step": 1,
+        "src": "/recipes/shrimpgritspt1-2020-01.mp4",
+        "caption": "Step 1: 4  cups of chicken broth & bring to boil",
+        "poster": "shrimpgritspt1-2020-01.jpg"
+      }
+    ],
+    "thumbPosition": "center",
+    "instagram": "https://www.instagram.com/stories/highlights/18126755833142019/"
+  },
+  {
+    "title": "Margarita",
+    "slug": "margarita",
+    "description": "Margarita: homemade and documented step‑by‑step.",
+    "thumbnail": "/recipes/margarita-2020-01.jpg",
+    "dateMade": "2020-05-05",
+    "meal": "dinner",
+    "tags": [
+      "margarita",
+      "will",
+      "dinner"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/margarita-2020-01.jpg",
+        "caption": "The margarita will make up for it"
+      }
+    ],
+    "thumbPosition": "center",
+    "instagram": "https://www.instagram.com/stories/highlights/17882230321824701/"
+  },
+  {
+    "title": "Crab Mac & Cheese",
+    "slug": "crab-mac-cheese",
+    "description": "Crab Mac & Cheese: homemade and documented step‑by‑step.",
+    "thumbnail": "/recipes/crabmac-2020-26.jpg",
+    "dateMade": "2020-05-05",
+    "meal": "dinner",
+    "tags": [
+      "crab",
+      "mac",
+      "cheese",
+      "tonight's",
+      "dinner",
+      "i'm"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/crabmac-2020-01.jpg",
+        "caption": "Tonight's Dinner: Crab Mac & Cheese (I'm not going to lie, when I bought groceries this weekend I forgot Cinco de Mayo was today)"
+      }
+    ],
+    "thumbPosition": "center",
+    "instagram": "https://www.instagram.com/stories/highlights/17897092474591663/"
+  },
+  {
+    "title": "Scallop Gnocchi",
+    "slug": "scallop-gnocchi",
+    "description": "Scallop Gnocchi: homemade and documented step‑by‑step.",
+    "thumbnail": "/recipes/scallopgnocchi-2020-14.jpg",
+    "dateMade": "2020-05-19",
+    "meal": "breakfast",
+    "tags": [
+      "scallop",
+      "gnocchi",
+      "dice",
+      "slices",
+      "bacon",
+      "breakfast"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/scallopgnocchi-2020-01.jpg",
+        "caption": "Dice 10 slices of bacon"
+      }
+    ],
+    "thumbPosition": "center",
+    "instagram": "https://www.instagram.com/stories/highlights/18073241932236074/"
+  },
+  {
+    "title": "Breakfast",
+    "slug": "breakfast",
+    "description": "Breakfast: homemade and documented step‑by‑step.",
+    "thumbnail": "/recipes/breakfast-multidate-03.jpg",
+    "dateMade": "",
+    "meal": "breakfast",
+    "tags": [
+      "breakfast",
+      "love",
+      "cooking"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/breakfast-multidate-01.jpg",
+        "caption": "I love cooking"
+      }
+    ],
+    "thumbPosition": "center",
+    "instagram": "https://www.instagram.com/stories/highlights/17878640728868256/"
+  },
+  {
+    "title": "Onion Ring",
+    "slug": "onion-ring",
+    "description": "Onion Ring: homemade and documented step‑by‑step.",
+    "thumbnail": "/recipes/onionring-2020-15.jpg",
+    "dateMade": "2020-08-08",
+    "meal": "dinner",
+    "tags": [
+      "onion",
+      "ring",
+      "guess",
+      "what",
+      "i'm",
+      "making",
+      "dinner"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/onionring-2020-01.jpg",
+        "caption": "Guess what I'm making tonight!"
+      }
+    ],
+    "thumbPosition": "center",
+    "instagram": "https://www.instagram.com/stories/highlights/18051620440259491/"
+  },
+  {
+    "title": "Steaks",
+    "slug": "steaks",
+    "description": "Steaks: a cozy, home‑style recipe captured step‑by‑step.",
+    "thumbnail": "/recipes/steak-multidate-05.jpg",
+    "dateMade": "",
+    "meal": "dinner",
+    "tags": [
+      "steaks",
+      "there",
+      "anything",
+      "better",
+      "than",
+      "steak",
+      "dinner"
+    ],
+    "media": [
+      {
+        "type": "video",
+        "step": 1,
+        "src": "/recipes/steak-multidate-01.mp4",
+        "caption": "Is there anything better than steak for dinner?",
+        "poster": "steak-multidate-01.jpg"
+      }
+    ],
+    "thumbPosition": "center",
+    "instagram": "https://www.instagram.com/stories/highlights/18051971380262723/"
+  },
+  {
+    "title": "Creamy Mushroom & Spinach Chicken",
+    "slug": "creamy-mushroom-spinach-chicken",
+    "description": "Creamy Mushroom & Spinach Chicken: a cozy, home‑style recipe captured step‑by‑step.",
+    "thumbnail": "/recipes/mushroomchicken-2020-14.jpg",
+    "dateMade": "2020-09-21",
+    "meal": "dinner",
+    "tags": [
+      "creamy",
+      "mushroom",
+      "spinach",
+      "chicken",
+      "tonight's",
+      "dinner"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/mushroomchicken-2020-01.jpg",
+        "caption": "And for tonight's dinner: Creamy Parmesan Mushroom Chicken w/Spinach"
+      }
+    ],
+    "thumbPosition": "center",
+    "instagram": "https://www.instagram.com/stories/highlights/17890232152665408/"
+  },
+  {
+    "title": "Finished Dinners",
+    "slug": "finished-dinners",
+    "description": "Finished Dinners: homemade and documented step‑by‑step.",
+    "thumbnail": "/recipes/finisheddinner-multidate-02.jpg",
+    "dateMade": "",
+    "meal": "dinner",
+    "tags": [
+      "finished",
+      "dinners",
+      "bone",
+      "apple",
+      "tea",
+      "dinner"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/finisheddinner-multidate-01.jpg",
+        "caption": "Bone Apple Tea"
+      }
+    ],
+    "thumbPosition": "center",
+    "instagram": "https://www.instagram.com/stories/highlights/17881015066819748/"
+  },
+  {
+    "title": "Shrimp & Grits Part 2",
+    "slug": "shrimp-grits-part-2",
+    "description": "Shrimp & Grits Part 2: homemade and documented step‑by‑step.",
+    "thumbnail": "/recipes/shrimpgritspt2-2020-23.jpg",
+    "dateMade": "2020-09-27",
+    "meal": "dinner",
+    "tags": [
+      "shrimp",
+      "grits",
+      "part",
+      "shred",
+      "pepper",
+      "jack",
+      "dinner"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/shrimpgritspt2-2020-01.jpg",
+        "caption": "Shred pepper jack and cheddar cheese"
+      }
+    ],
+    "thumbPosition": "center",
+    "instagram": "https://www.instagram.com/stories/highlights/17860616402165666/"
+  },
+  {
+    "title": "Honey Garlic Salmon",
+    "slug": "honey-garlic-salmon",
+    "description": "Honey Garlic Salmon: a cozy, home‑style recipe captured step‑by‑step.",
+    "thumbnail": "/recipes/honeysalmon-2020-09.jpg",
+    "dateMade": "2020-10-01",
+    "meal": "dinner",
+    "tags": [
+      "honey",
+      "garlic",
+      "salmon",
+      "tonight",
+      "coated",
+      "dinner"
+    ],
+    "media": [
+      {
+        "type": "video",
+        "step": 1,
+        "src": "/recipes/honeysalmon-2020-01.mp4",
+        "caption": "Tonight: Honey Garlic Coated Salmon",
+        "poster": "honeysalmon-2020-01.jpg"
+      }
+    ],
+    "thumbPosition": "center",
+    "instagram": "https://www.instagram.com/stories/highlights/17892688084646585/"
+  },
+  {
+    "title": "Creamy Tuscan Scallops and Gnocchi",
+    "slug": "creamy-tuscan-scallops-and-gnocchi",
+    "description": "Creamy Tuscan Scallops and Gnocchi: homemade and documented step‑by‑step.",
+    "thumbnail": "/recipes/tuscanscallops-2020-01.jpg",
+    "dateMade": "2020-10-05",
+    "meal": "dinner",
+    "tags": [
+      "creamy",
+      "tuscan",
+      "scallops",
+      "gnocchi",
+      "tonight's",
+      "dinner"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/tuscanscallops-2020-01.jpg",
+        "caption": "Tonight's Dinner:"
+      }
+    ],
+    "thumbPosition": "center",
+    "instagram": "https://www.instagram.com/stories/highlights/18046707946264073/"
+  },
+  {
+    "title": "Breakfast Sandwich Machine",
+    "slug": "breakfast-sandwich-machine",
+    "description": "Breakfast Sandwich Machine: homemade and documented step‑by‑step.",
+    "thumbnail": "/recipes/breakfastsandwich-2020-08.jpg",
+    "dateMade": "2020-10-07",
+    "meal": "breakfast",
+    "tags": [
+      "breakfast",
+      "sandwich",
+      "machine",
+      "tonight's",
+      "dinner",
+      "thanks"
+    ],
+    "media": [
+      {
+        "type": "video",
+        "step": 1,
+        "src": "/recipes/breakfastsandwich-2020-01.mp4",
+        "caption": "Tonight's dinner is thanks to @kimberlyrhaegar and the bomb ass birthday present she got me!",
+        "poster": "breakfastsandwich-2020-01.jpg"
+      }
+    ],
+    "thumbPosition": "center",
+    "instagram": "https://www.instagram.com/stories/highlights/18134773783113737/"
+  },
+  {
+    "title": "Lemon Pepper Wings",
+    "slug": "lemon-pepper-wings",
+    "description": "Lemon Pepper Wings: homemade and documented step‑by‑step.",
+    "thumbnail": "/recipes/lemonpepper-2020-07.jpg",
+    "dateMade": "2020-10-12",
+    "meal": "dinner",
+    "tags": [
+      "lemon",
+      "pepper",
+      "wings",
+      "tonight's",
+      "dinner"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/lemonpepper-2020-01.jpg",
+        "caption": "Tonight's Dinner: Lemon Pepper Wings"
+      }
+    ],
+    "thumbPosition": "center",
+    "instagram": "https://www.instagram.com/stories/highlights/17857334795212539/"
+  },
+  {
+    "title": "Banana Pudding Rum Ice Cream",
+    "slug": "banana-pudding-rum-ice-cream",
+    "description": "Banana Pudding Rum Ice Cream: homemade and documented step‑by‑step.",
+    "thumbnail": "/recipes/bananaicecream-2020-14.jpg",
+    "dateMade": "2020-10-17",
+    "meal": "dessert",
+    "tags": [
+      "banana",
+      "pudding",
+      "rum",
+      "ice",
+      "cream",
+      "took",
+      "dessert"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/bananaicecream-2020-01.jpg",
+        "caption": "Took a break from paper writing to make: Banana Pudding (And Rum) Ice Cream"
+      }
+    ],
+    "thumbPosition": "center",
+    "instagram": "https://www.instagram.com/stories/highlights/17890822657710977/"
+  },
+  {
+    "title": "Stuffed Portabella Mushrooms",
+    "slug": "stuffed-portabella-mushrooms",
+    "description": "Stuffed Portabella Mushrooms: homemade and documented step‑by‑step.",
+    "thumbnail": "/recipes/stuffedmushrooms-2020-12.jpg",
+    "dateMade": "2020-10-29",
+    "meal": "dinner",
+    "tags": [
+      "stuffed",
+      "portabella",
+      "mushrooms",
+      "tonight's",
+      "late",
+      "dinner"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/stuffedmushrooms-2020-01.jpg",
+        "caption": "Tonight's late dinner? Stuffed portabella mushrooms"
+      }
+    ],
+    "thumbPosition": "center",
+    "instagram": "https://www.instagram.com/stories/highlights/17887178215772067/"
+  },
+  {
+    "title": "Jell-O Shots",
+    "slug": "jell-o-shots",
+    "description": "Jell-O Shots: homemade and documented step‑by‑step.",
+    "thumbnail": "/recipes/jelloshots-2020-07.jpg",
+    "dateMade": "2020-10-30",
+    "meal": "dinner",
+    "tags": [
+      "jell",
+      "shots",
+      "jello",
+      "shot",
+      "time",
+      "dinner"
+    ],
+    "media": [
+      {
+        "type": "video",
+        "step": 1,
+        "src": "/recipes/jelloshots-2020-01.mp4",
+        "caption": "Jello shot time",
+        "poster": "jelloshots-2020-01.jpg"
+      }
+    ],
+    "thumbPosition": "center",
+    "instagram": "https://www.instagram.com/stories/highlights/17916592747493644/"
+  },
+  {
+    "title": "Garlic Pork Chops, Roasted Potatoes, & Spinach",
+    "slug": "garlic-pork-chops-roasted-potatoes-spinach",
+    "description": "Garlic Pork Chops, Roasted Potatoes, & Spinach: a cozy, home‑style recipe captured step‑by‑step.",
+    "thumbnail": "/recipes/garlicpork-2020-18.jpg",
+    "dateMade": "2020-11-03",
+    "meal": "dinner",
+    "tags": [
+      "garlic",
+      "pork",
+      "chops",
+      "roasted",
+      "potatoes",
+      "spinach",
+      "dinner"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/garlicpork-2020-01.jpg",
+        "caption": "Tonight we're having garlic pork chops. Roasted potatoes. And spinach."
+      }
+    ],
+    "thumbPosition": "center",
+    "instagram": "https://www.instagram.com/stories/highlights/17859384923226399/"
+  },
+  {
+    "title": "Cornished Hens",
+    "slug": "cornished-hens",
+    "description": "Cornished Hens: homemade and documented step‑by‑step.",
+    "thumbnail": "/recipes/cornishhens-2020-14.jpg",
+    "dateMade": "2020-11-17",
+    "meal": "dinner",
+    "tags": [
+      "cornished",
+      "hens",
+      "roasted",
+      "tonight's",
+      "dinner",
+      "cornish"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/cornishhens-2020-01.jpg",
+        "caption": "Tonight's Dinner: Cornish hens, roasted carrots, & roasted potatoes"
+      }
+    ],
+    "thumbPosition": "center",
+    "instagram": "https://www.instagram.com/stories/highlights/17897524936636098/"
+  },
+  {
+    "title": "Thanksgiving Soups",
+    "slug": "thanksgiving-soups",
+    "description": "Thanksgiving Soups: a cozy, home‑style recipe captured step‑by‑step.",
+    "thumbnail": "/recipes/thanksgiving-2020-01.jpg",
+    "dateMade": "2020-11-29",
+    "meal": "lunch",
+    "tags": [
+      "thanksgiving",
+      "soups",
+      "what",
+      "leftover",
+      "stuff",
+      "soup",
+      "lunch"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/thanksgiving-2020-01.jpg",
+        "caption": "What to do with leftover Thanksgiving stuff? Make soup!"
+      }
+    ],
+    "thumbPosition": "center",
+    "instagram": "https://www.instagram.com/stories/highlights/17920880152486480/"
+  },
+  {
+    "title": "Pesto Cod",
+    "slug": "pesto-cod",
+    "description": "Pesto Cod: homemade and documented step‑by‑step.",
+    "thumbnail": "/recipes/pestocod-2020-17.jpg",
+    "dateMade": "2020-12-13",
+    "meal": "snack",
+    "tags": [
+      "pesto",
+      "cod",
+      "cooking",
+      "spinach",
+      "artichoke",
+      "dip",
+      "snack"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/pestocod-2020-01.jpg",
+        "caption": "And today on Cooking with Monique: 1) Spinach and artichoke dip, 2) White wine pesto over cod, 3) Cherry tomatoes w/asparagus"
+      }
+    ],
+    "thumbPosition": "center",
+    "instagram": "https://www.instagram.com/stories/highlights/18127597252151710/"
+  },
+  {
+    "title": "Bacon & Brussel Sprout Pizza",
+    "slug": "bacon-brussel-sprout-pizza",
+    "description": "Bacon & Brussel Sprout Pizza: a cozy, home‑style recipe captured step‑by‑step.",
+    "thumbnail": "/recipes/baconbrusselpizza-2025-20.jpg",
+    "dateMade": "2025-09-07",
+    "meal": "breakfast",
+    "tags": [
+      "bacon",
+      "brussel",
+      "sprout",
+      "pizza",
+      "back",
+      "after",
+      "breakfast"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "step": 1,
+        "src": "/recipes/baconbrusselpizza-2025-01.jpg",
+        "caption": "Back after a long hiatus: Cooking with Monique! You can check out previously made dished on my website: Monique Boskett's Portfolio"
+      }
+    ],
+    "thumbPosition": "center"
   }
 ];
