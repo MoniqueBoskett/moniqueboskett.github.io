@@ -1,3 +1,4 @@
+
 // pages/recipes.js
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { recipesData } from '../data/recipesData';
@@ -247,7 +248,7 @@ export default function Recipes() {
                     style={instagramBtn}
                     aria-label={`View ${r.title} on Instagram`}
                   >
-                    <Instagram size={16} style={{ marginRight: 6 }} /> View on Instagram
+                    <Instagram size={16} style={{ marginRight: 6 }} /> Instagram
                   </a>
                 )}
                 <button
@@ -375,7 +376,8 @@ const coverButton = { padding: 0, border: 'none', background: 'transparent', cur
 
 const coverImage = { display: 'block', width: '100%', height: '200px', objectFit: 'cover' };
 
-const cardBody = { padding: '1rem', color: '#413b42' };
+// make card body a flex column to pin CTAs to bottom
+const cardBody = { padding: '1rem', color: '#413b42', display: 'flex', flexDirection: 'column', minHeight: 280 };
 
 const recipeTitle = { margin: 0, marginBottom: '0.5rem', fontSize: '1.15rem' };
 
@@ -387,7 +389,8 @@ const tagChipBase = {
   fontSize: '0.85rem',
   fontWeight: 700,
   cursor: 'pointer',
-  border: 'none'
+  border: 'none',
+  fontFamily: 'Fira Sans'
 };
 
 const tagChipButton = (active) => ({
@@ -396,7 +399,8 @@ const tagChipButton = (active) => ({
   color: active ? '#fff' : '#413b42'
 });
 
-const ctaRow = { display: 'flex', gap: '0.5rem', flexWrap: 'wrap' };
+// CTA row pinned to the bottom, space-between to opposite corners
+const ctaRow = { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 'auto' };
 
 const baseBtn = {
   display: 'inline-flex',
@@ -404,11 +408,13 @@ const baseBtn = {
   gap: '0.25rem',
   border: 'none',
   borderRadius: '8px',
-  padding: '0.55rem 0.9rem',
-  fontWeight: 700,
-  fontSize: '0.95rem',
+  padding: '0.5rem 0.75rem',
+  fontWeight: 500, // not bold
+  fontSize: '0.9rem', // slightly larger than tag chips
   cursor: 'pointer',
-  textDecoration: 'none'
+  textDecoration: 'none',
+  whiteSpace: 'nowrap',
+  fontFamily: 'Fira Sans'
 };
 
 const instagramBtn = { ...baseBtn, backgroundColor: '#413b42', color: '#fff' };
