@@ -123,10 +123,22 @@ export default function Navbar() {
 
         {/* Center: logo */}
         <div className="nav-center">
-          <Link href="/" className="logo-link">
-            <img src="/monique-logo.png" alt="Monique Boskett Logo" className="logo-img" />
-          </Link>
-        </div>
+  <Link href="/" className="logo-link">
+    {/* Default (auto/light mode) */}
+    <img
+      src="/logo_light.png"
+      alt="Monique Boskett Logo"
+      className="logo-img light-logo"
+    />
+    {/* Dark mode version */}
+    <img
+      src="/logo_dark.png"
+      alt="Monique Boskett Logo"
+      className="logo-img dark-logo"
+    />
+  </Link>
+</div>
+
 
         {/* Right: theme choice */}
         <div className="nav-right">

@@ -969,7 +969,7 @@ export const recipesData = [
       { type: 'video', step: 12, src: '/recipes/baconbrusselpizza-2025-12.mp4', caption: 'Place pizza dough on pan(s)', poster: 'baconbrusselpizza-2025-12.jpg' },
       { type: 'video', step: 13, src: '/recipes/baconbrusselpizza-2025-13.mp4', caption: 'Spread pesto/garlic mix to dough', poster: 'baconbrusselpizza-2025-13.jpg' },
       { type: 'video', step: 14, src: '/recipes/baconbrusselpizza-2025-14.mp4', caption: 'Add mozzarella cheese on top of pizza', poster: 'baconbrusselpizza-2025-14.jpg' },
-      { type: 'image', step: 15, src: '/recipes/baconbrusselpizza-2025-15.jpg', caption: 'Finely slice brussel sprouts (Tip: to chop quickly and easily, use food processor with slice attachment)' },
+      { type: 'image', step: 15, src: '/recipes/baconbrusselpizza-2025-15.jpg', caption: 'Add roasted brussel sprouts to pizza' },
       { type: 'image', step: 16, src: '/recipes/baconbrusselpizza-2025-16.jpg', caption: 'Add bacon to pizza' },
       { type: 'image', step: 17, src: '/recipes/baconbrusselpizza-2025-17.jpg', caption: 'Add additional mozzarella cheese to top of pizza' },
       { type: 'video', step: 18, src: '/recipes/baconbrusselpizza-2025-18.mp4', caption: 'Add melted butter to crust of pizza so it doesn\'t dry out', poster: 'baconbrusselpizza-2025-18.jpg' },
@@ -978,6 +978,6 @@ export const recipesData = [
       { type: 'image', step: 21, src: '/recipes/baconbrusselpizza-2025-21.jpg', caption: 'Add truffle oil to top of pizza' },
       { type: 'image', step: 22, src: '/recipes/baconbrusselpizza-2025-22.jpg', caption: 'Done!' }
     ],
-    instagram: 'https://www.instagram.com/stories/highlights/18127597252151710/',
+    instagram: 'https://www.instagram.com/stories/highlights/17975049857924726/',
     thumbPosition: 'center' }
 ];
