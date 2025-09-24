@@ -31,9 +31,9 @@ export default function Custom404() {
 
 // Styles
 const pageStyle = {
-  backgroundColor: '#dcc0e5',
+  backgroundColor: 'var(--accent)',
   color: '#413b42',
-  fontFamily: 'Fira Sans, sans-serif',
+  fontFamily: 'Fira Sans',
   padding: '2rem 1rem',
   minHeight: '100vh',
   display: 'flex',

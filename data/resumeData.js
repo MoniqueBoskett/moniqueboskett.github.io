@@ -5,7 +5,7 @@ export const jobs = [
     title: "Senior Associate, Branded Card & Travel Experiences",
     company: "JPMorgan Chase",
     location: "Wilmington, DE",
-    dates: "Oct 2023 – Present",
+    dates: "Oct 2023 – Aug 2025",
     logo: "jpmorgan.png",
     bullets: [
     "Lead end-to-end execution of premium Chase Sapphire Reserve activations, including Sundance Film Festival, PGA Tour events, Aspen Gay Ski Week, Alterra ski lounges, Seaport Summer Lounge, nationwide EEEEEATSCON food festivals, and immersive experiences at Live Nation music festivals (Dreamville, Boston Calling, Roots Picnic, Lollapalooza, Outside Lands, Oceans Calling).",

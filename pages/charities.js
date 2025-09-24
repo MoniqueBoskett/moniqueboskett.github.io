@@ -219,7 +219,7 @@ const cardWrapper = {
 };
 
 const toggleButton = {
-  backgroundColor: '#dcc0e5',
+  backgroundColor: 'var(--accent)',
   border: 'none',
   padding: '0.5rem 1rem',
   cursor: 'pointer',
@@ -283,12 +283,15 @@ const searchInput = {
   borderRadius: '8px',
   border: '1px solid #aaa',
   fontSize: '1rem',
-  fontFamily: 'Fira Sans',
+  /* ✅ Always cream background + dark text in both light/dark modes */
+  backgroundColor: '#fbf8fc',
+  color: '#413b42',
   boxSizing: 'border-box',
 };
 
+
 const arrowButton = {
-  backgroundColor: '#dcc0e5',
+  backgroundColor: 'var(--accent)',
   color: '#413b42',
   fontSize: '1.5rem',
   fontWeight: 'bold',

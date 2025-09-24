@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 
 const COLORS = {
   bg: '#eee8f0',
-  hover: '#dcc0e5',
+  hover: 'var(--accent)',
   text: '#413b42'
 };
 

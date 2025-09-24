@@ -1,3 +1,4 @@
+// pages/index.js
 import { Github, Linkedin, Mail, Phone } from 'lucide-react';
 import BackToTopButton from '../components/BackToTopButton';
 import GoogleAnalytics from '../components/GoogleAnalytics';
@@ -43,8 +44,9 @@ export default function Home() {
             height: 'auto',
             borderRadius: '12px',
             objectFit: 'cover',
-            border: '6px solid #eee8f0',
-            boxShadow: '0 8px 20px rgba(0, 0, 0, 0.15)',
+            /* use theme surfaces so frame works in light & dark */
+            border: '6px solid var(--badge-bg)',
+            boxShadow: 'var(--shadow-2)',
             flexShrink: 0,
           }}
         />
@@ -74,7 +76,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
           title="GitHub"
-          style={{ color: '#413b42' }}
+          style={{ color: 'var(--text)' }}
           aria-label="GitHub"
         >
           <Github size={32} />
@@ -84,7 +86,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
           title="LinkedIn"
-          style={{ color: '#413b42' }}
+          style={{ color: 'var(--text)' }}
           aria-label="LinkedIn"
         >
           <Linkedin size={32} />
@@ -92,7 +94,7 @@ export default function Home() {
         <a
           href="mailto:monique.boskett@gmail.com"
           title="Email"
-          style={{ color: '#413b42' }}
+          style={{ color: 'var(--text)' }}
           aria-label="Email"
         >
           <Mail size={32} />
@@ -101,7 +103,7 @@ export default function Home() {
           href="tel:2152789306"
           onClick={handlePhoneClick}
           title="Call"
-          style={{ color: '#413b42' }}
+          style={{ color: 'var(--text)' }}
           aria-label="Phone"
         >
           <Phone size={32} />

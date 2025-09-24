@@ -1,0 +1,327 @@
+/* =========================================================
+   Lavender Brand Theme (No white page backgrounds)
+   - Light bg: #dcc0e5 with diagonal stripes
+   - Dark bg:  #9a86a0 (you can switch to #b099b7 if preferred) with softer stripes
+   - Accent token auto-swaps (light: #dcc0e5, dark: #b099b7)
+   - Works with next/font via --font-fira
+   ========================================================= */
+
+/* 1) Brand scale (available everywhere) */
+:root {
+  /* Tints (lighter) */
+  --lavender-50:  #ffffff;
+  --lavender-100: #fbf8fc;  /* cream (inner inputs) */
+  --lavender-200: #f8f2f9;
+  --lavender-300: #f4ecf7;
+  --lavender-400: #f1e5f4;
+  --lavender-500: #eddff2;
+  --lavender-600: #ead9ef;
+  --lavender-700: #e6d2ec;
+  --lavender-800: #e3ccea;
+  --lavender-900: #dfc6e7;
+  --lavender-base: #dcc0e5;  /* LIGHT accent */
+
+  /* Shades (darker) */
+  --lavender-shade-100:  #c6acce;
+  --lavender-shade-200:  #b099b7; /* DARK accent */
+  --lavender-shade-300:  #9a86a0; /* DARK background (preferred) */
+  --lavender-shade-400:  #847389;
+  --lavender-shade-500:  #6e6072;
+  --lavender-shade-600:  #584c5b;
+  --lavender-shade-700:  #423944;
+  --lavender-shade-800:  #2c262d;
+  --lavender-shade-900:  #161316;
+  --lavender-shade-1000: #000000;
+
+  /* 2) Background + stripe system */
+  --bg-light-solid: #dcc0e5;        /* page bg in light */
+  --bg-dark-solid:  #9a86a0;        /* page bg in dark (or set to var(--lavender-shade-200) for #b099b7) */
+  /* --bg-dark-solid: var(--lavender-shade-200); */ /* uncomment for #b099b7 */
+
+  --stripe-angle: 45deg;
+  --stripe-size: 20px;
+  --stripe-color: rgba(255,255,255,0.25); /* light default */
+
+  /* 3) Semantic tokens: LIGHT defaults (base) */
+  color-scheme: light;
+
+  /* Surfaces */
+  --bg: var(--bg-light-solid);
+  --card: var(--lavender-100);
+  --badge-bg: var(--lavender-200);
+
+  /* Text */
+  --text: #413b42;
+  --card-text: #413b42;
+  --muted-text: var(--lavender-shade-300);
+
+  /* Accent (use THIS token app-wide) */
+  --accent: var(--lavender-base);          /* light accent = #dcc0e5 */
+  --accent-contrast: var(--lavender-shade-700);
+
+  /* Borders / rings */
+  --border: var(--lavender-300);
+  --badge-ring: var(--lavender-800);
+
+  /* Links */
+  --link: var(--lavender-shade-300);
+  --link-hover: var(--lavender-shade-400);
+}
+
+/* 4) Auto DARK when OS prefers dark — only if no manual override is set */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+
+    --bg: var(--bg-dark-solid);
+    --stripe-color: rgba(0,0,0,0.08);
+
+    --card: var(--lavender-100);
+    --badge-bg: var(--lavender-200);
+
+    --text: var(--lavender-shade-1000);
+    --card-text: var(--lavender-shade-1000);
+    --muted-text: var(--lavender-shade-600);
+
+    /* DARK accent = #b099b7 */
+    --accent: var(--lavender-shade-200);
+    --accent-contrast: #fbf8fc;
+
+    --border: var(--lavender-shade-300);
+    --badge-ring: var(--lavender-shade-400);
+
+    --link: var(--lavender-shade-800);
+    --link-hover: var(--lavender-shade-900);
+  }
+}
+
+/* 5) Manual overrides (take priority over media query) */
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --bg: var(--bg-light-solid);
+  --stripe-color: rgba(255,255,255,0.25);
+
+  --card: var(--lavender-100);
+  --badge-bg: var(--lavender-200);
+
+  --text: #413b42;
+  --card-text: #413b42;
+  --muted-text: var(--lavender-shade-300);
+
+  /* Light accent = #dcc0e5 */
+  --accent: var(--lavender-base);
+  --accent-contrast: var(--lavender-shade-700);
+
+  --border: var(--lavender-300);
+  --badge-ring: var(--lavender-800);
+
+  --link: var(--lavender-shade-300);
+  --link-hover: var(--lavender-shade-400);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: var(--bg-dark-solid);
+  --stripe-color: rgba(0,0,0,0.08);
+
+  --card: var(--lavender-100);
+  --badge-bg: var(--lavender-200);
+
+  --text: var(--lavender-shade-1000);
+  --card-text: var(--lavender-shade-1000);
+  --muted-text: var(--lavender-shade-600);
+
+  /* Dark accent = #b099b7 (IMPORTANT fix) */
+  --accent: var(--lavender-shade-200);
+  --accent-contrast: #fbf8fc;
+
+  --border: var(--lavender-shade-300);
+  --badge-ring: var(--lavender-shade-400);
+
+  --link: var(--lavender-shade-800);
+  --link-hover: var(--lavender-shade-900);
+}
+
+/* =========================================================
+   6) Global element styles (theme-aware)
+   ========================================================= */
+
+html, body {
+  background-color: var(--bg);
+  background-image:
+    repeating-linear-gradient(
+      var(--stripe-angle),
+      var(--stripe-color) 0,
+      var(--stripe-color) .25px,   /* razor thin stripe */
+      transparent .75px,
+      transparent var(--stripe-size)
+    );
+  color: var(--text);
+
+  /* Hook into next/font (Fira Sans) with sensible fallbacks */
+  font-family: var(--font-fira), system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+  transition: background-color .2s ease, color .2s ease, background-image .2s ease;
+}
+
+/* Ensure form controls inherit the site font everywhere */
+button, input, select, textarea { font: inherit; }
+
+a { color: var(--link); text-decoration: none; }
+a:hover { color: var(--link-hover); text-decoration: underline; }
+
+hr { border: 0; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+
+/* Reusable card surface */
+.card {
+  background: var(--card);
+  color: var(--card-text);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+}
+
+/* Circular logo badges used on resume etc. */
+.badge {
+  background: var(--badge-bg);
+  border: 2px solid var(--badge-ring);
+  border-radius: 9999px;
+}
+
+/* Accessible focus ring using brand accent */
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* Text selection that works in both themes */
+::selection { background: var(--accent); color: var(--accent-contrast); }
+
+/* Optional helpers */
+.border { border: 1px solid var(--border); }
+.text-muted { color: var(--muted-text); }
+svg[fill="currentColor"], .icon { color: currentColor; }
+
+/* Shadows */
+:root { --shadow-1: 0 1px 2px rgba(0,0,0,.06); --shadow-2: 0 6px 20px rgba(0,0,0,.08); }
+:root[data-theme="dark"] { --shadow-1: 0 1px 2px rgba(0,0,0,.15); --shadow-2: 0 8px 30px rgba(0,0,0,.25); }
+
+/* Scrollbars */
+* { scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
+*::-webkit-scrollbar { height: 10px; width: 10px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb { background: var(--border); border-radius: 9999px; border: 2px solid transparent; }
+*::-webkit-scrollbar-thumb:hover { background: var(--badge-ring); }
+
+/* -------------------------------------------
+   Buttons
+------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  border-radius: 12px;
+  padding: .6rem 1rem;
+  font-weight: 600;
+  line-height: 1;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--card-text);
+  transition: transform .06s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  cursor: pointer;
+}
+.btn:hover { box-shadow: var(--shadow-1); }
+.btn:active { transform: translateY(1px); }
+.btn:disabled { opacity: .6; cursor: not-allowed; }
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border-color: transparent;
+}
+.btn-primary:hover { filter: brightness(1.03); }
+.btn-primary:active { filter: brightness(0.98); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--link);
+  border-color: transparent;
+}
+.btn-ghost:hover { background: var(--badge-bg); }
+
+@media (max-width: 640px) { .btn.responsive { width: 100%; } }
+
+/* -------------------------------------------
+   Inputs / selects / textareas (baseline)
+------------------------------------------- */
+.input, .select, .textarea {
+  background: #fbf8fc;   /* always cream inside */
+  color: #413b42;        /* always dark grey text */
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: .6rem .8rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+.input::placeholder, .textarea::placeholder { color: var(--muted-text); }
+.input:focus, .select:focus, .textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.label { display: block; font-weight: 600; margin-bottom: .35rem; }
+
+/* -------------------------------------------
+   Links in long-form content
+------------------------------------------- */
+.prose a { color: var(--link); text-decoration: underline; }
+.prose a:hover { color: var(--link-hover); }
+
+/* -------------------------------------------
+   Toasts / alerts
+------------------------------------------- */
+.toast {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 16px;
+  z-index: 1000;
+  background: var(--card);
+  color: var(--card-text);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: .75rem 1rem;
+  box-shadow: var(--shadow-2);
+  display: flex; align-items: center; gap: .5rem;
+  max-width: min(92vw, 560px);
+}
+.toast-success { border-color: color-mix(in oklab, var(--accent), #00a000 30%); }
+.toast-error { border-color: color-mix(in oklab, var(--accent), #d00000 35%); }
+
+/* -------------------------------------------
+   Loading skeletons
+------------------------------------------- */
+.skeleton {
+  background: linear-gradient(90deg, var(--badge-bg), var(--card), var(--badge-bg));
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite linear;
+  border-radius: 10px;
+}
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.skel-text  { height: 1rem;   width: 100%; margin: .4rem 0; }
+.skel-title { height: 1.25rem; width: 60%;  margin: .6rem 0; }
+.skel-avatar{ width: 48px; height: 48px; border-radius: 9999px; }
+.skel-rect  { width: 100%; height: 180px; border-radius: 12px; }

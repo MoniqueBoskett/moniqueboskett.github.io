@@ -41,19 +41,26 @@ export default function Marketing() {
     <main style={layoutStyles.main}>
       <h1 style={headingStyle}>Marketing</h1>
 
-      <p style={{
-        fontSize: '1.1rem',
-        maxWidth: '750px',
-        margin: '0 auto 2.5rem',
-        lineHeight: '1.6',
-        textAlign: 'center',
-        background: '#eee8f0',
-        padding: '1.5rem',
-        borderRadius: '12px',
-        border: '1px solid #ddd',
-      }}>
-        Over the past two years, I’ve had the opportunity to bring more than 30 Chase Sapphire events to life—ranging from music festivals and private dining experiences to backstage moments with partners like <strong>Live Nation</strong>, <strong>The Seaport</strong>, and <strong>The Infatuation</strong>.<br /><br />
-        This gallery features a collection of Instagram Reels and posts that highlight the creativity, scale, and storytelling behind these activations.<br /><br />
+      <p
+        style={{
+          fontSize: '1.1rem',
+          maxWidth: '750px',
+          margin: '0 auto 2.5rem',
+          lineHeight: '1.6',
+          textAlign: 'center',
+          background: 'var(--card)',
+          color: 'var(--card-text)',
+          padding: '1.5rem',
+          borderRadius: '12px',
+          border: '1px solid var(--border)',
+          boxShadow: 'var(--shadow-1)',
+        }}
+      >
+        Over the past two years, I’ve had the opportunity to bring more than 30 Chase Sapphire events to life—ranging from music
+        festivals and private dining experiences to backstage moments with partners like <strong>Live Nation</strong>,{' '}
+        <strong>The Seaport</strong>, and <strong>The Infatuation</strong>.<br /><br />
+        This gallery features a collection of Instagram Reels and posts that highlight the creativity, scale, and storytelling
+        behind these activations.<br /><br />
         <strong>Click on any post to view it directly on Instagram!</strong>
       </p>
 
@@ -68,8 +75,12 @@ export default function Marketing() {
           width: '100%',
           maxWidth: '500px',
           fontSize: '1rem',
-          border: '1px solid #ccc',
+          border: '1px solid var(--border)',
           borderRadius: '8px',
+          /* ✅ Always cream input in both light & dark */
+          backgroundColor: '#fbf8fc',
+          color: '#413b42',
+          boxSizing: 'border-box',
         }}
       />
 
@@ -85,11 +96,12 @@ export default function Marketing() {
           <div
             key={i}
             style={{
-              border: '1px solid #ccc',
+              border: '1px solid var(--border)',
               borderRadius: '10px',
               overflow: 'hidden',
-              boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
-              background: '#eee8f0',
+              boxShadow: 'var(--shadow-1)',
+              background: 'var(--card)',
+              color: 'var(--card-text)',
             }}
           >
             <div style={{ position: 'relative', paddingTop: '120%', overflow: 'hidden' }}>
@@ -108,10 +120,12 @@ export default function Marketing() {
                 loading="lazy"
               />
             </div>
-            <div style={{ padding: '1rem', background: '#eee8f0' }}>
+            <div style={{ padding: '1rem', background: 'var(--card)', color: 'var(--card-text)' }}>
               <p style={{ fontWeight: 'bold', marginBottom: '0.5rem' }}>{reel.company}</p>
               <p style={{ marginBottom: '0.5rem' }}>{reel.caption}</p>
-              <p style={{ fontSize: '0.9rem', color: '#666' }}>{reel.handle} — {reel.date}</p>
+              <p style={{ fontSize: '0.9rem', color: 'var(--muted-text)' }}>
+                {reel.handle} — {reel.date}
+              </p>
             </div>
           </div>
         ))}

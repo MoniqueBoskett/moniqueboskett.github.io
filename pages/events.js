@@ -1,3 +1,4 @@
+// pages/events.js
 import React, { useRef, useEffect, useState } from 'react';
 import HTMLFlipBook from 'react-pageflip';
 import BackToTopButton from '../components/BackToTopButton';
@@ -72,7 +73,7 @@ export default function Events() {
             aria-label={`Go to ${page.label}`}
             style={{
               ...thumbnailItem,
-              border: i === currentPage ? '3px solid #413b42' : '1px solid #aaa',
+              border: i === currentPage ? '3px solid var(--text)' : '1px solid var(--border)',
             }}
           >
             <img
@@ -87,7 +88,12 @@ export default function Events() {
       </div>
 
       <div style={downloadWrapper}>
-        <a href="/Monique_Boskett_Event_Portfolio.pdf" download style={downloadButton} aria-label="Download Full PDF">
+        <a
+          href="/Monique_Boskett_Event_Portfolio.pdf"
+          download
+          style={downloadButton}
+          aria-label="Download Full PDF"
+        >
           <Download size={18} style={{ marginRight: '0.5rem' }} /> Download Full PDF
         </a>
       </div>
@@ -118,6 +124,7 @@ const pageLabel = {
   textAlign: 'center',
   marginTop: '0.5rem',
   fontSize: '0.9rem',
+  color: 'var(--text)',
 };
 
 const thumbnailGrid = {
@@ -132,12 +139,14 @@ const thumbnailGrid = {
 const thumbnailItem = {
   padding: '4px',
   cursor: 'pointer',
-  backgroundColor: '#eee8f0',
+  backgroundColor: 'var(--card)',
   textAlign: 'center',
   borderRadius: '6px',
   width: '70px',
   flexShrink: 0,
   outline: 'none',
+  boxShadow: 'var(--shadow-1)',
+  color: 'var(--card-text)',
 };
 
 const thumbnailImage = {
@@ -151,6 +160,7 @@ const thumbnailImage = {
 
 const thumbnailLabel = {
   fontSize: '0.75rem',
+  color: 'var(--text)',
 };
 
 const downloadWrapper = {
@@ -168,4 +178,5 @@ const downloadButton = {
   alignItems: 'center',
   fontWeight: 'bold',
   fontSize: '1rem',
+  boxShadow: 'var(--shadow-1)',
 };

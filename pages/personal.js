@@ -204,9 +204,13 @@ const textareaStyle = {
   padding: '0.75rem',
   borderRadius: '8px',
   border: '1px solid #aaa',
-  fontFamily: 'Fira Sans',
+  /* ✅ Always cream background + dark text, in both light and dark modes */
+  backgroundColor: '#fbf8fc',
+  color: '#413b42',
+  /* inherit site font from global theme.css */
   fontSize: '1rem',
   boxSizing: 'border-box',
+  resize: 'vertical',
 };
 
 const modalOverlay = {
@@ -246,7 +250,7 @@ const arrowContainer = {
 };
 
 const arrowStyle = {
-  backgroundColor: '#dcc0e5',
+  backgroundColor: 'var(--accent)',
   color: '#413b42',
   border: 'none',
   padding: '0.5rem 1rem',

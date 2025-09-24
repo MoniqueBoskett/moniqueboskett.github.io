@@ -272,7 +272,7 @@ const arrowContainer = {
 };
 
 const arrowStyle = {
-  backgroundColor: '#dcc0e5',
+  backgroundColor: 'var(--accent)',
   color: '#413b42',
   fontSize: '1.5rem',
   fontWeight: 'bold',

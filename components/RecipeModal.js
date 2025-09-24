@@ -3,7 +3,7 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 
 const COLORS = {
   bgCard: '#eee8f0',
-  accent: '#dcc0e5',
+  accent: 'var(--accent)',
   text: '#413b42'
 };
 
@@ -200,7 +200,7 @@ const navBtn = (side) => ({
   [side]: 8,
   zIndex: 2,
   border: 'none',
-  background: '#dcc0e5',
+  background: 'var(--accent)',
   color: '#413b42',
   padding: '0.35rem 0.6rem',
   borderRadius: 10,

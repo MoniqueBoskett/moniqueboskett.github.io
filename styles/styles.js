@@ -10,10 +10,9 @@ export const layoutStyles = {
   },
 };
 
-// General section style for each page
+// General section style for each page (inherits global font)
 export const sectionStyle = {
-  color: '#413b42',
-  fontFamily: 'Fira Sans',
+  color: 'var(--text)',
   padding: '2rem 1rem',
   boxSizing: 'border-box',
 };
@@ -24,6 +23,7 @@ export const headingStyle = {
   textAlign: 'center',
   marginBottom: '2rem',
   padding: '0 1rem',
+  color: 'var(--text)',
 };
 
 // Paragraph style for descriptions and general text
@@ -33,11 +33,14 @@ export const paragraphStyle = {
   textAlign: 'center',
   maxWidth: '800px',
   margin: '0 auto 2rem',
+  color: 'var(--text)',
 };
 
 // Card-style container used for sections like jobs, education, etc.
 export const cardStyle = {
-  backgroundColor: '#eee8f0',
+  backgroundColor: 'var(--card)',
+  color: 'var(--card-text)',
+  border: '1px solid var(--border)',
   borderRadius: '12px',
   padding: '1.5rem',
   marginBottom: '2rem',
@@ -45,6 +48,7 @@ export const cardStyle = {
   marginLeft: 'auto',
   marginRight: 'auto',
   boxSizing: 'border-box',
+  boxShadow: 'var(--shadow-1)',
 };
 
 // Grid layout for image displays (travel, fun facts, etc.)
@@ -62,12 +66,15 @@ export const photoStyle = {
   objectFit: 'cover',
   borderRadius: '8px',
   cursor: 'pointer',
-  backgroundColor: '#ccc',
+  backgroundColor: 'var(--badge-bg)',
+  border: '1px solid var(--border)',
+  boxShadow: 'var(--shadow-1)',
 };
 
 // Reusable toggle/show-hide button
 export const toggleButton = {
-  backgroundColor: '#dcc0e5',
+  backgroundColor: 'var(--accent)',
+  color: 'var(--accent-contrast)',
   border: 'none',
   padding: '0.5rem 1rem',
   cursor: 'pointer',
@@ -76,15 +83,17 @@ export const toggleButton = {
   marginBottom: '1rem',
   width: '100%',
   maxWidth: '240px',
+  boxShadow: 'var(--shadow-1)',
 };
 
 // Shared primary button style
 export const buttonStyle = {
-  backgroundColor: '#dcc0e5',
-  color: '#413b42',
+  backgroundColor: 'var(--accent)',
+  color: 'var(--accent-contrast)',
   fontWeight: 'bold',
   padding: '0.5rem 1rem',
   border: 'none',
   borderRadius: '6px',
   cursor: 'pointer',
+  boxShadow: 'var(--shadow-1)',
 };
