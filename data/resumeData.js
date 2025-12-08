@@ -129,7 +129,7 @@ export const education = [
     location: 'Philadelphia, PA',
     date: '2020 – 2023',
     logo: 'drexel.png',
-    bullets: ['Minor: Project Management', 'GPA: 4.0']
+    bullets: ['Minor: Project Management', 'GPA: 4.0', '2023 Graduate Commencement Speaker', 'Nina Henderson Provost Scholar']
   },
   {
     degree: 'BS, Marketing',

@@ -15,7 +15,7 @@ export const funFacts = [
     photos: [],
   },
   {
-    text: "I was a gymnast for 13 years 🤸‍♀️",
+    text: "I was a gymnast for 13 years 🤸‍♀️ ",
     photos: ["gymnastics.jpg", "gymnastics2.jpg", "gymnastics3.jpg", "gymnastics4.jpg", "gymnastics5.jpg", "gymnastics6.jpg", "gymnastics7.jpg"],
     collapsible: true,
   },
