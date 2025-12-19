@@ -35,7 +35,7 @@ export default function Resume() {
       <h1 style={headingStyle}>Monique Boskett's Resume</h1>
 
       <p style={introText}>
-        Event Strategy and Experiential Marketing Leader with 10+ years delivering high-profile, end-to-end activations for global brands. Expert in managing $5M+ portfolios, directing cross-functional teams, and transforming complex ideas into polished, high-volume experiences across festivals, sports, film, and executive environments. Known for operational rigor, creative problem-solving, and a relationship-driven approach that elevates partnerships, strengthens brand presence, and produces measurable ROI. Proven success leading national experiential programs for JPMorgan Chase, including Sundance, PGA Tour, Live Nation festivals, and EEEEEATSCON, while building scalable processes that keep fast-moving programs on track, on budget, and unforgettable.
+        Experiential Events Leader and Event Marketing Strategist with 10+ years managing $5M portfolios and delivering 250 to 400 events annually for national brands. Proven success leading large-scale activations across festivals, sports, hospitality, and film, including Sundance Film Festival, PGA Tour, Live Nation festivals, Aspen Gay Ski Week, and EEEEEATSCON. Known for operational rigor, creative problem solving, and cross-functional leadership that elevates brand experience and drives measurable results.
       </p>
 
       {/* Experience */}

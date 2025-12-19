@@ -8,13 +8,14 @@ export const jobs = [
     dates: "Oct 2023 – Aug 2025",
     logo: "jpmorgan.png",
     bullets: [
-    "Lead end-to-end execution of premium Chase Sapphire Reserve activations, including Sundance Film Festival, PGA Tour events, Aspen Gay Ski Week, Alterra ski lounges, Seaport Summer Lounge, nationwide EEEEEATSCON food festivals, and immersive experiences at Live Nation music festivals (Dreamville, Boston Calling, Roots Picnic, Lollapalooza, Outside Lands, Oceans Calling).",
-    "Manage cross-line-of-business teams, external agencies, and internal stakeholders to deliver elevated guest experiences and drive upsell of Sapphire credit card benefits.",
-    "Oversee an annual event budget of more than $5M, consistently delivering high-impact programs on time and within budget.",
-    "Define and track KPIs to measure ROI, optimize performance, and support year-over-year growth.",
-    "Develop process documentation and onboarding resources to streamline training and ensure execution consistency across the team.",
-    "Create cardmember event packages designed to increase acquisition, engagement, and attendance, contributing to measurable gains in customer loyalty.",
-    "Support Sapphire's marketing strategy by integrating experiential activations with social, digital, and paid media campaigns to amplify reach and impact.",
+    "Directed national experiential strategy and end-to-end execution for Chase Sapphire Reserve, overseeing a $5M+ portfolio across Sundance Film Festival, PGA Tours, Aspen Gay Ski Week, Alterra ski resorts, NY Seaport Summer Lounge, and Live Nation festivals, including Dreamville, Boston Calling, Roots Picnic, Lollapalooza, Outside Lands, Oceans Calling.",
+    "Led 10+ concurrent activations annually, managing cross-functional teams across creative, compliance, finance, legal, production, and partnership stakeholders to deliver programs aligned with brand goals, sponsorship obligations, and acquisition targets.",
+    "Elevated brand engagement through data-driven experience design, creating immersive on-site moments that strengthened customer loyalty and supported integrated marketing campaigns.",
+    "Oversaw vendor sourcing, contract negotiation, production management, and risk mitigation, ensuring on-time, on-budget delivery in fast-moving and high-standard festival and hospitality environments.",
+    "Built scalable event playbooks, production schedules, and KPI dashboards that improved workflow efficiency, sharpened cross-team alignment, and increased visibility for senior leadership across the full program lifecycle.",
+    "Integrated experiential programs with paid media, social content, and CRM, ensuring cohesive messaging across channels and contributing to stronger storytelling and brand consistency.",
+    "Delivered post-event reporting, insights decks, and budget reconciliation, translating performance metrics into actionable recommendations for portfolio optimization and future planning.",
+    "Enhanced attendee satisfaction and operational performance through improved data tracking, audience flow mapping, and feedback-driven experience refinements.",
     ]
   },
   {
@@ -24,12 +25,13 @@ export const jobs = [
     dates: "Jun 2022 – Oct 2023",
     logo: "jpmorgan.png",
     bullets: [
-      "Directed multiple concurrent marketing campaigns by defining requirements, schedules, deliverables, and approval workflows across stakeholder groups.",
-      "Focus on project requirements, timelines, deliverables, and approvals for end-to-end campaign execution.", 
-      "Ensured 100% audit compliance through rigorous project-step management.",
-      "Trained on acquisition and portfolio campaign management, strengthening team execution capabilities.",
-      "Partnered with CAO DEI and MG&I leadership to design and facilitate monthly DEI roundtables.",
-      "Planned and executed quarterly team-building events to boost collaboration and morale.",
+      "Led 5–7 concurrent omnichannel marketing and experiential campaigns across digital, sponsorship, and event channels, coordinating creative, compliance, and production workflows in Jira, Confluence, and Asana.",
+      "Directed full campaign lifecycle management from brief development through launch and post-campaign reporting, ensuring all deliverables met brand, regulatory, and budget requirements.", 
+      "Partnered with creative, product, analytics, marketing, and agency teams to align concepts, timelines, messaging, and performance targets across all media touchpoints.",
+      "Developed resource plans and cross-team operating rhythms that optimized capacity, balanced competing priorities, and improved on-time delivery across multiple stakeholder groups.",
+      "Owned budget forecasting, tracking, and change management, ensuring transparency around spend, scope adjustments, and ROI measurement across campaign efforts.",
+      "Built and maintained campaign dashboards, scorecards, and insights reports to support executive decision-making and to refine strategy based on performance trends.",
+      "Led quarterly DEI engagement events and internal communications initiatives, strengthening team connection and advancing cross-department representation efforts.",
     ]
   },
   {
@@ -39,17 +41,17 @@ export const jobs = [
   dates: "Apr 2019 – Jun 2022",
   logo: "ibx.png",
   bullets: [
-      "Coordinated logistics, managed invitations, and hosted 250+ events for Community Affairs, the IBC Foundation, and the PAC; including virtual volunteer sessions, on-site service projects, leadership receptions, innovation workshops, board meetings, political events, and fundraising campaigns.",  
-      "Coordinated with both internal and external stakeholders to deliver excellent events and increase awareness.",
-      "Defined project roles and timelines, ensuring cross-functional alignment and seamless execution.",
-      "Researched and implemented best practices for corporate citizenship and volunteer engagement programs.",
-      "Collaborated with design and communications teams to produce weekly event-marketing bulletins.",
-      "Created and administered a centralized event calendar and tracking system, streamlining department planning.",
-      "Co-led the annual Foundation Golf Outing and designed leadership labs for 25+ summer nurse interns (including a fully virtual program in 2020).",
-      "Spearheaded National Volunteer Week initiatives and grew Blue Crew participation to highlight the company's volunteer impact and increase community engagement.",
-     ]
+      "Planned and executed 250+ annual events across community engagement, employee programs, executive summits, and large-scale philanthropic initiatives, ensuring alignment with corporate citizenship and brand objectives.",  
+      "Managed $750K+ in annual budgets, overseeing forecasting, vendor negotiations, procurement, and production logistics for flagship programs including National Volunteer Week and the annual Golf Outing.",
+      "Led cross-functional planning with marketing, HR, communications, and external partners, ensuring consistent messaging, integrated campaigns, and high-quality event delivery across multiple markets.",
+      "Developed centralized event tracking, reporting, and ROI frameworks that improved forecasting accuracy, increased participation visibility, and strengthened long-term planning.",
+      "Built and managed partnerships with local nonprofits, civic organizations, and sponsors, driving year-over-year increases in volunteer engagement and enhancing brand reputation across the region.",
+      "Led logistical operations for executive forums, leadership meetings, and board-level events, managing agendas, briefings, and stakeholder communications for seamless execution.",
+      "Drove process improvement and change management initiatives, transitioning event systems from manual to automated platforms to improve efficiency, transparency, and data quality.",
+      "Spearheaded National Volunteer Week initiatives and grew Blue Crew participation to highlight the company's volunteer impact and increase community engagement.",     
+  ]
     },
- {
+    {
   title: "Culture & Education Committee Lead",
   company: "Independence Blue Cross",
   location: "Philadelphia, PA",
@@ -62,7 +64,7 @@ export const jobs = [
     "Juneteenth – A Celebration of Resistance and Redemption",
     "Colorism: A Conversation about Skin Color Discrimination"
   ]
-},
+    },
     {
     title: "Community Lead, Events & Operations",
     company: "WeWork",
@@ -70,12 +72,14 @@ export const jobs = [
     dates: "Nov 2016 – Apr 2019",
     logo: "wework.png",
     bullets: [
-      "Planned and executed 3-5 weekly member-focused events (totaling 400+ events), including lunch & learns, networking socials, volunteer days, and fitness classes - driving strong attendance and member satisfaction.",
-      "Developed multi-channel promotional materials (newsletters, posters, social posts) to boost event awareness.",
-      "Managed event budgets, negotiated vendor agreements, and optimized spend for maximum impact.",
-      "Built and nurtured member relationships, proactively recommending events and services to support business growth.",
-      "Advised on operational and financial decisions (P&L oversight), contributing to building-level performance improvements.",
-      "Increased occupancy through high-touch tours, follow-up, and exemplary customer service.",
+      "Produced 400+ annual events across professional development, cultural programming, community engagement, and member experience, supporting retention, satisfaction, and overall building performance.",
+      "Led a three-person cross-functional events and hospitality team, overseeing scheduling, vendor coordination, onsite operations, and day-of execution to ensure seamless, high-quality experiences across multiple Philadelphia locations.",
+      "Managed project budgets, P&L responsibilities, and vendor relationships, ensuring operational excellence, cost control, and consistent delivery of member-facing programming.",
+      "Developed event collateral and promotional content, including digital signage, newsletters, and social posts, driving attendance and strengthening community engagement.",
+      "Designed experiential programming with sales and marketing teams to support revenue growth, member acquisition, and brand storytelling within local markets.",
+      "Created standardized planning templates, workflows, and communications processes that improved efficiency, increased team alignment, and strengthened execution across event categories.",
+      "Built strong relationships with members, partners, and local organizations, proactively identifying programming opportunities that enhanced brand presence and supported business goals.",
+      "Advocated for the launch of WeWork’s “Impact Lead” initiative, contributing to the company’s first formalized corporate social-impact and nonprofit engagement framework.",
     ]
   },
   {
@@ -85,10 +89,10 @@ export const jobs = [
     dates: "Jun 2013 – Mar 2017",
     logo: "eagles.png",
     bullets: [
-      "Supervised a team of 10 event staff, ensuring exceptional guest experiences at regular and private stadium events.",
-      "Promoted to Special Events Team (June 2014), managing tailored onsite activations.",
-      "De-escalated guest concerns calmly and professionally.",
-      "Honored with MVP award and perfect-attendance awards."
+      "Supported execution of large-scale fan engagement programs and corporate sponsorship activations for events serving up to 70,000 attendees at Lincoln Financial Field.",
+      "Led and trained a 10-member event-day operations team, ensuring high-quality fan experience, ADA compliance, and adherence to safety, service, and partnership standards.",
+      "Managed real-time issue resolution and guest relations, de-escalating concerns professionally while maintaining brand and service expectations.",
+      "Recognized with MVP and perfect attendance awards for consistent excellence in service and leadership."
     ]
   },
   {
@@ -98,13 +102,11 @@ export const jobs = [
     dates: "Jun 2015 – Nov 2016",
     logo: "sherwin.png",
     bullets: [
-      "Completed intensive Manager Training Program in six weeks, mastering all store operations.",
-      "Oversaw a $1.8 million P&L, consistently meeting sales and margin targets.",
-      "Generated new leads via 75+ weekly outbound calls, growing the customer base.",
-      "Coordinated customer-centric marketing events to drive foot traffic and sales.",
-      "Analyzed weekly P&L reports to optimize inventory and forecasting.",
-      "Recruited, onboarded, and evaluated staff performance through structured appraisals.",
-      "Enhanced customer experience with appropriate product knowledge and demonstrated strong interpersonal and communication skills to serve customers and fellow employees effectively."
+      "Completed an accelerated management training program and assumed full operational responsibility for a $1.8M P&L retail location.",
+      "Led a six-person team, overseeing scheduling, training, performance evaluations, and day-to-day operations to ensure consistent service excellence and customer satisfaction.",
+      "Executed promotional and merchandising events to strengthen local brand presence, increase traffic, and support revenue growth.",
+      "Managed inventory forecasting, vendor coordination, and quality control, maintaining compliance with corporate standards and operational guidelines.",
+      "Generated new business through 75+ weekly outbound calls, expanding the customer base and deepening community relationships.",
     ]
   },
   {
@@ -117,7 +119,8 @@ export const jobs = [
       "Managed sponsor relationships with Dunkin’ Donuts, Toyota, Dave & Buster’s, Harrah’s Casino, and Bimbo.",
       "Coordinated all aspects of pregame activations and intern teams.",
       "Conducted market research and competitor analysis to inform marketing tactics.",
-      "Organized player appearances, autograph sessions, and youth clinics."
+      "Organized player appearances, autograph sessions, and youth clinics.",
+      "Co-designed and scaled grassroots community events, driving increased local participation and brand awareness.",
     ]
   }
 ];
